@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ch2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch2_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch2_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Yu-You Liou (NTU)">
+  <meta name="dcterms.date" content="2025-10-01">
+  <title>Data Analysis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ch2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch2_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="ch2_files/libs/revealjs/dist/theme/quarto-816793a8a4a837d14f6ea458e2f1c5cb.css">
+  <link href="ch2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Data Analysis</h1>
+  <p class="subtitle">Chapter 2: First Steps</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Yu-You Liou (NTU) 
+</div>
+        <p class="quarto-title-affiliation">
+            Shih Chien University
+          </p>
+    </div>
+</div>
+
+  <p class="date">2025-10-01</p>
+</section>
+<section>
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
+
+</section>
+<section id="introduction-1" class="slide level2">
+<h2>Introduction</h2>
+<p>The goal of this chapter is to teach you how to produce useful graphics with <code>ggplot2</code> as quickly as possible. You’ll learn the basics of <code>ggplot()</code> along with some useful “recipes” to make the most important plots. <code>ggplot()</code> allows you to make complex plots with just a few lines of code because it’s based on a rich underlying theory, the grammar of graphics. Here we’ll skip the theory and focus on the practice, and in later chapters you’ll learn how to use the full expressive power of the grammar.</p>
+</section>
+<section class="slide level2">
+
+<p>In this chapter you’ll learn:</p>
+<ul>
+<li><p>About the <code>mpg</code> dataset included with <code>ggplot2</code>, Section 2.2.</p></li>
+<li><p>The three key components of every plot: data, aesthetics and geoms, Section 2.3.</p></li>
+<li><p>How to add additional variables to a plot with aesthetics, Section 2.4.</p></li>
+<li><p>How to display additional categorical variables in a plot using small multiples created by faceting, Section 2.5.</p></li>
+<li><p>A variety of different geoms that you can use to create different types of plots, Section 2.6.</p></li>
+<li><p>How to modify the axes, Section 2.7.</p></li>
+<li><p>Things you can do with a plot object other than display it, like save it to disk, Section 2.8.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="fuel-economy-data" class="title-slide slide level1 center">
+<h1>Fuel economy data</h1>
+
+</section>
+<section id="fuel-economy-data-1" class="slide level2">
+<h2>Fuel economy data</h2>
+<p>In this chapter, we’ll mostly use one data set that’s bundled with <code>ggplot2</code>: <code>mpg</code>. It includes information about the fuel economy of popular car models in 1999 and 2008, collected by the US Environmental Protection Agency, http://fueleconomy.gov. You can access the data by loading <code>ggplot2</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a>mpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 234 × 11
+   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+ 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+ 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+ 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+ 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+ 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+ 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+ 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+ 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+# ℹ 224 more rows</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Variables in <code>mpg</code></strong></p>
+<p>The variables are mostly self-explanatory:</p>
+<ul>
+<li><p><code>cty</code> and <code>hwy</code> record miles per gallon (mpg) for city and highway driving.</p></li>
+<li><p><code>displ</code> is the engine displacement in litres.</p></li>
+<li><p><code>drv</code> is the drivetrain: front wheel (f), rear wheel (r) or four wheel (4).</p></li>
+<li><p><code>model</code> is the model of car. There are 38 models, selected because they had a new edition every year between 1999 and 2008.</p></li>
+<li><p><code>class</code> is a categorical variable describing the “type” of car: two seater, SUV, compact, etc.</p></li>
+</ul>
+<p>This dataset suggests many interesting questions. How are engine size and fuel economy related? Do certain manufacturers care more about fuel economy than others? Has fuel economy improved in the last ten years? We will try to answer some of these questions, and in the process learn how to create some basic plots with ggplot2.</p>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li><p>List five functions that you could use to get more information about the mpg dataset.</p></li>
+<li><p>How can you find out what other datasets are included with <code>ggplot2</code>?</p></li>
+<li><p>Apart from the US, most countries use fuel consumption (fuel consumed over fixed distance) rather than fuel economy (distance travelled with fixed amount of fuel). How could you convert cty and hwy into the European standard of l/100km?</p></li>
+<li><p>Which manufacturer has the most models in this dataset? Which model has the most variations? Does your answer change if you remove the redundant specification of drive train (e.g.&nbsp;“pathfinder 4wd”, “a4 quattro”) from the model name?</p></li>
+</ol>
+</section></section>
+<section>
+<section id="key-components" class="title-slide slide level1 center">
+<h1>Key components</h1>
+
+</section>
+<section id="key-components-1" class="slide level2">
+<h2>Key components</h2>
+<p>Every <code>ggplot2</code> plot has three key components:</p>
+<ol type="1">
+<li><p><strong>data</strong>,</p></li>
+<li><p>A set of <strong>aesthetic mappings</strong> between variables in the data and visual properties, and</p></li>
+<li><p>At least one layer which describes how to render each observation. Layers are usually created with a <strong>geom</strong> function.</p></li>
+</ol>
+</section>
+<section class="slide level2">
+
+<p>Here’s a simple example:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p>This produces a scatterplot defined by:</p>
+<ol type="1">
+<li><p>Data: mpg.</p></li>
+<li><p>Aesthetic mapping: engine size mapped to x position, fuel economy to y position.</p></li>
+<li><p>Layer: points.</p></li>
+</ol>
+<p>Pay attention to the structure of this function call: data and aesthetic mappings are supplied in <code>ggplot()</code>, then layers are added on with <code>+</code>. This is an important pattern, and as you learn more about <code>ggplot2</code> you’ll construct increasingly sophisticated plots by adding on more types of components.</p>
+</section>
+<section class="slide level2">
+
+<p>Almost every plot maps a variable to <code>x</code> and <code>y</code>, so naming these aesthetics is tedious, so the first two unnamed arguments to <code>aes()</code> will be mapped to <code>x</code> and <code>y</code>. This means that the following code is identical to the example above:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p>We’ll stick to that style throughout the book, so don’t forget that the first two arguments to <code>aes()</code> are <code>x</code> and <code>y</code>. Note that we’ve put each command on a new line. We recommend doing this in your own code, so it’s easy to scan a plot specification and see exactly what’s there. In this chapter, we’ll sometimes use just one line per plot, because it makes it easier to see the differences between plot variations.</p>
+<p>The plot shows a strong correlation: as the engine size gets bigger, the fuel economy gets worse. There are also some interesting outliers: some cars with large engines get higher fuel economy than average. What sort of cars do you think they are?</p>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li><p>How would you describe the relationship between cty and hwy? Do you have any concerns about drawing conclusions from that plot?</p></li>
+<li><p>What does <code>ggplot(mpg, aes(model, manufacturer)) + geom_point()</code> show? Is it useful? How could you modify the data to make it more informative?</p></li>
+<li><p>Describe the data, aesthetic mappings and layers used for each of the following plots. You’ll need to guess a little because you haven’t seen all the datasets and functions yet, but use your common sense! See if you can predict what the plot will look like before running the code.</p></li>
+</ol>
+<ul>
+<li><p><code>ggplot(mpg, aes(cty, hwy)) + geom_point()</code></p></li>
+<li><p><code>ggplot(diamonds, aes(carat, price)) + geom_point()</code></p></li>
+<li><p><code>ggplot(economics, aes(date, unemploy)) + geom_line()</code></p></li>
+<li><p><code>ggplot(mpg, aes(cty)) + geom_histogram()</code></p></li>
+</ul>
+</section></section>
+<section>
+<section id="colour-size-shape-and-other-aesthetic-attributes" class="title-slide slide level1 center">
+<h1>Colour, size, shape and other aesthetic attributes</h1>
+
+</section>
+<section id="colour-size-shape-and-other-aesthetic-attributes-1" class="slide level2">
+<h2>Colour, size, shape and other aesthetic attributes</h2>
+<p>To add additional variables to a plot, we can use other aesthetics like colour, shape, and size (NB: while we use British spelling throughout this book, <code>ggplot2</code> also accepts American spellings). These work in the same way as the <code>x</code> and <code>y</code> aesthetics, and are added into the call to <code>aes()</code>:</p>
+<ul>
+<li><p><code>aes(displ, hwy, colour = class)</code></p></li>
+<li><p><code>aes(displ, hwy, shape = drv)</code></p></li>
+<li><p><code>aes(displ, hwy, size = cyl)</code></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><code>ggplot2</code> takes care of the details of converting data (e.g., ‘f’, ‘r’, ‘4’) into aesthetics (e.g., ‘red’, ‘yellow’, ‘green’) with a scale. There is one scale for each aesthetic mapping in a plot. The scale is also responsible for creating a guide, an axis or legend, that allows you to read the plot, converting aesthetic values back into data values. For now, we’ll stick with the default scales provided by <code>ggplot2</code>. You’ll learn how to override them in Chapter 11.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Map the class variable to colour</strong></p>
+<p>To learn more about those outlying variables in the previous scatterplot, we could map the class variable to colour:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>This gives each point a unique colour corresponding to its class. The legend allows us to read data values from the colour, showing us that the group of cars with unusually high fuel economy for their engine size are two seaters: cars with big engines, but lightweight bodies.</p>
+</section>
+<section class="slide level2">
+
+<p>If you want to set an aesthetic to a fixed value, without scaling it, do so in the individual layer outside of <code>aes()</code>. Compare the following two plots:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">"blue"</span>))</span>
+<span id="cb6-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>In the first plot, the value “blue” is scaled to a pinkish colour, and a legend is added. In the second plot, the points are given the R colour blue. This is an important technique and you’ll learn more about it in Section 13.4.2. See vignette(“<code>ggplot2</code>-specs”) for the values needed for colour and other aesthetics.</p>
+</section>
+<section class="slide level2">
+
+<p>Different types of aesthetic attributes work better with different types of variables. For example, colour and shape work well with categorical variables, while size works well for continuous variables. The amount of data also makes a difference: if there is a lot of data it can be hard to distinguish different groups. An alternative solution is to use faceting, as described next.</p>
+<p>When using aesthetics in a plot, less is usually more. It’s difficult to see the simultaneous relationships among colour and shape and size, so exercise restraint when using aesthetics. Instead of trying to make one very complex plot that shows everything at once, see if you can create a series of simple plots that tell a story, leading the reader from ignorance to knowledge.</p>
+</section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li><p>Experiment with the colour, shape and size aesthetics. What happens when you map them to continuous values? What about categorical values? What happens when you use more than one aesthetic in a plot?</p></li>
+<li><p>What happens if you map a continuous variable to shape? Why? What happens if you map trans to shape? Why?</p></li>
+<li><p>How is drive train related to fuel economy? How is drive train related to engine size and class?</p></li>
+</ol>
+</section></section>
+<section>
+<section id="faceting" class="title-slide slide level1 center">
+<h1>Faceting</h1>
+
+</section>
+<section id="faceting-1" class="slide level2">
+<h2>Faceting</h2>
+<p>Another technique for displaying additional categorical variables on a plot is faceting. Faceting creates tables of graphics by splitting the data into subsets and displaying the same graph for each subset. You’ll learn more about faceting in Chapter 16, but it’s such a useful technique that you need to know it right away.</p>
+<p>There are two types of faceting: grid and wrapped. Wrapped is the most useful, so we’ll discuss it here, and you can learn about grid faceting later. To facet a plot you simply add a faceting specification with <code>facet_wrap()</code>, which takes the name of a variable preceded by <code>~</code>.</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb7-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>You might wonder when to use faceting and when to use aesthetics. You’ll learn more about the relative advantages and disadvantages of each in Section 16.5.</p>
+</section>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
+<ol type="1">
+<li><p>What happens if you try to facet by a continuous variable like <code>hwy</code>? What about <code>cyl</code>? What’s the key difference?</p></li>
+<li><p>Use faceting to explore the 3-way relationship between fuel economy, engine size, and number of cylinders. How does faceting by number of cylinders change your assessement of the relationship between engine size and fuel economy?</p></li>
+<li><p>Read the documentation for <code>facet_wrap()</code>. What arguments can you use to control how many rows and columns appear in the output?</p></li>
+<li><p>What does the scales argument to <code>facet_wrap()</code> do? When might you use it?</p></li>
+</ol>
+</section></section>
+<section>
+<section id="plot-geoms" class="title-slide slide level1 center">
+<h1>Plot geoms</h1>
+
+</section>
+<section id="plot-geoms-1" class="slide level2">
+<h2>Plot geoms</h2>
+<p>You might guess that by substituting <code>geom_point()</code> for a different geom function, you’d get a different type of plot. That’s a great guess! In the following sections, you’ll learn about some of the other important geoms provided in <code>ggplot2</code>. This isn’t an exhaustive list, but should cover the most commonly used plot types. You’ll learn more in Chapter 3 and Chapter 4.</p>
+<ul>
+<li><p><code>geom_smooth()</code> fits a smoother to the data and displays the smooth and its standard error.</p></li>
+<li><p><code>geom_boxplot()</code> produces a box-and-whisker plot to summarise the distribution of a set of points.</p></li>
+<li><p><code>geom_histogram()</code> and <code>geom_freqpoly()</code> show the distribution of continuous variables.</p></li>
+<li><p><code>geom_bar()</code> shows the distribution of categorical variables.</p></li>
+<li><p><code>geom_path()</code> and <code>geom_line()</code> draw lines between the data points. A line plot is constrained to produce lines that travel from left to right, while paths can go in any direction. Lines are typically used to explore how things change over time.</p></li>
+</ul>
+</section>
+<section id="adding-a-smoother-to-a-plot" class="slide level2">
+<h2>Adding a smoother to a plot</h2>
+<p>If you have a scatterplot with a lot of noise, it can be hard to see the dominant pattern. In this case it’s useful to add a smoothed line to the plot with <code>geom_smooth()</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>This overlays the scatterplot with a smooth curve, including an assessment of uncertainty in the form of point-wise confidence intervals shown in grey. If you’re not interested in the confidence interval, turn it off with <code>geom_smooth(se = FALSE)</code>.</p>
+</section>
+<section class="slide level2">
+
+<p>An important argument to <code>geom_smooth()</code> is the method, which allows you to choose which type of model is used to fit the smooth curve:</p>
+<p><strong>Locally estimated scatterplot smoothing (<code>loess</code>)</strong></p>
+<ul>
+<li><code>method = "loess"</code>, the default for small n, uses a smooth local regression (as described in <code>?loess</code>). The wiggliness of the line is controlled by the <code>span</code> parameter, which ranges from 0 (exceedingly wiggly) to 1 (not so wiggly).</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb9-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="fl">0.2</span>)</span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb9-6"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb9-7"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>Loess does not work well for large datasets (it’s <span class="math inline">\(O(n^2)\)</span> in memory), so an alternative smoothing algorithm is used when <span class="math inline">\(n\)</span> is greater than <span class="math inline">\(1,000\)</span>.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Generalized additive model (<code>gam</code>)</strong></p>
+<ul>
+<li><code>method = "gam</code>” fits a generalised additive model provided by the <code>mgcv</code> package. You need to first load <code>mgcv</code>, then use a formula like formula = <code>y ~ s(x)</code> or <code>y ~ s(x, bs = "cs")</code> (for large data). This is what <code>ggplot2</code> uses when there are more than 1,000 points.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb10-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"gam"</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">s</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p><strong>Linear model (<code>lm</code>)</strong></p>
+<ul>
+<li><code>method = "lm"</code> fits a linear model, giving the line of best fit.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="boxplots-and-jittered-points" class="slide level2">
+<h2>Boxplots and jittered points</h2>
+<p>When a set of data includes a categorical variable and one or more continuous variables, you will probably be interested to know how the values of the continuous variables vary with the levels of the categorical variable. Say we’re interested in seeing how fuel economy varies within cars that have the same kind of drivetrain. We might start with a scatterplot like this:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p>Because there are few unique values of both <code>drv</code> and <code>hwy</code>, there is a lot of overplotting. Many points are plotted in the same location, and it’s difficult to see the distribution. There are three useful techniques that help alleviate the problem:</p>
+<ul>
+<li><p>Jittering, <code>geom_jitter()</code>, adds a little random noise to the data which can help avoid overplotting.</p></li>
+<li><p>Boxplots, <code>geom_boxplot()</code>, summarise the shape of the distribution with a handful of summary statistics.</p></li>
+<li><p>Violin plots, <code>geom_violin()</code>, show a compact representation of the “density” of the distribution, highlighting the areas where more points are found.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>These are illustrated below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span> <span class="fu">geom_jitter</span>()</span>
+<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb13-3"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p>Each method has its strengths and weaknesses. Boxplots summarise the bulk of the distribution with only five numbers, while jittered plots show every point but only work with relatively small datasets. Violin plots give the richest display, but rely on the calculation of a density estimate, which can be hard to interpret.</p>
+<p>For jittered points, <code>geom_jitter()</code> offers the same control over aesthetics as <code>geom_point()</code>: size, colour, and shape. For <code>geom_boxplot()</code> and <code>geom_violin()</code>, you can control the outline colour or the internal fill colour.</p>
+</section>
+<section id="histograms-and-frequency-polygons" class="slide level2">
+<h2>Histograms and frequency polygons</h2>
+<p>Both histograms and frequency polygons work in the same way: they bin the data, then count the number of observations in each bin. The only difference is the display: histograms use bars and frequency polygons use lines.</p>
+<p>You can control the width of the bins with the <code>binwidth</code> argument (if you don’t want evenly spaced bins you can use the <code>breaks</code> argument). It is <strong>very important</strong> to experiment with the bin width. The default just splits your data into 30 bins, which is unlikely to be the best choice. You should always try many bin widths, and you may find you need multiple bin widths to tell the full story of your data.</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">2.5</span>)</span>
+<span id="cb14-3"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> </span>
+<span id="cb14-4"><a href=""></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p><strong>Density plot</strong></p>
+<p>An alternative to the frequency polygon is the density plot, <code>geom_density()</code>. A little care is required if you’re using density plots: compared to frequency polygons they are harder to interpret since the underlying computations are more complex. They also make assumptions that are not true for all data, namely that the underlying distribution is continuous, unbounded, and smooth.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Distributions of different subgroups</strong></p>
+<p>To compare the distributions of different subgroups, you can map a categorical variable to either fill (for <code>geom_histogram()</code>) or colour (for <code>geom_freqpoly()</code>). It’s easier to compare distributions using the frequency polygon because the underlying perceptual task is easier. You can also use faceting: this makes comparisons a little harder, but it’s easier to see the distribution of each group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, <span class="at">colour =</span> drv)) <span class="sc">+</span> </span>
+<span id="cb15-2"><a href=""></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span>
+<span id="cb15-3"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, <span class="at">fill =</span> drv)) <span class="sc">+</span> </span>
+<span id="cb15-4"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb15-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>drv, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="bar-charts" class="slide level2">
+<h2>Bar charts</h2>
+<p>The discrete analogue of the histogram is the bar chart, <code>geom_bar()</code>. It’s easy to use:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(manufacturer)) <span class="sc">+</span> </span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>(You’ll learn how to fix the labels in Section 17.4.2).</p>
+</section>
+<section class="slide level2">
+
+<p>Bar charts can be confusing because there are two rather different plots that are both commonly called bar charts. The above form expects you to have unsummarised data, and each observation contributes one unit to the height of each bar. The other form of bar chart is used for presummarised data. For example, you might have three drugs with their average effect:</p>
+</section>
+<section class="slide level2">
+
+<p>To display this sort of data, you need to tell <code>geom_bar()</code> to not run the default stat which bins and counts the data. However, we think it’s even better to use <code>geom_point()</code> because points take up less space than bars, and don’t require that the y axis includes 0.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(drugs, <span class="fu">aes</span>(drug, effect)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
+<span id="cb17-2"><a href=""></a><span class="fu">ggplot</span>(drugs, <span class="fu">aes</span>(drug, effect)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="time-series-with-line-and-path-plots" class="slide level2">
+<h2>Time series with line and path plots</h2>
+<p>Line and path plots are typically used for time series data. Line plots join the points from left to right, while path plots join them in the order that they appear in the dataset (in other words, a line plot is a path plot of the data sorted by x value). Line plots usually have time on the x-axis, showing how a single variable has changed over time. Path plots show how two variables have simultaneously changed over time, with time encoded in the way that observations are connected.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Time series</strong></p>
+<p>Because the year variable in the <code>mpg</code> dataset only has two values, we’ll show some time series plots using the <code>economics</code> dataset, which contains economic data on the US measured over the last 40 years. The figure below shows two plots of unemployment over time, both produced using <code>geom_line()</code>. The first shows the unemployment rate while the second shows the median number of weeks unemployed. We can already see some differences in these two variables, particularly in the last peak, where the unemployment percentage is lower than it was in the preceding peaks, but the length of unemployment is high.</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy <span class="sc">/</span> pop)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb18-3"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, uempmed)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href=""></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p><strong>Path plots</strong></p>
+<p>To examine this relationship in greater detail, we would like to draw both time series on the same plot. We could draw a scatterplot of unemployment rate vs.&nbsp;length of unemployment, but then we could no longer see the evolution over time. The solution is to join points adjacent in time with line segments, forming a <em>path</em> plot.</p>
+<p>Below we plot unemployment rate vs.&nbsp;length of unemployment and join the individual observations with a path. Because of the many line crossings, the direction in which time flows isn’t easy to see in the first plot. In the second plot, we colour the points to make it easier to see the direction of time.</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy <span class="sc">/</span> pop, uempmed)) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb19-4"><a href=""></a></span>
+<span id="cb19-5"><a href=""></a>year <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">as.POSIXlt</span>(x)<span class="sc">$</span>year <span class="sc">+</span> <span class="dv">1900</span></span>
+<span id="cb19-6"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy <span class="sc">/</span> pop, uempmed)) <span class="sc">+</span> </span>
+<span id="cb19-7"><a href=""></a>  <span class="fu">geom_path</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">year</span>(date)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p>We can see that unemployment rate and length of unemployment are highly correlated, but in recent years the length of unemployment has been increasing relative to the unemployment rate.</p>
+<p>With longitudinal data, you often want to display multiple time series on each plot, each series representing one individual. To do this you need to map the group aesthetic to a variable encoding the group membership of each observation. This is explained in more depth in Chapter 4.</p>
+</section>
+<section id="exercises-1" class="slide level2">
+<h2>Exercises</h2>
+<ol type="1">
+<li><p>What’s the problem with the plot created by <code>ggplot(mpg, aes(cty, hwy)) + geom_point()</code>? Which of the geoms described above is most effective at remedying the problem?</p></li>
+<li><p>One challenge with <code>ggplot(mpg, aes(class, hwy)) + geom_boxplot()</code> is that the ordering of <code>class</code> is alphabetical, which is not terribly useful. How could you change the factor levels to be more informative?</p></li>
+</ol>
+<ul>
+<li>Rather than reordering the factor by hand, you can do it automatically based on the data: <code>ggplot(mpg, aes(reorder(class, hwy), hwy)) + geom_boxplot()</code>. What does <code>reorder()</code> do? Read the documentation.</li>
+</ul>
+<ol start="3" type="1">
+<li>Explore the distribution of the carat variable in the <code>diamonds</code> dataset. What binwidth reveals the most interesting patterns?</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="4" type="1">
+<li><p>Explore the distribution of the price variable in the <code>diamonds</code> data. How does the distribution vary by cut?</p></li>
+<li><p>You now know (at least) three ways to compare the distributions of subgroups: <code>geom_violin()</code>, <code>geom_freqpoly()</code> and the colour aesthetic, or <code>geom_histogram()</code> and faceting. What are the strengths and weaknesses of each approach? What other approaches could you try?</p></li>
+<li><p>Read the documentation for <code>geom_bar()</code>. What does the <code>weight</code> aesthetic do?</p></li>
+<li><p>Using the techniques already discussed in this chapter, come up with three ways to visualise a 2d categorical distribution. Try them out by visualising the distribution of <code>model</code> and <code>manufacturer</code>, <code>trans</code> and <code>class</code>, and <code>cyl</code> and <code>trans</code>.</p></li>
+</ol>
+</section></section>
+<section>
+<section id="modifying-the-axes" class="title-slide slide level1 center">
+<h1>Modifying the axes</h1>
+
+</section>
+<section id="modifying-the-axes-1" class="slide level2">
+<h2>Modifying the axes</h2>
+<p>You’ll learn the full range of options available in later chapters, but two families of useful helpers let you make the most common modifications. <code>xlab()</code> and <code>ylab()</code> modify the x- and y-axis labels:</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
+<span id="cb20-3"><a href=""></a></span>
+<span id="cb20-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb20-6"><a href=""></a>  <span class="fu">xlab</span>(<span class="st">"city driving (mpg)"</span>) <span class="sc">+</span> </span>
+<span id="cb20-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"highway driving (mpg)"</span>)</span>
+<span id="cb20-8"><a href=""></a></span>
+<span id="cb20-9"><a href=""></a><span class="co"># Remove the axis labels with NULL</span></span>
+<span id="cb20-10"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb20-11"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb20-12"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> </span>
+<span id="cb20-13"><a href=""></a>  <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p><code>xlim()</code> and <code>ylim()</code> modify the limits of axes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>)</span>
+<span id="cb21-3"><a href=""></a></span>
+<span id="cb21-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
+<span id="cb21-5"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span> </span>
+<span id="cb21-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="st">"f"</span>, <span class="st">"r"</span>) <span class="sc">+</span> </span>
+<span id="cb21-7"><a href=""></a>  <span class="fu">ylim</span>(<span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb21-8"><a href=""></a><span class="co">#&gt; Warning: Removed 138 rows containing missing values or values outside the scale range</span></span>
+<span id="cb21-9"><a href=""></a><span class="co">#&gt; (`geom_point()`).</span></span>
+<span id="cb21-10"><a href=""></a>  </span>
+<span id="cb21-11"><a href=""></a><span class="co"># For continuous scales, use NA to set only one limit</span></span>
+<span id="cb21-12"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
+<span id="cb21-13"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb21-14"><a href=""></a>  <span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p>Changing the axes limits sets values outside the range to <code>NA</code>. You can suppress the associated warning with <code>na.rm = TRUE</code>, but be careful. If your plot calculates summary statistics (e.g., sample mean), this conversion to <code>NA</code> occurs before the summary statistics are computed, and may lead to undesirable results in some situations.</p>
+</section></section>
+<section>
+<section id="output" class="title-slide slide level1 center">
+<h1>Output</h1>
+
+</section>
+<section id="output-1" class="slide level2">
+<h2>Output</h2>
+<p>Most of the time you create a plot object and immediately plot it, but you can also save a plot to a variable and manipulate it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Once you have a plot object, there are a few things you can do with it:</p>
+<p><strong>Render on screen</strong></p>
+<ul>
+<li>Render it on screen with <code>print()</code>. This happens automatically when running interactively, but inside a loop or function, you’ll need to <code>print()</code> it yourself.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section class="slide level2">
+
+<p><strong>Save to disk</strong></p>
+<ul>
+<li>Save it to disk with <code>ggsave()</code>, described in Section 17.5.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Save png to disk</span></span>
+<span id="cb24-2"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"plot.png"</span>, p, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Briefly describe</strong></p>
+<ul>
+<li>Briefly describe its structure with <code>summary()</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">summary</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>data: manufacturer, model, displ, year, cyl, trans, drv, cty, hwy, fl,
+  class [234x11]
+mapping:  x = ~displ, y = ~hwy, colour = ~factor(cyl)
+faceting: &lt;ggproto object: Class FacetNull, Facet, gg&gt;
+    compute_layout: function
+    draw_back: function
+    draw_front: function
+    draw_labels: function
+    draw_panels: function
+    finish_data: function
+    init_scales: function
+    map_data: function
+    params: list
+    setup_data: function
+    setup_params: function
+    shrink: TRUE
+    train_scales: function
+    vars: function
+    super:  &lt;ggproto object: Class FacetNull, Facet, gg&gt;
+-----------------------------------
+geom_point: na.rm = FALSE
+stat_identity: na.rm = FALSE
+position_identity </code></pre>
+</div>
+</div>
+<p>You’ll learn more about how to manipulate these objects in Chapter 18.</p>
+</section>
+<section id="acknowledgement" class="slide level2">
+<h2>Acknowledgement</h2>
+<ul>
+<li><p><strong>Copyright notice.</strong> These teaching materials have been adapted from <a href="https://ggplot2-book.org/getting-started.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>. All rights are reserved by the original authors and publishers.</p></li>
+<li><p><strong>Non-commercial use only.</strong> These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.</p></li>
+<li><p><strong>Proper attribution.</strong> Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.</p></li>
+</ul>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><code>ggplot2</code>: Elegant Graphics for Data Analysis</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ch2_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ch2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ch2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"hideMissingTitles":true,"titleSelector":"h1"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
