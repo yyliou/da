@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ch1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch1_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch1_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch1_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <meta name="author" content="Yu-You Liou (NTU)">
+  <meta name="dcterms.date" content="2025-09-10">
+  <title>Data Analysis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ch1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch1_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="ch1_files/libs/revealjs/dist/theme/quarto-930ff2c627947ef0370a337d1a02600e.css">
+  <link href="ch1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Data Analysis</h1>
+  <p class="subtitle">Chapter 1: Introduction</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Yu-You Liou (NTU) 
+</div>
+        <p class="quarto-title-affiliation">
+            Shih Chien University
+          </p>
+    </div>
+</div>
+
+  <p class="date">2025-09-10</p>
+</section>
+<section>
+<section id="welcome-to-ggplot2" class="title-slide slide level1 center">
+<h1><strong>Welcome to <code>ggplot2</code></strong></h1>
+
+</section>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">data</span>(diamonds)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">dim</span>(diamonds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 53940    10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>diamonds[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 10
+   carat cut       color clarity depth table price     x     y     z
+   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+ 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+ 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+ 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+ 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+ 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
+ 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47
+ 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53
+ 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
+10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
+11  0.3  Good      J     SI1      64      55   339  4.25  4.28  2.73
+12  0.23 Ideal     J     VS1      62.8    56   340  3.93  3.9   2.46
+13  0.22 Premium   F     SI1      60.4    61   342  3.88  3.84  2.33
+14  0.31 Ideal     J     SI2      62.2    54   344  4.35  4.37  2.71
+15  0.2  Premium   E     SI2      60.2    62   345  3.79  3.75  2.27</code></pre>
+</div>
+</div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb5-3"><a href=""></a>    <span class="at">title =</span> <span class="st">"Diamond Price vs Carat"</span>,</span>
+<span id="cb5-4"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"Colored by Cut Quality"</span>,</span>
+<span id="cb5-5"><a href=""></a>    <span class="at">x =</span> <span class="st">"Carat"</span>, <span class="at">y =</span> <span class="st">"Price (USD)"</span>, <span class="at">color =</span> <span class="st">"Cut"</span></span>
+<span id="cb5-6"><a href=""></a>  ) <span class="sc">+</span> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ch1_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="history" class="slide level2">
+<h2>History</h2>
+<p><code>ggplot2</code> is an R package for producing statistical, or data, graphics. Unlike most other graphics packages, <code>ggplot2</code> has an underlying grammar, based on the Grammar of Graphics <span class="citation" data-cites="wilkinson2011grammar">(<a href="#/references" role="doc-biblioref" onclick="">Wilkinson 2011</a>)</span>, that allows you to compose graphs by combining independent components. This makes <code>ggplot2</code> powerful.</p>
+<p>Rather than being limited to sets of pre-defined graphics, you can create novel graphics that are tailored to your specific problem. While the idea of having to learn a grammar may sound overwhelming, <code>ggplot2</code> is actually easy to learn: there is a simple set of core principles and there are very few special cases. The hard part is that it may take a little time to forget all the preconceptions that you bring over from using other graphics tools.</p>
+</section>
+<section id="advantages" class="slide level2">
+<h2>Advantages</h2>
+<p><strong>Time-saving</strong></p>
+<p><code>ggplot2</code> provides beautiful, hassle-free plots that take care of fiddly details like drawing legends. In fact, its carefully chosen defaults mean that you can produce publication-quality graphics in seconds. However, if you do have special formatting requirements, <code>ggplot2</code>’s comprehensive theming system makes it easy to do what you want. Ultimately, this means that rather than spending your time making your graph look pretty, you can instead focus on creating the graph that best reveals the message in your data.</p>
+<p><strong>Iteration</strong></p>
+<p><code>ggplot2</code> is designed to work iteratively. You start with a layer that shows the raw data. Then you add layers of annotations and statistical summaries. This allows you to produce graphics using the same structured thinking that you would use to design an analysis. This reduces the distance between the plot in your head and the one on the page. This is especially helpful for students who have not yet developed the structured approach to analysis used by experts.</p>
+</section>
+<section id="complicated-tasks" class="slide level2">
+<h2>Complicated tasks</h2>
+<p>Learning the grammar will not only help you create graphics that you’re familiar with, but will also help you to create newer, better graphics. Without a grammar, there is no underlying theory, so most graphics packages are just a big collection of special cases. For example, in base R, if you design a new graphic, it’s composed of raw plot elements like lines and points so it’s hard to design new components that combine with existing plots. In <code>ggplot2</code>, the expressions used to create a new graphic are composed of higher-level elements, like representations of the raw data and statistical transformations, that can easily be combined with new datasets and other plots.</p>
+</section>
+<section id="about-the-book" class="slide level2">
+<h2>About the book</h2>
+<p><strong>Example</strong></p>
+<p>This book provides a hands-on introduction to <code>ggplot2</code> with lots of example code and graphics. It also explains the grammar on which ggplot2 is based. Like other formal systems, <code>ggplot2</code> is useful even when you don’t understand the underlying model. However, the more you learn about it, the more effectively you’ll be able to use <code>ggplot2</code>.</p>
+<p><strong>Easy</strong></p>
+<p>This book will introduce you to <code>ggplot2</code> assuming that you’re a novice, unfamiliar with the grammar; teach you the basics so that you can re-create plots you are already familiar with; show you how to use the grammar to create new types of graphics; and eventually turn you into an expert who can build new components to extend the grammar.</p>
+</section></section>
+<section>
+<section id="what-is-the-grammar-of-graphics" class="title-slide slide level1 center">
+<h1>What is the grammar of graphics?</h1>
+
+</section>
+<section id="grammar-of-graphics" class="slide level2">
+<h2>Grammar of graphics</h2>
+<p><span class="citation" data-cites="wilkinson2011grammar">Wilkinson (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span> created the grammar of graphics to describe the fundamental features that underlie all statistical graphics. The grammar of graphics is an answer to the question of what is a statistical graphic? <code>ggplot2</code> <span class="citation" data-cites="wickham2010layered">(<a href="#/references" role="doc-biblioref" onclick="">Wickham 2010</a>)</span> builds on Wilkinson’s grammar by focussing on the primacy of layers and adapting it for use in R.</p>
+<p>In brief, the grammar tells us that a graphic maps the data to the aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also include statistical transformations of the data and information about the plot’s coordinate system. Facetting can be used to plot for different subsets of the data. The combination of these independent components are what make up a graphic.</p>
+</section>
+<section id="components" class="slide level2">
+<h2>Components</h2>
+<p>As the book progresses, the formal grammar will be explained in greater detail. The first description of the components follows below. It introduces some of the terminology that will be used throughout the book and outlines the basic function of each component. Don’t worry if it doesn’t make sense right away: you’ll have many more opportunities to learn about the components and how they work together.</p>
+<ul>
+<li><p>All plots are composed of the <strong>data</strong>, the information you want to visualise, and a mapping, the description of how the data’s variables are mapped to aesthetic attributes. There are five mapping components:</p></li>
+<li><p>A <strong>layer</strong> is a collection of geometric elements and statistical transformations. Geometric elements, geoms for short, represent what you actually see in the plot: points, lines, polygons, etc. Statistical transformations, stats for short, summarise the data: for example, binning and counting observations to create a histogram, or fitting a linear model.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p><strong>Scales</strong> map values in the data space to values in the aesthetic space. This includes the use of colour, shape or size. Scales also draw the legend and axes, which make it possible to read the original data values from the plot (an inverse mapping).</p></li>
+<li><p>A <strong>coord</strong>, or coordinate system, describes how data coordinates are mapped to the plane of the graphic. It also provides axes and gridlines to help read the graph. We normally use the Cartesian coordinate system, but a number of others are available, including polar coordinates and map projections.</p></li>
+<li><p>A <strong>facet</strong> specifies how to break up and display subsets of data as small multiples. This is also known as conditioning or latticing/trellising.</p></li>
+<li><p>A <strong>theme</strong> controls the finer points of display, like the font size and background colour. While the defaults in <code>ggplot2</code> have been chosen with care, you may need to consult other references to create an attractive plot. A good starting place is Tufte’s early works <span class="citation" data-cites="tufte1991envisioning tufte1997visual tufte1983visual">(<a href="#/references" role="doc-biblioref" onclick="">Tufte 1991</a>, <a href="#/references" role="doc-biblioref" onclick="">1997</a>, <a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>It’s also important to note what the grammar doesn’t do:</p>
+<p><strong>Suggestion</strong></p>
+<p>It doesn’t suggest which graphics to use. While this book endeavours to promote a sensible process for producing plots, the focus is on how to produce the plots you want, not on which plot to produce. For more advice on choosing or creating plots to answer the question you’re interested in, you may want to consult <span class="citation" data-cites="robbins2005creating">Robbins (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>, <span class="citation" data-cites="cleveland1993visualizing">Cleveland (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span>, <span class="citation" data-cites="chambers2018graphical">Chambers (<a href="#/references" role="doc-biblioref" onclick="">1983</a>)</span>, and <span class="citation" data-cites="tukey1977exploratory">Tukey et al. (<a href="#/references" role="doc-biblioref" onclick="">1977</a>)</span>.</p>
+<p><strong>Interactive graphics</strong></p>
+<p>It doesn’t describe interactive graphics, only static ones. There is essentially no difference between displaying ggplot2 graphs on a computer screen and printing them on a piece of paper.</p>
+</section></section>
+<section>
+<section id="how-does-ggplot2-fit-in-with-other-r-graphics" class="title-slide slide level1 center">
+<h1>How does <code>ggplot2</code> fit in with other R graphics?</h1>
+
+</section>
+<section id="discussion" class="slide level2">
+<h2>Discussion</h2>
+<p>There are a number of other graphics systems available in R: base graphics, grid graphics and trellis/lattice graphics. How does <code>ggplot2</code> differ from them?</p>
+<ul>
+<li>Base graphics were written by Ross Ihaka based on experience implementing the S graphics driver and partly looking at <span class="citation" data-cites="chambers2018graphical">Chambers (<a href="#/references" role="doc-biblioref" onclick="">1983</a>)</span>. Base graphics has a pen on paper model: you can only draw on top of the plot, you cannot modify or delete existing content. There is no (user accessible) representation of the graphics, apart from their appearance on the screen. Base graphics includes both tools for drawing primitives and entire plots. Base graphics functions are generally fast, but have limited scope. If you’ve created a single scatterplot, or histogram, or a set of boxplots in the past, you’ve probably used base graphics.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>The development of “grid” graphics, a much richer system of graphical primitives, started in 2000. Grid is developed by Paul Murrell, growing out of his PhD work <span class="citation" data-cites="murrell1998investigations">(<a href="#/references" role="doc-biblioref" onclick="">Murrell 1998</a>)</span>. Grid grobs (graphical objects) can be represented independently of the plot and modified later. A system of viewports (each containing its own coordinate system) makes it easier to lay out complex graphics. Grid provides drawing primitives, but no tools for producing statistical graphics.</p></li>
+<li><p>The <code>lattice</code> package, developed by Deepayan Sarkar, uses grid graphics to implement the trellis graphics system of <span class="citation" data-cites="cleveland1993visualizing">Cleveland (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span> and is a considerable improvement over base graphics. You can easily produce conditioned plots and some plotting details (e.g., legends) are taken care of automatically. However, lattice graphics lacks a formal model, which can make it hard to extend. Lattice graphics are explained in depth in <span class="citation" data-cites="sarkar2008multivariate">Sarkar (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p><code>ggplot2</code>, started in 2005, is an attempt to take the good things about base and lattice graphics and improve on them with a strong underlying model which supports the production of any kind of statistical graphic, based on the principles outlined above. The solid underlying model of <code>ggplot2</code> makes it easy to describe a wide range of graphics with a compact syntax, and independent components make extension easy. Like lattice, <code>ggplot2</code> uses grid to draw the graphics, which means you can exercise much low-level control over the appearance of the plot.</p></li>
+<li><p><a href="http://www.htmlwidgets.org"><code>htmlwidgets</code></a> provides a common framework for accessing web visualisation tools from R. Packages built on top of <a href="http://www.htmlwidgets.org"><code>htmlwidgets</code></a> include <a href="https://rstudio.github.io/leaflet/"><code>leaflet</code></a> for maps, <a href="http://rstudio.github.io/dygraphs/"><code>dygraph</code></a> for time series and <a href="http://christophergandrud.github.io/networkD3/"><code>networkD3</code></a> for networks.</p></li>
+<li><p><a href="https://plotly-r.com"><code>plotly</code></a> is a popular javascript visualisation toolkit with an R interface. It’s a great tool if you want to make interactive graphics for HTML documents, and even comes with a <code>ggplotly()</code> function that can convert many <code>ggplot2</code> graphics into their interactive equivalen</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Many other R packages, such as <code>vcd</code> <span class="citation" data-cites="meyer2007strucplot">(<a href="#/references" role="doc-biblioref" onclick="">Meyer, Zeileis, and Hornik 2007</a>)</span>, <code>plotrix</code> <span class="citation" data-cites="lemon2008plotrix">(<a href="#/references" role="doc-biblioref" onclick="">Lemon et al. 2008</a>)</span> and <code>gplots</code> <span class="citation" data-cites="warnes2005gplots">(<a href="#/references" role="doc-biblioref" onclick="">Warnes et al. 2005</a>)</span>, implement specialist graphics, but no others provide a framework for producing statistical graphics. A comprehensive list of all graphical tools available in other packages can be found in the graphics task view at <a href="http://cran.r-project.org/web/views/Graphics.html" class="uri">http://cran.r-project.org/web/views/Graphics.html</a>.</p>
+</section></section>
+<section>
+<section id="about-this-book" class="title-slide slide level1 center">
+<h1>About this Book</h1>
+
+</section>
+<section id="about-this-book-1" class="slide level2">
+<h2>About this Book</h2>
+<ul>
+<li><p>The first chapter, Chapter 2, describes how to quickly get started using <code>ggplot2</code> to make useful graphics. This chapter introduces several important <code>ggplot2</code> concepts: geoms, aesthetic mappings and facetting.</p></li>
+<li><p>Chapter 3 to Chapter 9 explore how to use the basic toolbox to solve a wide range of visualisation problems that you’re likely to encounter in practice.</p></li>
+<li><p>Then Chapter 10 to Chapter 12 show you how to control the most important scales, allowing you to tweak the details of axes and legends.</p></li>
+<li><p>In “The Grammar” we describe the layered grammar of graphics which underlies <code>ggplot2</code>. The theory is illustrated in Chapter 13 which demonstrates how to add additional layers to your plot, exercising full control over the geoms and stats used within them.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Understanding how scales work is crucial for fine-tuning the perceptual properties of your plot. Customising scales gives fine control over the exact appearance of the plot and helps to support the story that you are telling. Chapter 10, Chapter 11 and Chapter 12 will show you what scales are available, how to adjust their parameters, and how to control the appearance of axes and legends.</li>
+<li>Coordinate systems and facetting control the position of elements of the plot. These are described in Section 13.7. Faceting is a very powerful graphical tool as it allows you to rapidly compare different subsets of your data. Different coordinate systems are less commonly needed, but are very important for certain types of data.</li>
+<li>To polish your plots for publication, you will need to learn about the tools described in Chapter 17. There you will learn about how to control the theming system of <code>ggplot2</code> and how to save plots to disk.</li>
+</ul>
+</section></section>
+<section>
+<section id="prerequisites" class="title-slide slide level1 center">
+<h1>Prerequisites</h1>
+
+</section>
+<section id="prerequisites-1" class="slide level2">
+<h2>Prerequisites</h2>
+<p>Before we continue, make sure you have all the software you need for this book:</p>
+<ul>
+<li><p><strong>R</strong>: If you don’t have R installed already, you may be reading the wrong book; we assume a basic familiarity with R throughout this book. If you’d like to learn how to use R, we’d recommend <a href="https://r4ds.had.co.nz">R for Data Science</a> which is designed to get you up and running with R with a minimum of fuss.</p></li>
+<li><p><strong>RStudio</strong>: RStudio is a free and open source integrated development environment (IDE) for R. While you can write and use R code with any R environment (including R GUI and ESS), RStudio has some nice features specifically for authoring and debugging your code. We recommend giving it a try, but it’s not required to be successful with <code>ggplot2</code> or with this book. You can download RStudio Desktop from <a href="https://posit.co/download/rstudio-desktop" class="uri">https://posit.co/download/rstudio-desktop</a></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><strong>R packages</strong>: This book uses a bunch of R packages. You can install them all at once by running:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb6-2"><a href=""></a>  <span class="st">"colorBlindness"</span>, <span class="st">"directlabels"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggforce"</span>, <span class="st">"gghighlight"</span>, </span>
+<span id="cb6-3"><a href=""></a>  <span class="st">"ggnewscale"</span>, <span class="st">"ggplot2"</span>, <span class="st">"ggraph"</span>, <span class="st">"ggrepel"</span>, <span class="st">"ggtext"</span>, <span class="st">"ggthemes"</span>, </span>
+<span id="cb6-4"><a href=""></a>  <span class="st">"hexbin"</span>, <span class="st">"Hmisc"</span>, <span class="st">"mapproj"</span>, <span class="st">"maps"</span>, <span class="st">"munsell"</span>, <span class="st">"ozmaps"</span>, </span>
+<span id="cb6-5"><a href=""></a>  <span class="st">"paletteer"</span>, <span class="st">"patchwork"</span>, <span class="st">"rmapshaper"</span>, <span class="st">"scico"</span>, <span class="st">"seriation"</span>, <span class="st">"sf"</span>, </span>
+<span id="cb6-6"><a href=""></a>  <span class="st">"stars"</span>, <span class="st">"tidygraph"</span>, <span class="st">"tidyr"</span>, <span class="st">"wesanderson"</span> </span>
+<span id="cb6-7"><a href=""></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="other-resources" class="title-slide slide level1 center">
+<h1>Other resources</h1>
+
+</section>
+<section id="other-resources-1" class="slide level2">
+<h2>Other resources</h2>
+<p>This book teaches you the elements of <code>ggplot2</code>’s grammar and how they fit together, but it does not document every function in complete detail. You will need additional documentation as your use of <code>ggplot2</code> becomes more complex and varied.</p>
+<p><strong>Built-in documentation</strong></p>
+<p>The best resource for specific details of <code>ggplot2</code> functions and their arguments will always be the built-in documentation. This is accessible online, <a href="https://ggplot2.tidyverse.org/reference/index.html" class="uri">https://ggplot2.tidyverse.org/reference/index.html</a>, and from within R using the usual help syntax. The advantage of the online documentation is that you can see all the example plots and navigate between topics more easily.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Mailing list/stackoverflow</strong></p>
+<p>If you use <code>ggplot2</code> regularly, it’s a good idea to sign up for the <code>ggplot2</code> <a href="http://groups.google.com/group/ggplot2">mailing list</a>. The list has relatively low traffic and is very friendly to new users. Another useful resource is <a href="https://stackoverflow.com">stackoverflow</a>. There is an active <code>ggplot2</code> community on stackoverflow, and many common questions have already been asked and answered. In either place, you’re much more likely to get help if you create a minimal reproducible example. The reprex package by Jenny Bryan provides a convenient way to do this, and also include advice on creating a good example. The more information you provide, the easier it is for the community to help you.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>RStudio cheatsheets</strong></p>
+<p>The number of functions in <code>ggplot2</code> can be overwhelming, but RStudio provides some great <a href="https://posit.co/resources/cheatsheets/">cheatsheets</a> to jog your memory.</p>
+<p><strong>This book</strong></p>
+<p>Finally, the complete source code for the book is available online at <a href="https://github.com/hadley/ggplot2-book" class="uri">https://github.com/hadley/ggplot2-book</a>. This contains the complete text for the book, as well as all the code and data needed to recreate all the plots.</p>
+</section>
+<section id="acknowledgement" class="slide level2">
+<h2>Acknowledgement</h2>
+<ul>
+<li><p><strong>Copyright notice.</strong> These teaching materials have been adapted from <a href="https://ggplot2-book.org/getting-started.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>. All rights are reserved by the original authors and publishers.</p></li>
+<li><p><strong>Non-commercial use only.</strong> These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.</p></li>
+<li><p><strong>Proper attribution.</strong> Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.</p></li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-chambers2018graphical" class="csl-entry" role="listitem">
+Chambers, John M. 1983. <em>Graphical Methods for Data Analysis</em>. Chapman; Hall/CRC.
+</div>
+<div id="ref-cleveland1993visualizing" class="csl-entry" role="listitem">
+Cleveland, William S. 1993. <em>Visualizing Data</em>. Hobart press.
+</div>
+<div id="ref-lemon2008plotrix" class="csl-entry" role="listitem">
+Lemon, Jim, Ben Bolker, Sander Oom, Eduardo Klein, Barry Rowlingson, Hadley Wickham, Anupam Tyagi, et al. 2008. <span>“Plotrix: Various Plotting Functions.”</span> <em>URL Http://Cran. R-Project. Org/Src/Contrib/Descriptions/Plotrix. Html</em>.
+</div>
+<div id="ref-meyer2007strucplot" class="csl-entry" role="listitem">
+Meyer, David, Achim Zeileis, and Kurt Hornik. 2007. <span>“The Strucplot Framework: Visualizing Multi-Way Contingency Tables with Vcd.”</span> <em>Journal of Statistical Software</em> 17: 1–48.
+</div>
+<div id="ref-murrell1998investigations" class="csl-entry" role="listitem">
+Murrell, Paul R. 1998. <span>“Investigations in Graphical Statistics.”</span> PhD thesis, ResearchSpace@ Auckland.
+</div>
+<div id="ref-robbins2005creating" class="csl-entry" role="listitem">
+Robbins, Naomi B. 2005. <span>“Creating More Effective Graphs.”</span> <em>(No Title)</em>.
+</div>
+<div id="ref-sarkar2008multivariate" class="csl-entry" role="listitem">
+Sarkar, Deepayan. 2008. <span>“Multivariate Data Visualization with r.”</span> <em>Use R</em>.
+</div>
+<div id="ref-tufte1991envisioning" class="csl-entry" role="listitem">
+Tufte, Edward R. 1991. <span>“Envisioning Information.”</span> <em>Optometry and Vision Science</em> 68 (4): 322–24.
+</div>
+<div id="ref-tufte1997visual" class="csl-entry" role="listitem">
+———. 1997. <em>Visual Explanations: Images and Quantities, Evidence and Narrative</em>. Graphics Press.
+</div>
+<div id="ref-tufte1983visual" class="csl-entry" role="listitem">
+———. 2001. <em>The Visual Display of Quantitative Information</em>. Graphics press Cheshire, CT.
+</div>
+<div id="ref-tukey1977exploratory" class="csl-entry" role="listitem">
+Tukey, John Wilder et al. 1977. <em>Exploratory Data Analysis</em>. Vol. 2. Springer.
+</div>
+<div id="ref-warnes2005gplots" class="csl-entry" role="listitem">
+Warnes, Gregory R, Ben Bolker, Lodewijk Bonebakker, Robert Gentleman, Wolfgang Huber, Andy Liaw, Thomas Lumley, et al. 2005. <span>“Gplots: Various r Programming Tools for Plotting Data.”</span> <em>(No Title)</em>.
+</div>
+<div id="ref-wickham2010layered" class="csl-entry" role="listitem">
+Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Journal of Computational and Graphical Statistics</em> 19 (1): 3–28.
+</div>
+<div id="ref-wilkinson2011grammar" class="csl-entry" role="listitem">
+Wilkinson, Leland. 2011. <span>“The Grammar of Graphics.”</span> In <em>Handbook of Computational Statistics: Concepts and Methods</em>, 375–414. Springer.
+</div>
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><code>ggplot2</code>: Elegant Graphics for Data Analysis</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ch1_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ch1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ch1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"hideMissingTitles":true,"titleSelector":"h1"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
