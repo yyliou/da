@@ -4,24 +4,30 @@ subtitle: "`EIB-301-01-A1`"
 ---
 
 ## Course Overview
- 
+
 This course is a required offering in the English Taught Program in International Business (ETP) at Shih Chien University, taught by [Yu-You Liou](https://yyliou.github.io). It is designed to equip students with practical skills in data analysis and communication through the modern R ecosystem.
- 
+
 The primary objective of the course is to develop students' ability to explore, analyze, and present data effectively. A central focus is placed on data visualization using `ggplot2`, with an emphasis on understanding the grammar of graphics as a principled framework for building clear and informative figures. Students will learn to translate analytical findings into compelling visual narratives suitable for academic and professional audiences.
- 
+
 The required textbook is *ggplot2: Elegant Graphics for Data Analysis* by Hadley Wickham, freely available at [ggplot2-book.org](https://ggplot2-book.org){target="_blank"}.
- 
+
 ## Assessment
- 
+
 | Component | Weight | Details |
-|:--------|:-:|:----------------|
+|:-----------------------|:----------------------:|:-----------------------|
 | Mid-term Oral Examination | 20% | Individual oral assessment at mid-semester |
 | Final Oral Examination | 20% | Individual oral assessment at end of semester |
 | In-Class Exercises | 48% | 12 exercises × 4% each |
 | Attendance | 12% | Score = min(12, number of sessions attended) × 1% |
- 
+
 : {.table .table-striped}
 
 ## Syllabus
 
+## Contact
 
+Feel free to contact me via [email](d10627008@ntu.edu.tw), but please note that I will not respond to inquiries about: 
+
+- Course or exam schedules already available online or announced in class. 
+
+- Make-up requests for attendance checks or in-class exercises.
