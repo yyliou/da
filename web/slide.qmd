@@ -7,3 +7,6 @@
 ## Part II: Layers
 
 -   [**Chapter 3**: Individual geoms](https://yyliou.github.io/da/ch3/ch3.html)
+
+-   [**Chapter 4**: Collective geoms geoms](https://yyliou.github.io/da/ch4/ch4.html)
+
