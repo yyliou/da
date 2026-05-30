@@ -6,10 +6,14 @@ website:
   title: "Data Aanlysis"
   navbar:
     left:
+      - href: sylla.qmd
+        text: Syllabus
       - href: slide.qmd
         text: Slides
       - href: prob.qmd
         text: Problem sets
+      - href: r.qmd
+        text: R
 
 format:
   html:
@@ -21,7 +25,4 @@ format:
 
 editor: visual
 
-# quarto render
-
-
-
+# quarto rende

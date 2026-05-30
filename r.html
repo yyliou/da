@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>slide – Data Aanlysis</title>
+<title>r – Data Aanlysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -97,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./slide.html" aria-current="page"> 
+    <a class="nav-link" href="./slide.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
@@ -105,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Problem sets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./r.html"> 
+    <a class="nav-link active" href="./r.html" aria-current="page"> 
 <span class="menu-text">R</span></a>
   </li>  
 </ul>
@@ -124,10 +159,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-i-introduction" id="toc-part-i-introduction" class="nav-link active" data-scroll-target="#part-i-introduction">Part I: Introduction</a></li>
-  <li><a href="#part-ii-layers" id="toc-part-ii-layers" class="nav-link" data-scroll-target="#part-ii-layers">Part II: Layers</a></li>
-  <li><a href="#part-iii-scales" id="toc-part-iii-scales" class="nav-link" data-scroll-target="#part-iii-scales">Part III: Scales</a></li>
-  <li><a href="#part-iv-the-grammar" id="toc-part-iv-the-grammar" class="nav-link" data-scroll-target="#part-iv-the-grammar">Part IV: The Grammar</a></li>
+  <li><a href="#installing-r-and-rstudio" id="toc-installing-r-and-rstudio" class="nav-link active" data-scroll-target="#installing-r-and-rstudio">Installing R and RStudio</a>
+  <ul class="collapse">
+  <li><a href="#step-1-install-r" id="toc-step-1-install-r" class="nav-link" data-scroll-target="#step-1-install-r">Step 1: Install R</a></li>
+  <li><a href="#step-2-install-rstudio-desktop" id="toc-step-2-install-rstudio-desktop" class="nav-link" data-scroll-target="#step-2-install-rstudio-desktop">Step 2: Install RStudio Desktop</a></li>
+  </ul></li>
+  <li><a href="#authoring-documents-with-r-markdown-and-generating-pdf-output" id="toc-authoring-documents-with-r-markdown-and-generating-pdf-output" class="nav-link" data-scroll-target="#authoring-documents-with-r-markdown-and-generating-pdf-output">Authoring Documents with R Markdown and Generating PDF Output</a>
+  <ul class="collapse">
+  <li><a href="#step-1-install-required-packages" id="toc-step-1-install-required-packages" class="nav-link" data-scroll-target="#step-1-install-required-packages">Step 1: Install Required Packages</a></li>
+  <li><a href="#step-2-install-a-latex-distribution" id="toc-step-2-install-a-latex-distribution" class="nav-link" data-scroll-target="#step-2-install-a-latex-distribution">Step 2: Install a LaTeX Distribution</a></li>
+  <li><a href="#step-3-create-a-new-r-markdown-file" id="toc-step-3-create-a-new-r-markdown-file" class="nav-link" data-scroll-target="#step-3-create-a-new-r-markdown-file">Step 3: Create a New R Markdown File</a></li>
+  <li><a href="#step-4-configure-the-yaml-header" id="toc-step-4-configure-the-yaml-header" class="nav-link" data-scroll-target="#step-4-configure-the-yaml-header">Step 4: Configure the YAML Header</a></li>
+  <li><a href="#step-5-write-document-content" id="toc-step-5-write-document-content" class="nav-link" data-scroll-target="#step-5-write-document-content">Step 5: Write Document Content</a></li>
+  <li><a href="#step-6-render-to-pdf" id="toc-step-6-render-to-pdf" class="nav-link" data-scroll-target="#step-6-render-to-pdf">Step 6: Render to PDF</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -137,37 +182,152 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="part-i-introduction" class="level2">
-<h2 class="anchored" data-anchor-id="part-i-introduction">Part I: Introduction</h2>
+<section id="installing-r-and-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="installing-r-and-rstudio">Installing R and RStudio</h2>
+<section id="step-1-install-r" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-install-r">Step 1: Install R</h3>
+<p>R is the underlying statistical computing environment and must be installed before RStudio.</p>
+<ol type="1">
+<li>Navigate to the official CRAN repository: <a href="https://cran.r-project.org">https://cran.r-project.org</a></li>
+<li>Select the installer appropriate for your operating system:
 <ul>
-<li><p><a href="https://yyliou.github.io/da/ch1/ch1.html"><strong>Chapter 1</strong>: Introduction</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch2/ch2.html"><strong>Chapter 2</strong>: First Steps</a></p></li>
-</ul>
+<li><strong>Windows</strong>: Click <em>Download R for Windows</em> → <em>base</em> → download and execute the installer</li>
+<li><strong>macOS</strong>: Click <em>Download R for macOS</em> → select the build matching your architecture (Apple Silicon users should select the <code>arm64</code> build)</li>
+<li><strong>Linux</strong>: Follow the distribution-specific installation instructions provided on the page</li>
+</ul></li>
+<li>Run the installer using the default configuration settings.</li>
+</ol>
 </section>
-<section id="part-ii-layers" class="level2">
-<h2 class="anchored" data-anchor-id="part-ii-layers">Part II: Layers</h2>
-<ul>
-<li><p><a href="https://yyliou.github.io/da/ch3/ch3.html"><strong>Chapter 3</strong>: Individual geoms</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch4/ch4.html"><strong>Chapter 4</strong>: Collective geoms geoms</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch5/ch5.html"><strong>Chapter 5</strong>: Statistical summaries geoms</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch6/ch6.html"><strong>Chapter 6</strong>: Maps</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch7/ch7.html"><strong>Chapter 7</strong>: Networks</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch8/ch8.html"><strong>Chapter 8</strong>: Annotations</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch9/ch9.html"><strong>Chapter 9</strong>: Arranging plots</a></p></li>
-</ul>
+<section id="step-2-install-rstudio-desktop" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-install-rstudio-desktop">Step 2: Install RStudio Desktop</h3>
+<p>RStudio is an integrated development environment (IDE) for R. It requires a prior R installation to function.</p>
+<ol type="1">
+<li>Navigate to: <a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a></li>
+<li>Download the free <em>RStudio Desktop</em> release for your operating system</li>
+<li>Execute the installer and follow the on-screen instructions</li>
+<li>Upon launching RStudio, the application should automatically detect the installed R environment</li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Important</strong>: R and RStudio are distinct pieces of software. RStudio does not bundle R; it serves solely as an interface to an existing R installation.</p>
+</blockquote>
+<hr>
 </section>
-<section id="part-iii-scales" class="level2">
-<h2 class="anchored" data-anchor-id="part-iii-scales">Part III: Scales</h2>
-<ul>
-<li><p><a href="https://yyliou.github.io/da/ch10/ch10.html"><strong>Chapter 10</strong>: Position scales and axes</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch11/ch11.html"><strong>Chapter 11</strong>: Colour scales and legends</a></p></li>
-<li><p><a href="https://yyliou.github.io/da/ch12/ch12.html"><strong>Chapter 12</strong>: Other aesthetics</a></p></li>
-</ul>
 </section>
-<section id="part-iv-the-grammar" class="level2">
-<h2 class="anchored" data-anchor-id="part-iv-the-grammar">Part IV: The Grammar</h2>
+<section id="authoring-documents-with-r-markdown-and-generating-pdf-output" class="level2">
+<h2 class="anchored" data-anchor-id="authoring-documents-with-r-markdown-and-generating-pdf-output">Authoring Documents with R Markdown and Generating PDF Output</h2>
+<p>R Markdown is a document format that integrates prose, code, and computational output within a single reproducible file. The following steps outline the process of creating an R Markdown document and rendering it as a PDF.</p>
+<section id="step-1-install-required-packages" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-install-required-packages">Step 1: Install Required Packages</h3>
+<p>Execute the following commands in the RStudio Console:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-2-install-a-latex-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-install-a-latex-distribution">Step 2: Install a LaTeX Distribution</h3>
+<p>PDF rendering requires a LaTeX engine. The <code>tinytex</code> package provides a lightweight, self-contained LaTeX distribution suitable for most use cases:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tinytex"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Restart RStudio</strong> after installation to ensure the LaTeX binaries are correctly registered.</p>
+</section>
+<section id="step-3-create-a-new-r-markdown-file" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-create-a-new-r-markdown-file">Step 3: Create a New R Markdown File</h3>
+<ol type="1">
+<li>From the RStudio menu, select: <em>File</em> → <em>New File</em> → <em>R Markdown…</em></li>
+<li>Specify a title and author in the dialogue box; set the default output format to <strong>PDF</strong></li>
+<li>Click <strong>OK</strong> to generate the template file</li>
+</ol>
+</section>
+<section id="step-4-configure-the-yaml-header" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-configure-the-yaml-header">Step 4: Configure the YAML Header</h3>
+<p>Every R Markdown document begins with a YAML front matter block delimited by <code>---</code>. This block controls document metadata and output settings:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Assignment Title"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Full Name (Student ID)"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-01-01"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> pdf_document</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-5-write-document-content" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-write-document-content">Step 5: Write Document Content</h3>
+<p>R Markdown uses standard Markdown syntax for formatting prose, supplemented by fenced code chunks for embedding R code:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Syntax</th>
+<th>Rendered Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code># Heading 1</code></td>
+<td>First-level heading</td>
+</tr>
+<tr class="even">
+<td><code>## Heading 2</code></td>
+<td>Second-level heading</td>
+</tr>
+<tr class="odd">
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+</tr>
+<tr class="even">
+<td><code>*italic*</code></td>
+<td><em>italic</em></td>
+</tr>
+<tr class="odd">
+<td>Fenced code block with <code>{r}</code></td>
+<td>Executed R code with output</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example code chunk:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">summary(mtcars)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      mpg             cyl             disp             hp       
+ Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+ 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+ Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+ Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+ 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+ Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+      drat             wt             qsec             vs        
+ Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+ 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+ Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+ Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+ 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+ Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+       am              gear            carb      
+ Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+ 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+ Median :0.0000   Median :4.000   Median :2.000  
+ Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+ 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+ Max.   :1.0000   Max.   :5.000   Max.   :8.000  </code></pre>
+</div>
+</div>
+</section>
+<section id="step-6-render-to-pdf" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-render-to-pdf">Step 6: Render to PDF</h3>
+<p>Click the <strong>Knit</strong> button in the RStudio toolbar, or use the keyboard shortcut <code>Ctrl+Shift+K</code> (Windows/Linux) or <code>Cmd+Shift+K</code> (macOS), and select <em>Knit to PDF</em>.</p>
+<blockquote class="blockquote">
+<p><strong>Note on CJK character rendering</strong>: If Chinese, Japanese, or Korean characters appear as missing glyphs in the PDF output, specify an alternative LaTeX engine in the YAML header:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">latex_engine</span><span class="kw">:</span><span class="at"> xelatex</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \usepackage{fontspec}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \setmainfont{Noto Sans CJK TC}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote>
+<hr>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -1,1 +1,45 @@
+## Problem sets
 
+## Submission Requirements
+
+> ⚠️ **All assignments must be submitted using the official template provided below.**
+>
+> Submissions that are missing any of the following elements will receive a grade of **zero**. This policy is non-negotiable.
+
+### Template
+
+Copy the following template as the starting point for every submission. Replace all placeholder values before submitting.
+
+```{r,eval=F}
+---
+title: "Ex. X"
+author: "Full Name (Student ID)"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+knitr::opts_chunk$set(echo = TRUE)
+
+print(uuid::UUIDgenerate())
+
+## Question 1
+
+*(Write your response here.)*
+
+## Question 2
+
+*(Write your response here.)*
+```
+
+### Checklist
+
+Before submitting, verify that your document satisfies all of the following criteria:
+
+-   [ ] The `title` field in the YAML header is completed
+-   [ ] The `author` field includes both your full name and student ID
+-   [ ] The final document must be submitted strictly in `.pdf` format.
+-   [ ] The document's name should be `ex?-id-name.pdf`, eg (`ex1-d10627008-Oliver.pdf`)
+
+## Submit Your Assignments
+
+Upload your PDF [here](https://u.pcloud.link/publink/show?code=kZaVeI5ZjmzQXBbRlv7XxLzlO1xTDB92w9Kk) and place it in the corresponding folder (e.g., `ex1` for Exercise 1).

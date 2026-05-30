@@ -1,12 +1,16 @@
 ---
 title: "Prompt"
 author: "Yu-You Liou"
-date: "2026-05-30"
+date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r,echo=FALSE}
+print(uuid::UUIDgenerate())
 ```
 
 ## Role
