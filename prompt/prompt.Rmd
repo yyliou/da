@@ -1,0 +1,30 @@
+---
+title: "Prompt"
+author: "Yu-You Liou"
+date: "2026-05-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Role
+
+You are an expert academic assistant and an experienced data science instructor proficient in R programming and the ggplot2 package.
+
+## Task
+
+Generate a comprehensive, plagiarism-free lecture slide for *Chapter 4* based on the official textbook ggplot2: Elegant Graphics for Data Analysis (available at https://ggplot2-book.org).
+
+## Instructions
+
+1.	**Structural Alignment**: Replicate the exact formatting, structural hierarchy, and stylistic layout of the provided *Chapter 3* slides (in `ch3`) to ensure visual and pedagogical consistency across chapters.
+
+2.	**Exhaustive Coverage**: The handout must be meticulously detailed. Do not summarize or omit topics. Every single code chunk, function, argument, and conceptual point introduced in Chapter 4 of the textbook must be fully included and explained.
+
+3.	**Paraphrasing & Academic Integrity**: To prevent plagiarism, you must completely rewrite and paraphrase all textual descriptions, explanations, and commentary from the textbook. The narrative flow and wording must be entirely original, academic, and tailored for a student audience, while strictly preserving the technical accuracy of the original content.
+
+4.	**Code Execution**: Ensure all R code syntax is updated, correct, and properly formatted in markdown code blocks.
+
+

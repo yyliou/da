@@ -10,3 +10,6 @@
 
 -   [**Chapter 4**: Collective geoms geoms](https://yyliou.github.io/da/ch4/ch4.html)
 
+-   [**Chapter 5**: Statistical summaries geoms](https://yyliou.github.io/da/ch5/ch5.html)
+
+-   [**Chapter 6**: Maps](https://yyliou.github.io/da/ch6/ch6.html)

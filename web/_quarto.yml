@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: ../
+  output-dir: ..
 
 website:
   title: "Data Aanlysis"
@@ -21,7 +21,7 @@ format:
 
 editor: visual
 
-# quarto render -- no-clean
+# quarto render
 
 
 
