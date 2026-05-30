@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ch10_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch10_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch10_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch10_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch10_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch10_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch10_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <meta name="author" content="Yu-You Liou (NTU)">
+  <meta name="dcterms.date" content="2026-05-30">
+  <title>Data Analysis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ch10_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch10_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="ch10_files/libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
+  <link href="ch10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch10_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch10_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Data Analysis</h1>
+  <p class="subtitle">Chapter 10: Position Scales and Axes</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Yu-You Liou (NTU) 
+</div>
+        <p class="quarto-title-affiliation">
+            Shih Chien University
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-05-30</p>
+</section>
+<section>
+<section id="position-scales-and-axes" class="title-slide slide level1 center">
+<h1>Position Scales and Axes</h1>
+
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<p>Every plot produced by <code>ggplot2</code> relies on <strong>position scales</strong> to map data values to physical locations on the plotting surface. The x and y aesthetics each have an associated position scale, even when the user does not explicitly declare them.</p>
+<p>Consider this minimal histogram specification:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The y aesthetic is never mentioned, yet the plot renders correctly because <code>geom_histogram()</code> internally computes a <code>count</code> variable and maps it to y. The fully explicit equivalent is:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> <span class="fu">after_stat</span>(count))) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Because position scales appear in <strong>every</strong> plot, a thorough understanding of how they work—and how they can be customised—is essential for effective data visualisation.</p>
+<p>This chapter is organised into four major sections:</p>
+<ul>
+<li><strong>§10.1</strong> — Numeric (continuous) position scales: limits, zooming, expansion, breaks, minor breaks, labels, and transformations</li>
+<li><strong>§10.2</strong> — Date-time position scales: specialised breaks and label formatting</li>
+<li><strong>§10.3</strong> — Discrete position scales: reordering, custom labels, and axis guides</li>
+<li><strong>§10.4</strong> — Binned position scales: slicing continuous variables into discrete bins</li>
+</ul>
+</section></section>
+<section>
+<section id="numeric-position-scales" class="title-slide slide level1 center">
+<h1>Numeric Position Scales</h1>
+
+</section>
+<section id="numeric-position-scales-1" class="slide level2">
+<h2>Numeric Position Scales</h2>
+<p>The default continuous position scales, <code>scale_x_continuous()</code> and <code>scale_y_continuous()</code>, establish a <strong>linear mapping</strong> from raw data values to pixel coordinates on the plot panel.</p>
+<p>A family of convenience wrappers—<code>scale_x_log10()</code>, <code>scale_x_reverse()</code>, <code>scale_x_sqrt()</code>, and their y-axis counterparts—provides quick access to the most commonly needed transformations (covered fully in §10.1.7).</p>
+<p>The fundamental behaviour of all continuous position scales is governed by six key arguments:</p>
+</section>
+<section class="slide level2">
+
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>limits</code></td>
+<td>Define the range of the scale</td>
+</tr>
+<tr class="even">
+<td><code>expand</code></td>
+<td>Pad the visual range beyond the data</td>
+</tr>
+<tr class="odd">
+<td><code>breaks</code></td>
+<td>Set major tick positions</td>
+</tr>
+<tr class="even">
+<td><code>minor_breaks</code></td>
+<td>Set minor tick positions</td>
+</tr>
+<tr class="odd">
+<td><code>labels</code></td>
+<td>Control tick label text</td>
+</tr>
+<tr class="even">
+<td><code>trans</code></td>
+<td>Apply a mathematical transformation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="limits">Limits</h3>
+<p>The <code>limits</code> argument controls the range over which a continuous scale is defined. By default, ggplot2 derives limits automatically from the data range, but manual specification is often necessary when comparing across multiple plots.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="co"># Two subsets of mpg that will have different natural axis ranges</span></span>
+<span id="cb3-5"><a href=""></a>mpg_99 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1999</span>)</span>
+<span id="cb3-6"><a href=""></a>mpg_08 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2008</span>)</span>
+<span id="cb3-7"><a href=""></a></span>
+<span id="cb3-8"><a href=""></a>base_99 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_99, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb3-9"><a href=""></a>base_08 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_08, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Without explicit limits, each plot uses its own natural data range, making side-by-side comparison unreliable.</p>
+</section>
+<section class="slide level2">
+
+<p>To synchronise the axes, pass a length-2 numeric vector to <code>limits</code> in each scale. Use <code>NA</code> as a placeholder if you only want to constrain one endpoint:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb4-2"><a href=""></a>p99 <span class="ot">&lt;-</span> base_99 <span class="sc">+</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>))</span>
+<span id="cb4-5"><a href=""></a>p08 <span class="ot">&lt;-</span> base_08 <span class="sc">+</span></span>
+<span id="cb4-6"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb4-7"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>))</span>
+<span id="cb4-8"><a href=""></a>p99 <span class="sc">|</span> p08</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>The <code>lims()</code> convenience function reduces verbosity when setting limits on multiple aesthetics simultaneously:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p99b <span class="ot">&lt;-</span> base_99 <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>))</span>
+<span id="cb5-2"><a href=""></a>p08b <span class="ot">&lt;-</span> base_08 <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>))</span>
+<span id="cb5-3"><a href=""></a>p99b <span class="sc">|</span> p08b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p><code>lims()</code> follows the same name-value syntax as <code>labs()</code>: the argument name specifies the aesthetic, and the value specifies its limits. Single-axis helpers <code>xlim()</code> and <code>ylim()</code> are also available for quick adjustments.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="zooming-in">Zooming In</h3>
+<p>Narrowing the scale <code>limits</code> is <strong>not</strong> the same as zooming in visually. When a data value falls outside the declared limits of a continuous scale, ggplot2 converts it to <code>NA</code> <strong>before</strong> statistical summaries are computed. This can silently distort the output of stats such as <code>stat_boxplot</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href=""></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">28</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb6-4"><a href=""></a>base</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<p>Comparing the two approaches to restricting the visible range:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Correct: zoom without dropping data</span></span>
+<span id="cb7-2"><a href=""></a>p_zoom <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">35</span>))</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="co"># Incorrect: drops data before stat computation</span></span>
+<span id="cb7-5"><a href=""></a>p_lim  <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">10</span>, <span class="dv">35</span>)   <span class="co"># Warning: rows removed</span></span>
+<span id="cb7-6"><a href=""></a></span>
+<span id="cb7-7"><a href=""></a>p_zoom <span class="sc">|</span> p_lim</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>The left panel zooms safely. The right panel has silently recomputed the boxplot on a truncated sample, shifting the median downward. <strong>Always use <code>coord_cartesian()</code> when the intent is purely visual zoom.</strong></p>
+</section>
+<section class="slide level2">
+
+<h3 id="visual-range-expansion">Visual Range Expansion</h3>
+<p>By default, ggplot2 adds a small buffer beyond the data limits so that plotted objects do not collide with the axis lines. This buffer is controlled via the <code>expand</code> argument, which accepts an <code>expansion()</code> call.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>base_raster <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb8-5"><a href=""></a></span>
+<span id="cb8-6"><a href=""></a><span class="co"># Remove all padding (useful for raster/image plots)</span></span>
+<span id="cb8-7"><a href=""></a>base_raster <span class="sc">+</span></span>
+<span id="cb8-8"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb8-9"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p><code>expansion()</code> accepts two arguments:</p>
+<ul>
+<li><code>add</code> — a constant amount of space in data units (same scale as the variable)</li>
+<li><code>mult</code> — a proportional amount relative to the full axis range</li>
+</ul>
+<p>Both can be length-1 (symmetric) or length-2 (asymmetric: lower, upper).</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>base_raster <span class="sc">+</span></span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># 20% multiplicative padding on all sides</span></span>
+<span id="cb10-2"><a href=""></a>base_raster <span class="sc">+</span></span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> .<span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> .<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># Asymmetric: 5% at the low end, 20% at the high end</span></span>
+<span id="cb11-2"><a href=""></a>base_raster <span class="sc">+</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(.<span class="dv">05</span>, .<span class="dv">2</span>))) <span class="sc">+</span></span>
+<span id="cb11-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">05</span>, <span class="dv">0</span>, .<span class="dv">2</span>, <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<h3 id="breaks">Breaks</h3>
+<p>Axis tick marks in ggplot2 are a special case of <strong>scale breaks</strong>. Their positions are set via the <code>breaks</code> argument to the relevant scale function.</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Toy dataset used throughout this section</span></span>
+<span id="cb12-2"><a href=""></a>toy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb12-3"><a href=""></a>  <span class="at">const =</span> <span class="dv">1</span>,</span>
+<span id="cb12-4"><a href=""></a>  <span class="at">up    =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb12-5"><a href=""></a>  <span class="at">txt   =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
+<span id="cb12-6"><a href=""></a>  <span class="at">big   =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">*</span> <span class="dv">1000</span>,</span>
+<span id="cb12-7"><a href=""></a>  <span class="at">log   =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">2000</span>)</span>
+<span id="cb12-8"><a href=""></a>)</span>
+<span id="cb12-9"><a href=""></a></span>
+<span id="cb12-10"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(big, const)) <span class="sc">+</span></span>
+<span id="cb12-11"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb12-13"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)   <span class="co"># suppresses y-axis ticks</span></span>
+<span id="cb12-14"><a href=""></a>base</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>Setting <code>breaks = NULL</code> removes tick marks <strong>and</strong> the associated major grid lines.</p>
+</section>
+<section class="slide level2">
+
+<p>Manually specifying a vector of break positions moves both the major grid lines and the minor grid lines that sit between them:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>p1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">4000</span>))</span>
+<span id="cb13-2"><a href=""></a>p2 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1500</span>, <span class="dv">2000</span>, <span class="dv">4000</span>))</span>
+<span id="cb13-3"><a href=""></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>The <code>breaks</code> argument also accepts a <strong>function</strong> that receives the scale limits and returns break positions. The <code>scales</code> package provides several ready-made break functions:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>scales::breaks_extended()</code></td>
+<td>Automatic “nice” breaks (ggplot2 default)</td>
+</tr>
+<tr class="even">
+<td><code>scales::breaks_log()</code></td>
+<td>Breaks suited for log-transformed axes</td>
+</tr>
+<tr class="odd">
+<td><code>scales::breaks_pretty()</code></td>
+<td>Aesthetically pleasing breaks for date-times</td>
+</tr>
+<tr class="even">
+<td><code>scales::breaks_width()</code></td>
+<td>Equally-spaced breaks at a fixed width</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p_def <span class="ot">&lt;-</span> base</span>
+<span id="cb14-2"><a href=""></a>p_ext <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_extended</span>())</span>
+<span id="cb14-3"><a href=""></a>p_few <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_extended</span>(<span class="at">n =</span> <span class="dv">2</span>))</span>
+<span id="cb14-4"><a href=""></a>p_def <span class="sc">|</span> p_ext <span class="sc">|</span> p_few</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<p><code>breaks_width()</code> places breaks at a fixed interval. An optional <code>offset</code> shifts all breaks by a constant amount:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p_w1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="dv">800</span>))</span>
+<span id="cb15-2"><a href=""></a>p_w2 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="dv">800</span>, <span class="at">offset =</span>  <span class="dv">200</span>))</span>
+<span id="cb15-3"><a href=""></a>p_w3 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="dv">800</span>, <span class="at">offset =</span> <span class="sc">-</span><span class="dv">200</span>))</span>
+<span id="cb15-4"><a href=""></a>p_w1 <span class="sc">|</span> p_w2 <span class="sc">|</span> p_w3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>Note how a positive offset shifts all break positions upward, while a negative offset shifts them downward.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="minor-breaks">Minor Breaks</h3>
+<p>Minor breaks are the faint, unlabelled grid lines that appear between the labelled major breaks. They are set via the <code>minor_breaks</code> argument, which also accepts a numeric vector or a function.</p>
+<p>Minor breaks are especially informative on <strong>log-transformed axes</strong>, where they provide a clear visual cue that the spacing is non-linear:</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Build a dense set of minor break positions across several decades</span></span>
+<span id="cb16-2"><a href=""></a>mb <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">as.numeric</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%o%</span> <span class="dv">10</span><span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>)))</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a>base_log <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(log, const)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-8"><a href=""></a></span>
+<span id="cb16-9"><a href=""></a>p_no_mb <span class="ot">&lt;-</span> base_log <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span>
+<span id="cb16-10"><a href=""></a>p_mb    <span class="ot">&lt;-</span> base_log <span class="sc">+</span> <span class="fu">scale_x_log10</span>(<span class="at">minor_breaks =</span> mb)</span>
+<span id="cb16-11"><a href=""></a>p_no_mb <span class="sc">|</span> p_mb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>The <code>scales</code> package also supplies <code>scales::minor_breaks_n()</code> and <code>scales::minor_breaks_width()</code> as function-based alternatives.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="labels">Labels</h3>
+<p>Every break has an associated text label. Labels are controlled by the <code>labels</code> argument, which accepts either a character vector (one label per break) or a labelling function.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>base_lbl <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(big, const)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)</span>
+<span id="cb17-5"><a href=""></a></span>
+<span id="cb17-6"><a href=""></a>p_default <span class="ot">&lt;-</span> base_lbl</span>
+<span id="cb17-7"><a href=""></a>p_custom  <span class="ot">&lt;-</span> base_lbl <span class="sc">+</span></span>
+<span id="cb17-8"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">4000</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"2k"</span>, <span class="st">"4k"</span>))</span>
+<span id="cb17-9"><a href=""></a>p_default <span class="sc">|</span> p_custom</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>The <code>scales</code> package offers a suite of ready-made label formatters:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Output example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>scales::label_bytes()</code></td>
+<td>1.5 kB, 2.3 MB</td>
+</tr>
+<tr class="even">
+<td><code>scales::label_comma()</code></td>
+<td>1,000</td>
+</tr>
+<tr class="odd">
+<td><code>scales::label_dollar()</code></td>
+<td>$1,000</td>
+</tr>
+<tr class="even">
+<td><code>scales::label_ordinal()</code></td>
+<td>1st, 2nd, 3rd</td>
+</tr>
+<tr class="odd">
+<td><code>scales::label_percent()</code></td>
+<td>10%</td>
+</tr>
+<tr class="even">
+<td><code>scales::label_pvalue()</code></td>
+<td>&lt;.05, .34</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>base_lbl2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(big, const)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)</span>
+<span id="cb18-5"><a href=""></a></span>
+<span id="cb18-6"><a href=""></a>p_pct <span class="ot">&lt;-</span> base_lbl2 <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>())</span>
+<span id="cb18-7"><a href=""></a>p_eur <span class="ot">&lt;-</span> base_lbl2 <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb18-8"><a href=""></a>  <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>(<span class="at">prefix =</span> <span class="st">""</span>, <span class="at">suffix =</span> <span class="st">"€"</span>)</span>
+<span id="cb18-9"><a href=""></a>)</span>
+<span id="cb18-10"><a href=""></a>p_pct <span class="sc">|</span> p_eur</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<p>There is an important difference between setting <code>breaks = NULL</code> and <code>labels = NULL</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p_brk_null <span class="ot">&lt;-</span> base_lbl2 <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)</span>
+<span id="cb19-2"><a href=""></a>p_lbl_null <span class="ot">&lt;-</span> base_lbl2 <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cn">NULL</span>)</span>
+<span id="cb19-3"><a href=""></a>p_brk_null <span class="sc">|</span> p_lbl_null</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><ul>
+<li><code>breaks = NULL</code> removes both the tick marks <strong>and</strong> the major grid lines.</li>
+<li><code>labels = NULL</code> hides only the text labels while preserving ticks and grid lines.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="transformations">Transformations</h3>
+<p>By default, continuous position scales use an <strong>identity (linear)</strong> transformation. Overriding this is done via the <code>trans</code> argument, which accepts either a transformation name (string) or a transformer object from the <code>scales</code> package.</p>
+<p>Convenience wrappers such as <code>scale_x_log10()</code>, <code>scale_x_reverse()</code>, and <code>scale_x_sqrt()</code> cover the most common cases:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>base_trans <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb20-2"><a href=""></a>p_rev_x <span class="ot">&lt;-</span> base_trans <span class="sc">+</span> <span class="fu">scale_x_reverse</span>()</span>
+<span id="cb20-3"><a href=""></a>p_rev_y <span class="ot">&lt;-</span> base_trans <span class="sc">+</span> <span class="fu">scale_y_reverse</span>()</span>
+<span id="cb20-4"><a href=""></a>base_trans <span class="sc">|</span> p_rev_x <span class="sc">|</span> p_rev_y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<p>For less common transformations, use the <code>trans</code> argument directly:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>p_recip <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"reciprocal"</span>)</span>
+<span id="cb21-4"><a href=""></a></span>
+<span id="cb21-5"><a href=""></a>p_log <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(price, carat)) <span class="sc">+</span></span>
+<span id="cb21-6"><a href=""></a>  <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
+<span id="cb21-7"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>)</span>
+<span id="cb21-9"><a href=""></a></span>
+<span id="cb21-10"><a href=""></a>p_recip <span class="sc">|</span> p_log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>The full list of built-in transformations supplied by the <code>scales</code> package:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Function <span class="math inline">\(f(x)\)</span></th>
+<th>Inverse <span class="math inline">\(f^{-1}(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>"asn"</code></td>
+<td><span class="math inline">\(\tanh^{-1}(x)\)</span></td>
+<td><span class="math inline">\(\tanh(y)\)</span></td>
+</tr>
+<tr class="even">
+<td><code>"exp"</code></td>
+<td><span class="math inline">\(e^x\)</span></td>
+<td><span class="math inline">\(\log(y)\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>"identity"</code></td>
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(y\)</span></td>
+</tr>
+<tr class="even">
+<td><code>"log"</code></td>
+<td><span class="math inline">\(\log(x)\)</span></td>
+<td><span class="math inline">\(e^y\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>"log10"</code></td>
+<td><span class="math inline">\(\log_{10}(x)\)</span></td>
+<td><span class="math inline">\(10^y\)</span></td>
+</tr>
+<tr class="even">
+<td><code>"log2"</code></td>
+<td><span class="math inline">\(\log_2(x)\)</span></td>
+<td><span class="math inline">\(2^y\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>"logit"</code></td>
+<td><span class="math inline">\(\log\!\left(\frac{x}{1-x}\right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{1+e^y}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>"probit"</code></td>
+<td><span class="math inline">\(\Phi(x)\)</span></td>
+<td><span class="math inline">\(\Phi^{-1}(y)\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>"reciprocal"</code></td>
+<td><span class="math inline">\(x^{-1}\)</span></td>
+<td><span class="math inline">\(y^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>"reverse"</code></td>
+<td><span class="math inline">\(-x\)</span></td>
+<td><span class="math inline">\(-y\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>"sqrt"</code></td>
+<td><span class="math inline">\(x^{1/2}\)</span></td>
+<td><span class="math inline">\(y^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<p>You can also call the transformer object directly—these two specifications are equivalent:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Using the name string</span></span>
+<span id="cb22-2"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"reciprocal"</span>)</span>
+<span id="cb22-5"><a href=""></a></span>
+<span id="cb22-6"><a href=""></a><span class="co"># Using the transformer object</span></span>
+<span id="cb22-7"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb22-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-9"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> scales<span class="sc">::</span><span class="fu">reciprocal_trans</span>())</span>
+<span id="cb22-10"><a href=""></a></span>
+<span id="cb22-11"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>Similarly, the convenience wrapper and the explicit <code>trans</code> argument are interchangeable:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="co"># Via convenience wrapper</span></span>
+<span id="cb23-2"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(price, carat)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href=""></a>  <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href=""></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb23-5"><a href=""></a>  <span class="fu">scale_y_log10</span>()</span>
+<span id="cb23-6"><a href=""></a></span>
+<span id="cb23-7"><a href=""></a><span class="co"># Via the trans argument</span></span>
+<span id="cb23-8"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(price, carat)) <span class="sc">+</span></span>
+<span id="cb23-9"><a href=""></a>  <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
+<span id="cb23-10"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb23-11"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>)</span>
+<span id="cb23-12"><a href=""></a></span>
+<span id="cb23-13"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p><strong>Transforming the scale vs.&nbsp;transforming the data</strong></p>
+<p>An important subtlety: transforming the scale is different from transforming the data variable directly.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Axes labelled on the *transformed* (log10) scale</span></span>
+<span id="cb24-2"><a href=""></a>p_data <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="fu">log10</span>(displ), hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"log10(displ) in aes()"</span>)</span>
+<span id="cb24-4"><a href=""></a></span>
+<span id="cb24-5"><a href=""></a><span class="co"># Axes labelled on the *original* data scale</span></span>
+<span id="cb24-6"><a href=""></a>p_scale <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a href=""></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb24-8"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"scale_x_log10()"</span>)</span>
+<span id="cb24-9"><a href=""></a></span>
+<span id="cb24-10"><a href=""></a>p_data <span class="sc">|</span> p_scale</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>In both cases the statistical geometry is identical, but the axis tick labels differ. Transforming the <strong>scale</strong> (right) displays original data values on the ticks, which is generally more interpretable. Importantly, in both approaches the transformation occurs <em>before</em> any statistical summaries—use <code>coord_trans()</code> if transformation is needed <em>after</em> statistics.</p>
+</section></section>
+<section>
+<section id="date-time-position-scales" class="title-slide slide level1 center">
+<h1>Date-Time Position Scales</h1>
+
+</section>
+<section id="date-time-position-scales-1" class="slide level2">
+<h2>Date-Time Position Scales</h2>
+<p>When a date or date-time variable is mapped to x or y, ggplot2 automatically selects <code>scale_x_date()</code> or <code>scale_x_datetime()</code> as the default scale. These scales extend the continuous scale framework with date-friendly arguments for controlling breaks and labels.</p>
+<p>Supported R date/time classes include:</p>
+<ul>
+<li><code>Date</code> — calendar dates (base R)</li>
+<li><code>POSIXct</code> — date-time values (base R)</li>
+<li><code>hms</code> — time-of-day values (hms package)</li>
+</ul>
+<p>Use <code>as.Date()</code>, <code>as.POSIXct()</code>, or <code>hms::as_hms()</code> to convert character strings to the appropriate class before plotting.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="breaks-for-date-scales">Breaks for Date Scales</h3>
+<p>The <code>date_breaks</code> argument positions tick marks using human-readable date units: <code>"years"</code>, <code>"months"</code>, <code>"weeks"</code>, <code>"days"</code>, <code>"hours"</code>, <code>"minutes"</code>, or <code>"seconds"</code>. A numeric prefix sets the interval size.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>date_base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, psavert)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb25-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb25-4"><a href=""></a></span>
+<span id="cb25-5"><a href=""></a>p_auto <span class="ot">&lt;-</span> date_base</span>
+<span id="cb25-6"><a href=""></a>p_15yr <span class="ot">&lt;-</span> date_base <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"15 years"</span>)</span>
+<span id="cb25-7"><a href=""></a>p_auto <span class="sc">/</span> p_15yr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p><code>date_breaks = "15 years"</code> is shorthand for <code>breaks = scales::breaks_width("15 years")</code>. Using the longer form grants access to the <code>offset</code> argument:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="co"># Breaks on the 9th of each month (salary cycle example)</span></span>
+<span id="cb26-2"><a href=""></a>the_year  <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2021-01-01"</span>, <span class="st">"2021-12-31"</span>))</span>
+<span id="cb26-3"><a href=""></a>set_breaks <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="st">"1 month"</span>, <span class="at">offset =</span> <span class="dv">8</span>)</span>
+<span id="cb26-4"><a href=""></a><span class="fu">set_breaks</span>(the_year)</span>
+<span id="cb26-5"><a href=""></a><span class="co">#&gt;  [1] "2021-01-09" "2021-02-09" ... "2021-12-09" "2022-01-09"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="minor-breaks-for-date-scales">Minor Breaks for Date Scales</h3>
+<p>The <code>date_minor_breaks</code> argument controls minor break spacing in exactly the same way as <code>date_breaks</code> controls major break spacing.</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2022-01-01"</span>, <span class="st">"2022-04-01"</span>)))</span>
+<span id="cb27-2"><a href=""></a>base_d <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb27-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-5"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb27-6"><a href=""></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>),</span>
+<span id="cb27-7"><a href=""></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>)</span>
+<span id="cb27-8"><a href=""></a>  )</span>
+<span id="cb27-9"><a href=""></a></span>
+<span id="cb27-10"><a href=""></a>p_maj <span class="ot">&lt;-</span> base_d <span class="sc">+</span> <span class="fu">scale_y_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 month"</span>)</span>
+<span id="cb27-11"><a href=""></a>p_min <span class="ot">&lt;-</span> base_d <span class="sc">+</span> <span class="fu">scale_y_date</span>(</span>
+<span id="cb27-12"><a href=""></a>  <span class="at">date_breaks =</span> <span class="st">"1 month"</span>,</span>
+<span id="cb27-13"><a href=""></a>  <span class="at">date_minor_breaks =</span> <span class="st">"1 week"</span></span>
+<span id="cb27-14"><a href=""></a>)</span>
+<span id="cb27-15"><a href=""></a>p_maj <span class="sc">|</span> p_min</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>Because months have varying lengths, minor breaks (spaced exactly 7 days apart) produce slightly uneven spacing within each month.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="labels-for-date-scales">Labels for Date Scales</h3>
+<p>Date tick labels are formatted using the <code>date_labels</code> argument, which accepts <code>strptime</code>-style format strings.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>String</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%S</code></td>
+<td>Second (00–59)</td>
+</tr>
+<tr class="even">
+<td><code>%M</code></td>
+<td>Minute (00–59)</td>
+</tr>
+<tr class="odd">
+<td><code>%H</code></td>
+<td>Hour, 24-hour clock (00–23)</td>
+</tr>
+<tr class="even">
+<td><code>%a</code> / <code>%A</code></td>
+<td>Abbreviated / full weekday name</td>
+</tr>
+<tr class="odd">
+<td><code>%d</code></td>
+<td>Day of month (01–31)</td>
+</tr>
+<tr class="even">
+<td><code>%m</code></td>
+<td>Month, numeric (01–12)</td>
+</tr>
+<tr class="odd">
+<td><code>%b</code> / <code>%B</code></td>
+<td>Abbreviated / full month name</td>
+</tr>
+<tr class="even">
+<td><code>%y</code> / <code>%Y</code></td>
+<td>Year without / with century</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>base_econ <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, psavert)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb28-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb28-4"><a href=""></a></span>
+<span id="cb28-5"><a href=""></a>p_4digit <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"5 years"</span>)</span>
+<span id="cb28-6"><a href=""></a>p_2digit <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"5 years"</span>, <span class="at">date_labels =</span> <span class="st">"%y"</span>)</span>
+<span id="cb28-7"><a href=""></a>p_4digit <span class="sc">/</span> p_2digit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>The newline character <code>\n</code> can be embedded in the format string to stack label components across multiple lines, reducing horizontal crowding:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>lim <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2004-01-01"</span>, <span class="st">"2005-01-01"</span>))</span>
+<span id="cb29-2"><a href=""></a></span>
+<span id="cb29-3"><a href=""></a>p_compact  <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">limits =</span> lim, <span class="at">date_labels =</span> <span class="st">"%b %y"</span>)</span>
+<span id="cb29-4"><a href=""></a>p_stacked  <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">limits =</span> lim, <span class="at">date_labels =</span> <span class="st">"%B</span><span class="sc">\n</span><span class="st">%Y"</span>)</span>
+<span id="cb29-5"><a href=""></a>p_compact <span class="sc">|</span> p_stacked</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>An alternative to <code>date_labels</code> is to pass a labelling function to the <code>labels</code> argument. The <code>scales::label_date_short()</code> function is particularly useful: it automatically abbreviates labels so that repeated information (such as the year) is printed only once per sequence, reducing visual clutter:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>lim <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2004-01-01"</span>, <span class="st">"2005-01-01"</span>))</span>
+<span id="cb30-2"><a href=""></a>base_econ <span class="sc">+</span></span>
+<span id="cb30-3"><a href=""></a>  <span class="fu">scale_x_date</span>(</span>
+<span id="cb30-4"><a href=""></a>    <span class="at">limits =</span> lim,</span>
+<span id="cb30-5"><a href=""></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_date_short</span>()</span>
+<span id="cb30-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section></section>
+<section>
+<section id="discrete-position-scales" class="title-slide slide level1 center">
+<h1>Discrete Position Scales</h1>
+
+</section>
+<section id="discrete-position-scales-1" class="slide level2">
+<h2>Discrete Position Scales</h2>
+<p>When a categorical (factor or character) variable is mapped to x or y, ggplot2 selects <code>scale_x_discrete()</code> or <code>scale_y_discrete()</code> automatically. Internally, each category is assigned an integer position, which allows all width-related parameters (bar width, jitter height, etc.) to be specified as proportions of the per-category unit interval.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># Explicit integer mapping exposed via annotation</span></span>
+<span id="cb31-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">y =</span> class)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb31-4"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">label =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p>Because each category occupies unit width on the discrete scale, setting <code>height = .25</code> in <code>geom_jitter()</code> produces a jitter spanning ±0.25 of the category bin:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">y =</span> class)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="dv">0</span>, <span class="at">height =</span> .<span class="dv">25</span>) <span class="sc">+</span></span>
+<span id="cb32-3"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">label =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>The same logic governs box widths in <code>geom_boxplot()</code>: <code>width = .4</code> reserves 40% of the category slot for the box.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="limits-breaks-and-labels">Limits, Breaks, and Labels</h3>
+<p>For discrete scales, <code>limits</code> defines the <strong>complete ordered set of allowable values</strong> (not endpoints). Values present in the data but absent from <code>limits</code> are silently dropped; values in <code>limits</code> but absent from the data create empty locations.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>base_disc <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(const, txt)) <span class="sc">+</span></span>
+<span id="cb33-2"><a href=""></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> txt)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb33-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb33-5"><a href=""></a></span>
+<span id="cb33-6"><a href=""></a>p_extra  <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>))</span>
+<span id="cb33-7"><a href=""></a>p_reord  <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"d"</span>, <span class="st">"c"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>))</span>
+<span id="cb33-8"><a href=""></a>base_disc <span class="sc">|</span> p_extra <span class="sc">|</span> p_reord</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section class="slide level2">
+
+<p>The <code>breaks</code> argument selects which values receive axis labels; <code>labels</code> maps specific values to custom display strings using a named character vector—without disturbing the order or break set:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>p_sel_brk <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb34-2"><a href=""></a>p_ren_lbl <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="at">c =</span> <span class="st">"carrot"</span>, <span class="at">b =</span> <span class="st">"banana"</span>))</span>
+<span id="cb34-3"><a href=""></a>p_sel_brk <span class="sc">|</span> p_ren_lbl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>The function <code>scales::label_wrap()</code> is useful for long category names—it automatically wraps text onto multiple lines within a specified character width.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="label-positions">Label Positions</h3>
+<p>Overlapping axis labels are a common problem with categorical data. The <code>guides()</code> function and <code>guide_axis()</code> give precise control over label placement:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>base_cat <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(manufacturer, hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb35-2"><a href=""></a>base_cat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p>Two effective remedies are <strong>dodging</strong> (staggering labels across multiple rows) and <strong>rotation</strong>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>p_dodge  <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">x =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">3</span>))</span>
+<span id="cb36-2"><a href=""></a>p_rotate <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">x =</span> <span class="fu">guide_axis</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span>
+<span id="cb36-3"><a href=""></a>p_dodge <span class="sc">/</span> p_rotate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p><code>guides()</code> is a shorthand: the equivalent long form passes <code>guide</code> directly inside the scale function.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="co"># Equivalent long form</span></span>
+<span id="cb37-2"><a href=""></a>a <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">3</span>))</span>
+<span id="cb37-3"><a href=""></a>b <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span>
+<span id="cb37-4"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-37-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section></section>
+<section>
+<section id="binned-position-scales" class="title-slide slide level1 center">
+<h1>Binned Position Scales</h1>
+
+</section>
+<section id="binned-position-scales-1" class="slide level2">
+<h2>Binned Position Scales</h2>
+<p>Binned position scales occupy the space between continuous and discrete scales. They slice a continuous variable into equally-spaced bins and then treat each bin as a discrete category. The primary function is <code>scale_x_binned()</code> (and <code>scale_y_binned()</code>).</p>
+<p>The most familiar application is histogram-like plots. The example below demonstrates how <code>geom_bar()</code> combined with <code>scale_x_binned()</code> can approximate <code>geom_histogram()</code>:</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>p_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>)</span>
+<span id="cb38-2"><a href=""></a>p_bin  <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> <span class="fu">geom_bar</span>()  <span class="sc">+</span> <span class="fu">scale_x_binned</span>()</span>
+<span id="cb38-3"><a href=""></a>p_hist <span class="sc">|</span> p_bin</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-38-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<section class="slide level2">
+
+<p>A more practically useful application pairs <code>scale_x_binned()</code> with <code>geom_count()</code>. Without binning, <code>geom_count()</code> on continuous data produces an over-crowded plot because every distinct coordinate pair gets its own dot:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_count</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-39-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p>Adding binned scales on both axes groups nearby points into discrete cells, yielding a much more readable summary:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb40-2"><a href=""></a>  <span class="fu">geom_count</span>() <span class="sc">+</span></span>
+<span id="cb40-3"><a href=""></a>  <span class="fu">scale_x_binned</span>(<span class="at">n.breaks =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb40-4"><a href=""></a>  <span class="fu">scale_y_binned</span>(<span class="at">n.breaks =</span> <span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch10_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>The <code>n.breaks</code> argument controls the number of cut points. Binned scales for non-position aesthetics (colour, size, etc.) are discussed in §11.4 and §12.1.2.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Exercises</strong></p>
+<ol type="1">
+<li><p>Using <code>scale_x_continuous()</code>, limit the x-axis of a <code>ggplot(mpg, aes(displ, hwy)) + geom_point()</code> plot to the range 2–5 in two ways: (a) via <code>limits</code>, and (b) via <code>coord_cartesian()</code>. Describe the difference in behaviour.</p></li>
+<li><p>Create a time-series line plot of <code>economics$psavert</code> against <code>date</code>. Set major breaks every 10 years and minor breaks every 2 years. Format the labels to show only the two-digit year.</p></li>
+<li><p>Using the <code>mpg</code> dataset, produce a boxplot of <code>hwy</code> by <code>manufacturer</code>. Apply <code>guide_axis(angle = 45)</code> to make the x-axis labels readable.</p></li>
+<li><p>Why does <code>scale_x_log10()</code> produce different axis tick labels from <code>aes(x = log10(displ))</code>? Under what circumstances would you prefer each approach?</p></li>
+<li><p>Use <code>scale_x_binned()</code> with <code>geom_count()</code> to visualise the joint distribution of <code>cty</code> and <code>hwy</code> in the <code>mpg</code> dataset. Experiment with different values of <code>n.breaks</code>.</p></li>
+</ol>
+</section>
+<section id="acknowledgement" class="slide level2">
+<h2>Acknowledgement</h2>
+<ul>
+<li><p><strong>Copyright notice.</strong> These teaching materials have been adapted from <a href="https://ggplot2-book.org/scales-position.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>. All rights are reserved by the original authors and publishers.</p></li>
+<li><p><strong>Non-commercial use only.</strong> These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.</p></li>
+<li><p><strong>Proper attribution.</strong> Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.</p></li>
+</ul>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><code>ggplot2</code>: Elegant Graphics for Data Analysis</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ch10_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ch10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch10_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch10_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch10_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ch10_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch10_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch10_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch10_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"hideMissingTitles":true,"titleSelector":"h1"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
