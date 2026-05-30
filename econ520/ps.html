@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem Sets – ECON 520</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2744;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --white: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    nav .brand { color: #fff; font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
+    nav ul a:hover, nav ul a.active { color: #fff; }
+
+    .page-header {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d4a8a 100%);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .page-header h1 { font-size: 2rem; font-weight: 700; }
+    .page-header p { opacity: .8; margin-top: .4rem; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    .ps-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transition: box-shadow .2s;
+    }
+    .ps-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+
+    .ps-left { display: flex; align-items: flex-start; gap: 1.1rem; }
+    .ps-badge {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 700;
+      font-size: .85rem;
+      padding: .4rem .75rem;
+      border-radius: 7px;
+      white-space: nowrap;
+    }
+    .ps-title { font-weight: 600; font-size: 1.05rem; margin-bottom: .3rem; }
+    .ps-note { font-size: .875rem; color: var(--muted); }
+
+    .link-btn {
+      display: inline-block;
+      padding: .45rem 1rem;
+      border-radius: 6px;
+      font-size: .875rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .15s;
+      background: var(--accent);
+      color: #fff;
+      align-self: center;
+    }
+    .link-btn:hover { background: #1d4ed8; }
+
+    .tip-box {
+      background: #fefce8;
+      border-left: 4px solid #eab308;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: .9rem;
+      color: #713f12;
+    }
+
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html">ECON 520</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="slides.html">Slides</a></li>
+    <li><a href="ps.html" class="active">Problem Sets</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1>📝 Problem Sets</h1>
+  <p>Hands-on exercises in R and applied econometrics</p>
+</div>
+
+<main>
+
+  <div class="tip-box">
+    💡 PS 1 and PS 2 are embedded inside the linked slides. Open the slides and look for the exercise sections.
+  </div>
+
+  <div class="ps-card">
+    <div class="ps-left">
+      <span class="ps-badge">PS 1</span>
+      <div>
+        <div class="ps-title">Problem Set 1</div>
+        <div class="ps-note">Embedded in the Data Analysis III – Exercises slides (Lecture 09)</div>
+      </div>
+    </div>
+    <a class="link-btn" href="https://psantanna.com/Econ520/Slides/09-exercise/09slides.html" target="_blank">Open Slides →</a>
+  </div>
+
+  <div class="ps-card">
+    <div class="ps-left">
+      <span class="ps-badge">PS 2</span>
+      <div>
+        <div class="ps-title">Problem Set 2</div>
+        <div class="ps-note">Embedded in the A/B Test slides (Lecture 11)</div>
+      </div>
+    </div>
+    <a class="link-btn" href="https://psantanna.com/Econ520/Slides/11-AB_test/11slides.html" target="_blank">Open Slides →</a>
+  </div>
+
+  <div class="ps-card">
+    <div class="ps-left">
+      <span class="ps-badge">PS 3</span>
+      <div>
+        <div class="ps-title">Problem Set 3</div>
+        <div class="ps-note">Treatment Effects via Regression Adjustments</div>
+      </div>
+    </div>
+    <a class="link-btn" href="https://psantanna.com/Econ520/Slides/13-reg-adj/13PS3.html" target="_blank">Open PS →</a>
+  </div>
+
+  <div class="ps-card">
+    <div class="ps-left">
+      <span class="ps-badge">PS 4</span>
+      <div>
+        <div class="ps-title">Problem Set 4</div>
+        <div class="ps-note">Treatment Effects via Regression Adjustments (continued)</div>
+      </div>
+    </div>
+    <a class="link-btn" href="https://psantanna.com/Econ520/Slides/13-reg-adj/13PS4.html" target="_blank">Open PS →</a>
+  </div>
+
+  <div class="ps-card">
+    <div class="ps-left">
+      <span class="ps-badge">PS 5</span>
+      <div>
+        <div class="ps-title">Problem Set 5</div>
+        <div class="ps-note">Treatment Effects via Regression Adjustments Part II</div>
+      </div>
+    </div>
+    <a class="link-btn" href="https://psantanna.com/Econ520/Slides/14-reg-adj2/14PS5.html" target="_blank">Open PS →</a>
+  </div>
+
+</main>
+
+<footer>
+  ECON 520 · Course materials by Pedro H. C. Sant'Anna · Hosted on GitHub Pages
+</footer>
+
+</body>
+</html>
