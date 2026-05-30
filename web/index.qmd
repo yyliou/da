@@ -26,8 +26,8 @@ The required textbook is *ggplot2: Elegant Graphics for Data Analysis* by Hadley
 
 ## Contact
 
-Feel free to contact me via [email](mailto: d10627008@ntu.edu.tw), but please note that I will not respond to inquiries about: 
+Feel free to contact me via [email](mailto:%20d10627008@ntu.edu.tw), but please note that I will not respond to inquiries about:
 
-- Course or exam schedules already available online or announced in class. 
+-   Course or exam schedules already available online or announced in class.
 
-- Make-up requests for attendance checks or in-class exercises.
+-   Make-up requests for attendance checks or in-class exercises.
