@@ -3,20 +3,25 @@ project:
   output-dir: ../
 
 website:
-  title: "web"
+  title: "Data Aanlysis"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - href: slide.qmd
+        text: Slides
+      - href: prob.qmd
+        text: Problem sets
 
 format:
   html:
     theme:
-      - cosmo
+      - Minty
       - brand
     css: styles.css
     toc: true
 
 editor: visual
+
+# quarto render -- no-clean
+
+
 
