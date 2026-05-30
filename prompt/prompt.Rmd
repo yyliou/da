@@ -27,4 +27,6 @@ Generate a comprehensive, plagiarism-free lecture slide for *Chapter 4* based on
 
 4.	**Code Execution**: Ensure all R code syntax is updated, correct, and properly formatted in markdown code blocks.
 
+5. **Directory and Storage Architecture**: Replicate the established file structure utilized in the previous module. Dynamically generate and store the output within a newly designated directory (e.g., `ch4/`), mirroring the organization and naming conventions of the `ch3/` repository.
+
 
