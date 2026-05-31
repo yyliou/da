@@ -2,7 +2,7 @@
 title: "**Data Analysis**"
 subtitle: "Syllabus"
 author: "Yu-You Liou"
-date: "Fall2025"
+date: "Fall 2025"
 output:
   pdf_document:
     toc: false
@@ -14,10 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 |  |  |
-|:--|:--|
+|:------|:----|
 | **Lecturer**: [Yu-You Liou](https://yyliou.github.io) | **Contact**: d10627008\@ntu.edu.tw |
 | **Course Code**: EIB-301-01-A1 | **Website**: <https://yyliou.github.io/da> |
-| **Meeting Time**: Tuesday, Periods 8–9 (15:10–17:00) | **Location**: Room A207 |
+| **Meeting Time**: Tuesday, Periods 8–9 (15:10–17:00) | **Location**: A207 |
 
 **[Course Objectives]{.underline}**
 
@@ -51,21 +51,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **[Regulations]{.underline}**
 
-1. **Attendance**
+1.  **Attendance**
 
 Per Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.
 
-2. **Presentations**
- 
+2.  **Presentations**
+
 Students who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.
-   
-3. **Academic Integrity**
+
+3. **In-class exercise deadline**
+
+The deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.
+
+4.  **Academic Integrity**
 
 All submitted work must be the student's own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.
 
-4. **AI Policy**
+5.  **AI Policy**
 
-All submitted work must be the student's own. Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
+Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
 
 **[Required Software]{.underline}**
 

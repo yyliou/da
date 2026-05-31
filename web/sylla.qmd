@@ -55,13 +55,18 @@ Per Shih Chien University regulations, students who are absent for more than one
 
 Students who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.
 
-3.  **Academic Integrity**
+3. **In-class exercise deadline**
+
+The deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.
+
+4.  **Academic Integrity**
 
 All submitted work must be the student's own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.
 
-4.  **AI Policy**
+5.  **AI Policy**
 
-All submitted work must be the student's own. Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
+Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
+
 
 ### Required Software
 
