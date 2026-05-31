@@ -19,7 +19,8 @@ You are an expert academic assistant and an experienced data science instructor 
 
 ## Task
 
-Generate a comprehensive, plagiarism-free lecture slide for *Chapter 4* based on the official textbook `ggplot2`: Elegant Graphics for Data Analysis (available at https://ggplot2-book.org).
+Generate a comprehensive, plagiarism-free lecture slide for *Chapter 4* based on the official textbook **Elementary Statistics: A Step-by-Step Approach**.
+(Available at `prompt/bluman-step-by-step-statistics-8th-edition`).
 
 ## Instructions
 
