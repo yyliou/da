@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ch3_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ch3_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ch3_files/libs/quarto-html/popper.min.js"></script>
-<script src="ch3_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ch3_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ch3_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch3_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Yu-You Liou (NTU)">
   <meta name="dcterms.date" content="2026-05-31">
-  <title>Data Analysis</title>
+  <title>Data Aanlysis – Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ch3_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ch3_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -96,11 +96,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="ch3_files/libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
-  <link href="ch3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ch3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ch3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ch3_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -241,37 +241,37 @@ Yu-You Liou (NTU)
 
 <p><strong>Prepare the data</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-3"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-4"><a href=""></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>), </span>
-<span id="cb1-5"><a href=""></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), </span>
-<span id="cb1-6"><a href=""></a>  <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>)</span>
-<span id="cb1-7"><a href=""></a>)</span>
-<span id="cb1-8"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">label =</span> label)) <span class="sc">+</span> </span>
-<span id="cb1-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span> <span class="co"># Hide axis label</span></span>
-<span id="cb1-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)) <span class="co"># Shrink plot title</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-3"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-4"><a></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>), </span>
+<span id="cb1-5"><a></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), </span>
+<span id="cb1-6"><a></a>  <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>)</span>
+<span id="cb1-7"><a></a>)</span>
+<span id="cb1-8"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">label =</span> label)) <span class="sc">+</span> </span>
+<span id="cb1-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span> <span class="co"># Hide axis label</span></span>
+<span id="cb1-10"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)) <span class="co"># Shrink plot title</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"point"</span>)</span>
-<span id="cb2-2"><a href=""></a>p2 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"text"</span>)</span>
-<span id="cb2-3"><a href=""></a>p3 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"bar"</span>)</span>
-<span id="cb2-4"><a href=""></a>p4 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">height =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"raster"</span>)</span>
-<span id="cb2-5"><a href=""></a>(p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3 <span class="sc">|</span> p4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"point"</span>)</span>
+<span id="cb2-2"><a></a>p2 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"text"</span>)</span>
+<span id="cb2-3"><a></a>p3 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"bar"</span>)</span>
+<span id="cb2-4"><a></a>p4 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">height =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"raster"</span>)</span>
+<span id="cb2-5"><a></a>(p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3 <span class="sc">|</span> p4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch3_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p5 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"line"</span>)</span>
-<span id="cb3-2"><a href=""></a>p6 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_area</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"area"</span>)</span>
-<span id="cb3-3"><a href=""></a>p7 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_path</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"path"</span>)</span>
-<span id="cb3-4"><a href=""></a>p8 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_polygon</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"polygon"</span>)</span>
-<span id="cb3-5"><a href=""></a>(p5 <span class="sc">|</span> p6 <span class="sc">|</span> p7 <span class="sc">|</span> p8)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>p5 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"line"</span>)</span>
+<span id="cb3-2"><a></a>p6 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_area</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"area"</span>)</span>
+<span id="cb3-3"><a></a>p7 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_path</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"path"</span>)</span>
+<span id="cb3-4"><a></a>p8 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_polygon</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"polygon"</span>)</span>
+<span id="cb3-5"><a></a>(p5 <span class="sc">|</span> p6 <span class="sc">|</span> p7 <span class="sc">|</span> p8)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch3_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -304,6 +304,7 @@ Yu-You Liou (NTU)
 <section id="references" class="slide level2">
 <h2>References</h2>
 
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -314,19 +315,19 @@ Yu-You Liou (NTU)
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ch3_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ch3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ch3_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ch3_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ch3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ch3_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ch3_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ch3_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ch3_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ch3_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ch11_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ch11_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ch11_files/libs/quarto-html/popper.min.js"></script>
-<script src="ch11_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ch11_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ch11_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch11_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-05-30">
-  <title>Data Analysis</title>
+  <meta name="dcterms.date" content="2026-05-31">
+  <title>Data Aanlysis – Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ch11_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ch11_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -96,11 +96,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="ch11_files/libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
-  <link href="ch11_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ch11_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ch11_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ch11_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -208,7 +208,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-05-30</p>
+  <p class="date">2026-05-31</p>
 </section>
 <section>
 <section id="colour-scales-and-legends" class="title-slide slide level1 center">
@@ -298,11 +298,11 @@ Yu-You Liou (NTU)
 
 <p>The <code>colorBlindness::displayAllColors()</code> function approximates how a palette appears under different forms of colour blindness. For example, <code>rainbow()</code> colours are problematic:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(<span class="fu">rainbow</span>(<span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(<span class="fu">rainbow</span>(<span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>By contrast, <code>viridis</code> palettes are designed to be discriminable under the most prevalent forms of colour blindness <strong>and</strong> to reproduce well in greyscale:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Where possible, supplement colour with a <strong>redundant aesthetic</strong> (shape, line type, or size) to assist colour-blind readers.</p>
 </section></section>
@@ -315,15 +315,15 @@ Yu-You Liou (NTU)
 <h2>Continuous Colour Scales</h2>
 <p>A 2D density surface of the <code>faithful</code> dataset—recording the waiting time between and duration of eruptions of Old Faithful—serves as the running example throughout this section. The <code>erupt</code> base plot hides the legend and removes axis expansion to focus on palette appearance:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a>erupt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions, <span class="at">fill =</span> density)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href=""></a>  <span class="fu">geom_raster</span>() <span class="sc">+</span></span>
-<span id="cb3-5"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb3-6"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb3-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb3-8"><a href=""></a></span>
-<span id="cb3-9"><a href=""></a>erupt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a>erupt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions, <span class="at">fill =</span> density)) <span class="sc">+</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">geom_raster</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb3-7"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb3-8"><a></a></span>
+<span id="cb3-9"><a></a>erupt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -333,11 +333,11 @@ Yu-You Liou (NTU)
 <p><code>ggplot2</code> bundles two families of pre-specified continuous colour palettes.</p>
 <p><strong>Viridis scales</strong> (<code>scale_fill_viridis_c()</code>) are perceptually uniform under both full colour vision and greyscale reproduction, and are safe for common forms of colour blindness. Several named options are available:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb4-2"><a href=""></a>p1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>()</span>
-<span id="cb4-3"><a href=""></a>p2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"magma"</span>)</span>
-<span id="cb4-4"><a href=""></a>p3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>)</span>
-<span id="cb4-5"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb4-2"><a></a>p1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>()</span>
+<span id="cb4-3"><a></a>p2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"magma"</span>)</span>
+<span id="cb4-4"><a></a>p3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>)</span>
+<span id="cb4-5"><a></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -345,10 +345,10 @@ Yu-You Liou (NTU)
 
 <p><strong>ColorBrewer</strong> scales are also available for continuous data via <code>scale_fill_distiller()</code>, which interpolates between hand-selected sequential or diverging Brewer palettes:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p4 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>()</span>
-<span id="cb5-2"><a href=""></a>p5 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"RdPu"</span>)</span>
-<span id="cb5-3"><a href=""></a>p6 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"YlOrBr"</span>)</span>
-<span id="cb5-4"><a href=""></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>p4 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>()</span>
+<span id="cb5-2"><a></a>p5 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"RdPu"</span>)</span>
+<span id="cb5-3"><a></a>p6 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"YlOrBr"</span>)</span>
+<span id="cb5-4"><a></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -356,15 +356,15 @@ Yu-You Liou (NTU)
 
 <p>The <code>paletteer</code> package provides a unified interface to a very large collection of palettes from numerous R packages. The <code>_c</code> suffix indicates continuous palettes:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(paletteer)</span>
-<span id="cb6-2"><a href=""></a>erupt <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_c</span>(<span class="st">"viridis::plasma"</span>)</span>
-<span id="cb6-3"><a href=""></a>erupt <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_c</span>(<span class="st">"scico::tokyo"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(paletteer)</span>
+<span id="cb6-2"><a></a>erupt <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_c</span>(<span class="st">"viridis::plasma"</span>)</span>
+<span id="cb6-3"><a></a>erupt <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_c</span>(<span class="st">"scico::tokyo"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The <code>scico</code> package offers additional perceptually uniform, scientific palettes:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"bilbao"</span>)</span>
-<span id="cb7-2"><a href=""></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"vik"</span>)</span>
-<span id="cb7-3"><a href=""></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"lajolla"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"bilbao"</span>)</span>
+<span id="cb7-2"><a></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"vik"</span>)</span>
+<span id="cb7-3"><a></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"lajolla"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -372,9 +372,9 @@ Yu-You Liou (NTU)
 <h3 id="robust-recipes">Robust Recipes</h3>
 <p>The default continuous fill scale is <code>scale_fill_continuous()</code>, which itself defaults to <code>scale_fill_gradient()</code>. These three calls are therefore identical:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>erupt</span>
-<span id="cb8-2"><a href=""></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>()</span>
-<span id="cb8-3"><a href=""></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>erupt</span>
+<span id="cb8-2"><a></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>()</span>
+<span id="cb8-3"><a></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Gradient scales interpolate linearly between two or more reference colours. Three functions cover different use cases:</p>
 <table class="caption-top">
@@ -407,14 +407,14 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>p_2c <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">high =</span> <span class="st">"brown"</span>)</span>
-<span id="cb9-2"><a href=""></a>p_3c <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">scale_fill_gradient2</span>(</span>
-<span id="cb9-4"><a href=""></a>    <span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"brown"</span>,</span>
-<span id="cb9-5"><a href=""></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
-<span id="cb9-6"><a href=""></a>  )</span>
-<span id="cb9-7"><a href=""></a>p_nc <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">terrain.colors</span>(<span class="dv">7</span>))</span>
-<span id="cb9-8"><a href=""></a>p_2c <span class="sc">|</span> p_3c <span class="sc">|</span> p_nc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p_2c <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">high =</span> <span class="st">"brown"</span>)</span>
+<span id="cb9-2"><a></a>p_3c <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">scale_fill_gradient2</span>(</span>
+<span id="cb9-4"><a></a>    <span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"brown"</span>,</span>
+<span id="cb9-5"><a></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
+<span id="cb9-6"><a></a>  )</span>
+<span id="cb9-7"><a></a>p_nc <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">terrain.colors</span>(<span class="dv">7</span>))</span>
+<span id="cb9-8"><a></a>p_2c <span class="sc">|</span> p_3c <span class="sc">|</span> p_nc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -423,14 +423,14 @@ Yu-You Liou (NTU)
 <p><strong>Designing sequential palettes with Munsell</strong></p>
 <p>For a perceptually clean sequential scale, hold hue constant and vary chroma and luminance. The <code>munsell</code> package provides colour specification by HCL-like components:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Inspect a hue slice to choose end-point colours</span></span>
-<span id="cb10-2"><a href=""></a>munsell<span class="sc">::</span><span class="fu">hue_slice</span>(<span class="st">"5P"</span>)</span>
-<span id="cb10-3"><a href=""></a></span>
-<span id="cb10-4"><a href=""></a><span class="co"># Build the scale from chosen Munsell colours</span></span>
-<span id="cb10-5"><a href=""></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(</span>
-<span id="cb10-6"><a href=""></a>  <span class="at">low  =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5P 2/12"</span>),</span>
-<span id="cb10-7"><a href=""></a>  <span class="at">high =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5P 7/12"</span>)</span>
-<span id="cb10-8"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Inspect a hue slice to choose end-point colours</span></span>
+<span id="cb10-2"><a></a>munsell<span class="sc">::</span><span class="fu">hue_slice</span>(<span class="st">"5P"</span>)</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a><span class="co"># Build the scale from chosen Munsell colours</span></span>
+<span id="cb10-5"><a></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(</span>
+<span id="cb10-6"><a></a>  <span class="at">low  =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5P 2/12"</span>),</span>
+<span id="cb10-7"><a></a>  <span class="at">high =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5P 7/12"</span>)</span>
+<span id="cb10-8"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The Munsell notation <code>"5P 2/12"</code> means: hue 5P, value (luminance) 2, chroma 12. Keeping hue and chroma constant while varying value produces a clean sequential gradient.</p>
 </section>
@@ -439,18 +439,18 @@ Yu-You Liou (NTU)
 <p><strong>Designing diverging and n-colour palettes</strong></p>
 <p>For a diverging scale (one with a meaningful midpoint, such as zero), two distinct hues radiate outward from a neutral centre. The <code>colorspace</code> package provides perceptually grounded multi-hue palettes:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>p_div  <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">scale_fill_gradient2</span>(</span>
-<span id="cb11-3"><a href=""></a>    <span class="at">low      =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5B 7/8"</span>),</span>
-<span id="cb11-4"><a href=""></a>    <span class="at">high     =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5Y 7/8"</span>),</span>
-<span id="cb11-5"><a href=""></a>    <span class="at">mid      =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"N 7/0"</span>),</span>
-<span id="cb11-6"><a href=""></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
-<span id="cb11-7"><a href=""></a>  )</span>
-<span id="cb11-8"><a href=""></a>p_heat <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
-<span id="cb11-9"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> colorspace<span class="sc">::</span><span class="fu">heat_hcl</span>(<span class="dv">7</span>))</span>
-<span id="cb11-10"><a href=""></a>p_div2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
-<span id="cb11-11"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> colorspace<span class="sc">::</span><span class="fu">diverge_hcl</span>(<span class="dv">7</span>))</span>
-<span id="cb11-12"><a href=""></a>p_div <span class="sc">|</span> p_heat <span class="sc">|</span> p_div2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p_div  <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">scale_fill_gradient2</span>(</span>
+<span id="cb11-3"><a></a>    <span class="at">low      =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5B 7/8"</span>),</span>
+<span id="cb11-4"><a></a>    <span class="at">high     =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5Y 7/8"</span>),</span>
+<span id="cb11-5"><a></a>    <span class="at">mid      =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"N 7/0"</span>),</span>
+<span id="cb11-6"><a></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
+<span id="cb11-7"><a></a>  )</span>
+<span id="cb11-8"><a></a>p_heat <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
+<span id="cb11-9"><a></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> colorspace<span class="sc">::</span><span class="fu">heat_hcl</span>(<span class="dv">7</span>))</span>
+<span id="cb11-10"><a></a>p_div2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
+<span id="cb11-11"><a></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> colorspace<span class="sc">::</span><span class="fu">diverge_hcl</span>(<span class="dv">7</span>))</span>
+<span id="cb11-12"><a></a>p_div <span class="sc">|</span> p_heat <span class="sc">|</span> p_div2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -462,16 +462,16 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">5</span>))</span>
-<span id="cb12-2"><a href=""></a>base_na <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> z), <span class="at">linewidth =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb12-5"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="cn">NULL</span>)</span>
-<span id="cb12-6"><a href=""></a></span>
-<span id="cb12-7"><a href=""></a>p_def <span class="ot">&lt;-</span> base_na</span>
-<span id="cb12-8"><a href=""></a>p_inv <span class="ot">&lt;-</span> base_na <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">na.value =</span> <span class="cn">NA</span>)</span>
-<span id="cb12-9"><a href=""></a>p_yel <span class="ot">&lt;-</span> base_na <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">na.value =</span> <span class="st">"yellow"</span>)</span>
-<span id="cb12-10"><a href=""></a>p_def <span class="sc">|</span> p_inv <span class="sc">|</span> p_yel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">5</span>))</span>
+<span id="cb12-2"><a></a>base_na <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> z), <span class="at">linewidth =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="cn">NULL</span>)</span>
+<span id="cb12-6"><a></a></span>
+<span id="cb12-7"><a></a>p_def <span class="ot">&lt;-</span> base_na</span>
+<span id="cb12-8"><a></a>p_inv <span class="ot">&lt;-</span> base_na <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">na.value =</span> <span class="cn">NA</span>)</span>
+<span id="cb12-9"><a></a>p_yel <span class="ot">&lt;-</span> base_na <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">na.value =</span> <span class="st">"yellow"</span>)</span>
+<span id="cb12-10"><a></a>p_def <span class="sc">|</span> p_inv <span class="sc">|</span> p_yel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -483,19 +483,19 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>toy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb13-2"><a href=""></a>  <span class="at">const =</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">txt =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
-<span id="cb13-3"><a href=""></a>  <span class="at">big =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="at">log =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">2000</span>)</span>
-<span id="cb13-4"><a href=""></a>)</span>
-<span id="cb13-5"><a href=""></a></span>
-<span id="cb13-6"><a href=""></a>base_c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(up, up, <span class="at">fill =</span> big)) <span class="sc">+</span></span>
-<span id="cb13-7"><a href=""></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb13-8"><a href=""></a></span>
-<span id="cb13-9"><a href=""></a>p_def   <span class="ot">&lt;-</span> base_c</span>
-<span id="cb13-10"><a href=""></a>p_lim   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10000</span>))</span>
-<span id="cb13-11"><a href=""></a>p_brk   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">4000</span>))</span>
-<span id="cb13-12"><a href=""></a>p_lbl   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>())</span>
-<span id="cb13-13"><a href=""></a>(p_def <span class="sc">|</span> p_lim) <span class="sc">/</span> (p_brk <span class="sc">|</span> p_lbl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>toy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-2"><a></a>  <span class="at">const =</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">txt =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
+<span id="cb13-3"><a></a>  <span class="at">big =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="at">log =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">2000</span>)</span>
+<span id="cb13-4"><a></a>)</span>
+<span id="cb13-5"><a></a></span>
+<span id="cb13-6"><a></a>base_c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(up, up, <span class="at">fill =</span> big)) <span class="sc">+</span></span>
+<span id="cb13-7"><a></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb13-8"><a></a></span>
+<span id="cb13-9"><a></a>p_def   <span class="ot">&lt;-</span> base_c</span>
+<span id="cb13-10"><a></a>p_lim   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10000</span>))</span>
+<span id="cb13-11"><a></a>p_brk   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">4000</span>))</span>
+<span id="cb13-12"><a></a>p_lbl   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>())</span>
+<span id="cb13-13"><a></a>(p_def <span class="sc">|</span> p_lim) <span class="sc">/</span> (p_brk <span class="sc">|</span> p_lbl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>Setting <code>breaks = NULL</code> removes the legend keys and labels entirely.</p>
@@ -505,9 +505,9 @@ Yu-You Liou (NTU)
 <h3 id="legends">Legends</h3>
 <p>For continuous colour scales, the default legend takes the form of a <strong>colour bar</strong> — a smooth gradient strip. Its appearance is controlled by <code>guide_colourbar()</code>, passed either through <code>guides()</code> or through the <code>guide</code> argument of the scale function directly.</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>base_pt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cyl, displ, <span class="at">colour =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span>
-<span id="cb14-3"><a href=""></a>base_pt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>base_pt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cyl, displ, <span class="at">colour =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb14-3"><a></a>base_pt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -540,10 +540,10 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p_rev  <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb15-2"><a href=""></a>p_ht   <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">barheight =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">"cm"</span>)))</span>
-<span id="cb15-3"><a href=""></a>p_horiz <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">direction =</span> <span class="st">"horizontal"</span>))</span>
-<span id="cb15-4"><a href=""></a>p_rev <span class="sc">|</span> p_ht <span class="sc">|</span> p_horiz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>p_rev  <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb15-2"><a></a>p_ht   <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">barheight =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">"cm"</span>)))</span>
+<span id="cb15-3"><a></a>p_horiz <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">direction =</span> <span class="st">"horizontal"</span>))</span>
+<span id="cb15-4"><a></a>p_rev <span class="sc">|</span> p_ht <span class="sc">|</span> p_horiz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -551,10 +551,10 @@ Yu-You Liou (NTU)
 
 <p>The <code>guides()</code> function and the <code>guide</code> argument to the scale function are fully equivalent:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># These two are identical</span></span>
-<span id="cb16-2"><a href=""></a>a <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb16-3"><a href=""></a>b <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">scale_colour_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb16-4"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># These two are identical</span></span>
+<span id="cb16-2"><a></a>a <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb16-3"><a></a>b <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">scale_colour_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb16-4"><a></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section></section>
@@ -567,12 +567,12 @@ Yu-You Liou (NTU)
 <h2>Discrete Colour Scales</h2>
 <p>Discrete colour and fill scales are used whenever a categorical variable is mapped to colour. A bar chart that encodes both position and fill to the same variable serves as the running example:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>df_bar <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb17-2"><a href=""></a>bars <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_bar, <span class="fu">aes</span>(x, y, <span class="at">fill =</span> x)) <span class="sc">+</span></span>
-<span id="cb17-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb17-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb17-5"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb17-6"><a href=""></a>bars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>df_bar <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb17-2"><a></a>bars <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_bar, <span class="fu">aes</span>(x, y, <span class="at">fill =</span> x)) <span class="sc">+</span></span>
+<span id="cb17-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb17-6"><a></a>bars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>The default scale is <code>scale_fill_discrete()</code>, which delegates to <code>scale_fill_hue()</code>. These three calls produce identical output.</p>
@@ -582,7 +582,7 @@ Yu-You Liou (NTU)
 <h3 id="brewer-scales">Brewer Scales</h3>
 <p><code>scale_fill_brewer()</code> accesses the <strong>ColorBrewer</strong> palettes from <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a> — a collection of hand-crafted palettes designed for maps but widely applicable in other contexts. The full palette catalogue can be viewed with:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Three palette families are available:</p>
 <ul>
@@ -594,10 +594,10 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p_s1 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span>
-<span id="cb19-2"><a href=""></a>p_s2 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span>
-<span id="cb19-3"><a href=""></a>p_ac <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Accent"</span>)</span>
-<span id="cb19-4"><a href=""></a>p_s1 <span class="sc">|</span> p_s2 <span class="sc">|</span> p_ac</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>p_s1 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span>
+<span id="cb19-2"><a></a>p_s2 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span>
+<span id="cb19-3"><a></a>p_ac <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Accent"</span>)</span>
+<span id="cb19-4"><a></a>p_s1 <span class="sc">|</span> p_s2 <span class="sc">|</span> p_ac</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -605,16 +605,16 @@ Yu-You Liou (NTU)
 
 <p>Palette choice should match the geometry. <strong>Scatter plots</strong> use small markers, so vivid colours improve discriminability:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>df_pt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb20-2"><a href=""></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">30</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">30</span>), <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span>
-<span id="cb20-3"><a href=""></a>)</span>
-<span id="cb20-4"><a href=""></a>point <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_pt, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z)) <span class="sc">+</span></span>
-<span id="cb20-6"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb20-7"><a href=""></a></span>
-<span id="cb20-8"><a href=""></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">|</span></span>
-<span id="cb20-9"><a href=""></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">|</span></span>
-<span id="cb20-10"><a href=""></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>df_pt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb20-2"><a></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">30</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">30</span>), <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span>
+<span id="cb20-3"><a></a>)</span>
+<span id="cb20-4"><a></a>point <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_pt, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb20-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z)) <span class="sc">+</span></span>
+<span id="cb20-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb20-7"><a></a></span>
+<span id="cb20-8"><a></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">|</span></span>
+<span id="cb20-9"><a></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">|</span></span>
+<span id="cb20-10"><a></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -622,14 +622,14 @@ Yu-You Liou (NTU)
 
 <p><strong>Bar charts</strong> cover large colour areas, so subtle, muted palettes tend to look cleaner:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>df_area <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
-<span id="cb21-2"><a href=""></a>area <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_area, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb21-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> z), <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb21-4"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb21-5"><a href=""></a></span>
-<span id="cb21-6"><a href=""></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">|</span></span>
-<span id="cb21-7"><a href=""></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">|</span></span>
-<span id="cb21-8"><a href=""></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>df_area <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb21-2"><a></a>area <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_area, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> z), <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb21-5"><a></a></span>
+<span id="cb21-6"><a></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">|</span></span>
+<span id="cb21-7"><a></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">|</span></span>
+<span id="cb21-8"><a></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -646,10 +646,10 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p_def <span class="ot">&lt;-</span> bars</span>
-<span id="cb22-2"><a href=""></a>p_lc  <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_hue</span>(<span class="at">c =</span> <span class="dv">40</span>)</span>
-<span id="cb22-3"><a href=""></a>p_rng <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_hue</span>(<span class="at">h =</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">300</span>))</span>
-<span id="cb22-4"><a href=""></a>p_def <span class="sc">|</span> p_lc <span class="sc">|</span> p_rng</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>p_def <span class="ot">&lt;-</span> bars</span>
+<span id="cb22-2"><a></a>p_lc  <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_hue</span>(<span class="at">c =</span> <span class="dv">40</span>)</span>
+<span id="cb22-3"><a></a>p_rng <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_hue</span>(<span class="at">h =</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">300</span>))</span>
+<span id="cb22-4"><a></a>p_def <span class="sc">|</span> p_lc <span class="sc">|</span> p_rng</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -665,10 +665,10 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p_g1 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>()</span>
-<span id="cb23-2"><a href=""></a>p_g2 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="fl">0.5</span>, <span class="at">end =</span> <span class="dv">1</span>)</span>
-<span id="cb23-3"><a href=""></a>p_g3 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="fl">0.5</span>)</span>
-<span id="cb23-4"><a href=""></a>p_g1 <span class="sc">|</span> p_g2 <span class="sc">|</span> p_g3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>p_g1 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>()</span>
+<span id="cb23-2"><a></a>p_g2 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="fl">0.5</span>, <span class="at">end =</span> <span class="dv">1</span>)</span>
+<span id="cb23-3"><a></a>p_g3 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="fl">0.5</span>)</span>
+<span id="cb23-4"><a></a>p_g1 <span class="sc">|</span> p_g2 <span class="sc">|</span> p_g3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>The <code>start</code> and <code>end</code> arguments (range 0–1) define the grey range, where 0 is black and 1 is white.</p>
@@ -678,10 +678,10 @@ Yu-You Liou (NTU)
 <h3 id="paletteer-scales">Paletteer Scales</h3>
 <p>The <code>paletteer</code> package aggregates palettes from dozens of R packages into a single consistent interface. For discrete scales, use <code>scale_fill_paletteer_d()</code> (the <code>_d</code> suffix denotes discrete):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">library</span>(paletteer)</span>
-<span id="cb24-2"><a href=""></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"rtist::vangogh"</span>)</span>
-<span id="cb24-3"><a href=""></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"colorBlindness::paletteMartin"</span>)</span>
-<span id="cb24-4"><a href=""></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"wesanderson::FantasticFox1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">library</span>(paletteer)</span>
+<span id="cb24-2"><a></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"rtist::vangogh"</span>)</span>
+<span id="cb24-3"><a></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"colorBlindness::paletteMartin"</span>)</span>
+<span id="cb24-4"><a></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"wesanderson::FantasticFox1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Palette identifiers follow the <code>"package::palette_name"</code> convention. The full catalogue is searchable at <a href="https://pmassicotte.github.io/paletteer_gallery/" class="uri">https://pmassicotte.github.io/paletteer_gallery/</a>.</p>
 </section>
@@ -690,13 +690,13 @@ Yu-You Liou (NTU)
 <h3 id="manual-scales">Manual Scales</h3>
 <p>When none of the pre-built palettes meets your requirements—or when specific colour choices carry semantic meaning—use <code>scale_fill_manual()</code> to assign colours by hand.</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>p_m1 <span class="ot">&lt;-</span> bars <span class="sc">+</span></span>
-<span id="cb25-2"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"sienna1"</span>, <span class="st">"sienna4"</span>, <span class="st">"hotpink1"</span>, <span class="st">"hotpink4"</span>))</span>
-<span id="cb25-3"><a href=""></a>p_m2 <span class="ot">&lt;-</span> bars <span class="sc">+</span></span>
-<span id="cb25-4"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"tomato1"</span>, <span class="st">"tomato2"</span>, <span class="st">"tomato3"</span>, <span class="st">"tomato4"</span>))</span>
-<span id="cb25-5"><a href=""></a>p_m3 <span class="ot">&lt;-</span> bars <span class="sc">+</span></span>
-<span id="cb25-6"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey"</span>, <span class="st">"black"</span>, <span class="st">"grey"</span>, <span class="st">"grey"</span>))</span>
-<span id="cb25-7"><a href=""></a>p_m1 <span class="sc">|</span> p_m2 <span class="sc">|</span> p_m3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>p_m1 <span class="ot">&lt;-</span> bars <span class="sc">+</span></span>
+<span id="cb25-2"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"sienna1"</span>, <span class="st">"sienna4"</span>, <span class="st">"hotpink1"</span>, <span class="st">"hotpink4"</span>))</span>
+<span id="cb25-3"><a></a>p_m2 <span class="ot">&lt;-</span> bars <span class="sc">+</span></span>
+<span id="cb25-4"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"tomato1"</span>, <span class="st">"tomato2"</span>, <span class="st">"tomato3"</span>, <span class="st">"tomato4"</span>))</span>
+<span id="cb25-5"><a></a>p_m3 <span class="ot">&lt;-</span> bars <span class="sc">+</span></span>
+<span id="cb25-6"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey"</span>, <span class="st">"black"</span>, <span class="st">"grey"</span>, <span class="st">"grey"</span>))</span>
+<span id="cb25-7"><a></a>p_m1 <span class="sc">|</span> p_m2 <span class="sc">|</span> p_m3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -704,10 +704,10 @@ Yu-You Liou (NTU)
 
 <p>A <strong>named vector</strong> allows you to decouple the ordering of colour assignments from the order of factor levels. Only the category whose name matches <code>"b"</code> receives black:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>bars <span class="sc">+</span></span>
-<span id="cb26-2"><a href=""></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb26-3"><a href=""></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="at">d =</span> <span class="st">"grey"</span>, <span class="at">c =</span> <span class="st">"grey"</span>, <span class="at">b =</span> <span class="st">"black"</span>, <span class="at">a =</span> <span class="st">"grey"</span>)</span>
-<span id="cb26-4"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>bars <span class="sc">+</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb26-3"><a></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="at">d =</span> <span class="st">"grey"</span>, <span class="at">c =</span> <span class="st">"grey"</span>, <span class="at">b =</span> <span class="st">"black"</span>, <span class="at">a =</span> <span class="st">"grey"</span>)</span>
+<span id="cb26-4"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>Named vectors are particularly useful when a specific group needs to be highlighted, or when the colours must remain stable across plots that show different subsets of the data.</p>
@@ -720,15 +720,15 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb27-2"><a href=""></a>mpg_99 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1999</span>)</span>
-<span id="cb27-3"><a href=""></a>mpg_08 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2008</span>)</span>
-<span id="cb27-4"><a href=""></a></span>
-<span id="cb27-5"><a href=""></a>base_99c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_99, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> fl)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb27-6"><a href=""></a>base_08c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_08, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> fl)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb27-7"><a href=""></a></span>
-<span id="cb27-8"><a href=""></a>base_99c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>)) <span class="sc">|</span></span>
-<span id="cb27-9"><a href=""></a>base_08c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb27-2"><a></a>mpg_99 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1999</span>)</span>
+<span id="cb27-3"><a></a>mpg_08 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2008</span>)</span>
+<span id="cb27-4"><a></a></span>
+<span id="cb27-5"><a></a>base_99c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_99, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> fl)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb27-6"><a></a>base_08c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_08, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> fl)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb27-7"><a></a></span>
+<span id="cb27-8"><a></a>base_99c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>)) <span class="sc">|</span></span>
+<span id="cb27-9"><a></a>base_08c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -736,14 +736,14 @@ Yu-You Liou (NTU)
 
 <p><code>lims()</code> can synchronise multiple aesthetics in a single call:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>shared_lims <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</span>
-<span id="cb28-2"><a href=""></a>                    <span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>))</span>
-<span id="cb28-3"><a href=""></a></span>
-<span id="cb28-4"><a href=""></a>p99_all <span class="ot">&lt;-</span> base_99c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> shared_lims<span class="sc">$</span>x, <span class="at">y =</span> shared_lims<span class="sc">$</span>y,</span>
-<span id="cb28-5"><a href=""></a>                            <span class="at">colour =</span> shared_lims<span class="sc">$</span>colour)</span>
-<span id="cb28-6"><a href=""></a>p08_all <span class="ot">&lt;-</span> base_08c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> shared_lims<span class="sc">$</span>x, <span class="at">y =</span> shared_lims<span class="sc">$</span>y,</span>
-<span id="cb28-7"><a href=""></a>                            <span class="at">colour =</span> shared_lims<span class="sc">$</span>colour)</span>
-<span id="cb28-8"><a href=""></a>p99_all <span class="sc">|</span> p08_all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>shared_lims <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>),</span>
+<span id="cb28-2"><a></a>                    <span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>))</span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a>p99_all <span class="ot">&lt;-</span> base_99c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> shared_lims<span class="sc">$</span>x, <span class="at">y =</span> shared_lims<span class="sc">$</span>y,</span>
+<span id="cb28-5"><a></a>                            <span class="at">colour =</span> shared_lims<span class="sc">$</span>colour)</span>
+<span id="cb28-6"><a></a>p08_all <span class="ot">&lt;-</span> base_08c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> shared_lims<span class="sc">$</span>x, <span class="at">y =</span> shared_lims<span class="sc">$</span>y,</span>
+<span id="cb28-7"><a></a>                            <span class="at">colour =</span> shared_lims<span class="sc">$</span>colour)</span>
+<span id="cb28-8"><a></a>p99_all <span class="sc">|</span> p08_all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -751,13 +751,13 @@ Yu-You Liou (NTU)
 
 <p>When finer control is needed—for example, showing labels only for the fuel types present in a particular year’s data—use <code>scale_colour_discrete()</code> directly:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>base_99c <span class="sc">+</span></span>
-<span id="cb29-2"><a href=""></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>)) <span class="sc">+</span></span>
-<span id="cb29-3"><a href=""></a>  <span class="fu">scale_color_discrete</span>(</span>
-<span id="cb29-4"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
-<span id="cb29-5"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"d"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
-<span id="cb29-6"><a href=""></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"diesel"</span>, <span class="st">"premium"</span>, <span class="st">"regular"</span>)</span>
-<span id="cb29-7"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>base_99c <span class="sc">+</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>)) <span class="sc">+</span></span>
+<span id="cb29-3"><a></a>  <span class="fu">scale_color_discrete</span>(</span>
+<span id="cb29-4"><a></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
+<span id="cb29-5"><a></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"d"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
+<span id="cb29-6"><a></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"diesel"</span>, <span class="st">"premium"</span>, <span class="st">"regular"</span>)</span>
+<span id="cb29-7"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>The <code>limits</code> argument controls which values receive a colour mapping; <code>breaks</code> controls which values appear in the legend; <code>labels</code> customises the display text for each break.</p>
@@ -765,12 +765,12 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>base_08c <span class="sc">+</span></span>
-<span id="cb30-2"><a href=""></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>)) <span class="sc">+</span></span>
-<span id="cb30-3"><a href=""></a>  <span class="fu">scale_color_discrete</span>(</span>
-<span id="cb30-4"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
-<span id="cb30-5"><a href=""></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"compressed"</span>, <span class="st">"diesel"</span>, <span class="st">"ethanol"</span>, <span class="st">"premium"</span>, <span class="st">"regular"</span>)</span>
-<span id="cb30-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>base_08c <span class="sc">+</span></span>
+<span id="cb30-2"><a></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>)) <span class="sc">+</span></span>
+<span id="cb30-3"><a></a>  <span class="fu">scale_color_discrete</span>(</span>
+<span id="cb30-4"><a></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
+<span id="cb30-5"><a></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"compressed"</span>, <span class="st">"diesel"</span>, <span class="st">"ethanol"</span>, <span class="st">"premium"</span>, <span class="st">"regular"</span>)</span>
+<span id="cb30-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -812,11 +812,11 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>base_bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span>
-<span id="cb31-2"><a href=""></a>p_ncol <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">ncol =</span> <span class="dv">2</span>))</span>
-<span id="cb31-3"><a href=""></a>p_byrow <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb31-4"><a href=""></a>p_rev   <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb31-5"><a href=""></a>(p_ncol <span class="sc">|</span> p_byrow) <span class="sc">/</span> p_rev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>base_bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span>
+<span id="cb31-2"><a></a>p_ncol <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb31-3"><a></a>p_byrow <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb31-4"><a></a>p_rev   <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb31-5"><a></a>(p_ncol <span class="sc">|</span> p_byrow) <span class="sc">/</span> p_rev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -824,12 +824,12 @@ Yu-You Liou (NTU)
 
 <p><code>override.aes</code> is particularly important when the plot uses transparency or small sizes that make legend keys hard to see:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>base_alpha <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">stroke =</span> <span class="dv">0</span>)</span>
-<span id="cb32-3"><a href=""></a></span>
-<span id="cb32-4"><a href=""></a>p_noo <span class="ot">&lt;-</span> base_alpha <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>())</span>
-<span id="cb32-5"><a href=""></a>p_oo  <span class="ot">&lt;-</span> base_alpha <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span>
-<span id="cb32-6"><a href=""></a>p_noo <span class="sc">|</span> p_oo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>base_alpha <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span></span>
+<span id="cb32-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">stroke =</span> <span class="dv">0</span>)</span>
+<span id="cb32-3"><a></a></span>
+<span id="cb32-4"><a></a>p_noo <span class="ot">&lt;-</span> base_alpha <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>())</span>
+<span id="cb32-5"><a></a>p_oo  <span class="ot">&lt;-</span> base_alpha <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span>
+<span id="cb32-6"><a></a>p_noo <span class="sc">|</span> p_oo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>The right panel sets <code>alpha = 1</code> in the legend keys only, making them fully opaque and clearly readable even though the plot points are semi-transparent.</p>
@@ -844,10 +844,10 @@ Yu-You Liou (NTU)
 <p>Binned colour scales discretise a continuous variable into a fixed number of colour steps. This can improve perception of gradients, because the human visual system detects sharp colour boundaries (edges) more readily than smooth gradients.</p>
 <p>The default binned scale is <code>scale_fill_binned()</code>, which delegates to <code>scale_fill_steps()</code>. The <code>n.breaks</code> argument controls the number of colour steps:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>p_b1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_binned</span>()</span>
-<span id="cb33-2"><a href=""></a>p_b2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>()</span>
-<span id="cb33-3"><a href=""></a>p_b3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>(<span class="at">n.breaks =</span> <span class="dv">8</span>)</span>
-<span id="cb33-4"><a href=""></a>p_b1 <span class="sc">|</span> p_b2 <span class="sc">|</span> p_b3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>p_b1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_binned</span>()</span>
+<span id="cb33-2"><a></a>p_b2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>()</span>
+<span id="cb33-3"><a></a>p_b3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>(<span class="at">n.breaks =</span> <span class="dv">8</span>)</span>
+<span id="cb33-4"><a></a>p_b1 <span class="sc">|</span> p_b2 <span class="sc">|</span> p_b3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -855,14 +855,14 @@ Yu-You Liou (NTU)
 
 <p><code>scale_fill_steps()</code> mirrors the API of <code>scale_fill_gradient()</code>. Two-colour, three-colour, and n-colour variants are available:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>p_2s <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>(<span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">high =</span> <span class="st">"brown"</span>)</span>
-<span id="cb34-2"><a href=""></a>p_3s <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
-<span id="cb34-3"><a href=""></a>  <span class="fu">scale_fill_steps2</span>(</span>
-<span id="cb34-4"><a href=""></a>    <span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"brown"</span>,</span>
-<span id="cb34-5"><a href=""></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
-<span id="cb34-6"><a href=""></a>  )</span>
-<span id="cb34-7"><a href=""></a>p_ns <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">12</span>, <span class="at">colours =</span> <span class="fu">terrain.colors</span>(<span class="dv">12</span>))</span>
-<span id="cb34-8"><a href=""></a>p_2s <span class="sc">|</span> p_3s <span class="sc">|</span> p_ns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>p_2s <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>(<span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">high =</span> <span class="st">"brown"</span>)</span>
+<span id="cb34-2"><a></a>p_3s <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
+<span id="cb34-3"><a></a>  <span class="fu">scale_fill_steps2</span>(</span>
+<span id="cb34-4"><a></a>    <span class="at">low =</span> <span class="st">"grey"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"brown"</span>,</span>
+<span id="cb34-5"><a></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
+<span id="cb34-6"><a></a>  )</span>
+<span id="cb34-7"><a></a>p_ns <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">12</span>, <span class="at">colours =</span> <span class="fu">terrain.colors</span>(<span class="dv">12</span>))</span>
+<span id="cb34-8"><a></a>p_2s <span class="sc">|</span> p_3s <span class="sc">|</span> p_ns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -870,10 +870,10 @@ Yu-You Liou (NTU)
 
 <p>Viridis palettes can be applied to binned scales by passing the palette-generating function directly to the <code>colours</code> argument of <code>scale_fill_stepsn()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>p_v1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">9</span>))</span>
-<span id="cb35-2"><a href=""></a>p_v2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">magma</span>(<span class="dv">9</span>))</span>
-<span id="cb35-3"><a href=""></a>p_v3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">inferno</span>(<span class="dv">9</span>))</span>
-<span id="cb35-4"><a href=""></a>p_v1 <span class="sc">|</span> p_v2 <span class="sc">|</span> p_v3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>p_v1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">9</span>))</span>
+<span id="cb35-2"><a></a>p_v2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">magma</span>(<span class="dv">9</span>))</span>
+<span id="cb35-3"><a></a>p_v3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">inferno</span>(<span class="dv">9</span>))</span>
+<span id="cb35-4"><a></a>p_v1 <span class="sc">|</span> p_v2 <span class="sc">|</span> p_v3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -881,10 +881,10 @@ Yu-You Liou (NTU)
 
 <p><code>scale_fill_fermenter()</code> is the binned counterpart of the Brewer family:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>p_f1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>)</span>
-<span id="cb36-2"><a href=""></a>p_f2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">palette =</span> <span class="st">"Oranges"</span>)</span>
-<span id="cb36-3"><a href=""></a>p_f3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">palette =</span> <span class="st">"PuOr"</span>)</span>
-<span id="cb36-4"><a href=""></a>p_f1 <span class="sc">|</span> p_f2 <span class="sc">|</span> p_f3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>p_f1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>)</span>
+<span id="cb36-2"><a></a>p_f2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">palette =</span> <span class="st">"Oranges"</span>)</span>
+<span id="cb36-3"><a></a>p_f3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">palette =</span> <span class="st">"PuOr"</span>)</span>
+<span id="cb36-4"><a></a>p_f1 <span class="sc">|</span> p_f2 <span class="sc">|</span> p_f3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p><strong>Note:</strong> unlike <code>scale_fill_distiller()</code>, <code>scale_fill_fermenter()</code> does not interpolate between Brewer colours. If <code>n.breaks</code> exceeds the number of colours in the palette, a warning is issued and some steps will be suppressed.</p>
@@ -929,11 +929,11 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>base_bin <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cyl, displ, <span class="at">colour =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb37-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">scale_color_binned</span>()</span>
-<span id="cb37-3"><a href=""></a></span>
-<span id="cb37-4"><a href=""></a>base_bin <span class="sc">|</span></span>
-<span id="cb37-5"><a href=""></a>base_bin <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_coloursteps</span>(<span class="at">show.limits =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>base_bin <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cyl, displ, <span class="at">colour =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb37-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">scale_color_binned</span>()</span>
+<span id="cb37-3"><a></a></span>
+<span id="cb37-4"><a></a>base_bin <span class="sc">|</span></span>
+<span id="cb37-5"><a></a>base_bin <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_coloursteps</span>(<span class="at">show.limits =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-37-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section></section>
@@ -949,16 +949,16 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>base_dt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(psavert, uempmed, <span class="at">colour =</span> date)) <span class="sc">+</span></span>
-<span id="cb38-2"><a href=""></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb38-3"><a href=""></a></span>
-<span id="cb38-4"><a href=""></a>p_auto <span class="ot">&lt;-</span> base_dt</span>
-<span id="cb38-5"><a href=""></a>p_fmt  <span class="ot">&lt;-</span> base_dt <span class="sc">+</span></span>
-<span id="cb38-6"><a href=""></a>  <span class="fu">scale_colour_date</span>(</span>
-<span id="cb38-7"><a href=""></a>    <span class="at">date_breaks =</span> <span class="st">"142 months"</span>,</span>
-<span id="cb38-8"><a href=""></a>    <span class="at">date_labels =</span> <span class="st">"%b %Y"</span></span>
-<span id="cb38-9"><a href=""></a>  )</span>
-<span id="cb38-10"><a href=""></a>p_auto <span class="sc">|</span> p_fmt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>base_dt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(psavert, uempmed, <span class="at">colour =</span> date)) <span class="sc">+</span></span>
+<span id="cb38-2"><a></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb38-3"><a></a></span>
+<span id="cb38-4"><a></a>p_auto <span class="ot">&lt;-</span> base_dt</span>
+<span id="cb38-5"><a></a>p_fmt  <span class="ot">&lt;-</span> base_dt <span class="sc">+</span></span>
+<span id="cb38-6"><a></a>  <span class="fu">scale_colour_date</span>(</span>
+<span id="cb38-7"><a></a>    <span class="at">date_breaks =</span> <span class="st">"142 months"</span>,</span>
+<span id="cb38-8"><a></a>    <span class="at">date_labels =</span> <span class="st">"%b %Y"</span></span>
+<span id="cb38-9"><a></a>  )</span>
+<span id="cb38-10"><a></a>p_auto <span class="sc">|</span> p_fmt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-38-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>The <code>date_labels</code> argument accepts <code>strptime</code>-style format strings (see §10.2.3 for the full table).</p>
@@ -971,10 +971,10 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions, <span class="at">alpha =</span> density)) <span class="sc">+</span></span>
-<span id="cb39-2"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="at">fill =</span> <span class="st">"maroon"</span>) <span class="sc">+</span></span>
-<span id="cb39-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb39-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions, <span class="at">alpha =</span> density)) <span class="sc">+</span></span>
+<span id="cb39-2"><a></a>  <span class="fu">geom_raster</span>(<span class="at">fill =</span> <span class="st">"maroon"</span>) <span class="sc">+</span></span>
+<span id="cb39-3"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb39-4"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-39-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>Regions of high density are rendered fully opaque in dark maroon, while low-density regions fade towards transparency. Alpha scales are most effective when paired with a visually distinctive fill colour.</p>
@@ -991,18 +991,18 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>toy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb40-2"><a href=""></a>  <span class="at">const =</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">txt =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
-<span id="cb40-3"><a href=""></a>  <span class="at">big =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="at">log =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">2000</span>)</span>
-<span id="cb40-4"><a href=""></a>)</span>
-<span id="cb40-5"><a href=""></a>base_lg <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(up, up)) <span class="sc">+</span></span>
-<span id="cb40-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> txt), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
-<span id="cb40-7"><a href=""></a></span>
-<span id="cb40-8"><a href=""></a>p_l <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"left"</span>)</span>
-<span id="cb40-9"><a href=""></a>p_r <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span>
-<span id="cb40-10"><a href=""></a>p_b <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb40-11"><a href=""></a>p_n <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb40-12"><a href=""></a>(p_l <span class="sc">|</span> p_r) <span class="sc">/</span> (p_b <span class="sc">|</span> p_n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>toy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb40-2"><a></a>  <span class="at">const =</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">txt =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
+<span id="cb40-3"><a></a>  <span class="at">big =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="at">log =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">2000</span>)</span>
+<span id="cb40-4"><a></a>)</span>
+<span id="cb40-5"><a></a>base_lg <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(up, up)) <span class="sc">+</span></span>
+<span id="cb40-6"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> txt), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
+<span id="cb40-7"><a></a></span>
+<span id="cb40-8"><a></a>p_l <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"left"</span>)</span>
+<span id="cb40-9"><a></a>p_r <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span>
+<span id="cb40-10"><a></a>p_b <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb40-11"><a></a>p_n <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb40-12"><a></a>(p_l <span class="sc">|</span> p_r) <span class="sc">/</span> (p_b <span class="sc">|</span> p_n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -1049,16 +1049,16 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>base_lg2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(up, up)) <span class="sc">+</span></span>
-<span id="cb41-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> txt), <span class="at">size =</span> <span class="dv">3</span>)</span>
-<span id="cb41-3"><a href=""></a></span>
-<span id="cb41-4"><a href=""></a>p_tl <span class="ot">&lt;-</span> base_lg2 <span class="sc">+</span></span>
-<span id="cb41-5"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb41-6"><a href=""></a>p_cc <span class="ot">&lt;-</span> base_lg2 <span class="sc">+</span></span>
-<span id="cb41-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb41-8"><a href=""></a>p_br <span class="ot">&lt;-</span> base_lg2 <span class="sc">+</span></span>
-<span id="cb41-9"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb41-10"><a href=""></a>p_tl <span class="sc">|</span> p_cc <span class="sc">|</span> p_br</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>base_lg2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(up, up)) <span class="sc">+</span></span>
+<span id="cb41-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> txt), <span class="at">size =</span> <span class="dv">3</span>)</span>
+<span id="cb41-3"><a></a></span>
+<span id="cb41-4"><a></a>p_tl <span class="ot">&lt;-</span> base_lg2 <span class="sc">+</span></span>
+<span id="cb41-5"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb41-6"><a></a>p_cc <span class="ot">&lt;-</span> base_lg2 <span class="sc">+</span></span>
+<span id="cb41-7"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
+<span id="cb41-8"><a></a>p_br <span class="ot">&lt;-</span> base_lg2 <span class="sc">+</span></span>
+<span id="cb41-9"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb41-10"><a></a>p_tl <span class="sc">|</span> p_cc <span class="sc">|</span> p_br</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11_files/figure-revealjs/unnamed-chunk-41-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>Use <code>legend.margin = unit(0, "mm")</code> to remove the padding around the legend box if needed.</p>
@@ -1091,6 +1091,7 @@ Yu-You Liou (NTU)
 <section id="references" class="slide level2">
 <h2>References</h2>
 
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -1101,19 +1102,19 @@ Yu-You Liou (NTU)
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ch11_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ch11_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ch11_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ch11_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ch11_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ch11_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ch11_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ch11_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ch11_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ch11_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

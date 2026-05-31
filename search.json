@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "sylla.html",
+    "href": "sylla.html",
+    "title": "Data Aanlysis",
+    "section": "",
+    "text": "PDF version\n\n\n\n\n\n\nLecturer: Yu-You Liou\nContact: d10627008@ntu.edu.tw\n\n\nCourse Code: EIB-301-01-A1\nWebsite: https://yyliou.github.io/da\n\n\nMeeting Time: Tuesday, Periods 8–9 (15:10–17:00)\nLocation: A207\n\n\n\n\n\n\n\nTo enable students to understand the basic logic, applications, and simple techniques of data analysis using R.\nTo develop students’ ability to build clear and informative data visualizations grounded in the grammar of graphics.\nTo communicate data-driven findings clearly to both technical and non-technical audiences.\nTo integrate generative AI to enhance students’ workflows in programming and compilation tasks.\n\n\n\n\n\nWickham, H., Navarro, D., & Pedersen, T. L. ggplot2: Elegant Graphics for Data Analysis (3rd ed.). (Main) https://ggplot2-book.org\nAdler, J. R in a Nutshell: A Desktop Quick Reference (2nd ed.). O’Reilly Media.\n\n\n\n\n\nLecture (First hour): Foundational knowledge and concepts introduced each session.\nLab (Second hour): Hands-on in-class exercises using R to apply the concepts learned during the lecture.\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nWeight\nDetails\n\n\n\n\nMid-term Oral Examination\n20%\nIndividual oral assessment at mid-semester\n\n\nFinal Oral Examination\n20%\nIndividual oral assessment at end of semester\n\n\nIn-Class Exercises\n48%\n12 exercises × 4% each\n\n\nAttendance\n12%\nScore = min(12, number of sessions attended) × 1%\n\n\n\n\n\n\n\nAttendance\n\nPer Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.\n\nPresentations\n\nStudents who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.\n\nIn-class exercise deadline\n\nThe deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.\n\nAcademic Integrity\n\nAll submitted work must be the student’s own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.\n\nAI Policy\n\nStudents may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.\n\n\n\nAll software is free and open-source: R at https://cran.r-project.org, RStudio Desktop at https://posit.co/download/rstudio-desktop, and R packages tidyverse, ggplot2, patchwork (installation instructions on the course R page).\n\n\n\n\nWeeks 1–2: Part I — Introduction to R and first steps with ggplot2.\nWeeks 3–7: Part II — Layers (individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots).\nWeeks 8–9: Mid-term presentations.\nWeeks 10–11: Part III — Scales (position scales, colour scales, other aesthetics).\nWeeks 12–14: Part IV — The grammar; advanced topics.\nWeeks 15–16: Final presentations.\nWeeks 17-18: Flexible learning weeks.\n\nNote: Syllabus is subject to change. Any updates will be announced on the course website."
+  },
+  {
+    "objectID": "sylla.html#syllabus-and-course-policy",
+    "href": "sylla.html#syllabus-and-course-policy",
+    "title": "Data Aanlysis",
+    "section": "",
+    "text": "PDF version\n\n\n\n\n\n\nLecturer: Yu-You Liou\nContact: d10627008@ntu.edu.tw\n\n\nCourse Code: EIB-301-01-A1\nWebsite: https://yyliou.github.io/da\n\n\nMeeting Time: Tuesday, Periods 8–9 (15:10–17:00)\nLocation: A207\n\n\n\n\n\n\n\nTo enable students to understand the basic logic, applications, and simple techniques of data analysis using R.\nTo develop students’ ability to build clear and informative data visualizations grounded in the grammar of graphics.\nTo communicate data-driven findings clearly to both technical and non-technical audiences.\nTo integrate generative AI to enhance students’ workflows in programming and compilation tasks.\n\n\n\n\n\nWickham, H., Navarro, D., & Pedersen, T. L. ggplot2: Elegant Graphics for Data Analysis (3rd ed.). (Main) https://ggplot2-book.org\nAdler, J. R in a Nutshell: A Desktop Quick Reference (2nd ed.). O’Reilly Media.\n\n\n\n\n\nLecture (First hour): Foundational knowledge and concepts introduced each session.\nLab (Second hour): Hands-on in-class exercises using R to apply the concepts learned during the lecture.\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nWeight\nDetails\n\n\n\n\nMid-term Oral Examination\n20%\nIndividual oral assessment at mid-semester\n\n\nFinal Oral Examination\n20%\nIndividual oral assessment at end of semester\n\n\nIn-Class Exercises\n48%\n12 exercises × 4% each\n\n\nAttendance\n12%\nScore = min(12, number of sessions attended) × 1%\n\n\n\n\n\n\n\nAttendance\n\nPer Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.\n\nPresentations\n\nStudents who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.\n\nIn-class exercise deadline\n\nThe deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.\n\nAcademic Integrity\n\nAll submitted work must be the student’s own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.\n\nAI Policy\n\nStudents may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.\n\n\n\nAll software is free and open-source: R at https://cran.r-project.org, RStudio Desktop at https://posit.co/download/rstudio-desktop, and R packages tidyverse, ggplot2, patchwork (installation instructions on the course R page).\n\n\n\n\nWeeks 1–2: Part I — Introduction to R and first steps with ggplot2.\nWeeks 3–7: Part II — Layers (individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots).\nWeeks 8–9: Mid-term presentations.\nWeeks 10–11: Part III — Scales (position scales, colour scales, other aesthetics).\nWeeks 12–14: Part IV — The grammar; advanced topics.\nWeeks 15–16: Final presentations.\nWeeks 17-18: Flexible learning weeks.\n\nNote: Syllabus is subject to change. Any updates will be announced on the course website."
+  },
+  {
     "objectID": "r.html",
     "href": "r.html",
     "title": "Data Aanlysis",
@@ -40,6 +54,832 @@
     "title": "Data Aanlysis",
     "section": "Assessment",
     "text": "Assessment\n\n\n\n\n\n\n\n\nComponent\nWeight\nDetails\n\n\n\n\nMid-term Oral Examination\n20%\nIndividual oral assessment at mid-semester\n\n\nFinal Oral Examination\n20%\nIndividual oral assessment at end of semester\n\n\nIn-Class Exercises\n48%\n12 exercises × 4% each\n\n\nAttendance\n12%\nScore = min(12, number of sessions attended) × 1%"
+  },
+  {
+    "objectID": "index.html#contact-me",
+    "href": "index.html#contact-me",
+    "title": "Data Aanlysis",
+    "section": "Contact Me",
+    "text": "Contact Me\nPlease feel free to contact me via email. However, to ensure fairness and consistency for all students, I will not respond to three categories of inquiries:\n\nQuestions regarding information that is already available on the website\nRequests for make-up examination, presentations, assignment, or attendance adjustments\nRequests for special arrangements regarding examination or presentation schedules\n\nThank you for your understanding as we work to keep our learning environment fair for everyon"
+  },
+  {
+    "objectID": "ch11/ch11.html#overview",
+    "href": "ch11/ch11.html#overview",
+    "title": "Data Analysis",
+    "section": "Overview",
+    "text": "Overview\nAfter position, colour is the most frequently used aesthetic in data visualisation. ggplot2 offers an extensive toolkit for mapping data values to colours, and the chapter is organised to cover the full range of scenarios:\n\n§11.1 — Foundational colour theory and colour-blindness considerations\n§11.2 — Continuous colour scales: palettes, gradients, missing values, limits/breaks/labels, and colour-bar legends\n§11.3 — Discrete colour scales: Brewer, hue, grey, paletteer, and manual palettes, plus legend customisation"
+  },
+  {
+    "objectID": "ch11/ch11.html#a-little-colour-theory-1",
+    "href": "ch11/ch11.html#a-little-colour-theory-1",
+    "title": "Data Analysis",
+    "section": "A Little Colour Theory",
+    "text": "A Little Colour Theory\nColour is physically produced by a mixture of light wavelengths. Although a complete characterisation of a colour requires the full wavelength spectrum, the human visual system possesses only three types of cone receptor, so any perceived colour can be encoded with just three numbers.\nThe familiar RGB colour space encodes colours as red, green, and blue intensities. A key drawback of RGB is that it is not perceptually uniform: two pairs of colours separated by the same numeric distance may look very similar or very different, depending on where they fall in the space.\nA more principled alternative is the HCL colour space, defined by three perceptually meaningful dimensions:\n\n\n\nDimension\nRange\nPerceptual meaning\n\n\n\n\nHue\n0–360°\nThe “colour” of the colour (red, blue, green, …)\n\n\nChroma\n0–max\nColour purity: 0 = grey, max = vivid\n\n\nLuminance\n0–1\nLightness: 0 = black, 1 = white"
+  },
+  {
+    "objectID": "ch11/ch11.html#continuous-colour-scales-1",
+    "href": "ch11/ch11.html#continuous-colour-scales-1",
+    "title": "Data Analysis",
+    "section": "Continuous Colour Scales",
+    "text": "Continuous Colour Scales\nA 2D density surface of the faithful dataset—recording the waiting time between and duration of eruptions of Old Faithful—serves as the running example throughout this section. The erupt base plot hides the legend and removes axis expansion to focus on palette appearance:\n\nlibrary(ggplot2)\n\nerupt &lt;- ggplot(faithfuld, aes(waiting, eruptions, fill = density)) +\n  geom_raster() +\n  scale_x_continuous(NULL, expand = c(0, 0)) +\n  scale_y_continuous(NULL, expand = c(0, 0)) +\n  theme(legend.position = \"none\")\n\nerupt"
+  },
+  {
+    "objectID": "ch11/ch11.html#discrete-colour-scales-1",
+    "href": "ch11/ch11.html#discrete-colour-scales-1",
+    "title": "Data Analysis",
+    "section": "Discrete Colour Scales",
+    "text": "Discrete Colour Scales\nDiscrete colour and fill scales are used whenever a categorical variable is mapped to colour. A bar chart that encodes both position and fill to the same variable serves as the running example:\n\ndf_bar &lt;- data.frame(x = c(\"a\", \"b\", \"c\", \"d\"), y = c(3, 4, 1, 2))\nbars &lt;- ggplot(df_bar, aes(x, y, fill = x)) +\n  geom_bar(stat = \"identity\") +\n  labs(x = NULL, y = NULL) +\n  theme(legend.position = \"none\")\nbars\n\n\nThe default scale is scale_fill_discrete(), which delegates to scale_fill_hue(). These three calls produce identical output."
+  },
+  {
+    "objectID": "ch11/ch11.html#binned-colour-scales-1",
+    "href": "ch11/ch11.html#binned-colour-scales-1",
+    "title": "Data Analysis",
+    "section": "Binned Colour Scales",
+    "text": "Binned Colour Scales\nBinned colour scales discretise a continuous variable into a fixed number of colour steps. This can improve perception of gradients, because the human visual system detects sharp colour boundaries (edges) more readily than smooth gradients.\nThe default binned scale is scale_fill_binned(), which delegates to scale_fill_steps(). The n.breaks argument controls the number of colour steps:\n\np_b1 &lt;- erupt + scale_fill_binned()\np_b2 &lt;- erupt + scale_fill_steps()\np_b3 &lt;- erupt + scale_fill_steps(n.breaks = 8)\np_b1 | p_b2 | p_b3"
+  },
+  {
+    "objectID": "ch11/ch11.html#date-time-colour-scales",
+    "href": "ch11/ch11.html#date-time-colour-scales",
+    "title": "Data Analysis",
+    "section": "Date-Time Colour Scales",
+    "text": "Date-Time Colour Scales\nWhen a date or date-time variable is mapped to colour or fill, ggplot2 automatically selects scale_colour_date() or scale_colour_datetime(). These scales mirror the behaviour of date-time position scales (§10.2) and expose date_breaks and date_labels arguments for human-friendly control:"
+  },
+  {
+    "objectID": "ch11/ch11.html#alpha-scales",
+    "href": "ch11/ch11.html#alpha-scales",
+    "title": "Data Analysis",
+    "section": "Alpha Scales",
+    "text": "Alpha Scales\nThe alpha aesthetic controls the transparency of rendered elements, where 0 is fully transparent and 1 is fully opaque. Mapping alpha to a data variable creates a visual down-weighting effect, drawing the eye towards high-alpha (more opaque) observations.\nscale_alpha() is an alias for scale_alpha_continuous(), saving a few keystrokes in the most common use case:"
+  },
+  {
+    "objectID": "ch11/ch11.html#legend-position-1",
+    "href": "ch11/ch11.html#legend-position-1",
+    "title": "Data Analysis",
+    "section": "Legend Position",
+    "text": "Legend Position\nThe overall placement of the legend is controlled through the theme system via the legend.position setting. Accepted values are the strings \"right\" (default), \"left\", \"top\", \"bottom\", and \"none\" (suppresses all legends):"
+  },
+  {
+    "objectID": "ch11/ch11.html#acknowledgement",
+    "href": "ch11/ch11.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch11/ch11.html#references",
+    "href": "ch11/ch11.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch9/ch9.html#arranging-plots-1",
+    "href": "ch9/ch9.html#arranging-plots-1",
+    "title": "Data Analysis",
+    "section": "Arranging plots",
+    "text": "Arranging plots\nThe grammar underlying ggplot2 is designed around the construction of a single plot. Faceting provides a mechanism for embedding multiple sub-views within one visualisation, but all facet panels share the same data, layers, and scales. In practice, many analytical narratives require placing entirely independent plots side by side or stacked to tell a coherent story.\nWhile plots can always be assembled manually in a layout application, doing so is neither reproducible nor efficient. Several R packages address this need; this chapter focuses on the patchwork package, which provides the most expressive and ggplot2-consistent API. Related packages offering overlapping functionality include cowplot, gridExtra, and ggpubr."
+  },
+  {
+    "objectID": "ch9/ch9.html#laying-out-plots-side-by-side-1",
+    "href": "ch9/ch9.html#laying-out-plots-side-by-side-1",
+    "title": "Data Analysis",
+    "section": "Laying out plots side by side",
+    "text": "Laying out plots side by side\nAt its core, patchwork overloads the + operator to combine ggplot objects. Placing two plots on either side of + assembles them into a joint display:\n\np1 + p2"
+  },
+  {
+    "objectID": "ch9/ch9.html#taking-control-of-the-layout",
+    "href": "ch9/ch9.html#taking-control-of-the-layout",
+    "title": "Data Analysis",
+    "section": "Taking control of the layout",
+    "text": "Taking control of the layout\nplot_layout() — explicit grid specification\nThe most direct way to override the default layout is to append plot_layout() to the assembled plot. Its ncol and nrow arguments set the number of columns and rows respectively:\n\np1 + p2 + p3 + plot_layout(ncol = 2)"
+  },
+  {
+    "objectID": "ch9/ch9.html#modifying-subplots",
+    "href": "ch9/ch9.html#modifying-subplots",
+    "title": "Data Analysis",
+    "section": "Modifying subplots",
+    "text": "Modifying subplots\nIndexing individual panels with [[]]\nBecause assembled plots remain standard ggplot objects until rendered, individual sub-plots can be extracted, modified, and reinserted using [[]] double-bracket indexing. The index corresponds to the plot’s position in the assembly (left-to-right, top-to-bottom):\n\np12 &lt;- p1 + p2\np12[[2]] &lt;- p12[[2]] + theme_light()\np12\n\n\np12[[2]] retrieves the second plot (p2), applies theme_light(), and stores the modified version back in position 2."
+  },
+  {
+    "objectID": "ch9/ch9.html#adding-annotation",
+    "href": "ch9/ch9.html#adding-annotation",
+    "title": "Data Analysis",
+    "section": "Adding annotation",
+    "text": "Adding annotation\nplot_annotation() — titles and captions for the whole assembly\nOnce multiple plots are combined, they function as a single visual unit. Titles, subtitles, and captions that describe the composite figure — rather than any individual panel — should be attached to the assembly using plot_annotation():\n\np34 &lt;- p3 + p4 + plot_annotation(\n  title   = \"A closer look at the effect of drive train in cars\",\n  caption = \"Source: mpg dataset in ggplot2\"\n)\np34"
+  },
+  {
+    "objectID": "ch9/ch9.html#arranging-plots-on-top-of-each-other-1",
+    "href": "ch9/ch9.html#arranging-plots-on-top-of-each-other-1",
+    "title": "Data Analysis",
+    "section": "Arranging plots on top of each other",
+    "text": "Arranging plots on top of each other\nSide-by-side layouts place plots in non-overlapping regions of the page. A distinct use case is insets — small auxiliary plots placed on top of a larger background plot. patchwork handles this through the inset_element() function.\ninset_element() marks a plot as an inset to be overlaid on the immediately preceding plot in the assembly. Its four required arguments specify the inset’s boundaries:"
+  },
+  {
+    "objectID": "ch9/ch9.html#wrapping-up-1",
+    "href": "ch9/ch9.html#wrapping-up-1",
+    "title": "Data Analysis",
+    "section": "Wrapping up",
+    "text": "Wrapping up\nThis chapter has introduced the principal tools provided by the patchwork package for composing multi-panel figures:\n\n\n\nOperator / Function\nPurpose\n\n\n\n\np1 + p2\nPlace plots together (auto layout)\n\n\np1 \\| p2\nForce single row\n\n\np1 / p2\nForce single column\n\n\nplot_layout()\nControl ncol, nrow, design, guides\n\n\nguide_area()\nReserve a cell for collected guides\n\n\np[[i]]\nExtract / replace individual subplots\n\n\n&\nBroadcast a modification to all subplots\n\n\nplot_annotation()\nAdd titles, captions, and auto-tags\n\n\ninset_element()\nOverlay a plot as an inset"
+  },
+  {
+    "objectID": "ch9/ch9.html#acknowledgement",
+    "href": "ch9/ch9.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch9/ch9.html#references",
+    "href": "ch9/ch9.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch7/ch7.html#networks-1",
+    "href": "ch7/ch7.html#networks-1",
+    "title": "Data Analysis",
+    "section": "Networks",
+    "text": "Networks\nLike maps, network data occupies a specialised corner of the data visualisation landscape. While spatial data primarily requires handling map projections, network data introduces an entirely distinct data structure and an entirely distinct family of visual idioms.\nggplot2 does not natively support network visualisation. This chapter demonstrates how to use the ggraph package (https://ggraph.data-imaginist.com) — the most comprehensive and ggplot2-compatible solution available. Other packages offering related functionality include:\n\ngeomnet, ggnetwork, and GGally — for general network plots.\nggtree and ggdendro — specifically for tree and dendrogram visualisation."
+  },
+  {
+    "objectID": "ch7/ch7.html#what-is-network-data-1",
+    "href": "ch7/ch7.html#what-is-network-data-1",
+    "title": "Data Analysis",
+    "section": "What is network data?",
+    "text": "What is network data?\nIn mathematical terms, a graph (or network) is a data structure composed of two elements:\n\nNodes (also called vertices) — the entities being modelled (people, genes, web pages, …).\nEdges (also called links) — the relationships connecting pairs of nodes (friendship, co-expression, hyperlinks, …).\n\nBoth nodes and edges may carry additional attributes. Edges may additionally be classified as:\n\nDirected — the relationship has a defined source and target (e.g., “child-of” is not symmetric).\nUndirected — the relationship is symmetric (e.g., mutual friendship)."
+  },
+  {
+    "objectID": "ch7/ch7.html#a-tidy-network-manipulation-api",
+    "href": "ch7/ch7.html#a-tidy-network-manipulation-api",
+    "title": "Data Analysis",
+    "section": "A tidy network manipulation API",
+    "text": "A tidy network manipulation API\ntidygraph is best understood as a dplyr interface for network data. It exposes the same verbs (mutate(), filter(), arrange(), etc.) that analysts already know, but applies them to either the node table or the edge table of a graph.\nThe example below constructs a random directed graph using the Erdős–Rényi sampling model (play_gnp()), assigns a random categorical label to each node, and sorts the edges by the label of their source node:"
+  },
+  {
+    "objectID": "ch7/ch7.html#conversion",
+    "href": "ch7/ch7.html#conversion",
+    "title": "Data Analysis",
+    "section": "Conversion",
+    "text": "Conversion\nNetwork data arrives in many formats. tidygraph provides as_tbl_graph() to convert the most common R network objects into the unified tbl_graph format.\nConverting an edge-list data frame:\nThe highschool dataset from ggraph records friendship nominations among high-school boys in two academic years (1957 and 1958), stored as a three-column edge list:\n\ndata(highschool, package = \"ggraph\")\nhead(highschool)\n\n  from to year\n1    1 14 1957\n2    1 15 1957\n3    1 21 1957\n4    1 54 1957\n5    1 55 1957\n6    2 21 1957"
+  },
+  {
+    "objectID": "ch7/ch7.html#algorithms",
+    "href": "ch7/ch7.html#algorithms",
+    "title": "Data Analysis",
+    "section": "Algorithms",
+    "text": "Algorithms\nOne of tidygraph’s most powerful features is its integrated library of graph algorithms. These include:\n\nCentrality — measures of node importance (e.g., degree, betweenness, PageRank, eigenvector).\nRanking — orderings that place well-connected nodes near one another.\nGrouping / community detection — partitioning nodes into clusters based on edge density.\n\nAll algorithm functions are designed to be called inside mutate(). They return a vector whose length and ordering match the active node or edge table, and they infer the graph context implicitly — no need to pass the graph or node indices as arguments."
+  },
+  {
+    "objectID": "ch7/ch7.html#visualizing-networks-1",
+    "href": "ch7/ch7.html#visualizing-networks-1",
+    "title": "Data Analysis",
+    "section": "Visualizing networks",
+    "text": "Visualizing networks\nggraph extends the grammar of graphics to network data by sitting on top of both tidygraph and ggplot2. While its API is deliberately familiar, it differs from standard ggplot2 usage in one important respect: most network visualisations do not map variables directly to x and y aesthetics.\nInstead, node positions are determined by a layout algorithm that uses the graph’s topology to assign (often mathematically arbitrary) x and y coordinates. The positions communicate structural relationships — connectivity, hierarchy, clustering — rather than the values of any measured variable."
+  },
+  {
+    "objectID": "ch7/ch7.html#setting-up-the-visualization",
+    "href": "ch7/ch7.html#setting-up-the-visualization",
+    "title": "Data Analysis",
+    "section": "Setting up the visualization",
+    "text": "Setting up the visualization\nA ggraph plot is initialised with ggraph() rather than ggplot(). The function signature is:\n\nggraph(graph, layout = \"...\", ...)\n\n\ngraph — a tbl_graph, or any object that as_tbl_graph() can convert.\nlayout — either a string naming a built-in layout, or a custom function that accepts a tbl_graph and returns a data frame with at least x and y columns (one row per node).\n... — additional arguments forwarded to the layout function.\n\nIf layout is omitted, ggraph selects a sensible default based on the graph type."
+  },
+  {
+    "objectID": "ch7/ch7.html#drawing-nodes",
+    "href": "ch7/ch7.html#drawing-nodes",
+    "title": "Data Analysis",
+    "section": "Drawing nodes",
+    "text": "Drawing nodes\nAll node-drawing geoms in ggraph share the geom_node_ prefix. The workhorse is geom_node_point(), which renders each node as a point — conceptually similar to geom_point(), but with three important differences shared by all node and edge geoms:\n\nx and y are implicit — node positions are set by the layout and do not need to be specified in aes().\nfilter aesthetic — a logical aesthetic that suppresses the drawing of specific nodes when set to FALSE, without removing them from the graph structure used by edges.\nIn-aes() algorithm calls — any tidygraph algorithm can be called directly inside aes(), and it will be evaluated on the graph being visualised. This enables rapid iteration without modifying the underlying data."
+  },
+  {
+    "objectID": "ch7/ch7.html#drawing-edges",
+    "href": "ch7/ch7.html#drawing-edges",
+    "title": "Data Analysis",
+    "section": "Drawing edges",
+    "text": "Drawing edges\nEdge geoms share the geom_edge_ prefix and offer considerably more variety than node geoms, reflecting the many ways in which a connection between two entities can be rendered."
+  },
+  {
+    "objectID": "ch7/ch7.html#faceting",
+    "href": "ch7/ch7.html#faceting",
+    "title": "Data Analysis",
+    "section": "Faceting",
+    "text": "Faceting\nFaceting is conceptually as valuable for networks as it is for tabular data — and for much the same reasons: it enables direct visual comparison of the same structure across subsets. However, standard facet_wrap() and facet_grid() cannot be used directly with ggraph because they do not understand the dependency between node and edge tables.\nggraph provides three specialised faceting functions:\n\nfacet_edges(~ var) — splits edges into panels by a variable in the edge table; nodes are repeated in all panels.\nfacet_nodes(~ var) — splits nodes into panels by a variable in the node table; edges whose endpoints are in different panels are dropped.\nfacet_graph(row_var ~ col_var, rows = \"edges\"/\"nodes\", cols = \"edges\"/\"nodes\") — a two-dimensional equivalent of facet_grid() that allows independent specification of which table drives the rows and which drives the columns."
+  },
+  {
+    "objectID": "ch7/ch7.html#want-more-1",
+    "href": "ch7/ch7.html#want-more-1",
+    "title": "Data Analysis",
+    "section": "Want more?",
+    "text": "Want more?\nThis chapter provides a practical introduction to network visualisation with ggraph and tidygraph. Many additional capabilities — including more layout algorithms, further edge and node geom types, legend handling for edges, and custom scale functions — are documented in the respective package websites:\n\ntidygraph documentation and vignettes: https://tidygraph.data-imaginist.com\nggraph documentation and getting-started guides:\n\nLayouts: https://ggraph.data-imaginist.com/articles/Layouts.html\nNodes: https://ggraph.data-imaginist.com/articles/Nodes.html\nEdges: https://ggraph.data-imaginist.com/articles/Edges.html\n\n\nUnderstanding tidygraph deeply — particularly the activate() model and algorithm API — is the single most effective way to improve command of ggraph, since every visualisation decision ultimately rests on how the underlying graph data is structured and queried."
+  },
+  {
+    "objectID": "ch7/ch7.html#acknowledgement",
+    "href": "ch7/ch7.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch7/ch7.html#references",
+    "href": "ch7/ch7.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch5/ch5.html#revealing-uncertainty-1",
+    "href": "ch5/ch5.html#revealing-uncertainty-1",
+    "title": "Data Analysis",
+    "section": "Revealing uncertainty",
+    "text": "Revealing uncertainty\nWhen data carry information about uncertainty — whether derived from a statistical model, a resampling procedure, or distributional assumptions — visualising that uncertainty alongside the central estimate is strongly recommended.\nggplot2 provides four families of geoms for this purpose. The appropriate choice depends on two criteria: (1) whether the x-axis is discrete or continuous, and (2) whether you wish to show the range only or both the range and the centre of the interval."
+  },
+  {
+    "objectID": "ch5/ch5.html#weighted-data-1",
+    "href": "ch5/ch5.html#weighted-data-1",
+    "title": "Data Analysis",
+    "section": "Weighted data",
+    "text": "Weighted data\nWhen the input data consist of aggregated summaries — where each row represents multiple underlying observations — it is important to account for the unequal importance of each row. This section illustrates the concept using the built-in midwest dataset, which contains county-level statistics from the 2000 US Census for Midwestern states.\nThe dataset is composed mainly of percentages (e.g., percent white, percent below poverty line, percent with a college degree) together with descriptive information such as total area and total population."
+  },
+  {
+    "objectID": "ch5/ch5.html#diamonds-data-1",
+    "href": "ch5/ch5.html#diamonds-data-1",
+    "title": "Data Analysis",
+    "section": "Diamonds data",
+    "text": "Diamonds data\nThe remaining sections in this chapter draw on the diamonds dataset, which is bundled with ggplot2. It contains price and quality information for approximately 54,000 diamonds and serves as a useful testbed for techniques suited to large datasets.\n\nhead(diamonds)\n\n# A tibble: 6 × 10\n  carat cut       color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48"
+  },
+  {
+    "objectID": "ch5/ch5.html#displaying-distributions-1",
+    "href": "ch5/ch5.html#displaying-distributions-1",
+    "title": "Data Analysis",
+    "section": "Displaying distributions",
+    "text": "Displaying distributions\nThe appropriate geom for visualising a distribution depends on several factors: the dimensionality of the distribution, whether the variable is continuous or discrete, and whether interest lies in the conditional or marginal distribution."
+  },
+  {
+    "objectID": "ch5/ch5.html#dealing-with-overplotting-1",
+    "href": "ch5/ch5.html#dealing-with-overplotting-1",
+    "title": "Data Analysis",
+    "section": "Dealing with overplotting",
+    "text": "Dealing with overplotting\nThe scatterplot is among the most effective tools for exploring the relationship between two continuous variables. However, with large datasets, many points will be rendered at the same or near-identical positions, a problem called overplotting. In severe cases, only the boundary of the data cloud is visible, and any interpretation of the interior is unreliable.\nSeveral strategies exist for mitigating overplotting. The most appropriate approach depends on the size of the dataset and the degree of overlap."
+  },
+  {
+    "objectID": "ch5/ch5.html#statistical-summaries-1",
+    "href": "ch5/ch5.html#statistical-summaries-1",
+    "title": "Data Analysis",
+    "section": "Statistical summaries",
+    "text": "Statistical summaries\ngeom_histogram() and geom_bin2d() are specialised combinations of a familiar geom (geom_bar() / geom_raster()) with a statistical transformation (stat_bin() / stat_bin2d()). These stats aggregate observations into bins and return the count per bin. What if a summary other than count is desired?\nstat_summary_bin() and stat_summary_2d() extend this idea to arbitrary summary functions, enabling the display of means, medians, or any user-defined statistic within each bin."
+  },
+  {
+    "objectID": "ch5/ch5.html#surfaces-1",
+    "href": "ch5/ch5.html#surfaces-1",
+    "title": "Data Analysis",
+    "section": "Surfaces",
+    "text": "Surfaces\nThe preceding sections covered one-to-one geoms (one geometric object per row) and statistical geoms (aggregations over rows). A third scenario arises when the goal is to represent a three-dimensional surface — a value z defined over a grid of (x, y) coordinates.\nggplot2 does not produce true 3D plots, but provides several 2D representations of surfaces. These geoms differ primarily in how the third dimension z is encoded:"
+  },
+  {
+    "objectID": "ch5/ch5.html#acknowledgement",
+    "href": "ch5/ch5.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch5/ch5.html#references",
+    "href": "ch5/ch5.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch4/ch4.html#collective-geoms-1",
+    "href": "ch4/ch4.html#collective-geoms-1",
+    "title": "Data Analysis",
+    "section": "Collective geoms",
+    "text": "Collective geoms\nGeoms can be broadly classified as either individual or collective. An individual geom renders one distinct graphical object per row of data — for instance, geom_point() places a single point for each observation.\nA collective geom, by contrast, represents multiple observations with a single geometric object. This behaviour may arise from a statistical summary (such as a boxplot) or may be intrinsic to how the geom is defined (such as a polygon).\nLines and paths occupy an intermediate position: each rendered line is built from a sequence of straight segments, yet each segment encodes two data points."
+  },
+  {
+    "objectID": "ch4/ch4.html#multiple-groups-one-aesthetic-1",
+    "href": "ch4/ch4.html#multiple-groups-one-aesthetic-1",
+    "title": "Data Analysis",
+    "section": "Multiple groups, one aesthetic",
+    "text": "Multiple groups, one aesthetic\nA common scenario is wanting to separate data into groups while rendering all groups with the same visual style. The goal is to make individual subjects distinguishable without labelling them. Longitudinal studies with many subjects frequently call for this treatment, and the resulting plots are informally known as spaghetti plots.\nThe plot below traces the growth trajectory of each boy over time. Setting group = Subject inside aes() instructs geom_line() to draw one connected line per subject:"
+  },
+  {
+    "objectID": "ch4/ch4.html#different-groups-on-different-layers-1",
+    "href": "ch4/ch4.html#different-groups-on-different-layers-1",
+    "title": "Data Analysis",
+    "section": "Different groups on different layers",
+    "text": "Different groups on different layers\nThere are situations in which different layers of a plot require different levels of aggregation. For example, one layer may display individual trajectories while another overlays a single overall trend line.\nIf the grouping aesthetic is set globally in ggplot(), it propagates to every layer — including geom_smooth(). The result is one smoothed line per group, which is typically not what we want:"
+  },
+  {
+    "objectID": "ch4/ch4.html#overriding-the-default-grouping-1",
+    "href": "ch4/ch4.html#overriding-the-default-grouping-1",
+    "title": "Data Analysis",
+    "section": "Overriding the default grouping",
+    "text": "Overriding the default grouping\nSometimes a plot has a discrete x-axis, yet we still want to draw lines that connect observations across groups rather than within them. This pattern appears in interaction plots, profile plots, and parallel coordinate plots, among others.\nConsider boxplots of height at each measurement Occasion. Since Occasion is a discrete variable, ggplot2 automatically draws one boxplot per occasion:\n\nggplot(Oxboys, aes(Occasion, height)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "ch4/ch4.html#matching-aesthetics-to-graphic-objects-1",
+    "href": "ch4/ch4.html#matching-aesthetics-to-graphic-objects-1",
+    "title": "Data Analysis",
+    "section": "Matching aesthetics to graphic objects",
+    "text": "Matching aesthetics to graphic objects\nAn important question arises with collective geoms: when individual observations carry different aesthetic values, how should those values be mapped onto a single geometric object?\nggplot2 handles this differently depending on the geom type."
+  },
+  {
+    "objectID": "ch4/ch4.html#acknowledgement",
+    "href": "ch4/ch4.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch4/ch4.html#references",
+    "href": "ch4/ch4.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch2/ch2.html#introduction-1",
+    "href": "ch2/ch2.html#introduction-1",
+    "title": "Data Analysis",
+    "section": "Introduction",
+    "text": "Introduction\nThe goal of this chapter is to teach you how to produce useful graphics with ggplot2 as quickly as possible. You’ll learn the basics of ggplot() along with some useful “recipes” to make the most important plots. ggplot() allows you to make complex plots with just a few lines of code because it’s based on a rich underlying theory, the grammar of graphics. Here we’ll skip the theory and focus on the practice, and in later chapters you’ll learn how to use the full expressive power of the grammar."
+  },
+  {
+    "objectID": "ch2/ch2.html#fuel-economy-data-1",
+    "href": "ch2/ch2.html#fuel-economy-data-1",
+    "title": "Data Analysis",
+    "section": "Fuel economy data",
+    "text": "Fuel economy data\nIn this chapter, we’ll mostly use one data set that’s bundled with ggplot2: mpg. It includes information about the fuel economy of popular car models in 1999 and 2008, collected by the US Environmental Protection Agency, http://fueleconomy.gov. You can access the data by loading ggplot2:\n\nlibrary(ggplot2)\nmpg\n\n# A tibble: 234 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…\n 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n# ℹ 224 more rows"
+  },
+  {
+    "objectID": "ch2/ch2.html#exercise",
+    "href": "ch2/ch2.html#exercise",
+    "title": "Data Analysis",
+    "section": "Exercise",
+    "text": "Exercise\n\nList five functions that you could use to get more information about the mpg dataset.\nHow can you find out what other datasets are included with ggplot2?\nApart from the US, most countries use fuel consumption (fuel consumed over fixed distance) rather than fuel economy (distance travelled with fixed amount of fuel). How could you convert cty and hwy into the European standard of l/100km?\nWhich manufacturer has the most models in this dataset? Which model has the most variations? Does your answer change if you remove the redundant specification of drive train (e.g. “pathfinder 4wd”, “a4 quattro”) from the model name?"
+  },
+  {
+    "objectID": "ch2/ch2.html#key-components-1",
+    "href": "ch2/ch2.html#key-components-1",
+    "title": "Data Analysis",
+    "section": "Key components",
+    "text": "Key components\nEvery ggplot2 plot has three key components:\n\ndata,\nA set of aesthetic mappings between variables in the data and visual properties, and\nAt least one layer which describes how to render each observation. Layers are usually created with a geom function."
+  },
+  {
+    "objectID": "ch2/ch2.html#exercise-1",
+    "href": "ch2/ch2.html#exercise-1",
+    "title": "Data Analysis",
+    "section": "Exercise",
+    "text": "Exercise\n\nHow would you describe the relationship between cty and hwy? Do you have any concerns about drawing conclusions from that plot?\nWhat does ggplot(mpg, aes(model, manufacturer)) + geom_point() show? Is it useful? How could you modify the data to make it more informative?\nDescribe the data, aesthetic mappings and layers used for each of the following plots. You’ll need to guess a little because you haven’t seen all the datasets and functions yet, but use your common sense! See if you can predict what the plot will look like before running the code.\n\n\nggplot(mpg, aes(cty, hwy)) + geom_point()\nggplot(diamonds, aes(carat, price)) + geom_point()\nggplot(economics, aes(date, unemploy)) + geom_line()\nggplot(mpg, aes(cty)) + geom_histogram()"
+  },
+  {
+    "objectID": "ch2/ch2.html#colour-size-shape-and-other-aesthetic-attributes-1",
+    "href": "ch2/ch2.html#colour-size-shape-and-other-aesthetic-attributes-1",
+    "title": "Data Analysis",
+    "section": "Colour, size, shape and other aesthetic attributes",
+    "text": "Colour, size, shape and other aesthetic attributes\nTo add additional variables to a plot, we can use other aesthetics like colour, shape, and size (NB: while we use British spelling throughout this book, ggplot2 also accepts American spellings). These work in the same way as the x and y aesthetics, and are added into the call to aes():\n\naes(displ, hwy, colour = class)\naes(displ, hwy, shape = drv)\naes(displ, hwy, size = cyl)"
+  },
+  {
+    "objectID": "ch2/ch2.html#exercise-2",
+    "href": "ch2/ch2.html#exercise-2",
+    "title": "Data Analysis",
+    "section": "Exercise",
+    "text": "Exercise\n\nExperiment with the colour, shape and size aesthetics. What happens when you map them to continuous values? What about categorical values? What happens when you use more than one aesthetic in a plot?\nWhat happens if you map a continuous variable to shape? Why? What happens if you map trans to shape? Why?\nHow is drive train related to fuel economy? How is drive train related to engine size and class?"
+  },
+  {
+    "objectID": "ch2/ch2.html#faceting-1",
+    "href": "ch2/ch2.html#faceting-1",
+    "title": "Data Analysis",
+    "section": "Faceting",
+    "text": "Faceting\nAnother technique for displaying additional categorical variables on a plot is faceting. Faceting creates tables of graphics by splitting the data into subsets and displaying the same graph for each subset. You’ll learn more about faceting in Chapter 16, but it’s such a useful technique that you need to know it right away.\nThere are two types of faceting: grid and wrapped. Wrapped is the most useful, so we’ll discuss it here, and you can learn about grid faceting later. To facet a plot you simply add a faceting specification with facet_wrap(), which takes the name of a variable preceded by ~."
+  },
+  {
+    "objectID": "ch2/ch2.html#exercises",
+    "href": "ch2/ch2.html#exercises",
+    "title": "Data Analysis",
+    "section": "Exercises",
+    "text": "Exercises\n\nWhat happens if you try to facet by a continuous variable like hwy? What about cyl? What’s the key difference?\nUse faceting to explore the 3-way relationship between fuel economy, engine size, and number of cylinders. How does faceting by number of cylinders change your assessement of the relationship between engine size and fuel economy?\nRead the documentation for facet_wrap(). What arguments can you use to control how many rows and columns appear in the output?\nWhat does the scales argument to facet_wrap() do? When might you use it?"
+  },
+  {
+    "objectID": "ch2/ch2.html#plot-geoms-1",
+    "href": "ch2/ch2.html#plot-geoms-1",
+    "title": "Data Analysis",
+    "section": "Plot geoms",
+    "text": "Plot geoms\nYou might guess that by substituting geom_point() for a different geom function, you’d get a different type of plot. That’s a great guess! In the following sections, you’ll learn about some of the other important geoms provided in ggplot2. This isn’t an exhaustive list, but should cover the most commonly used plot types. You’ll learn more in Chapter 3 and Chapter 4.\n\ngeom_smooth() fits a smoother to the data and displays the smooth and its standard error.\ngeom_boxplot() produces a box-and-whisker plot to summarise the distribution of a set of points.\ngeom_histogram() and geom_freqpoly() show the distribution of continuous variables.\ngeom_bar() shows the distribution of categorical variables.\ngeom_path() and geom_line() draw lines between the data points. A line plot is constrained to produce lines that travel from left to right, while paths can go in any direction. Lines are typically used to explore how things change over time."
+  },
+  {
+    "objectID": "ch2/ch2.html#adding-a-smoother-to-a-plot",
+    "href": "ch2/ch2.html#adding-a-smoother-to-a-plot",
+    "title": "Data Analysis",
+    "section": "Adding a smoother to a plot",
+    "text": "Adding a smoother to a plot\nIf you have a scatterplot with a lot of noise, it can be hard to see the dominant pattern. In this case it’s useful to add a smoothed line to the plot with geom_smooth():\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth()\n\n\nThis overlays the scatterplot with a smooth curve, including an assessment of uncertainty in the form of point-wise confidence intervals shown in grey. If you’re not interested in the confidence interval, turn it off with geom_smooth(se = FALSE)."
+  },
+  {
+    "objectID": "ch2/ch2.html#boxplots-and-jittered-points",
+    "href": "ch2/ch2.html#boxplots-and-jittered-points",
+    "title": "Data Analysis",
+    "section": "Boxplots and jittered points",
+    "text": "Boxplots and jittered points\nWhen a set of data includes a categorical variable and one or more continuous variables, you will probably be interested to know how the values of the continuous variables vary with the levels of the categorical variable. Say we’re interested in seeing how fuel economy varies within cars that have the same kind of drivetrain. We might start with a scatterplot like this:\n\nggplot(mpg, aes(drv, hwy)) + \n  geom_point()"
+  },
+  {
+    "objectID": "ch2/ch2.html#histograms-and-frequency-polygons",
+    "href": "ch2/ch2.html#histograms-and-frequency-polygons",
+    "title": "Data Analysis",
+    "section": "Histograms and frequency polygons",
+    "text": "Histograms and frequency polygons\nBoth histograms and frequency polygons work in the same way: they bin the data, then count the number of observations in each bin. The only difference is the display: histograms use bars and frequency polygons use lines.\nYou can control the width of the bins with the binwidth argument (if you don’t want evenly spaced bins you can use the breaks argument). It is very important to experiment with the bin width. The default just splits your data into 30 bins, which is unlikely to be the best choice. You should always try many bin widths, and you may find you need multiple bin widths to tell the full story of your data."
+  },
+  {
+    "objectID": "ch2/ch2.html#bar-charts",
+    "href": "ch2/ch2.html#bar-charts",
+    "title": "Data Analysis",
+    "section": "Bar charts",
+    "text": "Bar charts\nThe discrete analogue of the histogram is the bar chart, geom_bar(). It’s easy to use:\n\nggplot(mpg, aes(manufacturer)) + \n  geom_bar()\n\n\n(You’ll learn how to fix the labels in Section 17.4.2)."
+  },
+  {
+    "objectID": "ch2/ch2.html#time-series-with-line-and-path-plots",
+    "href": "ch2/ch2.html#time-series-with-line-and-path-plots",
+    "title": "Data Analysis",
+    "section": "Time series with line and path plots",
+    "text": "Time series with line and path plots\nLine and path plots are typically used for time series data. Line plots join the points from left to right, while path plots join them in the order that they appear in the dataset (in other words, a line plot is a path plot of the data sorted by x value). Line plots usually have time on the x-axis, showing how a single variable has changed over time. Path plots show how two variables have simultaneously changed over time, with time encoded in the way that observations are connected."
+  },
+  {
+    "objectID": "ch2/ch2.html#exercises-1",
+    "href": "ch2/ch2.html#exercises-1",
+    "title": "Data Analysis",
+    "section": "Exercises",
+    "text": "Exercises\n\nWhat’s the problem with the plot created by ggplot(mpg, aes(cty, hwy)) + geom_point()? Which of the geoms described above is most effective at remedying the problem?\nOne challenge with ggplot(mpg, aes(class, hwy)) + geom_boxplot() is that the ordering of class is alphabetical, which is not terribly useful. How could you change the factor levels to be more informative?\n\n\nRather than reordering the factor by hand, you can do it automatically based on the data: ggplot(mpg, aes(reorder(class, hwy), hwy)) + geom_boxplot(). What does reorder() do? Read the documentation.\n\n\nExplore the distribution of the carat variable in the diamonds dataset. What binwidth reveals the most interesting patterns?"
+  },
+  {
+    "objectID": "ch2/ch2.html#modifying-the-axes-1",
+    "href": "ch2/ch2.html#modifying-the-axes-1",
+    "title": "Data Analysis",
+    "section": "Modifying the axes",
+    "text": "Modifying the axes\nYou’ll learn the full range of options available in later chapters, but two families of useful helpers let you make the most common modifications. xlab() and ylab() modify the x- and y-axis labels:"
+  },
+  {
+    "objectID": "ch2/ch2.html#output-1",
+    "href": "ch2/ch2.html#output-1",
+    "title": "Data Analysis",
+    "section": "Output",
+    "text": "Output\nMost of the time you create a plot object and immediately plot it, but you can also save a plot to a variable and manipulate it:\n\np &lt;- ggplot(mpg, aes(displ, hwy, colour = factor(cyl))) +\n  geom_point()"
+  },
+  {
+    "objectID": "ch2/ch2.html#acknowledgement",
+    "href": "ch2/ch2.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch2/ch2.html#references",
+    "href": "ch2/ch2.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch1/ch1.html#data",
+    "href": "ch1/ch1.html#data",
+    "title": "Data Analysis",
+    "section": "Data",
+    "text": "Data\n\nlibrary(ggplot2)\ndata(diamonds)\ndim(diamonds)\n\n[1] 53940    10\n\ndiamonds[1:15,]\n\n# A tibble: 15 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n11  0.3  Good      J     SI1      64      55   339  4.25  4.28  2.73\n12  0.23 Ideal     J     VS1      62.8    56   340  3.93  3.9   2.46\n13  0.22 Premium   F     SI1      60.4    61   342  3.88  3.84  2.33\n14  0.31 Ideal     J     SI2      62.2    54   344  4.35  4.37  2.71\n15  0.2  Premium   E     SI2      60.2    62   345  3.79  3.75  2.27"
+  },
+  {
+    "objectID": "ch1/ch1.html#example",
+    "href": "ch1/ch1.html#example",
+    "title": "Data Analysis",
+    "section": "Example",
+    "text": "Example\n\nggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +\n  geom_point(alpha = 0.3) + labs(\n    title = \"Diamond Price vs Carat\",\n    subtitle = \"Colored by Cut Quality\",\n    x = \"Carat\", y = \"Price (USD)\", color = \"Cut\"\n  ) + theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "ch1/ch1.html#history",
+    "href": "ch1/ch1.html#history",
+    "title": "Data Analysis",
+    "section": "History",
+    "text": "History\nggplot2 is an R package for producing statistical, or data, graphics. Unlike most other graphics packages, ggplot2 has an underlying grammar, based on the Grammar of Graphics (Wilkinson 2011), that allows you to compose graphs by combining independent components. This makes ggplot2 powerful.\nRather than being limited to sets of pre-defined graphics, you can create novel graphics that are tailored to your specific problem. While the idea of having to learn a grammar may sound overwhelming, ggplot2 is actually easy to learn: there is a simple set of core principles and there are very few special cases. The hard part is that it may take a little time to forget all the preconceptions that you bring over from using other graphics tools."
+  },
+  {
+    "objectID": "ch1/ch1.html#advantages",
+    "href": "ch1/ch1.html#advantages",
+    "title": "Data Analysis",
+    "section": "Advantages",
+    "text": "Advantages\nTime-saving\nggplot2 provides beautiful, hassle-free plots that take care of fiddly details like drawing legends. In fact, its carefully chosen defaults mean that you can produce publication-quality graphics in seconds. However, if you do have special formatting requirements, ggplot2’s comprehensive theming system makes it easy to do what you want. Ultimately, this means that rather than spending your time making your graph look pretty, you can instead focus on creating the graph that best reveals the message in your data.\nIteration\nggplot2 is designed to work iteratively. You start with a layer that shows the raw data. Then you add layers of annotations and statistical summaries. This allows you to produce graphics using the same structured thinking that you would use to design an analysis. This reduces the distance between the plot in your head and the one on the page. This is especially helpful for students who have not yet developed the structured approach to analysis used by experts."
+  },
+  {
+    "objectID": "ch1/ch1.html#complicated-tasks",
+    "href": "ch1/ch1.html#complicated-tasks",
+    "title": "Data Analysis",
+    "section": "Complicated tasks",
+    "text": "Complicated tasks\nLearning the grammar will not only help you create graphics that you’re familiar with, but will also help you to create newer, better graphics. Without a grammar, there is no underlying theory, so most graphics packages are just a big collection of special cases. For example, in base R, if you design a new graphic, it’s composed of raw plot elements like lines and points so it’s hard to design new components that combine with existing plots. In ggplot2, the expressions used to create a new graphic are composed of higher-level elements, like representations of the raw data and statistical transformations, that can easily be combined with new datasets and other plots."
+  },
+  {
+    "objectID": "ch1/ch1.html#about-the-book",
+    "href": "ch1/ch1.html#about-the-book",
+    "title": "Data Analysis",
+    "section": "About the book",
+    "text": "About the book\nExample\nThis book provides a hands-on introduction to ggplot2 with lots of example code and graphics. It also explains the grammar on which ggplot2 is based. Like other formal systems, ggplot2 is useful even when you don’t understand the underlying model. However, the more you learn about it, the more effectively you’ll be able to use ggplot2.\nEasy\nThis book will introduce you to ggplot2 assuming that you’re a novice, unfamiliar with the grammar; teach you the basics so that you can re-create plots you are already familiar with; show you how to use the grammar to create new types of graphics; and eventually turn you into an expert who can build new components to extend the grammar."
+  },
+  {
+    "objectID": "ch1/ch1.html#grammar-of-graphics",
+    "href": "ch1/ch1.html#grammar-of-graphics",
+    "title": "Data Analysis",
+    "section": "Grammar of graphics",
+    "text": "Grammar of graphics\nWilkinson (2011) created the grammar of graphics to describe the fundamental features that underlie all statistical graphics. The grammar of graphics is an answer to the question of what is a statistical graphic? ggplot2 (Wickham 2010) builds on Wilkinson’s grammar by focussing on the primacy of layers and adapting it for use in R.\nIn brief, the grammar tells us that a graphic maps the data to the aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also include statistical transformations of the data and information about the plot’s coordinate system. Facetting can be used to plot for different subsets of the data. The combination of these independent components are what make up a graphic."
+  },
+  {
+    "objectID": "ch1/ch1.html#components",
+    "href": "ch1/ch1.html#components",
+    "title": "Data Analysis",
+    "section": "Components",
+    "text": "Components\nAs the book progresses, the formal grammar will be explained in greater detail. The first description of the components follows below. It introduces some of the terminology that will be used throughout the book and outlines the basic function of each component. Don’t worry if it doesn’t make sense right away: you’ll have many more opportunities to learn about the components and how they work together.\n\nAll plots are composed of the data, the information you want to visualise, and a mapping, the description of how the data’s variables are mapped to aesthetic attributes. There are five mapping components:\nA layer is a collection of geometric elements and statistical transformations. Geometric elements, geoms for short, represent what you actually see in the plot: points, lines, polygons, etc. Statistical transformations, stats for short, summarise the data: for example, binning and counting observations to create a histogram, or fitting a linear model."
+  },
+  {
+    "objectID": "ch1/ch1.html#discussion",
+    "href": "ch1/ch1.html#discussion",
+    "title": "Data Analysis",
+    "section": "Discussion",
+    "text": "Discussion\nThere are a number of other graphics systems available in R: base graphics, grid graphics and trellis/lattice graphics. How does ggplot2 differ from them?\n\nBase graphics were written by Ross Ihaka based on experience implementing the S graphics driver and partly looking at Chambers (1983). Base graphics has a pen on paper model: you can only draw on top of the plot, you cannot modify or delete existing content. There is no (user accessible) representation of the graphics, apart from their appearance on the screen. Base graphics includes both tools for drawing primitives and entire plots. Base graphics functions are generally fast, but have limited scope. If you’ve created a single scatterplot, or histogram, or a set of boxplots in the past, you’ve probably used base graphics."
+  },
+  {
+    "objectID": "ch1/ch1.html#about-this-book-1",
+    "href": "ch1/ch1.html#about-this-book-1",
+    "title": "Data Analysis",
+    "section": "About this Book",
+    "text": "About this Book\n\nThe first chapter, Chapter 2, describes how to quickly get started using ggplot2 to make useful graphics. This chapter introduces several important ggplot2 concepts: geoms, aesthetic mappings and facetting.\nChapter 3 to Chapter 9 explore how to use the basic toolbox to solve a wide range of visualisation problems that you’re likely to encounter in practice.\nThen Chapter 10 to Chapter 12 show you how to control the most important scales, allowing you to tweak the details of axes and legends.\nIn “The Grammar” we describe the layered grammar of graphics which underlies ggplot2. The theory is illustrated in Chapter 13 which demonstrates how to add additional layers to your plot, exercising full control over the geoms and stats used within them."
+  },
+  {
+    "objectID": "ch1/ch1.html#prerequisites-1",
+    "href": "ch1/ch1.html#prerequisites-1",
+    "title": "Data Analysis",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nBefore we continue, make sure you have all the software you need for this book:\n\nR: If you don’t have R installed already, you may be reading the wrong book; we assume a basic familiarity with R throughout this book. If you’d like to learn how to use R, we’d recommend R for Data Science which is designed to get you up and running with R with a minimum of fuss.\nRStudio: RStudio is a free and open source integrated development environment (IDE) for R. While you can write and use R code with any R environment (including R GUI and ESS), RStudio has some nice features specifically for authoring and debugging your code. We recommend giving it a try, but it’s not required to be successful with ggplot2 or with this book. You can download RStudio Desktop from https://posit.co/download/rstudio-desktop"
+  },
+  {
+    "objectID": "ch1/ch1.html#other-resources-1",
+    "href": "ch1/ch1.html#other-resources-1",
+    "title": "Data Analysis",
+    "section": "Other resources",
+    "text": "Other resources\nThis book teaches you the elements of ggplot2’s grammar and how they fit together, but it does not document every function in complete detail. You will need additional documentation as your use of ggplot2 becomes more complex and varied.\nBuilt-in documentation\nThe best resource for specific details of ggplot2 functions and their arguments will always be the built-in documentation. This is accessible online, https://ggplot2.tidyverse.org/reference/index.html, and from within R using the usual help syntax. The advantage of the online documentation is that you can see all the example plots and navigate between topics more easily."
+  },
+  {
+    "objectID": "ch1/ch1.html#acknowledgement",
+    "href": "ch1/ch1.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch1/ch1.html#references",
+    "href": "ch1/ch1.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References\n\n\n\n\nChambers, John M. 1983. Graphical Methods for Data Analysis. Chapman; Hall/CRC.\n\n\nCleveland, William S. 1993. Visualizing Data. Hobart press.\n\n\nLemon, Jim, Ben Bolker, Sander Oom, Eduardo Klein, Barry Rowlingson, Hadley Wickham, Anupam Tyagi, et al. 2008. “Plotrix: Various Plotting Functions.” URL Http://Cran. R-Project. Org/Src/Contrib/Descriptions/Plotrix. Html.\n\n\nMeyer, David, Achim Zeileis, and Kurt Hornik. 2007. “The Strucplot Framework: Visualizing Multi-Way Contingency Tables with Vcd.” Journal of Statistical Software 17: 1–48.\n\n\nMurrell, Paul R. 1998. “Investigations in Graphical Statistics.” PhD thesis, ResearchSpace@ Auckland.\n\n\nRobbins, Naomi B. 2005. “Creating More Effective Graphs.” (No Title).\n\n\nSarkar, Deepayan. 2008. “Multivariate Data Visualization with r.” Use R.\n\n\nTufte, Edward R. 1991. “Envisioning Information.” Optometry and Vision Science 68 (4): 322–24.\n\n\n———. 1997. Visual Explanations: Images and Quantities, Evidence and Narrative. Graphics Press.\n\n\n———. 2001. The Visual Display of Quantitative Information. Graphics press Cheshire, CT.\n\n\nTukey, John Wilder et al. 1977. Exploratory Data Analysis. Vol. 2. Springer.\n\n\nWarnes, Gregory R, Ben Bolker, Lodewijk Bonebakker, Robert Gentleman, Wolfgang Huber, Andy Liaw, Thomas Lumley, et al. 2005. “Gplots: Various r Programming Tools for Plotting Data.” (No Title).\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.” Journal of Computational and Graphical Statistics 19 (1): 3–28.\n\n\nWilkinson, Leland. 2011. “The Grammar of Graphics.” In Handbook of Computational Statistics: Concepts and Methods, 375–414. Springer."
+  },
+  {
+    "objectID": "ch3/ch3.html#basic-plot-types-1",
+    "href": "ch3/ch3.html#basic-plot-types-1",
+    "title": "Data Analysis",
+    "section": "Basic plot types",
+    "text": "Basic plot types\nThese geoms are the fundamental building blocks of ggplot2. They are useful in their own right, but are also used to construct more complex geoms. Most of these geoms are associated with a named plot: when that geom is used by itself in a plot, that plot has a special name.\nEach of these geoms is two dimensional and requires both x and y aesthetics. All of them understand colour (or color) and size aesthetics, and the filled geoms (bar, tile and polygon) also understand fill."
+  },
+  {
+    "objectID": "ch3/ch3.html#acknowledgement",
+    "href": "ch3/ch3.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch3/ch3.html#references",
+    "href": "ch3/ch3.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "prompt/prompt.html",
+    "href": "prompt/prompt.html",
+    "title": "Prompt",
+    "section": "",
+    "text": "[1] \"4b8d1a27-3c8f-4ec6-98de-89e4618ea3ca\""
+  },
+  {
+    "objectID": "prompt/prompt.html#role",
+    "href": "prompt/prompt.html#role",
+    "title": "Prompt",
+    "section": "Role",
+    "text": "Role\nYou are an expert academic assistant and an experienced data science instructor proficient in R programming and the ggplot2 package."
+  },
+  {
+    "objectID": "prompt/prompt.html#task",
+    "href": "prompt/prompt.html#task",
+    "title": "Prompt",
+    "section": "Task",
+    "text": "Task\nGenerate a comprehensive, plagiarism-free lecture slide for Chapter 4 based on the official textbook Elementary Statistics: A Step-by-Step Approach. (Available at prompt/bluman-step-by-step-statistics-8th-edition)."
+  },
+  {
+    "objectID": "prompt/prompt.html#instructions",
+    "href": "prompt/prompt.html#instructions",
+    "title": "Prompt",
+    "section": "Instructions",
+    "text": "Instructions\n\nStructural Alignment: Replicate the exact formatting, structural hierarchy, and stylistic layout of the provided Chapter 3 slides (in ch3) to ensure visual and pedagogical consistency across chapters.\n\n(Note: Do not include section numbers like x.x or x.x.x in slide titles, except for the first page.)\n\nExhaustive Coverage: The handout must be meticulously detailed. Do not summarize or omit topics. Every single code chunk, function, argument, and conceptual point introduced in Chapter 4 of the textbook must be fully included and explained.\nParaphrasing & Academic Integrity: To prevent plagiarism, you must completely rewrite and paraphrase all textual descriptions, explanations, and commentary from the textbook. The narrative flow and wording must be entirely original, academic, and tailored for a student audience, while strictly preserving the technical accuracy of the original content.\nCode Execution: Ensure all R code syntax is updated, correct, and properly formatted in markdown code blocks.\nDirectory and Storage Architecture: Replicate the established file structure utilized in the previous module. Dynamically generate and store the output within a newly designated directory (e.g., ch3/), mirroring the organization and naming conventions of the ch3/ repository."
+  },
+  {
+    "objectID": "ch6/ch6.html#maps-1",
+    "href": "ch6/ch6.html#maps-1",
+    "title": "Data Analysis",
+    "section": "Maps",
+    "text": "Maps\nPlotting geospatial data is one of the most frequently encountered visualisation tasks, and it requires tools that go beyond standard ggplot2 geoms. The challenge can be broken into two distinct sub-problems:\n\nDrawing the map — rendering geographic boundaries or terrain from a spatial data source.\nOverlaying metadata — projecting additional variables (e.g., population density, election results, rainfall) from a separate data source onto the rendered map.\n\nThis chapter addresses both problems and is organised as follows:\n\nSection 6.1 — polygon-based maps with geom_polygon(), the simplest approach.\nSection 6.2 — modern simple features (sf) maps with geom_sf().\nSection 6.3 — map projections and coordinate reference systems.\nSection 6.4 — working programmatically with sf data structures.\nSection 6.5 — raster-based maps using satellite imagery."
+  },
+  {
+    "objectID": "ch6/ch6.html#polygon-maps-1",
+    "href": "ch6/ch6.html#polygon-maps-1",
+    "title": "Data Analysis",
+    "section": "Polygon maps",
+    "text": "Polygon maps\nThe most straightforward path to drawing a map in ggplot2 is to represent geographic boundaries as ordinary polygons and render them with geom_polygon(). The maps package, bundled with R, provides boundary data accessible through ggplot2::map_data().\nThe code below retrieves county-level boundaries for the state of Michigan and renames the columns for clarity:\n\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(patchwork)\n\nmi_counties &lt;- map_data(\"county\", \"michigan\") |&gt;\n  select(lon = long, lat, group, id = subregion)\nhead(mi_counties)\n\n        lon      lat group     id\n1 -83.88675 44.85686     1 alcona\n2 -83.36536 44.86832     1 alcona\n3 -83.36536 44.86832     1 alcona\n4 -83.33098 44.83968     1 alcona\n5 -83.30806 44.80530     1 alcona\n6 -83.30233 44.77665     1 alcona"
+  },
+  {
+    "objectID": "ch6/ch6.html#simple-features-maps-1",
+    "href": "ch6/ch6.html#simple-features-maps-1",
+    "title": "Data Analysis",
+    "section": "Simple features maps",
+    "text": "Simple features maps\nThe polygon approach works for quick visualisations, but it has real limitations. In practice, vector geospatial data is distributed in the simple features format, an international standard published by the Open Geospatial Consortium (OGC). The sf package (Pebesma 2018) is the canonical R implementation of this standard.\nggplot2 integrates with sf through two dedicated functions:\n\ngeom_sf() — renders sf geometries (points, lines, polygons, multipolygons, …).\ncoord_sf() — controls the coordinate reference system (CRS) applied to the entire plot."
+  },
+  {
+    "objectID": "ch6/ch6.html#layered-maps",
+    "href": "ch6/ch6.html#layered-maps",
+    "title": "Data Analysis",
+    "section": "Layered maps",
+    "text": "Layered maps\nggplot2 supports stacking multiple geom_sf() layers to overlay datasets with different levels of geographic detail. The example below draws Australian state boundaries filled with distinct colours, then overlays simplified federal electoral boundaries on top.\nTwo pre-processing steps are required first:\n\nFilter — “Other Territories” is removed from oz_states via dplyr::filter(), as it spans a large offshore region that distorts the map.\nSimplify — rmapshaper::ms_simplify() reduces the resolution of the electoral boundary data (ozmaps::abs_ced) to match the scale of the final plot, substantially speeding up rendering."
+  },
+  {
+    "objectID": "ch6/ch6.html#labelled-maps",
+    "href": "ch6/ch6.html#labelled-maps",
+    "title": "Data Analysis",
+    "section": "Labelled maps",
+    "text": "Labelled maps\nText labels can be placed on sf maps using two geoms:\n\ngeom_sf_label() — renders labels inside a rectangular background box (suitable when labels must stand out against complex map backgrounds).\ngeom_sf_text() — renders plain text with no box.\n\nBoth functions use sf::st_point_on_surface() internally to compute an anchor point that is guaranteed to lie within each polygon.\nThe example below zooms into the Sydney metropolitan region and labels each federal electorate:"
+  },
+  {
+    "objectID": "ch6/ch6.html#adding-other-geoms",
+    "href": "ch6/ch6.html#adding-other-geoms",
+    "title": "Data Analysis",
+    "section": "Adding other geoms",
+    "text": "Adding other geoms\ngeom_sf() behaves like any other ggplot2 layer and can be freely combined with standard geoms. Provided that coordinates are supplied in the same spatial reference frame as the sf layers, geom_point(), geom_text(), and other geoms work as expected.\nThe code below overlays the locations of Australian capital cities — stored as a plain tibble of longitude–latitude values — onto the electoral map using geom_point():"
+  },
+  {
+    "objectID": "ch6/ch6.html#map-projections-1",
+    "href": "ch6/ch6.html#map-projections-1",
+    "title": "Data Analysis",
+    "section": "Map projections",
+    "text": "Map projections\nTreating longitude and latitude as ordinary Cartesian axes is a convenient simplification at small scales, but it becomes geometrically inaccurate at larger scales due to two fundamental problems."
+  },
+  {
+    "objectID": "ch6/ch6.html#working-with-sf-data-1",
+    "href": "ch6/ch6.html#working-with-sf-data-1",
+    "title": "Data Analysis",
+    "section": "Working with sf data",
+    "text": "Working with sf data\nBeyond plotting, the sf package provides a rich set of functions for inspecting and transforming spatial objects. This section introduces the most commonly needed tools; full documentation is available at https://r-spatial.github.io/sf/."
+  },
+  {
+    "objectID": "ch6/ch6.html#raster-maps-1",
+    "href": "ch6/ch6.html#raster-maps-1",
+    "title": "Data Analysis",
+    "section": "Raster maps",
+    "text": "Raster maps\nIn addition to vector-based simple features, geospatial information is commonly stored as raster data: a regular rectangular grid of cells (pixels) where each cell holds one or more numeric values. Rasters are the natural format for satellite imagery, digital elevation models, land cover classifications, and gridded climate datasets.\nMany raster file formats — most notably GeoTIFF — embed spatial metadata (geodetic datum, CRS, spatial extent, pixel size) that allows the image to be accurately positioned on the Earth’s surface. R can read these formats via GDAL (Geospatial Data Abstraction Library, https://gdal.org/), which the sf package exposes through sf::gdal_read(). In practice, higher-level packages handle this transparently."
+  },
+  {
+    "objectID": "ch6/ch6.html#data-sources-1",
+    "href": "ch6/ch6.html#data-sources-1",
+    "title": "Data Analysis",
+    "section": "Data sources",
+    "text": "Data sources\nA wide variety of R packages provide ready-to-use geospatial datasets for use with geom_sf() and related tools:"
+  },
+  {
+    "objectID": "ch6/ch6.html#acknowledgement",
+    "href": "ch6/ch6.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch6/ch6.html#references",
+    "href": "ch6/ch6.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch8/ch8.html#annotations-1",
+    "href": "ch8/ch8.html#annotations-1",
+    "title": "Data Analysis",
+    "section": "Annotations",
+    "text": "Annotations\nWhen building a data visualisation, supplying the plot itself is rarely sufficient — readers also need context. Annotations provide that context: they are metadata attached to the visual display that help readers interpret what they are seeing.\nConceptually, annotations are simply data about data. Because of this, ggplot2 implements annotations using the exact same geoms used for plotting data, with a small set of helper functions layered on top for convenience."
+  },
+  {
+    "objectID": "ch8/ch8.html#plot-and-axis-titles-1",
+    "href": "ch8/ch8.html#plot-and-axis-titles-1",
+    "title": "Data Analysis",
+    "section": "Plot and axis titles",
+    "text": "Plot and axis titles\nThe labs() helper function provides a unified interface for setting all text labels associated with a plot: the main title, subtitle, caption, axis labels, and legend titles. Labels are specified as named arguments using the aesthetic or label name as the key:\n\nlibrary(ggplot2)\nlibrary(patchwork)\n\nggplot(mpg, aes(displ, hwy)) +\n  geom_point(aes(colour = factor(cyl))) +\n  labs(\n    x        = \"Engine displacement (litres)\",\n    y        = \"Highway miles per gallon\",\n    colour   = \"Number of cylinders\",\n    title    = \"Mileage by engine size and cylinders\",\n    subtitle = \"Source: https://fueleconomy.gov\"\n  )"
+  },
+  {
+    "objectID": "ch8/ch8.html#text-labels-1",
+    "href": "ch8/ch8.html#text-labels-1",
+    "title": "Data Analysis",
+    "section": "Text labels",
+    "text": "Text labels\nAdding text directly to a plot is one of the most common annotation techniques. While labelling every data point is rarely advisable, flagging outliers, notable observations, or small groups of interest is highly effective.\nThe primary geom for text annotation is geom_text(), which places a label string at a specified (x, y) position. It exposes more aesthetics than almost any other geom in ggplot2."
+  },
+  {
+    "objectID": "ch8/ch8.html#building-custom-annotations-1",
+    "href": "ch8/ch8.html#building-custom-annotations-1",
+    "title": "Data Analysis",
+    "section": "Building custom annotations",
+    "text": "Building custom annotations\nBeyond text labels, ggplot2 provides several geoms suited to annotating specific types of information. These geoms work exactly like data-plotting geoms — they accept either a separate data frame or are placed using the annotate() helper function.\nKey annotation geoms:\n\ngeom_rect() — fills a rectangular region; uses xmin, xmax, ymin, ymax aesthetics.\ngeom_segment() / geom_line() / geom_path() — draw line segments or paths; all accept an arrow argument for arrowheads (created with arrow(angle, length, ends, type)).\ngeom_curve() — draws a curved arc between two points; useful for connecting a label to a data point.\ngeom_vline() / geom_hline() / geom_abline() — draw reference lines spanning the full extent of the plot."
+  },
+  {
+    "objectID": "ch8/ch8.html#direct-labelling-1",
+    "href": "ch8/ch8.html#direct-labelling-1",
+    "title": "Data Analysis",
+    "section": "Direct labelling",
+    "text": "Direct labelling\nDirect labelling refers to the practice of placing group labels directly on the plot — adjacent to or within the data they identify — rather than in a separate legend. This approach typically reduces the visual distance between a label and its data, making the chart faster to read.\nThree packages in the broader ggplot2 ecosystem provide tools for automated direct labelling."
+  },
+  {
+    "objectID": "ch8/ch8.html#annotation-across-facets-1",
+    "href": "ch8/ch8.html#annotation-across-facets-1",
+    "title": "Data Analysis",
+    "section": "Annotation across facets",
+    "text": "Annotation across facets\nAnnotations become especially powerful in faceted plots, where they can provide a shared visual reference that makes between-panel comparisons easier.\nMotivating example: faceted diamond price vs carat\nThe plot below facets the relationship between log10(carat) and log10(price) by diamond cut. The within-facet relationship is clear, but the subtle differences in slope or intercept across cut grades are difficult to perceive without a reference:"
+  },
+  {
+    "objectID": "ch8/ch8.html#acknowledgement",
+    "href": "ch8/ch8.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch8/ch8.html#references",
+    "href": "ch8/ch8.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "ch10/ch10.html#overview",
+    "href": "ch10/ch10.html#overview",
+    "title": "Data Analysis",
+    "section": "Overview",
+    "text": "Overview\nEvery plot produced by ggplot2 relies on position scales to map data values to physical locations on the plotting surface. The x and y aesthetics each have an associated position scale, even when the user does not explicitly declare them.\nConsider this minimal histogram specification:\n\nggplot(mpg, aes(x = displ)) + geom_histogram()\n\nThe y aesthetic is never mentioned, yet the plot renders correctly because geom_histogram() internally computes a count variable and maps it to y. The fully explicit equivalent is:\n\nggplot(mpg, aes(x = displ, y = after_stat(count))) + geom_histogram()"
+  },
+  {
+    "objectID": "ch10/ch10.html#numeric-position-scales-1",
+    "href": "ch10/ch10.html#numeric-position-scales-1",
+    "title": "Data Analysis",
+    "section": "Numeric Position Scales",
+    "text": "Numeric Position Scales\nThe default continuous position scales, scale_x_continuous() and scale_y_continuous(), establish a linear mapping from raw data values to pixel coordinates on the plot panel.\nA family of convenience wrappers—scale_x_log10(), scale_x_reverse(), scale_x_sqrt(), and their y-axis counterparts—provides quick access to the most commonly needed transformations (covered fully in §10.1.7).\nThe fundamental behaviour of all continuous position scales is governed by six key arguments:"
+  },
+  {
+    "objectID": "ch10/ch10.html#date-time-position-scales-1",
+    "href": "ch10/ch10.html#date-time-position-scales-1",
+    "title": "Data Analysis",
+    "section": "Date-Time Position Scales",
+    "text": "Date-Time Position Scales\nWhen a date or date-time variable is mapped to x or y, ggplot2 automatically selects scale_x_date() or scale_x_datetime() as the default scale. These scales extend the continuous scale framework with date-friendly arguments for controlling breaks and labels.\nSupported R date/time classes include:\n\nDate — calendar dates (base R)\nPOSIXct — date-time values (base R)\nhms — time-of-day values (hms package)\n\nUse as.Date(), as.POSIXct(), or hms::as_hms() to convert character strings to the appropriate class before plotting."
+  },
+  {
+    "objectID": "ch10/ch10.html#discrete-position-scales-1",
+    "href": "ch10/ch10.html#discrete-position-scales-1",
+    "title": "Data Analysis",
+    "section": "Discrete Position Scales",
+    "text": "Discrete Position Scales\nWhen a categorical (factor or character) variable is mapped to x or y, ggplot2 selects scale_x_discrete() or scale_y_discrete() automatically. Internally, each category is assigned an integer position, which allows all width-related parameters (bar width, jitter height, etc.) to be specified as proportions of the per-category unit interval.\n\n# Explicit integer mapping exposed via annotation\nggplot(mpg, aes(x = hwy, y = class)) +\n  geom_point() +\n  annotate(\"text\", x = 5, y = 1:7, label = 1:7)"
+  },
+  {
+    "objectID": "ch10/ch10.html#binned-position-scales-1",
+    "href": "ch10/ch10.html#binned-position-scales-1",
+    "title": "Data Analysis",
+    "section": "Binned Position Scales",
+    "text": "Binned Position Scales\nBinned position scales occupy the space between continuous and discrete scales. They slice a continuous variable into equally-spaced bins and then treat each bin as a discrete category. The primary function is scale_x_binned() (and scale_y_binned()).\nThe most familiar application is histogram-like plots. The example below demonstrates how geom_bar() combined with scale_x_binned() can approximate geom_histogram():"
+  },
+  {
+    "objectID": "ch10/ch10.html#acknowledgement",
+    "href": "ch10/ch10.html#acknowledgement",
+    "title": "Data Analysis",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nCopyright notice. These teaching materials have been adapted from ggplot2: Elegant Graphics for Data Analysis (3e). All rights are reserved by the original authors and publishers.\nNon-commercial use only. These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.\nProper attribution. Any reproduction, distribution, or use of these materials must provide proper attribution to the original source."
+  },
+  {
+    "objectID": "ch10/ch10.html#references",
+    "href": "ch10/ch10.html#references",
+    "title": "Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "sylla/syllabus.html",
+    "href": "sylla/syllabus.html",
+    "title": "Data Analysis",
+    "section": "",
+    "text": "Lecturer: Yu-You Liou\nContact: d10627008@ntu.edu.tw\n\n\nCourse Code: EIB-301-01-A1\nWebsite: https://yyliou.github.io/da\n\n\nMeeting Time: Tuesday, Periods 8–9 (15:10–17:00)\nLocation: A207\n\n\n\nCourse Objectives\n\nTo enable students to understand the basic logic, applications, and simple techniques of data analysis using R.\nTo develop students’ ability to build clear and informative data visualizations grounded in the grammar of graphics.\nTo communicate data-driven findings clearly to both technical and non-technical audiences.\nTo integrate generative AI to enhance students’ workflows in programming and compilation tasks.\n\nTextbooks\n\nWickham, H., Navarro, D., & Pedersen, T. L. ggplot2: Elegant Graphics for Data Analysis (3rd ed.). (Main) https://ggplot2-book.org\nAdler, J. R in a Nutshell: A Desktop Quick Reference (2nd ed.). O’Reilly Media.\n\nCourse Structure\n\nLecture (First hour): Foundational knowledge and concepts introduced each session.\nLab (Second hour): Hands-on in-class exercises using R to apply the concepts learned during the lecture.\n\nAssessment Criteria\n\nAttendance (12%): \\(R = \\min\\{12,\\, t\\}\\), where \\(t\\) represents the number of sessions attended.\nIn-Class Exercises (48%): 12 exercises × 4% each, submitted at the end of each session.\nMid-Term Oral Presentaiton (20%) and Final Oral Presentaiton (20%).\n\nRegulations\n\nAttendance\n\nPer Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.\n\nPresentations\n\nStudents who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.\n\nIn-class exercise deadline\n\nThe deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.\n\nAcademic Integrity\n\nAll submitted work must be the student’s own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.\n\nAI Policy\n\nStudents may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.\nRequired Software\nAll software is free and open-source: R at https://cran.r-project.org, RStudio Desktop at https://posit.co/download/rstudio-desktop, and R packages tidyverse, ggplot2, patchwork (installation instructions on the course R page).\nCourse Schedule\n\nWeeks 1–2: Part I — Introduction to R and first steps with ggplot2.\nWeeks 3–7: Part II — Layers (individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots).\nWeeks 8–9: Mid-term presentations.\nWeeks 10–11: Part III — Scales (position scales, colour scales, other aesthetics).\nWeeks 12–14: Part IV — The grammar; advanced topics.\nWeeks 15–16: Final presentations.\nWeeks 17-18: Flexible learning weeks.\n\nSyllabus is subject to change. Any updates will be announced on the course website."
   },
   {
     "objectID": "prob.html#submission-requirements",
@@ -89,33 +929,5 @@
     "title": "Data Aanlysis",
     "section": "Part IV: The Grammar",
     "text": "Part IV: The Grammar"
-  },
-  {
-    "objectID": "sylla.html",
-    "href": "sylla.html",
-    "title": "Data Aanlysis",
-    "section": "",
-    "text": "PDF version\n\n\n\n\n\n\nLecturer: Yu-You Liou\nContact: d10627008@ntu.edu.tw\n\n\nCourse Code: EIB-301-01-A1\nWebsite: https://yyliou.github.io/da\n\n\nMeeting Time: Tuesday, Periods 8–9 (15:10–17:00)\nLocation: Room A207\n\n\n\n\n\n\n\nTo enable students to understand the basic logic, applications, and simple techniques of data analysis using R.\nTo develop students’ ability to build clear and informative data visualizations grounded in the grammar of graphics.\nTo communicate data-driven findings clearly to both technical and non-technical audiences.\nTo integrate generative AI to enhance students’ workflows in programming and compilation tasks.\n\n\n\n\n\nWickham, H., Navarro, D., & Pedersen, T. L. ggplot2: Elegant Graphics for Data Analysis (3rd ed.). (Main) https://ggplot2-book.org\nAdler, J. R in a Nutshell: A Desktop Quick Reference (2nd ed.). O’Reilly Media.\n\n\n\n\n\nLecture (First hour): Foundational knowledge and concepts introduced each session.\nLab (Second hour): Hands-on in-class exercises using R to apply the concepts learned during the lecture.\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nWeight\nDetails\n\n\n\n\nMid-term Oral Examination\n20%\nIndividual oral assessment at mid-semester\n\n\nFinal Oral Examination\n20%\nIndividual oral assessment at end of semester\n\n\nIn-Class Exercises\n48%\n12 exercises × 4% each\n\n\nAttendance\n12%\nScore = min(12, number of sessions attended) × 1%\n\n\n\n\n\n\n\nAttendance\n\nPer Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.\n\nPresentations\n\nStudents who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.\n\nIn-class exercise deadline\n\nThe deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.\n\nAcademic Integrity\n\nAll submitted work must be the student’s own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.\n\nAI Policy\n\nStudents may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.\n\n\n\nAll software is free and open-source: R at https://cran.r-project.org, RStudio Desktop at https://posit.co/download/rstudio-desktop, and R packages tidyverse, ggplot2, patchwork (installation instructions on the course R page).\n\n\n\n\nWeeks 1–2: Part I — Introduction to R and first steps with ggplot2.\nWeeks 3–7: Part II — Layers (individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots).\nWeeks 8–9: Mid-term presentations.\nWeeks 10–11: Part III — Scales (position scales, colour scales, other aesthetics).\nWeeks 12–14: Part IV — The grammar; advanced topics.\nWeeks 15–16: Final presentations.\nWeeks 17-18: Flexible learning weeks.\n\nNote: Syllabus is subject to change. Any updates will be announced on the course website."
-  },
-  {
-    "objectID": "sylla.html#syllabus-and-course-policy",
-    "href": "sylla.html#syllabus-and-course-policy",
-    "title": "Data Aanlysis",
-    "section": "",
-    "text": "PDF version\n\n\n\n\n\n\nLecturer: Yu-You Liou\nContact: d10627008@ntu.edu.tw\n\n\nCourse Code: EIB-301-01-A1\nWebsite: https://yyliou.github.io/da\n\n\nMeeting Time: Tuesday, Periods 8–9 (15:10–17:00)\nLocation: Room A207\n\n\n\n\n\n\n\nTo enable students to understand the basic logic, applications, and simple techniques of data analysis using R.\nTo develop students’ ability to build clear and informative data visualizations grounded in the grammar of graphics.\nTo communicate data-driven findings clearly to both technical and non-technical audiences.\nTo integrate generative AI to enhance students’ workflows in programming and compilation tasks.\n\n\n\n\n\nWickham, H., Navarro, D., & Pedersen, T. L. ggplot2: Elegant Graphics for Data Analysis (3rd ed.). (Main) https://ggplot2-book.org\nAdler, J. R in a Nutshell: A Desktop Quick Reference (2nd ed.). O’Reilly Media.\n\n\n\n\n\nLecture (First hour): Foundational knowledge and concepts introduced each session.\nLab (Second hour): Hands-on in-class exercises using R to apply the concepts learned during the lecture.\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nWeight\nDetails\n\n\n\n\nMid-term Oral Examination\n20%\nIndividual oral assessment at mid-semester\n\n\nFinal Oral Examination\n20%\nIndividual oral assessment at end of semester\n\n\nIn-Class Exercises\n48%\n12 exercises × 4% each\n\n\nAttendance\n12%\nScore = min(12, number of sessions attended) × 1%\n\n\n\n\n\n\n\nAttendance\n\nPer Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.\n\nPresentations\n\nStudents who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.\n\nIn-class exercise deadline\n\nThe deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.\n\nAcademic Integrity\n\nAll submitted work must be the student’s own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.\n\nAI Policy\n\nStudents may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.\n\n\n\nAll software is free and open-source: R at https://cran.r-project.org, RStudio Desktop at https://posit.co/download/rstudio-desktop, and R packages tidyverse, ggplot2, patchwork (installation instructions on the course R page).\n\n\n\n\nWeeks 1–2: Part I — Introduction to R and first steps with ggplot2.\nWeeks 3–7: Part II — Layers (individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots).\nWeeks 8–9: Mid-term presentations.\nWeeks 10–11: Part III — Scales (position scales, colour scales, other aesthetics).\nWeeks 12–14: Part IV — The grammar; advanced topics.\nWeeks 15–16: Final presentations.\nWeeks 17-18: Flexible learning weeks.\n\nNote: Syllabus is subject to change. Any updates will be announced on the course website."
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Data Aanlysis",
-    "section": "Contact",
-    "text": "Contact\nPlease feel free to contact me via email. However, to ensure fairness and consistency for all students, I will not respond to three categories of inquiries:\n\nQuestions regarding information that is already available on the website\nRequests for make-up examination, presentations, or attendance adjustments\nRequests for special arrangements regarding examination or presentation schedules\n\nThank you for your understanding as we work to keep our learning environment fair for everyone."
-  },
-  {
-    "objectID": "index.html#contact-me",
-    "href": "index.html#contact-me",
-    "title": "Data Aanlysis",
-    "section": "Contact Me",
-    "text": "Contact Me\nPlease feel free to contact me via email. However, to ensure fairness and consistency for all students, I will not respond to three categories of inquiries:\n\nQuestions regarding information that is already available on the website\nRequests for make-up examination, presentations, assignment, or attendance adjustments\nRequests for special arrangements regarding examination or presentation schedules\n\nThank you for your understanding as we work to keep our learning environment fair for everyon"
   }
 ]

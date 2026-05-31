@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: .
+
+website:
+  title: "Data Aanlysis"
+  navbar:
+    left:
+      - href: sylla.qmd
+        text: Syllabus
+      - href: slide.qmd
+        text: Slides
+      - href: prob.qmd
+        text: Problem sets
+      - href: r.qmd
+        text: R
+
+format:
+  html:
+    theme:
+      - Minty
+      - brand
+    # css: styles.css 
+    toc: true
+    toc-depth: 3
+
+editor: visual
+
+# quarto rende

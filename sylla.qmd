@@ -1,0 +1,90 @@
+## Syllabus and Course Policy
+
+### Syllabus
+
+[PDF version](https://yyliou.github.io/da/sylla/syllabus.pdf)
+
+### Course Information
+
+|  |  |
+|:-----------------------------------|:-----------------------------------|
+| **Lecturer**: [Yu-You Liou](https://yyliou.github.io) | **Contact**: d10627008\@ntu.edu.tw |
+| **Course Code**: `EIB-301-01-A1` | **Website**: <https://yyliou.github.io/da> |
+| **Meeting Time**: Tuesday, Periods 8–9 (15:10–17:00) | **Location**: A207 |
+
+### Course Objectives
+
+1.  To enable students to understand the basic logic, applications, and simple techniques of data analysis using R.
+
+2.  To develop students' ability to build clear and informative data visualizations grounded in the grammar of graphics.
+
+3.  To communicate data-driven findings clearly to both technical and non-technical audiences.
+
+4.  To integrate generative AI to enhance students' workflows in programming and compilation tasks.
+
+### Textbooks
+
+1.  Wickham, H., Navarro, D., & Pedersen, T. L. *ggplot2: Elegant Graphics for Data Analysis* (3rd ed.). (Main) <https://ggplot2-book.org>
+
+2.  Adler, J. *R in a Nutshell: A Desktop Quick Reference* (2nd ed.). O'Reilly Media.
+
+### Course Structure
+
+1.  **Lecture** (First hour): Foundational knowledge and concepts introduced each session.
+
+2.  **Lab** (Second hour): Hands-on in-class exercises using R to apply the concepts learned during the lecture.
+
+### Assessment Criteria
+
+| Component | Weight | Details |
+|:-----------------------|:----------------------:|:-----------------------|
+| Mid-term Oral Examination | 20% | Individual oral assessment at mid-semester |
+| Final Oral Examination | 20% | Individual oral assessment at end of semester |
+| In-Class Exercises | 48% | 12 exercises × 4% each |
+| Attendance | 12% | Score = min(12, number of sessions attended) × 1% |
+
+: {.table .table-striped}
+
+### Regulations
+
+1.  **Attendance**
+
+Per Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.
+
+2.  **Presentations**
+
+Students who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.
+
+3.  **In-class exercise deadline**
+
+The deadline for all in-class exercises is before midnight of the following week. Late submissions will not be accepted.
+
+4.  **Academic Integrity**
+
+All submitted work must be the student's own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.
+
+5.  **AI Policy**
+
+Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
+
+### Required Software
+
+All software is free and open-source: **R** at <https://cran.r-project.org>, **RStudio Desktop** at <https://posit.co/download/rstudio-desktop>, and R packages `tidyverse`, `ggplot2`, `patchwork` (installation instructions on the [course R page](https://yyliou.github.io/da/r.html)).
+
+### Course Schedule
+
+1.  Weeks 1–2: Part I — Introduction to R and first steps with `ggplot2`.
+
+2.  Weeks 3–7: Part II — Layers (individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots).
+
+3.  Weeks 8–9: Mid-term presentations.
+
+4.  Weeks 10–11: Part III — Scales (position scales, colour scales, other aesthetics).
+
+5.  Weeks 12–14: Part IV — The grammar; advanced topics.
+
+6.  Weeks 15–16: Final presentations.
+
+7.  Weeks 17-18: Flexible learning weeks.
+
+*Note: Syllabus is subject to change. Any updates will be announced on the course website.*

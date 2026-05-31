@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ch5_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ch5_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ch5_files/libs/quarto-html/popper.min.js"></script>
-<script src="ch5_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ch5_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ch5_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch5_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-05-30">
-  <title>Data Analysis</title>
+  <meta name="dcterms.date" content="2026-05-31">
+  <title>Data Aanlysis – Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ch5_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ch5_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -96,11 +96,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="ch5_files/libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
-  <link href="ch5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ch5_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ch5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ch5_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -208,7 +208,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-05-30</p>
+  <p class="date">2026-05-31</p>
 </section>
 <section>
 <section id="revealing-uncertainty" class="title-slide slide level1 center">
@@ -264,13 +264,13 @@ Yu-You Liou (NTU)
 
 <p><strong>Setting up the example data</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-3"><a href=""></a></span>
-<span id="cb1-4"><a href=""></a>y  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">11</span>, <span class="dv">16</span>)</span>
-<span id="cb1-5"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> y, <span class="at">se =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>))</span>
-<span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">ymin =</span> y <span class="sc">-</span> se, <span class="at">ymax =</span> y <span class="sc">+</span> se))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>y  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">11</span>, <span class="dv">16</span>)</span>
+<span id="cb1-5"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> y, <span class="at">se =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>))</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">ymin =</span> y <span class="sc">-</span> se, <span class="at">ymax =</span> y <span class="sc">+</span> se))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The <code>ymin</code> and <code>ymax</code> aesthetics define the lower and upper bounds of each interval. Here they are constructed by subtracting and adding the standard error <code>se</code> from the point estimate <code>y</code>.</p>
 </section>
@@ -278,10 +278,10 @@ Yu-You Liou (NTU)
 
 <p><strong>Range and centre geoms (discrete x)</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>p1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_crossbar</span>()</span>
-<span id="cb2-2"><a href=""></a>p2 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_pointrange</span>()</span>
-<span id="cb2-3"><a href=""></a>p3 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
-<span id="cb2-4"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>p1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_crossbar</span>()</span>
+<span id="cb2-2"><a></a>p2 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_pointrange</span>()</span>
+<span id="cb2-3"><a></a>p3 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
+<span id="cb2-4"><a></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><ul>
@@ -294,10 +294,10 @@ Yu-You Liou (NTU)
 
 <p><strong>Range-only geoms</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p4 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_errorbar</span>()</span>
-<span id="cb3-2"><a href=""></a>p5 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_linerange</span>()</span>
-<span id="cb3-3"><a href=""></a>p6 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_ribbon</span>()</span>
-<span id="cb3-4"><a href=""></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>p4 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_errorbar</span>()</span>
+<span id="cb3-2"><a></a>p5 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_linerange</span>()</span>
+<span id="cb3-3"><a></a>p6 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_ribbon</span>()</span>
+<span id="cb3-4"><a></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><ul>
@@ -337,14 +337,14 @@ Yu-You Liou (NTU)
 <p><strong>Weighting with the <code>size</code> aesthetic</strong></p>
 <p>For simple geoms such as points and lines, the <code>size</code> aesthetic provides a direct visual encoding of a weighting variable:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href=""></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
-<span id="cb4-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> poptotal <span class="sc">/</span> <span class="fl">1e6</span>)) <span class="sc">+</span></span>
-<span id="cb4-6"><a href=""></a>  <span class="fu">scale_size_area</span>(<span class="st">"Population</span><span class="sc">\n</span><span class="st">(millions)"</span>, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span>
-<span id="cb4-7"><a href=""></a></span>
-<span id="cb4-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> poptotal <span class="sc">/</span> <span class="fl">1e6</span>)) <span class="sc">+</span></span>
+<span id="cb4-6"><a></a>  <span class="fu">scale_size_area</span>(<span class="st">"Population</span><span class="sc">\n</span><span class="st">(millions)"</span>, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb4-7"><a></a></span>
+<span id="cb4-8"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>The right panel reveals that large-population counties tend to cluster in a different region of the plot than small-population counties — a pattern invisible in the unweighted version.</p>
@@ -358,16 +358,16 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">linewidth =</span> <span class="dv">1</span>)</span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
-<span id="cb5-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> poptotal <span class="sc">/</span> <span class="fl">1e6</span>)) <span class="sc">+</span></span>
-<span id="cb5-7"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">weight =</span> poptotal), <span class="at">method =</span> lm, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb5-8"><a href=""></a>  <span class="fu">scale_size_area</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span>
-<span id="cb5-9"><a href=""></a></span>
-<span id="cb5-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">linewidth =</span> <span class="dv">1</span>)</span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percwhite, percbelowpoverty)) <span class="sc">+</span></span>
+<span id="cb5-6"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> poptotal <span class="sc">/</span> <span class="fl">1e6</span>)) <span class="sc">+</span></span>
+<span id="cb5-7"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">weight =</span> poptotal), <span class="at">method =</span> lm, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -376,15 +376,15 @@ Yu-You Liou (NTU)
 <p><strong>Weighting histograms</strong></p>
 <p>Applying a <code>weight</code> aesthetic to <code>geom_histogram()</code> shifts its interpretation from <em>number of counties</em> to <em>number of people</em>. The shape of the distribution — and therefore the conclusions drawn — can change substantially:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percbelowpoverty)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-3"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"Counties"</span>)</span>
-<span id="cb6-4"><a href=""></a></span>
-<span id="cb6-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percbelowpoverty)) <span class="sc">+</span></span>
-<span id="cb6-6"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">weight =</span> poptotal), <span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"Population (1000s)"</span>)</span>
-<span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percbelowpoverty)) <span class="sc">+</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">ylab</span>(<span class="st">"Counties"</span>)</span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percbelowpoverty)) <span class="sc">+</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">weight =</span> poptotal), <span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a></a>  <span class="fu">ylab</span>(<span class="st">"Population (1000s)"</span>)</span>
+<span id="cb6-8"><a></a></span>
+<span id="cb6-9"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -401,7 +401,7 @@ Yu-You Liou (NTU)
 <h2>Diamonds data</h2>
 <p>The remaining sections in this chapter draw on the <code>diamonds</code> dataset, which is bundled with ggplot2. It contains price and quality information for approximately 54,000 diamonds and serves as a useful testbed for techniques suited to large datasets.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">head</span>(diamonds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">head</span>(diamonds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
   carat cut       color clarity depth table price     x     y     z
@@ -447,14 +447,14 @@ Yu-You Liou (NTU)
 <p><strong>The histogram: <code>geom_histogram()</code></strong></p>
 <p>For a single continuous variable, the histogram is the most fundamental display. The key tuning parameter is <code>binwidth</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb9-3"><a href=""></a></span>
-<span id="cb9-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">55</span>, <span class="dv">70</span>)</span>
-<span id="cb9-7"><a href=""></a></span>
-<span id="cb9-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a></a>  <span class="fu">xlim</span>(<span class="dv">55</span>, <span class="dv">70</span>)</span>
+<span id="cb9-7"><a></a></span>
+<span id="cb9-8"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -476,18 +476,18 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href=""></a>  <span class="fu">geom_freqpoly</span>(<span class="fu">aes</span>(<span class="at">colour =</span> cut), <span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb10-5"><a href=""></a></span>
-<span id="cb10-6"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> cut), <span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">position =</span> <span class="st">"fill"</span>,</span>
-<span id="cb10-8"><a href=""></a>                 <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb10-9"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
-<span id="cb10-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb10-11"><a href=""></a></span>
-<span id="cb10-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">geom_freqpoly</span>(<span class="fu">aes</span>(<span class="at">colour =</span> cut), <span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb10-5"><a></a></span>
+<span id="cb10-6"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
+<span id="cb10-7"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> cut), <span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">position =</span> <span class="st">"fill"</span>,</span>
+<span id="cb10-8"><a></a>                 <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb10-11"><a></a></span>
+<span id="cb10-12"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -509,16 +509,16 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>)</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth, <span class="at">fill =</span> cut, <span class="at">colour =</span> cut)) <span class="sc">+</span></span>
-<span id="cb11-6"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb11-7"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
-<span id="cb11-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb11-9"><a href=""></a></span>
-<span id="cb11-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth)) <span class="sc">+</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">geom_density</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>)</span>
+<span id="cb11-4"><a></a></span>
+<span id="cb11-5"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(depth, <span class="at">fill =</span> cut, <span class="at">colour =</span> cut)) <span class="sc">+</span></span>
+<span id="cb11-6"><a></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb11-9"><a></a></span>
+<span id="cb11-10"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>Note that each KDE is normalised so that its total area equals one. As a consequence, information about the <em>relative sizes</em> of the groups is lost.</p>
@@ -533,14 +533,14 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(clarity, depth)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb12-3"><a href=""></a></span>
-<span id="cb12-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, depth)) <span class="sc">+</span></span>
-<span id="cb12-5"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
-<span id="cb12-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="fl">2.05</span>)</span>
-<span id="cb12-7"><a href=""></a></span>
-<span id="cb12-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(clarity, depth)) <span class="sc">+</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, depth)) <span class="sc">+</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="fl">2.05</span>)</span>
+<span id="cb12-7"><a></a></span>
+<span id="cb12-8"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -548,14 +548,14 @@ Yu-You Liou (NTU)
 
 <p><strong><code>geom_violin()</code></strong> — the violin plot is a mirrored, smoothed density estimate rendered in the same spatial footprint as a boxplot. It preserves more distributional information than a boxplot while remaining compact:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(clarity, depth)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href=""></a>  <span class="fu">geom_violin</span>()</span>
-<span id="cb13-3"><a href=""></a></span>
-<span id="cb13-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, depth)) <span class="sc">+</span></span>
-<span id="cb13-5"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
-<span id="cb13-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="fl">2.05</span>)</span>
-<span id="cb13-7"><a href=""></a></span>
-<span id="cb13-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(clarity, depth)) <span class="sc">+</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">geom_violin</span>()</span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, depth)) <span class="sc">+</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="fl">2.05</span>)</span>
+<span id="cb13-7"><a></a></span>
+<span id="cb13-8"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -588,14 +588,14 @@ Yu-You Liou (NTU)
 <p><strong>Strategy 1: Modify point appearance</strong></p>
 <p>For moderate overplotting, adjusting the visual properties of points can be sufficient. The following code compares three options on a sample of 2 000 points from a bivariate normal distribution:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb14-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>))</span>
-<span id="cb14-3"><a href=""></a>norm <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
-<span id="cb14-4"><a href=""></a></span>
-<span id="cb14-5"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb14-6"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)    <span class="co"># Hollow circles</span></span>
-<span id="cb14-7"><a href=""></a>p3 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="st">"."</span>)  <span class="co"># Pixel-sized points</span></span>
-<span id="cb14-8"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb14-2"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>))</span>
+<span id="cb14-3"><a></a>norm <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb14-6"><a></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)    <span class="co"># Hollow circles</span></span>
+<span id="cb14-7"><a></a>p3 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="st">"."</span>)  <span class="co"># Pixel-sized points</span></span>
+<span id="cb14-8"><a></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>Hollow glyphs (<code>shape = 1</code>) and pixel-sized points (<code>shape = "."</code>) allow some visual penetration into dense regions that solid filled circles would obscure.</p>
@@ -605,10 +605,10 @@ Yu-You Liou (NTU)
 <p><strong>Strategy 2: Alpha blending (transparency)</strong></p>
 <p><code>alpha</code> sets the transparency of each point. When specified as a fraction <code>1/n</code>, the surface reaches full opacity only when <code>n</code> points are stacked on top of one another:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
-<span id="cb15-2"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">5</span>)</span>
-<span id="cb15-3"><a href=""></a>p3 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">10</span>)</span>
-<span id="cb15-4"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
+<span id="cb15-2"><a></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">5</span>)</span>
+<span id="cb15-3"><a></a>p3 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">10</span>)</span>
+<span id="cb15-4"><a></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>Values of <code>alpha</code> smaller than approximately 1/500 are rounded down to zero, producing completely transparent (invisible) points. Alpha blending is most effective when combined with hollow glyphs.</p>
@@ -625,9 +625,9 @@ Yu-You Liou (NTU)
 <p>Overplotting can be reframed as a two-dimensional density estimation problem. Rather than plotting individual points, the plot area is divided into bins and the count within each bin is displayed.</p>
 <p><strong>Square bins — <code>geom_bin2d()</code>:</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_bin2d</span>()</span>
-<span id="cb16-2"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
-<span id="cb16-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_bin2d</span>()</span>
+<span id="cb16-2"><a></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
+<span id="cb16-3"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -636,9 +636,9 @@ Yu-You Liou (NTU)
 <p><strong>Hexagonal bins — <code>geom_hex()</code>:</strong></p>
 <p>Research by Carr et al.&nbsp;(1987) demonstrated that hexagonal bins reduce visual artefacts compared with square bins, because the hexagonal tessellation is more isotropic. <code>geom_hex()</code> requires the <code>hexbin</code> package:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_hex</span>()</span>
-<span id="cb17-2"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
-<span id="cb17-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_hex</span>()</span>
+<span id="cb17-2"><a></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
+<span id="cb17-3"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>Both <code>geom_bin2d()</code> and <code>geom_hex()</code> accept <code>bins</code> (number of bins per axis) and <code>binwidth</code> (physical width of each bin) arguments to control granularity.</p>
@@ -665,13 +665,13 @@ Yu-You Liou (NTU)
 <p><strong>1D summaries with <code>stat_summary_bin</code></strong></p>
 <p>The first plot below counts diamonds by colour category (equivalent to the default <code>geom_bar()</code> behaviour). The second replaces the count with the mean price per colour group, demonstrating how <code>stat = "summary_bin"</code> and <code>fun = mean</code> work together:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(color)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb18-3"><a href=""></a></span>
-<span id="cb18-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(color, price)) <span class="sc">+</span></span>
-<span id="cb18-5"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary_bin"</span>, <span class="at">fun =</span> mean)</span>
-<span id="cb18-6"><a href=""></a></span>
-<span id="cb18-7"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(color)) <span class="sc">+</span></span>
+<span id="cb18-2"><a></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb18-3"><a></a></span>
+<span id="cb18-4"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(color, price)) <span class="sc">+</span></span>
+<span id="cb18-5"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary_bin"</span>, <span class="at">fun =</span> mean)</span>
+<span id="cb18-6"><a></a></span>
+<span id="cb18-7"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -680,16 +680,16 @@ Yu-You Liou (NTU)
 <p><strong>2D summaries with <code>stat_summary_2d</code></strong></p>
 <p>The analogous tools exist for two-dimensional binning. The left plot below counts observations falling in each (table, depth) bin. The right plot fills each bin with the mean price, exposing how diamond value relates jointly to these two physical dimensions:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(table, depth)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href=""></a>  <span class="fu">geom_bin2d</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb19-3"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">50</span>, <span class="dv">70</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">50</span>, <span class="dv">70</span>)</span>
-<span id="cb19-4"><a href=""></a></span>
-<span id="cb19-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(table, depth, <span class="at">z =</span> price)) <span class="sc">+</span></span>
-<span id="cb19-6"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">stat =</span> <span class="st">"summary_2d"</span>, <span class="at">fun =</span> mean,</span>
-<span id="cb19-7"><a href=""></a>              <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb19-8"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">50</span>, <span class="dv">70</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">50</span>, <span class="dv">70</span>)</span>
-<span id="cb19-9"><a href=""></a></span>
-<span id="cb19-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(table, depth)) <span class="sc">+</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">geom_bin2d</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">xlim</span>(<span class="dv">50</span>, <span class="dv">70</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">50</span>, <span class="dv">70</span>)</span>
+<span id="cb19-4"><a></a></span>
+<span id="cb19-5"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(table, depth, <span class="at">z =</span> price)) <span class="sc">+</span></span>
+<span id="cb19-6"><a></a>  <span class="fu">geom_raster</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">stat =</span> <span class="st">"summary_2d"</span>, <span class="at">fun =</span> mean,</span>
+<span id="cb19-7"><a></a>              <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a></a>  <span class="fu">xlim</span>(<span class="dv">50</span>, <span class="dv">70</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">50</span>, <span class="dv">70</span>)</span>
+<span id="cb19-9"><a></a></span>
+<span id="cb19-10"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -718,8 +718,8 @@ Yu-You Liou (NTU)
 <p><strong>Contour plots — <code>geom_contour()</code></strong></p>
 <p><code>geom_contour()</code> draws isolines connecting points of equal <code>z</code> value. The <code>faithfuld</code> dataset (built into ggplot2) contains a bivariate density estimate for the Old Faithful geyser data:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href=""></a>  <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> density, <span class="at">colour =</span> <span class="fu">after_stat</span>(level)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> density, <span class="at">colour =</span> <span class="fu">after_stat</span>(level)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>The <code>after_stat(level)</code> variable refers to the contour level computed internally by the stat — it does not exist in the raw <code>faithfuld</code> data. This is the modern replacement for the deprecated <code>..level..</code> notation. Mapping it to <code>colour</code> allows the contour lines themselves to convey the magnitude of the density.</p>
@@ -729,8 +729,8 @@ Yu-You Liou (NTU)
 <p><strong>Heat maps — <code>geom_raster()</code></strong></p>
 <p>When a grid-based surface is to be shown as a colour-encoded tile map, <code>geom_raster()</code> provides an efficient rendering. It is optimised for uniform grids where all tiles share the same dimensions:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>Colour encodes the density value at each grid point, giving a heat-map view of the surface. Use a sequential or diverging colour scale to make the magnitude ordering perceptually accessible.</p>
@@ -740,10 +740,10 @@ Yu-You Liou (NTU)
 <p><strong>Bubble plots — <code>geom_point()</code> with <code>size</code></strong></p>
 <p>For sparser grids, encoding the surface value as point size preserves the positional layout while avoiding the visual clutter of a full raster. Note that bubble plots become unreadable when observation density is high:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>small <span class="ot">&lt;-</span> faithfuld[<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(faithfuld), <span class="at">by =</span> <span class="dv">10</span>), ]</span>
-<span id="cb22-2"><a href=""></a><span class="fu">ggplot</span>(small, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
-<span id="cb22-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> density), <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a href=""></a>  <span class="fu">scale_size_area</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>small <span class="ot">&lt;-</span> faithfuld[<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(faithfuld), <span class="at">by =</span> <span class="dv">10</span>), ]</span>
+<span id="cb22-2"><a></a><span class="fu">ggplot</span>(small, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> density), <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a></a>  <span class="fu">scale_size_area</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p><code>scale_size_area()</code> ensures that the area of each bubble is proportional to the underlying value, which is perceptually more accurate than making the radius proportional.</p>
@@ -795,6 +795,7 @@ Yu-You Liou (NTU)
 <section id="references" class="slide level2">
 <h2>References</h2>
 
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -805,19 +806,19 @@ Yu-You Liou (NTU)
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ch5_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ch5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ch5_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ch5_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ch5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ch5_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ch5_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ch5_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ch5_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ch5_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

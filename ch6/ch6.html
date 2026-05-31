@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ch6_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ch6_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ch6_files/libs/quarto-html/popper.min.js"></script>
-<script src="ch6_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ch6_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ch6_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch6_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-05-30">
-  <title>Data Analysis</title>
+  <meta name="dcterms.date" content="2026-05-31">
+  <title>Data Aanlysis – Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ch6_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ch6_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -96,11 +96,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="ch6_files/libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
-  <link href="ch6_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ch6_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ch6_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ch6_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -208,7 +208,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-05-30</p>
+  <p class="date">2026-05-31</p>
 </section>
 <section>
 <section id="maps" class="title-slide slide level1 center">
@@ -241,13 +241,13 @@ Yu-You Liou (NTU)
 <p>The most straightforward path to drawing a map in ggplot2 is to represent geographic boundaries as ordinary polygons and render them with <code>geom_polygon()</code>. The <code>maps</code> package, bundled with R, provides boundary data accessible through <code>ggplot2::map_data()</code>.</p>
 <p>The code below retrieves county-level boundaries for the state of Michigan and renames the columns for clarity:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a>mi_counties <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"county"</span>, <span class="st">"michigan"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href=""></a>  <span class="fu">select</span>(<span class="at">lon =</span> long, lat, group, <span class="at">id =</span> subregion)</span>
-<span id="cb1-7"><a href=""></a><span class="fu">head</span>(mi_counties)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>mi_counties <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"county"</span>, <span class="st">"michigan"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a></a>  <span class="fu">select</span>(<span class="at">lon =</span> long, lat, group, <span class="at">id =</span> subregion)</span>
+<span id="cb1-7"><a></a><span class="fu">head</span>(mi_counties)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        lon      lat group     id
 1 -83.88675 44.85686     1 alcona
@@ -274,15 +274,15 @@ Yu-You Liou (NTU)
 <p><strong>From scatterplot to choropleth map</strong></p>
 <p>Plotting the raw vertices as points with <code>geom_point()</code> produces a scatterplot of all polygon corners — a useful diagnostic step that confirms the data has been loaded correctly. Replacing <code>geom_point()</code> with <code>geom_polygon()</code> and mapping <code>group</code> connects the vertices into filled county outlines:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mi_counties, <span class="fu">aes</span>(lon, lat)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">25</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb3-3"><a href=""></a>  <span class="fu">coord_quickmap</span>()</span>
-<span id="cb3-4"><a href=""></a></span>
-<span id="cb3-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mi_counties, <span class="fu">aes</span>(lon, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
-<span id="cb3-6"><a href=""></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb3-7"><a href=""></a>  <span class="fu">coord_quickmap</span>()</span>
-<span id="cb3-8"><a href=""></a></span>
-<span id="cb3-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mi_counties, <span class="fu">aes</span>(lon, lat)) <span class="sc">+</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">25</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">coord_quickmap</span>()</span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mi_counties, <span class="fu">aes</span>(lon, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a></a>  <span class="fu">coord_quickmap</span>()</span>
+<span id="cb3-8"><a></a></span>
+<span id="cb3-9"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -311,11 +311,11 @@ Yu-You Liou (NTU)
 <p><strong>The <code>ozmaps</code> package</strong></p>
 <p>The following examples use the <code>ozmaps</code> package (Sumner 2019), which bundles sf datasets for Australian administrative and electoral boundaries. We begin by inspecting the <code>ozmap_states</code> object, which contains the borders of all Australian states and territories:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(ozmaps)</span>
-<span id="cb4-2"><a href=""></a><span class="fu">library</span>(sf)</span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a>oz_states <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>ozmap_states</span>
-<span id="cb4-5"><a href=""></a>oz_states</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(ozmaps)</span>
+<span id="cb4-2"><a></a><span class="fu">library</span>(sf)</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a>oz_states <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>ozmap_states</span>
+<span id="cb4-5"><a></a>oz_states</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 9 features and 1 field
 Geometry type: MULTIPOLYGON
@@ -348,9 +348,9 @@ Geodetic CRS:  GDA94
 <p><strong>Drawing a minimal map with <code>geom_sf()</code></strong></p>
 <p>Because <code>geom_sf()</code> automatically detects a column named <code>geometry</code>, no aesthetic mapping needs to be supplied:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(oz_states) <span class="sc">+</span></span>
-<span id="cb6-2"><a href=""></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
-<span id="cb6-3"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(oz_states) <span class="sc">+</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -377,15 +377,15 @@ Geodetic CRS:  GDA94
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(rmapshaper)</span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a>oz_states <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>ozmap_states <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">!=</span> <span class="st">"Other Territories"</span>)</span>
-<span id="cb7-4"><a href=""></a>oz_votes  <span class="ot">&lt;-</span> <span class="fu">ms_simplify</span>(ozmaps<span class="sc">::</span>abs_ced)</span>
-<span id="cb7-5"><a href=""></a></span>
-<span id="cb7-6"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb7-7"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb7-8"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb7-9"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(rmapshaper)</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a>oz_states <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>ozmap_states <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">!=</span> <span class="st">"Other Territories"</span>)</span>
+<span id="cb7-4"><a></a>oz_votes  <span class="ot">&lt;-</span> <span class="fu">ms_simplify</span>(ozmaps<span class="sc">::</span>abs_ced)</span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-7"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -406,17 +406,17 @@ Geodetic CRS:  GDA94
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>sydney_map <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">%in%</span> <span class="fu">c</span>(</span>
-<span id="cb8-2"><a href=""></a>  <span class="st">"Sydney"</span>, <span class="st">"Wentworth"</span>, <span class="st">"Warringah"</span>, <span class="st">"Kingsford Smith"</span>, <span class="st">"Grayndler"</span>, <span class="st">"Lowe"</span>,</span>
-<span id="cb8-3"><a href=""></a>  <span class="st">"North Sydney"</span>, <span class="st">"Barton"</span>, <span class="st">"Bradfield"</span>, <span class="st">"Banks"</span>, <span class="st">"Blaxland"</span>, <span class="st">"Reid"</span>,</span>
-<span id="cb8-4"><a href=""></a>  <span class="st">"Watson"</span>, <span class="st">"Fowler"</span>, <span class="st">"Werriwa"</span>, <span class="st">"Prospect"</span>, <span class="st">"Parramatta"</span>, <span class="st">"Bennelong"</span>,</span>
-<span id="cb8-5"><a href=""></a>  <span class="st">"Mackellar"</span>, <span class="st">"Greenway"</span>, <span class="st">"Mitchell"</span>, <span class="st">"Chifley"</span>, <span class="st">"McMahon"</span></span>
-<span id="cb8-6"><a href=""></a>))</span>
-<span id="cb8-7"><a href=""></a></span>
-<span id="cb8-8"><a href=""></a><span class="fu">ggplot</span>(sydney_map) <span class="sc">+</span></span>
-<span id="cb8-9"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb8-10"><a href=""></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">150.97</span>, <span class="fl">151.3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">33.98</span>, <span class="sc">-</span><span class="fl">33.79</span>)) <span class="sc">+</span></span>
-<span id="cb8-11"><a href=""></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> NAME), <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>sydney_map <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb8-2"><a></a>  <span class="st">"Sydney"</span>, <span class="st">"Wentworth"</span>, <span class="st">"Warringah"</span>, <span class="st">"Kingsford Smith"</span>, <span class="st">"Grayndler"</span>, <span class="st">"Lowe"</span>,</span>
+<span id="cb8-3"><a></a>  <span class="st">"North Sydney"</span>, <span class="st">"Barton"</span>, <span class="st">"Bradfield"</span>, <span class="st">"Banks"</span>, <span class="st">"Blaxland"</span>, <span class="st">"Reid"</span>,</span>
+<span id="cb8-4"><a></a>  <span class="st">"Watson"</span>, <span class="st">"Fowler"</span>, <span class="st">"Werriwa"</span>, <span class="st">"Prospect"</span>, <span class="st">"Parramatta"</span>, <span class="st">"Bennelong"</span>,</span>
+<span id="cb8-5"><a></a>  <span class="st">"Mackellar"</span>, <span class="st">"Greenway"</span>, <span class="st">"Mitchell"</span>, <span class="st">"Chifley"</span>, <span class="st">"McMahon"</span></span>
+<span id="cb8-6"><a></a>))</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a><span class="fu">ggplot</span>(sydney_map) <span class="sc">+</span></span>
+<span id="cb8-9"><a></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">150.97</span>, <span class="fl">151.3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">33.98</span>, <span class="sc">-</span><span class="fl">33.79</span>)) <span class="sc">+</span></span>
+<span id="cb8-11"><a></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> NAME), <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -433,23 +433,23 @@ Geodetic CRS:  GDA94
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>oz_capitals <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb9-2"><a href=""></a>  <span class="sc">~</span>city,        <span class="sc">~</span>lat,      <span class="sc">~</span>lon,</span>
-<span id="cb9-3"><a href=""></a>  <span class="st">"Sydney"</span>,    <span class="sc">-</span><span class="fl">33.8688</span>,  <span class="fl">151.2093</span>,</span>
-<span id="cb9-4"><a href=""></a>  <span class="st">"Melbourne"</span>, <span class="sc">-</span><span class="fl">37.8136</span>,  <span class="fl">144.9631</span>,</span>
-<span id="cb9-5"><a href=""></a>  <span class="st">"Brisbane"</span>,  <span class="sc">-</span><span class="fl">27.4698</span>,  <span class="fl">153.0251</span>,</span>
-<span id="cb9-6"><a href=""></a>  <span class="st">"Adelaide"</span>,  <span class="sc">-</span><span class="fl">34.9285</span>,  <span class="fl">138.6007</span>,</span>
-<span id="cb9-7"><a href=""></a>  <span class="st">"Perth"</span>,     <span class="sc">-</span><span class="fl">31.9505</span>,  <span class="fl">115.8605</span>,</span>
-<span id="cb9-8"><a href=""></a>  <span class="st">"Hobart"</span>,    <span class="sc">-</span><span class="fl">42.8821</span>,  <span class="fl">147.3272</span>,</span>
-<span id="cb9-9"><a href=""></a>  <span class="st">"Canberra"</span>,  <span class="sc">-</span><span class="fl">35.2809</span>,  <span class="fl">149.1300</span>,</span>
-<span id="cb9-10"><a href=""></a>  <span class="st">"Darwin"</span>,    <span class="sc">-</span><span class="fl">12.4634</span>,  <span class="fl">130.8456</span></span>
-<span id="cb9-11"><a href=""></a>)</span>
-<span id="cb9-12"><a href=""></a></span>
-<span id="cb9-13"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb9-14"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes) <span class="sc">+</span></span>
-<span id="cb9-15"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb9-16"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oz_capitals, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat), <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb9-17"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>oz_capitals <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb9-2"><a></a>  <span class="sc">~</span>city,        <span class="sc">~</span>lat,      <span class="sc">~</span>lon,</span>
+<span id="cb9-3"><a></a>  <span class="st">"Sydney"</span>,    <span class="sc">-</span><span class="fl">33.8688</span>,  <span class="fl">151.2093</span>,</span>
+<span id="cb9-4"><a></a>  <span class="st">"Melbourne"</span>, <span class="sc">-</span><span class="fl">37.8136</span>,  <span class="fl">144.9631</span>,</span>
+<span id="cb9-5"><a></a>  <span class="st">"Brisbane"</span>,  <span class="sc">-</span><span class="fl">27.4698</span>,  <span class="fl">153.0251</span>,</span>
+<span id="cb9-6"><a></a>  <span class="st">"Adelaide"</span>,  <span class="sc">-</span><span class="fl">34.9285</span>,  <span class="fl">138.6007</span>,</span>
+<span id="cb9-7"><a></a>  <span class="st">"Perth"</span>,     <span class="sc">-</span><span class="fl">31.9505</span>,  <span class="fl">115.8605</span>,</span>
+<span id="cb9-8"><a></a>  <span class="st">"Hobart"</span>,    <span class="sc">-</span><span class="fl">42.8821</span>,  <span class="fl">147.3272</span>,</span>
+<span id="cb9-9"><a></a>  <span class="st">"Canberra"</span>,  <span class="sc">-</span><span class="fl">35.2809</span>,  <span class="fl">149.1300</span>,</span>
+<span id="cb9-10"><a></a>  <span class="st">"Darwin"</span>,    <span class="sc">-</span><span class="fl">12.4634</span>,  <span class="fl">130.8456</span></span>
+<span id="cb9-11"><a></a>)</span>
+<span id="cb9-12"><a></a></span>
+<span id="cb9-13"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-14"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes) <span class="sc">+</span></span>
+<span id="cb9-15"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb9-16"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oz_capitals, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat), <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb9-17"><a></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -502,7 +502,7 @@ Geodetic CRS:  GDA94
 
 <p>An sf object stores its CRS as embedded metadata, accessible via <code>sf::st_crs()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">st_crs</span>(oz_votes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coordinate Reference System:
   User input: EPSG:4283 
@@ -532,7 +532,7 @@ GEOGCRS["GDA94",
 
 <p>The verbose <strong>well-known text (WKT)</strong> string printed above unambiguously describes the CRS. A far more compact representation is the <strong>EPSG code</strong> — a unique integer assigned by the EPSG Geodetic Parameter Dataset (<a href="https://epsg.org" class="uri">https://epsg.org</a>). The default CRS for <code>oz_votes</code> corresponds to EPSG 4283 (GDA94):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes) <span class="sc">==</span> <span class="fu">st_crs</span>(<span class="dv">4283</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">st_crs</span>(oz_votes) <span class="sc">==</span> <span class="fu">st_crs</span>(<span class="dv">4283</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -543,9 +543,9 @@ GEOGCRS["GDA94",
 <p><strong>Changing the projection with <code>coord_sf()</code></strong></p>
 <p><code>coord_sf()</code> controls the CRS applied to the entire plot. By default it adopts the CRS of the first sf layer. To override this, supply a valid CRS to the <code>crs</code> argument:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
-<span id="cb14-2"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="fu">st_crs</span>(<span class="dv">3112</span>))</span>
-<span id="cb14-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
+<span id="cb14-2"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="fu">st_crs</span>(<span class="dv">3112</span>))</span>
+<span id="cb14-3"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -572,12 +572,12 @@ GEOGCRS["GDA94",
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>edenmonaro <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Eden-Monaro"</span>)</span>
-<span id="cb15-2"><a href=""></a></span>
-<span id="cb15-3"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(edenmonaro) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
-<span id="cb15-4"><a href=""></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">147.75</span>, <span class="fl">150.25</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">37.5</span>, <span class="sc">-</span><span class="fl">34.5</span>))</span>
-<span id="cb15-5"><a href=""></a>p2 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="fl">150.25</span>),    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">36.3</span>, <span class="sc">-</span><span class="dv">36</span>))</span>
-<span id="cb15-6"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>edenmonaro <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Eden-Monaro"</span>)</span>
+<span id="cb15-2"><a></a></span>
+<span id="cb15-3"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(edenmonaro) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
+<span id="cb15-4"><a></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">147.75</span>, <span class="fl">150.25</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">37.5</span>, <span class="sc">-</span><span class="fl">34.5</span>))</span>
+<span id="cb15-5"><a></a>p2 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="fl">150.25</span>),    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">36.3</span>, <span class="sc">-</span><span class="dv">36</span>))</span>
+<span id="cb15-6"><a></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -586,8 +586,8 @@ GEOGCRS["GDA94",
 <p><strong>Extracting the geometry column</strong></p>
 <p>The geometry column can be isolated as a standalone <code>sfc</code> (simple feature column) object using <code>dplyr::pull()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>edenmonaro <span class="ot">&lt;-</span> edenmonaro <span class="sc">|&gt;</span> <span class="fu">pull</span>(geometry)</span>
-<span id="cb16-2"><a href=""></a>edenmonaro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>edenmonaro <span class="ot">&lt;-</span> edenmonaro <span class="sc">|&gt;</span> <span class="fu">pull</span>(geometry)</span>
+<span id="cb16-2"><a></a>edenmonaro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Geometry set for 1 feature 
 Geometry type: MULTIPOLYGON
@@ -608,7 +608,7 @@ Geodetic CRS:  GDA94</code></pre>
 <li><code>st_crs()</code> — returns the coordinate reference system as a list containing the EPSG code and a WKT string.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">st_bbox</span>(edenmonaro)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">st_bbox</span>(edenmonaro)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     xmin      ymin      xmax      ymax 
 147.68741 -37.50503 150.23068 -34.53558 </code></pre>
@@ -620,7 +620,7 @@ Geodetic CRS:  GDA94</code></pre>
 <p><strong>Casting between geometry types with <code>st_cast()</code></strong></p>
 <p>A <code>MULTIPOLYGON</code> can be decomposed into its constituent <code>POLYGON</code> objects using <code>st_cast()</code>. For Eden-Monaro, this reveals the two distinct polygons that make up the electorate:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">st_cast</span>(edenmonaro, <span class="st">"POLYGON"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">st_cast</span>(edenmonaro, <span class="st">"POLYGON"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Geometry set for 2 features 
 Geometry type: POLYGON
@@ -635,11 +635,11 @@ Geodetic CRS:  GDA94</code></pre>
 <p><strong>Practical application: isolating islands</strong></p>
 <p>The Dawson electorate in Queensland comprises 69 offshore islands plus one large coastal mainland region — 70 polygon components in total:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>dawson <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a href=""></a>  <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Dawson"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a href=""></a>  <span class="fu">pull</span>(geometry)</span>
-<span id="cb22-4"><a href=""></a></span>
-<span id="cb22-5"><a href=""></a><span class="fu">ggplot</span>(dawson) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>dawson <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a></a>  <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Dawson"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">pull</span>(geometry)</span>
+<span id="cb22-4"><a></a></span>
+<span id="cb22-5"><a></a><span class="fu">ggplot</span>(dawson) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -647,12 +647,12 @@ Geodetic CRS:  GDA94</code></pre>
 
 <p>To map only the islands, cast to individual polygons, compute each polygon’s area with <code>st_area()</code>, identify the largest polygon (the mainland) with <code>which.max()</code>, and exclude it by negative indexing:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>dawson <span class="ot">&lt;-</span> <span class="fu">st_cast</span>(dawson, <span class="st">"POLYGON"</span>)</span>
-<span id="cb23-2"><a href=""></a><span class="fu">which.max</span>(<span class="fu">st_area</span>(dawson))  <span class="co"># Mainland is polygon 69</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>dawson <span class="ot">&lt;-</span> <span class="fu">st_cast</span>(dawson, <span class="st">"POLYGON"</span>)</span>
+<span id="cb23-2"><a></a><span class="fu">which.max</span>(<span class="fu">st_area</span>(dawson))  <span class="co"># Mainland is polygon 69</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 69</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(dawson[<span class="sc">-</span><span class="dv">69</span>]) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(dawson[<span class="sc">-</span><span class="dv">69</span>]) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>This cast → measure → subset workflow generalises to any situation where the geographic components of a region must be treated independently — for example, separating mainland from island territories, or identifying the largest contiguous region within a complex multipolygon.</p>
@@ -673,14 +673,14 @@ Geodetic CRS:  GDA94</code></pre>
 <p>The <code>stars</code> package (Pebesma 2020) provides tools for reading and manipulating spatiotemporal raster arrays. The example below imports a GeoTIFF file containing a visible-light satellite image captured by the Himawari-8 geostationary satellite and originally sourced from the Australian Bureau of Meteorology.</p>
 <p>The <code>RasterIO</code> list is passed directly to GDAL: <code>nBufXSize</code> and <code>nBufYSize</code> downsample the image to 600 × 600 pixels on import, reducing memory usage while retaining enough detail for visualisation:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">library</span>(stars)</span>
-<span id="cb26-2"><a href=""></a></span>
-<span id="cb26-3"><a href=""></a>sat_vis <span class="ot">&lt;-</span> <span class="fu">read_stars</span>(</span>
-<span id="cb26-4"><a href=""></a>  <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/hadley/"</span>,</span>
-<span id="cb26-5"><a href=""></a>  <span class="st">"ggplot2-book/main/IDE00422.202001072100.tif"</span>),</span>
-<span id="cb26-6"><a href=""></a>  <span class="at">RasterIO =</span> <span class="fu">list</span>(<span class="at">nBufXSize =</span> <span class="dv">600</span>, <span class="at">nBufYSize =</span> <span class="dv">600</span>)</span>
-<span id="cb26-7"><a href=""></a>)</span>
-<span id="cb26-8"><a href=""></a>sat_vis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">library</span>(stars)</span>
+<span id="cb26-2"><a></a></span>
+<span id="cb26-3"><a></a>sat_vis <span class="ot">&lt;-</span> <span class="fu">read_stars</span>(</span>
+<span id="cb26-4"><a></a>  <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/hadley/"</span>,</span>
+<span id="cb26-5"><a></a>  <span class="st">"ggplot2-book/main/IDE00422.202001072100.tif"</span>),</span>
+<span id="cb26-6"><a></a>  <span class="at">RasterIO =</span> <span class="fu">list</span>(<span class="at">nBufXSize =</span> <span class="dv">600</span>, <span class="at">nBufYSize =</span> <span class="dv">600</span>)</span>
+<span id="cb26-7"><a></a>)</span>
+<span id="cb26-8"><a></a>sat_vis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>stars object with 3 dimensions and 1 attribute
 attribute(s), summary of first 1e+05 cells:
@@ -727,11 +727,11 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <p><strong>Plotting raster data with <code>geom_stars()</code></strong></p>
 <p><code>geom_stars()</code>, provided by the <code>stars</code> package, maps raster pixel values to the <code>fill</code> aesthetic. A minimal plot applies ggplot2’s default sequential blue scale to the raw 0–255 pixel values:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">library</span>(stars)</span>
-<span id="cb28-2"><a href=""></a></span>
-<span id="cb28-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis) <span class="sc">+</span></span>
-<span id="cb28-5"><a href=""></a>  <span class="fu">coord_equal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">library</span>(stars)</span>
+<span id="cb28-2"><a></a></span>
+<span id="cb28-3"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis) <span class="sc">+</span></span>
+<span id="cb28-5"><a></a>  <span class="fu">coord_equal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>The blue colouring reflects the ggplot2 scale choice rather than the original image appearance. To display the image in greyscale — a more faithful representation of visible-light satellite imagery — apply <code>scale_fill_gradient(low = "black", high = "white")</code>.</p>
@@ -741,11 +741,11 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <p><strong>Separating bands with <code>facet_wrap()</code></strong></p>
 <p>Because <code>sat_vis</code> contains three bands, they can be displayed in separate panels using <code>facet_wrap()</code>. For a greyscale image, all three panels will be identical; for a multi-spectral image, the panels would reveal the spatial pattern captured by each sensor:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb29-2"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb29-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(band)) <span class="sc">+</span></span>
-<span id="cb29-4"><a href=""></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb29-5"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb29-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(band)) <span class="sc">+</span></span>
+<span id="cb29-4"><a></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb29-5"><a></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -754,14 +754,14 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <p><strong>Reprojecting vector data to match a raster CRS</strong></p>
 <p>Without reprojection, overlaying <code>oz_states</code> (EPSG 4283) on <code>sat_vis</code> (geostationary projection) would misalign the layers. <code>sf::st_transform()</code> reprojects the vector data to match the raster’s CRS:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>oz_states <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(oz_states, <span class="at">crs =</span> <span class="fu">st_crs</span>(sat_vis))</span>
-<span id="cb30-2"><a href=""></a></span>
-<span id="cb30-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb30-4"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb30-5"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb30-6"><a href=""></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
-<span id="cb30-7"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb30-8"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>oz_states <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(oz_states, <span class="at">crs =</span> <span class="fu">st_crs</span>(sat_vis))</span>
+<span id="cb30-2"><a></a></span>
+<span id="cb30-3"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb30-4"><a></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb30-6"><a></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
+<span id="cb30-7"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb30-8"><a></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>With correctly reprojected state boundaries, the white outlines align precisely with the coastlines visible in the satellite image.</p>
@@ -778,18 +778,18 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>cities <span class="ot">&lt;-</span> oz_capitals <span class="sc">|&gt;</span></span>
-<span id="cb31-2"><a href=""></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb31-3"><a href=""></a></span>
-<span id="cb31-4"><a href=""></a>cities <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(cities, <span class="fu">st_crs</span>(sat_vis))</span>
-<span id="cb31-5"><a href=""></a></span>
-<span id="cb31-6"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb31-7"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb31-8"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb31-9"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> cities, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb31-10"><a href=""></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
-<span id="cb31-11"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb31-12"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>cities <span class="ot">&lt;-</span> oz_capitals <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-3"><a></a></span>
+<span id="cb31-4"><a></a>cities <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(cities, <span class="fu">st_crs</span>(sat_vis))</span>
+<span id="cb31-5"><a></a></span>
+<span id="cb31-6"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb31-7"><a></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb31-8"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb31-9"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> cities, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb31-10"><a></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
+<span id="cb31-11"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb31-12"><a></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -798,7 +798,7 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <p><strong>Interpreting the composite map</strong></p>
 <p>With capital city locations correctly projected onto the satellite image, it becomes apparent that the image was taken at approximately sunrise in Darwin: eastern capitals (Sydney, Melbourne, Brisbane, Canberra) lie in the illuminated zone, while Perth in the west remains in darkness. City names can be added with:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">geom_sf_text</span>(<span class="at">data =</span> cities, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> city))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">geom_sf_text</span>(<span class="at">data =</span> cities, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> city))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>mapping: label = ~city 
 geom_text: parse = FALSE, check_overlap = FALSE, na.rm = FALSE
@@ -839,7 +839,7 @@ position_nudge </code></pre>
 <p><strong>Working with your own shapefiles</strong></p>
 <p>If geospatial data are already available locally in ESRI Shapefile format (<code>.shp</code>), they can be imported directly into R as an sf object with:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>my_map <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">read_sf</span>(<span class="st">"path/to/my_shapefile.shp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>my_map <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">read_sf</span>(<span class="st">"path/to/my_shapefile.shp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once loaded, the object is fully compatible with <code>geom_sf()</code>, <code>coord_sf()</code>, and all other sf-aware functions covered in this chapter.</p>
 </section>
@@ -854,6 +854,7 @@ position_nudge </code></pre>
 <section id="references" class="slide level2">
 <h2>References</h2>
 
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -864,19 +865,19 @@ position_nudge </code></pre>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ch6_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ch6_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ch6_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ch6_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ch6_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ch6_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ch6_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ch6_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ch6_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ch6_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
