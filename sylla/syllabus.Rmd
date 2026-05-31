@@ -2,7 +2,7 @@
 title: "**Data Analysis**"
 subtitle: "Syllabus"
 author: "Yu-You Liou"
-date: "Fall 2025"
+date: "Fall 2026"
 output:
   pdf_document:
     toc: false
