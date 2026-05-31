@@ -20,7 +20,7 @@ format:
     theme:
       - Minty
       - brand
-    css: styles.css
+    # css: styles.css 
     toc: true
 
 editor: visual

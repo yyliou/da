@@ -1,18 +1,25 @@
-## Syllabus and Course Policy
+---
+title: "**Data Analysis**"
+subtitle: "Syllabus"
+author: "Yu-You Liou"
+date: "Fall2025"
+output:
+  pdf_document:
+    toc: false
+    latex_engine: xelatex
+---
 
-### Syllabus
-
-[PDF version](ttps://yyliou.github.io/da/sylla/syllabus.pdf)
-
-### Course Information
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 |  |  |
 |:--|:--|
 | **Lecturer**: [Yu-You Liou](https://yyliou.github.io) | **Contact**: d10627008\@ntu.edu.tw |
-| **Course Code**: `EIB-301-01-A1` | **Website**: <https://yyliou.github.io/da> |
+| **Course Code**: EIB-301-01-A1 | **Website**: <https://yyliou.github.io/da> |
 | **Meeting Time**: Tuesday, Periods 8–9 (15:10–17:00) | **Location**: Room A207 |
 
-### Course Objectives
+**[Course Objectives]{.underline}**
 
 1. To enable students to understand the basic logic, applications, and simple techniques of data analysis using R.
 
@@ -22,30 +29,27 @@
 
 4. To integrate generative AI to enhance students' workflows in programming and compilation tasks.
 
-### Textbooks
+**[Textbooks]{.underline}**
 
 1. Wickham, H., Navarro, D., & Pedersen, T. L. *ggplot2: Elegant Graphics for Data Analysis* (3rd ed.). (Main) <https://ggplot2-book.org>
 
 2. Adler, J. *R in a Nutshell: A Desktop Quick Reference* (2nd ed.). O'Reilly Media.
 
-### Course Structure
+**[Course Structure]{.underline}**
 
 1. **Lecture** (First hour): Foundational knowledge and concepts introduced each session.
 
 2. **Lab** (Second hour): Hands-on in-class exercises using R to apply the concepts learned during the lecture.
 
-### Assessment Criteria
+**[Assessment Criteria]{.underline}**
 
-| Component | Weight | Details |
-|:-----------------------|:----------------------:|:-----------------------|
-| Mid-term Oral Examination | 20% | Individual oral assessment at mid-semester |
-| Final Oral Examination | 20% | Individual oral assessment at end of semester |
-| In-Class Exercises | 48% | 12 exercises × 4% each |
-| Attendance | 12% | Score = min(12, number of sessions attended) × 1% |
+1. **Attendance** (12%): $R = \min\{12,\, t\}$, where $t$ represents the number of sessions attended.
 
-: {.table .table-striped}
+2. **In-Class Exercises** (48%): 12 exercises × 4% each, submitted at the end of each session.
 
-### Regulations
+3. **Mid-Term Oral Presentaiton** (20%) and **Final Oral Presentaiton** (20%).
+
+**[Regulations]{.underline}**
 
 1. **Attendance**
 
@@ -63,11 +67,11 @@ All submitted work must be the student's own. Copying from other students is str
 
 All submitted work must be the student's own. Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
 
-### Required Software
+**[Required Software]{.underline}**
 
 All software is free and open-source: **R** at <https://cran.r-project.org>, **RStudio Desktop** at <https://posit.co/download/rstudio-desktop>, and R packages `tidyverse`, `ggplot2`, `patchwork` (installation instructions on the [course R page](https://yyliou.github.io/da/r.html)).
 
-### Course Schedule
+**[Course Schedule]{.underline}**
 
 1. Weeks 1–3: Part I — Introduction to R and first steps with `ggplot2`.
 
@@ -81,6 +85,4 @@ All software is free and open-source: **R** at <https://cran.r-project.org>, **R
 
 6. Weeks 15–16: Final presentations.
 
-7. Weeks 17-18: Flexible learning weeks.
-
-*Note: Syllabus is subject to change. Any updates will be announced on the course website.*
+*Syllabus is subject to change. Any updates will be announced on the course website.*

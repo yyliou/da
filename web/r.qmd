@@ -4,25 +4,25 @@
 
 R is the underlying statistical computing environment and must be installed before RStudio.
 
-1. Navigate to the official CRAN repository: [https://cran.r-project.org](https://cran.r-project.org)
-2. Select the installer appropriate for your operating system:
-   - **Windows**: Click *Download R for Windows* → *base* → download and execute the installer
-   - **macOS**: Click *Download R for macOS* → select the build matching your architecture (Apple Silicon users should select the `arm64` build)
-   - **Linux**: Follow the distribution-specific installation instructions provided on the page
-3. Run the installer using the default configuration settings.
+1.  Navigate to the official CRAN repository: <https://cran.r-project.org>
+2.  Select the installer appropriate for your operating system:
+    -   **Windows**: Click *Download R for Windows* → *base* → download and execute the installer
+    -   **macOS**: Click *Download R for macOS* → select the build matching your architecture (Apple Silicon users should select the `arm64` build)
+    -   **Linux**: Follow the distribution-specific installation instructions provided on the page
+3.  Run the installer using the default configuration settings.
 
 ### Step 2: Install RStudio Desktop
 
 RStudio is an integrated development environment (IDE) for R. It requires a prior R installation to function.
 
-1. Navigate to: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
-2. Download the free *RStudio Desktop* release for your operating system
-3. Execute the installer and follow the on-screen instructions
-4. Upon launching RStudio, the application should automatically detect the installed R environment
+1.  Navigate to: <https://posit.co/download/rstudio-desktop/>
+2.  Download the free *RStudio Desktop* release for your operating system
+3.  Execute the installer and follow the on-screen instructions
+4.  Upon launching RStudio, the application should automatically detect the installed R environment
 
 > **Important**: R and RStudio are distinct pieces of software. RStudio does not bundle R; it serves solely as an interface to an existing R installation.
 
----
+------------------------------------------------------------------------
 
 ## Authoring Documents with R Markdown and Generating PDF Output
 
@@ -32,7 +32,7 @@ R Markdown is a document format that integrates prose, code, and computational o
 
 Execute the following commands in the RStudio Console:
 
-```r
+``` r
 install.packages("rmarkdown")
 install.packages("knitr")
 ```
@@ -41,7 +41,7 @@ install.packages("knitr")
 
 PDF rendering requires a LaTeX engine. The `tinytex` package provides a lightweight, self-contained LaTeX distribution suitable for most use cases:
 
-```r
+``` r
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```
@@ -50,15 +50,15 @@ tinytex::install_tinytex()
 
 ### Step 3: Create a New R Markdown File
 
-1. From the RStudio menu, select: *File* → *New File* → *R Markdown...*
-2. Specify a title and author in the dialogue box; set the default output format to **PDF**
-3. Click **OK** to generate the template file
+1.  From the RStudio menu, select: *File* → *New File* → *R Markdown...*
+2.  Specify a title and author in the dialogue box; set the default output format to **PDF**
+3.  Click **OK** to generate the template file
 
 ### Step 4: Configure the YAML Header
 
 Every R Markdown document begins with a YAML front matter block delimited by `---`. This block controls document metadata and output settings:
 
-```yaml
+``` yaml
 ---
 title: "Assignment Title"
 author: "Full Name (Student ID)"
@@ -71,21 +71,19 @@ output: pdf_document
 
 R Markdown uses standard Markdown syntax for formatting prose, supplemented by fenced code chunks for embedding R code:
 
-| Syntax | Rendered Output |
-|--------|----------------|
-| `# Heading 1` | First-level heading |
-| `## Heading 2` | Second-level heading |
-| `**bold**` | **bold** |
-| `*italic*` | *italic* |
+| Syntax                       | Rendered Output             |
+|------------------------------|-----------------------------|
+| `# Heading 1`                | First-level heading         |
+| `## Heading 2`               | Second-level heading        |
+| `**bold**`                   | **bold**                    |
+| `*italic*`                   | *italic*                    |
 | Fenced code block with `{r}` | Executed R code with output |
 
 **Example code chunk:**
 
-````{r,eval=F}
-```{r}
+```{r,eval=F}
 summary(mtcars)
 ```
-````
 
 ```{r,echo=FALSE}
 summary(mtcars)
@@ -96,7 +94,8 @@ summary(mtcars)
 Click the **Knit** button in the RStudio toolbar, or use the keyboard shortcut `Ctrl+Shift+K` (Windows/Linux) or `Cmd+Shift+K` (macOS), and select *Knit to PDF*.
 
 > **Note on CJK character rendering**: If Chinese, Japanese, or Korean characters appear as missing glyphs in the PDF output, specify an alternative LaTeX engine in the YAML header:
-> ```yaml
+>
+> ``` yaml
 > output:
 >   pdf_document:
 >     latex_engine: xelatex
@@ -105,4 +104,4 @@ Click the **Knit** button in the RStudio toolbar, or use the keyboard shortcut `
 >   - \setmainfont{Noto Sans CJK TC}
 > ```
 
----
+------------------------------------------------------------------------

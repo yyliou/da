@@ -1,1 +1,138 @@
-/* css styles */
+/* Academic style — beige/cream base, navy + black accents, Palatino serif */
+
+/* ── Google Fonts fallback (Palatino is a system font) ── */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+/* ── Root palette ── */
+:root {
+  --beige:      #f0f1ec;
+  --beige-dark: #e3e4de;
+  --navy:       #4757aa;
+  --navy-light: #5f6fc0;
+  --black:      #1a1a1a;
+  --muted:      #5a5a5a;
+  --border:     #c9bfa8;
+}
+
+/* ── Page background & base text ── */
+body {
+  background-color: var(--beige) !important;
+  color: var(--black) !important;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif !important;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ── Navbar ── */
+.navbar {
+  background-color: var(--navy) !important;
+  border-bottom: 2px solid var(--border);
+}
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--beige) !important;
+  font-family: "Palatino Linotype", Palatino, serif !important;
+  letter-spacing: 0.03em;
+}
+.navbar .nav-link:hover {
+  color: #d4b896 !important;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif !important;
+  color: var(--navy) !important;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+h1 { border-bottom: 1px solid var(--border); padding-bottom: 0.3em; }
+
+/* ── Links ── */
+a {
+  color: var(--navy-light) !important;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--navy) !important;
+  text-decoration: underline;
+}
+
+/* ── TOC ── */
+#TOC {
+  background-color: var(--beige-dark);
+  border-left: 3px solid var(--navy);
+  padding: 1rem 1.2rem;
+  font-size: 0.92rem;
+}
+#TOC .nav-link { color: var(--navy) !important; }
+#TOC .nav-link:hover { color: var(--navy-light) !important; }
+
+/* ── Main content area ── */
+.content, main, #quarto-content {
+  background-color: var(--beige) !important;
+}
+
+/* ── Code blocks ── */
+pre.sourceCode {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Courier New", monospace !important;
+  font-size: 0.88rem;
+  /* 不覆蓋背景與字色，讓 highlight-style 的配色保留 */
+}
+
+/* ── Inline code ── */
+p code, li code {
+  background-color: var(--beige-dark);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace !important;
+  font-size: 0.85em;
+  color: var(--navy);
+}
+
+/* ── Tables ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+  background-color: var(--beige) !important;
+}
+thead tr {
+  background-color: var(--navy) !important;
+  color: var(--beige) !important;
+}
+thead th {
+  padding: 0.6rem 0.8rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background-color: var(--beige-dark) !important; }
+tbody td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+
+/* ── Blockquotes ── */
+blockquote {
+  border-left: 4px solid var(--navy);
+  background-color: var(--beige-dark);
+  margin: 1.2rem 0;
+  padding: 0.8rem 1.2rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Footer ── */
+footer, .nav-footer {
+  background-color: var(--beige-dark) !important;
+  border-top: 1px solid var(--border);
+  color: var(--muted) !important;
+  font-size: 0.85rem;
+}
+
+/* ── Callout boxes ── */
+.callout {
+  border-radius: 3px;
+  border-left-width: 4px;
+}
+.callout-note { border-left-color: var(--navy) !important; }
+.callout-tip  { border-left-color: #4a7c59 !important; }
