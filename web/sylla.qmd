@@ -57,7 +57,7 @@ Students who do not show up for their scheduled presentation will receive a grad
 
 3.  **Academic Integrity**
 
-All submitted work must be the student's own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied or AI-generated will receive a grade of zero.
+All submitted work must be the student's own. Copying from other students is strictly prohibited. AI detection tools are used to review submissions; any work found to be copied will receive a grade of zero.
 
 4.  **AI Policy**
 

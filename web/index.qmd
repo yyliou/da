@@ -21,3 +21,15 @@ The required textbook is *ggplot2: Elegant Graphics for Data Analysis* by Hadley
 | Attendance | 12% | Score = min(12, number of sessions attended) × 1% |
 
 : {.table .table-striped}
+
+## Contact Me
+
+Please feel free to contact me via [email](mailto: d10627008@ntu.edu.tw). However, to ensure fairness and consistency for all students, I will not respond to three categories of inquiries:
+
+* Questions regarding **information that is already available** on the website
+
+* Requests for **make-up** examination, presentations, or attendance adjustments
+
+* Requests for **special arrangements** regarding examination or presentation schedules
+
+Thank you for your understanding as we work to keep our learning environment fair for everyone.
