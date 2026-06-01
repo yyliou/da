@@ -81,9 +81,12 @@ R Markdown uses standard Markdown syntax for formatting prose, supplemented by f
 
 **Example code chunk:**
 
-```{r,eval=F}
+
+````{r, eval = F}
+```{r}
 summary(mtcars)
 ```
+````
 
 ```{r,echo=FALSE}
 summary(mtcars)

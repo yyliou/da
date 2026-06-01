@@ -10,7 +10,7 @@
 
 Copy the following template as the starting point for every submission. Replace all placeholder values before submitting.
 
-```{r,eval=F}
+````{r,eval=F}
 ---
 title: "Ex. X"
 author: "Full Name (Student ID)"
@@ -18,9 +18,13 @@ date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
 
+```{r}
 print(uuid::UUIDgenerate())
+```
 
 ## Question 1
 
@@ -29,7 +33,7 @@ print(uuid::UUIDgenerate())
 ## Question 2
 
 *(Write your response here.)*
-```
+````
 
 ### Checklist
 
