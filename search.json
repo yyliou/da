@@ -53,14 +53,14 @@
     "href": "index.html#assessment",
     "title": "Data Aanlysis",
     "section": "Assessment",
-    "text": "Assessment\n\n\n\n\n\n\n\n\nComponent\nWeight\nDetails\n\n\n\n\nMid-term Oral Examination\n20%\nIndividual oral assessment at mid-semester\n\n\nFinal Oral Examination\n20%\nIndividual oral assessment at end of semester\n\n\nIn-Class Exercises\n48%\n12 exercises × 4% each\n\n\nAttendance\n12%\nScore = min(12, number of sessions attended) × 1%"
+    "text": "Assessment\n\n\n\nComponent\nWeight\nDetails\n\n\n\n\nIn-Class Exercises\n36%\n12 exercises × 3% each\n\n\nMidterm Exam\n32%\n\n\n\nFinal Exam\n32%"
   },
   {
     "objectID": "index.html#contact-me",
     "href": "index.html#contact-me",
     "title": "Data Aanlysis",
     "section": "Contact Me",
-    "text": "Contact Me\nPlease feel free to contact me via email. However, to ensure fairness and consistency for all students, I will not respond to three categories of inquiries:\n\nQuestions regarding information that is already available on the website\nRequests for make-up examination, presentations, assignment, or attendance adjustments\nRequests for special arrangements regarding examination or presentation schedules\n\nThank you for your understanding as we work to keep our learning environment fair for everyon"
+    "text": "Contact Me\nPlease feel free to contact me via email. However, to ensure fairness and consistency for all students, I will not respond to three categories of inquiries:\n\nQuestions regarding information that is already available on the website\nRequests for make-up examination, assignment, or attendance adjustments\nRequests for special arrangements regarding examination schedules\n\nThank you for your understanding as we work to keep our learning environment fair for everyon"
   },
   {
     "objectID": "ch11/ch11.html#overview",
@@ -929,5 +929,12 @@
     "title": "Data Aanlysis",
     "section": "Part IV: The Grammar",
     "text": "Part IV: The Grammar"
+  },
+  {
+    "objectID": "index.html#exam-regulations",
+    "href": "index.html#exam-regulations",
+    "title": "Data Aanlysis",
+    "section": "Exam Regulations",
+    "text": "Exam Regulations\nIn alignment with the course’s paperless policy, this examination will be conducted online under the following strict regulations:\n\nMandatory Attendance Students must take the exam in person. Roll call will be taken five minutes before the exam begins. Late arrival or absence will result in a score of zero.\nNetwork Restriction The exam system tracks IP addresses. You must use the campus Wi-Fi; access from a non-campus IP address will result in a score of zero.\nAuthorized Resources This is an open-book exam. Any reference materials and AI tools are permitted as auxiliary aids.\nMedia Prohibition Electronic devices are allowed, but any photography, video/audio recording, or screenshotting will result in a score of zero.\nNo Communication or Disturbance Interpersonal communication, causing noise or disruptive movements are strictly prohibited. Violators will receive a score of zero.\nCopy-Paste Disabled The exam system prohibits copying and pasting. Do not attempt to bypass this feature.\n\nSample Link"
   }
 ]

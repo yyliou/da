@@ -11,16 +11,35 @@ The primary objective of the course is to develop students' ability to explore, 
 
 The required textbook is *ggplot2: Elegant Graphics for Data Analysis* by Hadley Wickham, freely available at [ggplot2-book.org](https://ggplot2-book.org){target="_blank"}.
 
+
 ## Assessment
 
-| Component | Weight | Details |
-|:-----------------------|:----------------------:|:-----------------------|
-| Mid-term Oral Examination | 20% | Individual oral assessment at mid-semester |
-| Final Oral Examination | 20% | Individual oral assessment at end of semester |
-| In-Class Exercises | 48% | 12 exercises × 4% each |
-| Attendance | 12% | Score = min(12, number of sessions attended) × 1% |
+| Component          | Weight | Details                           |
+|:-------------------|:------:|:----------------------------------|
+| In-Class Exercises |  36%   | 12 exercises × 3% each            |
+| Midterm Exam       |  32%   |                                   |
+| Final Exam         |  32%   |                                   |
 
 : {.table .table-striped}
+
+
+## Exam Regulations
+
+In alignment with the course’s paperless policy, this examination will be conducted online under the following strict regulations:
+
+1. **Mandatory Attendance** Students must take the exam in person. Roll call will be taken five minutes before the exam begins. Late arrival or absence will result in a score of zero.
+
+2. **Network Restriction** The exam system tracks IP addresses. You must use the campus Wi-Fi; access from a non-campus IP address will result in a score of zero.
+
+3. **Authorized Resources** This is an open-book exam. Any reference materials and AI tools are permitted as auxiliary aids.
+
+4. **Media Prohibition** Electronic devices are allowed, but any photography, video/audio recording, or screenshotting will result in a score of zero.
+
+5. **No Communication or Disturbance** Interpersonal communication, causing noise or disruptive movements are strictly prohibited. Violators will receive a score of zero.
+
+6. **Copy-Paste Disabled** The exam system prohibits copying and pasting. Do not attempt to bypass this feature.
+
+[Sample Link](https://liou-quiz-demo.share.connect.posit.cloud)
 
 ## Contact Me
 
@@ -28,8 +47,8 @@ Please feel free to contact me via [email](mailto: d10627008@ntu.edu.tw). Howeve
 
 * Questions regarding **information that is already available** on the website
 
-* Requests for **make-up** examination, presentations, assignment, or attendance adjustments
+* Requests for **make-up** examination, assignment, or attendance adjustments
 
-* Requests for **special arrangements** regarding examination or presentation schedules
+* Requests for **special arrangements** regarding examination schedules
 
 Thank you for your understanding as we work to keep our learning environment fair for everyon
