@@ -1,5 +1,5 @@
 ---
-title: "Statistics 1"
+title: "Data Analysis"
 subtitle: "In-Class Exercise 1"
 author: "Yu-You Liou"
 date: today
