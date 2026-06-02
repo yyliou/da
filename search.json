@@ -886,7 +886,7 @@
     "href": "prob.html#submission-requirements",
     "title": "Data Aanlysis",
     "section": "Submission Requirements",
-    "text": "Submission Requirements\n\n⚠️ All assignments must be submitted using the official template provided below.\nSubmissions that are missing any of the following elements will receive a grade of zero. This policy is non-negotiable.\n\n\nTemplate\nCopy the following template as the starting point for every submission. Replace all placeholder values before submitting.\n\n---\ntitle: \"Ex. X\"\nauthor: \"Full Name (Student ID)\"\ndate: \"`r Sys.Date()`\"\noutput: pdf_document\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\n```{r}\nprint(uuid::UUIDgenerate())\n```\n\n## Question 1\n\n*(Write your response here.)*\n\n## Question 2\n\n*(Write your response here.)*\n\n\n\nChecklist\nBefore submitting, verify that your document satisfies all of the following criteria:\n\nThe title field in the YAML header is completed\nThe author field includes both your full name and student ID\nThe final document must be submitted strictly in .pdf format.\nThe document’s name should be ex?-id-name.pdf, eg (ex1-d10627008-Oliver.pdf)"
+    "text": "Submission Requirements\n\n⚠️ All assignments must be submitted using the official template provided below.\nSubmissions that are missing any of the following elements will receive a grade of zero. This policy is non-negotiable.\n\n\nTemplate\nCopy the following template as the starting point for every submission. Replace all placeholder values before submitting.\n\n---\ntitle: \"Ex. X\"\nauthor: \"Student ID\"\ndate: \"`r Sys.Date()`\"\noutput: pdf_document\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\n```{r}\nprint(uuid::UUIDgenerate())\n```\n\n## Question 1\n\n*(Write your response here.)*\n\n## Question 2\n\n*(Write your response here.)*\n\n\n\nChecklist\nBefore submitting, verify that your document satisfies all of the following criteria:\n\nThe title field in the YAML header is completed.\nThe author field includes your student ID only.\nThe final document must be submitted strictly in .pdf format.\nThe document’s name should be ex?-id-name.pdf, eg (ex1-d10627008-Oliver.pdf)."
   },
   {
     "objectID": "prob.html#submit-your-assignments",
@@ -936,5 +936,26 @@
     "title": "Data Aanlysis",
     "section": "Exam Regulations",
     "text": "Exam Regulations\nIn alignment with the course’s paperless policy, this examination will be conducted online under the following strict regulations:\n\nMandatory Attendance Students must take the exam in person. Roll call will be taken five minutes before the exam begins. Late arrival or absence will result in a score of zero.\nNetwork Restriction The exam system tracks IP addresses. You must use the campus Wi-Fi; access from a non-campus IP address will result in a score of zero.\nAuthorized Resources This is an open-book exam. Any reference materials and AI tools are permitted as auxiliary aids.\nMedia Prohibition Electronic devices are allowed, but any photography, video/audio recording, or screenshotting will result in a score of zero.\nNo Communication or Disturbance Interpersonal communication, causing noise or disruptive movements are strictly prohibited. Violators will receive a score of zero.\nCopy-Paste Disabled The exam system prohibits copying and pasting. Do not attempt to bypass this feature.\n\nSample Link"
+  },
+  {
+    "objectID": "prob.html",
+    "href": "prob.html",
+    "title": "Data Aanlysis",
+    "section": "",
+    "text": "In-class Exercise 1"
+  },
+  {
+    "objectID": "prob.html#problem-sets",
+    "href": "prob.html#problem-sets",
+    "title": "Data Aanlysis",
+    "section": "",
+    "text": "In-class Exercise 1"
+  },
+  {
+    "objectID": "prob.html#check-your-grade",
+    "href": "prob.html#check-your-grade",
+    "title": "Data Aanlysis",
+    "section": "Check your grade",
+    "text": "Check your grade\n\nHere"
   }
 ]

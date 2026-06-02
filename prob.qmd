@@ -1,5 +1,7 @@
 ## Problem sets
 
+- [In-class Exercise 1](https://yyliou.github.io/da/da-ps/ex1.html)
+
 ## Submission Requirements
 
 > ⚠️ **All assignments must be submitted using the official template provided below.**
@@ -13,7 +15,7 @@ Copy the following template as the starting point for every submission. Replace 
 ````{r,eval=F}
 ---
 title: "Ex. X"
-author: "Full Name (Student ID)"
+author: "Student ID"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -39,11 +41,16 @@ print(uuid::UUIDgenerate())
 
 Before submitting, verify that your document satisfies all of the following criteria:
 
--   [ ] The `title` field in the YAML header is completed
--   [ ] The `author` field includes both your full name and student ID
+-   [ ] The `title` field in the YAML header is completed.
+-   [ ] The `author` field includes your student ID *only*.
 -   [ ] The final document must be submitted strictly in `.pdf` format.
--   [ ] The document's name should be `ex?-id-name.pdf`, eg (`ex1-d10627008-Oliver.pdf`)
+-   [ ] The document's name should be `ex?-id-name.pdf`, eg (`ex1-d10627008-Oliver.pdf`).
 
 ## Submit Your Assignments
 
 Upload your PDF [here](https://u.pcloud.link/publink/show?code=kZaVeI5ZjmzQXBbRlv7XxLzlO1xTDB92w9Kk) and place it in the corresponding folder (e.g., `ex1` for Exercise 1).
+
+## Check your grade
+
+- [Here](https://u.pcloud.link/publink/show?code=kZgSqI5ZXpSmLylHANukDaMOW6lwHzVhiAA7)
+
