@@ -23,8 +23,8 @@ menu:
 
 ## Question 1
 
-Find the answer of $1 + 1$ using R code.
+Evaluate $1 + 1$ in R.
 
 ## Question 2
 
-Find the answer of $3 + 4$ using R code.
+Evaluate $3 \times 4$ in R.

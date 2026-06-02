@@ -963,13 +963,13 @@
     "href": "da-ps/ex1.html#question-1",
     "title": "Data Analysis",
     "section": "Question 1",
-    "text": "Question 1\nFind the answer of 1 + 1 using R code."
+    "text": "Question 1\nEvaluate 1 + 1 in R."
   },
   {
     "objectID": "da-ps/ex1.html#question-2",
     "href": "da-ps/ex1.html#question-2",
     "title": "Data Analysis",
     "section": "Question 2",
-    "text": "Question 2\nFind the answer of 3 + 4 using R code."
+    "text": "Question 2\nEvaluate 3 \\times 4 in R."
   }
 ]
