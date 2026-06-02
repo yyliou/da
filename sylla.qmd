@@ -36,12 +36,11 @@
 
 ### Assessment Criteria
 
-| Component | Weight | Details |
-|:-----------------------|:----------------------:|:-----------------------|
-| Mid-term Oral Examination | 20% | Individual oral assessment at mid-semester |
-| Final Oral Examination | 20% | Individual oral assessment at end of semester |
-| In-Class Exercises | 48% | 12 exercises × 4% each |
-| Attendance | 12% | Score = min(12, number of sessions attended) × 1% |
+| Component          | Weight | Details                           |
+|:-------------------|:------:|:----------------------------------|
+| In-Class Exercises |  36%   | 12 exercises × 3% each            |
+| Midterm Exam       |  32%   |                                   |
+| Final Exam         |  32%   |                                   |
 
 : {.table .table-striped}
 
@@ -51,9 +50,9 @@
 
 Per Shih Chien University regulations, students who are absent for more than one-third of class sessions will receive a final grade of zero. Make-up attendance will not be permitted.
 
-2.  **Presentations**
+2.  **Examination**
 
-Students who do not show up for their scheduled presentation will receive a grade of zero for that component. Presentation order will be posted on the course website.
+Students who do not show up for their scheduled examination will receive a grade of zero for that component.
 
 3.  **In-class exercise deadline**
 
@@ -65,7 +64,7 @@ All submitted work must be the student's own. Copying from other students is str
 
 5.  **AI Policy**
 
-Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
+Students may use AI tools (e.g., ChatGPT or Gemini) as learning aids, but must be able to explain and defend any code or analysis they submit. Uncritical submission of AI-generated work without understanding constitutes academic dishonesty.
 
 ### Required Software
 
