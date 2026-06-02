@@ -44,7 +44,7 @@ Before submitting, verify that your document satisfies all of the following crit
 -   [ ] The `title` field in the YAML header is completed.
 -   [ ] The `author` field includes your student ID *only*.
 -   [ ] The final document must be submitted strictly in `.pdf` format.
--   [ ] The document's name should be `ex?-id-name.pdf`, eg (`ex1-d10627008-Oliver.pdf`).
+-   [ ] The document's name should be `ex?-id.pdf`, eg (`ex1-D10627008.pdf`).
 
 ## Submit Your Assignments
 

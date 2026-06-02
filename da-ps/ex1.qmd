@@ -1,0 +1,30 @@
+---
+title: "Statistics 1"
+subtitle: "In-Class Exercise 1"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "Elementary Statistics: A Step by Step Approach"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Find the answer of $1 + 1$ using R code.
+
+## Question 2
+
+Find the answer of $3 + 4$ using R code.
