@@ -6,11 +6,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-05-31">
+  <meta name="dcterms.date" content="2026-06-05">
   <title>Data Aanlysis – Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -99,7 +102,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -116,7 +118,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -228,7 +230,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-05-31</p>
+  <p class="date">2026-06-05</p>
 </section>
 <section>
 <section id="welcome-to-ggplot2" class="title-slide slide level1 center">
@@ -333,7 +335,7 @@ Yu-You Liou (NTU)
 
 <p>It’s also important to note what the grammar doesn’t do:</p>
 <p><strong>Suggestion</strong></p>
-<p>It doesn’t suggest which graphics to use. While this book endeavours to promote a sensible process for producing plots, the focus is on how to produce the plots you want, not on which plot to produce. For more advice on choosing or creating plots to answer the question you’re interested in, you may want to consult <span class="citation" data-cites="robbins2005creating">Robbins (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>, <span class="citation" data-cites="cleveland1993visualizing">Cleveland (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span>, <span class="citation" data-cites="chambers2018graphical">Chambers (<a href="#/references" role="doc-biblioref" onclick="">1983</a>)</span>, and <span class="citation" data-cites="tukey1977exploratory">Tukey et al. (<a href="#/references" role="doc-biblioref" onclick="">1977</a>)</span>.</p>
+<p>It doesn’t suggest which graphics to use. While this book endeavours to promote a sensible process for producing plots, the focus is on how to produce the plots you want, not on which plot to produce. For more advice on choosing or creating plots to answer the question you’re interested in, you may want to consult <span class="citation" data-cites="robbins2005creating">Robbins (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>, <span class="citation" data-cites="cleveland1993visualizing">Cleveland (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span>, <span class="citation" data-cites="chambers2018graphical">Chambers (<a href="#/references" role="doc-biblioref" onclick="">1983</a>)</span>, and <span class="citation" data-cites="tukey1977exploratory"><span class="nocase">Tukey et al.</span> (<a href="#/references" role="doc-biblioref" onclick="">1977</a>)</span>.</p>
 <p><strong>Interactive graphics</strong></p>
 <p>It doesn’t describe interactive graphics, only static ones. There is essentially no difference between displaying ggplot2 graphs on a computer screen and printing them on a piece of paper.</p>
 </section></section>
@@ -366,7 +368,7 @@ Yu-You Liou (NTU)
 </section>
 <section class="slide level2">
 
-<p>Many other R packages, such as <code>vcd</code> <span class="citation" data-cites="meyer2007strucplot">(<a href="#/references" role="doc-biblioref" onclick="">Meyer, Zeileis, and Hornik 2007</a>)</span>, <code>plotrix</code> <span class="citation" data-cites="lemon2008plotrix">(<a href="#/references" role="doc-biblioref" onclick="">Lemon et al. 2008</a>)</span> and <code>gplots</code> <span class="citation" data-cites="warnes2005gplots">(<a href="#/references" role="doc-biblioref" onclick="">Warnes et al. 2005</a>)</span>, implement specialist graphics, but no others provide a framework for producing statistical graphics. A comprehensive list of all graphical tools available in other packages can be found in the graphics task view at <a href="http://cran.r-project.org/web/views/Graphics.html" class="uri">http://cran.r-project.org/web/views/Graphics.html</a>.</p>
+<p>Many other R packages, such as <code>vcd</code> <span class="citation" data-cites="meyer2007strucplot">(<a href="#/references" role="doc-biblioref" onclick="">Meyer et al. 2007</a>)</span>, <code>plotrix</code> <span class="citation" data-cites="lemon2008plotrix">(<a href="#/references" role="doc-biblioref" onclick=""><span class="nocase">Lemon et al.</span> 2008</a>)</span> and <code>gplots</code> <span class="citation" data-cites="warnes2005gplots">(<a href="#/references" role="doc-biblioref" onclick=""><span class="nocase">Warnes et al.</span> 2005</a>)</span>, implement specialist graphics, but no others provide a framework for producing statistical graphics. A comprehensive list of all graphical tools available in other packages can be found in the graphics task view at <a href="http://cran.r-project.org/web/views/Graphics.html" class="uri">http://cran.r-project.org/web/views/Graphics.html</a>.</p>
 </section></section>
 <section>
 <section id="about-this-book" class="title-slide slide level1 center">
@@ -453,7 +455,7 @@ Yu-You Liou (NTU)
 <h2>References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-chambers2018graphical" class="csl-entry" role="listitem">
 Chambers, John M. 1983. <em>Graphical Methods for Data Analysis</em>. Chapman; Hall/CRC.
 </div>
@@ -461,7 +463,7 @@ Chambers, John M. 1983. <em>Graphical Methods for Data Analysis</em>. Chapman; H
 Cleveland, William S. 1993. <em>Visualizing Data</em>. Hobart press.
 </div>
 <div id="ref-lemon2008plotrix" class="csl-entry" role="listitem">
-Lemon, Jim, Ben Bolker, Sander Oom, Eduardo Klein, Barry Rowlingson, Hadley Wickham, Anupam Tyagi, et al. 2008. <span>“Plotrix: Various Plotting Functions.”</span> <em>URL Http://Cran. R-Project. Org/Src/Contrib/Descriptions/Plotrix. Html</em>.
+<span class="nocase">Lemon, Jim, Ben Bolker, Sander Oom, et al.</span> 2008. <span>“Plotrix: Various Plotting Functions.”</span> <em>URL Http://Cran. R-Project. Org/Src/Contrib/Descriptions/Plotrix. Html</em>.
 </div>
 <div id="ref-meyer2007strucplot" class="csl-entry" role="listitem">
 Meyer, David, Achim Zeileis, and Kurt Hornik. 2007. <span>“The Strucplot Framework: Visualizing Multi-Way Contingency Tables with Vcd.”</span> <em>Journal of Statistical Software</em> 17: 1–48.
@@ -479,22 +481,22 @@ Sarkar, Deepayan. 2008. <span>“Multivariate Data Visualization with r.”</spa
 Tufte, Edward R. 1991. <span>“Envisioning Information.”</span> <em>Optometry and Vision Science</em> 68 (4): 322–24.
 </div>
 <div id="ref-tufte1997visual" class="csl-entry" role="listitem">
-———. 1997. <em>Visual Explanations: Images and Quantities, Evidence and Narrative</em>. Graphics Press.
+Tufte, Edward R. 1997. <em>Visual Explanations: Images and Quantities, Evidence and Narrative</em>. Graphics Press.
 </div>
 <div id="ref-tufte1983visual" class="csl-entry" role="listitem">
-———. 2001. <em>The Visual Display of Quantitative Information</em>. Graphics press Cheshire, CT.
+Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. Graphics press Cheshire, CT.
 </div>
 <div id="ref-tukey1977exploratory" class="csl-entry" role="listitem">
-Tukey, John Wilder et al. 1977. <em>Exploratory Data Analysis</em>. Vol. 2. Springer.
+<span class="nocase">Tukey, John Wilder et al.</span> 1977. <em>Exploratory Data Analysis</em>. Vol. 2. Springer.
 </div>
 <div id="ref-warnes2005gplots" class="csl-entry" role="listitem">
-Warnes, Gregory R, Ben Bolker, Lodewijk Bonebakker, Robert Gentleman, Wolfgang Huber, Andy Liaw, Thomas Lumley, et al. 2005. <span>“Gplots: Various r Programming Tools for Plotting Data.”</span> <em>(No Title)</em>.
+<span class="nocase">Warnes, Gregory R, Ben Bolker, Lodewijk Bonebakker, et al.</span> 2005. <span>“Gplots: Various r Programming Tools for Plotting Data.”</span> <em>(No Title)</em>.
 </div>
 <div id="ref-wickham2010layered" class="csl-entry" role="listitem">
 Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Journal of Computational and Graphical Statistics</em> 19 (1): 3–28.
 </div>
 <div id="ref-wilkinson2011grammar" class="csl-entry" role="listitem">
-Wilkinson, Leland. 2011. <span>“The Grammar of Graphics.”</span> In <em>Handbook of Computational Statistics: Concepts and Methods</em>, 375–414. Springer.
+Wilkinson, Leland. 2011. <span>“The Grammar of Graphics.”</span> In <em>Handbook of Computational Statistics: Concepts and Methods</em>. Springer.
 </div>
 </div>
 </section></section>

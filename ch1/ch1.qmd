@@ -85,19 +85,19 @@ In brief, the grammar tells us that a graphic maps the data to the aesthetic att
 
 As the book progresses, the formal grammar will be explained in greater detail. The first description of the components follows below. It introduces some of the terminology that will be used throughout the book and outlines the basic function of each component. Don’t worry if it doesn’t make sense right away: you’ll have many more opportunities to learn about the components and how they work together.
 
--   All plots are composed of the **data**, the information you want to visualise, and a mapping, the description of how the data’s variables are mapped to aesthetic attributes. There are five mapping components:
+- All plots are composed of the **data**, the information you want to visualise, and a mapping, the description of how the data’s variables are mapped to aesthetic attributes. There are five mapping components:
 
--   A **layer** is a collection of geometric elements and statistical transformations. Geometric elements, geoms for short, represent what you actually see in the plot: points, lines, polygons, etc. Statistical transformations, stats for short, summarise the data: for example, binning and counting observations to create a histogram, or fitting a linear model.
+- A **layer** is a collection of geometric elements and statistical transformations. Geometric elements, geoms for short, represent what you actually see in the plot: points, lines, polygons, etc. Statistical transformations, stats for short, summarise the data: for example, binning and counting observations to create a histogram, or fitting a linear model.
 
 ------------------------------------------------------------------------
 
--   **Scales** map values in the data space to values in the aesthetic space. This includes the use of colour, shape or size. Scales also draw the legend and axes, which make it possible to read the original data values from the plot (an inverse mapping).
+- **Scales** map values in the data space to values in the aesthetic space. This includes the use of colour, shape or size. Scales also draw the legend and axes, which make it possible to read the original data values from the plot (an inverse mapping).
 
--   A **coord**, or coordinate system, describes how data coordinates are mapped to the plane of the graphic. It also provides axes and gridlines to help read the graph. We normally use the Cartesian coordinate system, but a number of others are available, including polar coordinates and map projections.
+- A **coord**, or coordinate system, describes how data coordinates are mapped to the plane of the graphic. It also provides axes and gridlines to help read the graph. We normally use the Cartesian coordinate system, but a number of others are available, including polar coordinates and map projections.
 
--   A **facet** specifies how to break up and display subsets of data as small multiples. This is also known as conditioning or latticing/trellising.
+- A **facet** specifies how to break up and display subsets of data as small multiples. This is also known as conditioning or latticing/trellising.
 
--   A **theme** controls the finer points of display, like the font size and background colour. While the defaults in `ggplot2` have been chosen with care, you may need to consult other references to create an attractive plot. A good starting place is Tufte’s early works [@tufte1991envisioning; @tufte1997visual; @tufte1983visual].
+- A **theme** controls the finer points of display, like the font size and background colour. While the defaults in `ggplot2` have been chosen with care, you may need to consult other references to create an attractive plot. A good starting place is Tufte’s early works [@tufte1991envisioning; @tufte1997visual; @tufte1983visual].
 
 ------------------------------------------------------------------------
 
@@ -117,21 +117,21 @@ It doesn’t describe interactive graphics, only static ones. There is essential
 
 There are a number of other graphics systems available in R: base graphics, grid graphics and trellis/lattice graphics. How does `ggplot2` differ from them?
 
--   Base graphics were written by Ross Ihaka based on experience implementing the S graphics driver and partly looking at @chambers2018graphical. Base graphics has a pen on paper model: you can only draw on top of the plot, you cannot modify or delete existing content. There is no (user accessible) representation of the graphics, apart from their appearance on the screen. Base graphics includes both tools for drawing primitives and entire plots. Base graphics functions are generally fast, but have limited scope. If you’ve created a single scatterplot, or histogram, or a set of boxplots in the past, you’ve probably used base graphics.
+- Base graphics were written by Ross Ihaka based on experience implementing the S graphics driver and partly looking at @chambers2018graphical. Base graphics has a pen on paper model: you can only draw on top of the plot, you cannot modify or delete existing content. There is no (user accessible) representation of the graphics, apart from their appearance on the screen. Base graphics includes both tools for drawing primitives and entire plots. Base graphics functions are generally fast, but have limited scope. If you’ve created a single scatterplot, or histogram, or a set of boxplots in the past, you’ve probably used base graphics.
 
 ------------------------------------------------------------------------
 
--   The development of “grid” graphics, a much richer system of graphical primitives, started in 2000. Grid is developed by Paul Murrell, growing out of his PhD work [@murrell1998investigations]. Grid grobs (graphical objects) can be represented independently of the plot and modified later. A system of viewports (each containing its own coordinate system) makes it easier to lay out complex graphics. Grid provides drawing primitives, but no tools for producing statistical graphics.
+- The development of “grid” graphics, a much richer system of graphical primitives, started in 2000. Grid is developed by Paul Murrell, growing out of his PhD work [@murrell1998investigations]. Grid grobs (graphical objects) can be represented independently of the plot and modified later. A system of viewports (each containing its own coordinate system) makes it easier to lay out complex graphics. Grid provides drawing primitives, but no tools for producing statistical graphics.
 
--   The `lattice` package, developed by Deepayan Sarkar, uses grid graphics to implement the trellis graphics system of @cleveland1993visualizing and is a considerable improvement over base graphics. You can easily produce conditioned plots and some plotting details (e.g., legends) are taken care of automatically. However, lattice graphics lacks a formal model, which can make it hard to extend. Lattice graphics are explained in depth in @sarkar2008multivariate.
+- The `lattice` package, developed by Deepayan Sarkar, uses grid graphics to implement the trellis graphics system of @cleveland1993visualizing and is a considerable improvement over base graphics. You can easily produce conditioned plots and some plotting details (e.g., legends) are taken care of automatically. However, lattice graphics lacks a formal model, which can make it hard to extend. Lattice graphics are explained in depth in @sarkar2008multivariate.
 
 ------------------------------------------------------------------------
 
--   `ggplot2`, started in 2005, is an attempt to take the good things about base and lattice graphics and improve on them with a strong underlying model which supports the production of any kind of statistical graphic, based on the principles outlined above. The solid underlying model of `ggplot2` makes it easy to describe a wide range of graphics with a compact syntax, and independent components make extension easy. Like lattice, `ggplot2` uses grid to draw the graphics, which means you can exercise much low-level control over the appearance of the plot.
+- `ggplot2`, started in 2005, is an attempt to take the good things about base and lattice graphics and improve on them with a strong underlying model which supports the production of any kind of statistical graphic, based on the principles outlined above. The solid underlying model of `ggplot2` makes it easy to describe a wide range of graphics with a compact syntax, and independent components make extension easy. Like lattice, `ggplot2` uses grid to draw the graphics, which means you can exercise much low-level control over the appearance of the plot.
 
--   [`htmlwidgets`](http://www.htmlwidgets.org) provides a common framework for accessing web visualisation tools from R. Packages built on top of [`htmlwidgets`](http://www.htmlwidgets.org) include [`leaflet`](https://rstudio.github.io/leaflet/) for maps, [`dygraph`](http://rstudio.github.io/dygraphs/) for time series and [`networkD3`](http://christophergandrud.github.io/networkD3/) for networks.
+- [`htmlwidgets`](http://www.htmlwidgets.org) provides a common framework for accessing web visualisation tools from R. Packages built on top of [`htmlwidgets`](http://www.htmlwidgets.org) include [`leaflet`](https://rstudio.github.io/leaflet/) for maps, [`dygraph`](http://rstudio.github.io/dygraphs/) for time series and [`networkD3`](http://christophergandrud.github.io/networkD3/) for networks.
 
--   [`plotly`](https://plotly-r.com) is a popular javascript visualisation toolkit with an R interface. It’s a great tool if you want to make interactive graphics for HTML documents, and even comes with a `ggplotly()` function that can convert many `ggplot2` graphics into their interactive equivalen
+- [`plotly`](https://plotly-r.com) is a popular javascript visualisation toolkit with an R interface. It’s a great tool if you want to make interactive graphics for HTML documents, and even comes with a `ggplotly()` function that can convert many `ggplot2` graphics into their interactive equivalen
 
 ------------------------------------------------------------------------
 
@@ -141,19 +141,19 @@ Many other R packages, such as `vcd` [@meyer2007strucplot], `plotrix` [@lemon200
 
 ## About this Book
 
--   The first chapter, Chapter 2, describes how to quickly get started using `ggplot2` to make useful graphics. This chapter introduces several important `ggplot2` concepts: geoms, aesthetic mappings and facetting.
+- The first chapter, Chapter 2, describes how to quickly get started using `ggplot2` to make useful graphics. This chapter introduces several important `ggplot2` concepts: geoms, aesthetic mappings and facetting.
 
--   Chapter 3 to Chapter 9 explore how to use the basic toolbox to solve a wide range of visualisation problems that you’re likely to encounter in practice.
+- Chapter 3 to Chapter 9 explore how to use the basic toolbox to solve a wide range of visualisation problems that you’re likely to encounter in practice.
 
--   Then Chapter 10 to Chapter 12 show you how to control the most important scales, allowing you to tweak the details of axes and legends.
+- Then Chapter 10 to Chapter 12 show you how to control the most important scales, allowing you to tweak the details of axes and legends.
 
--   In “The Grammar” we describe the layered grammar of graphics which underlies `ggplot2`. The theory is illustrated in Chapter 13 which demonstrates how to add additional layers to your plot, exercising full control over the geoms and stats used within them.
+- In “The Grammar” we describe the layered grammar of graphics which underlies `ggplot2`. The theory is illustrated in Chapter 13 which demonstrates how to add additional layers to your plot, exercising full control over the geoms and stats used within them.
 
 ------------------------------------------------------------------------
 
--   Understanding how scales work is crucial for fine-tuning the perceptual properties of your plot. Customising scales gives fine control over the exact appearance of the plot and helps to support the story that you are telling. Chapter 10, Chapter 11 and Chapter 12 will show you what scales are available, how to adjust their parameters, and how to control the appearance of axes and legends.
--   Coordinate systems and facetting control the position of elements of the plot. These are described in Section 13.7. Faceting is a very powerful graphical tool as it allows you to rapidly compare different subsets of your data. Different coordinate systems are less commonly needed, but are very important for certain types of data.
--   To polish your plots for publication, you will need to learn about the tools described in Chapter 17. There you will learn about how to control the theming system of `ggplot2` and how to save plots to disk.
+- Understanding how scales work is crucial for fine-tuning the perceptual properties of your plot. Customising scales gives fine control over the exact appearance of the plot and helps to support the story that you are telling. Chapter 10, Chapter 11 and Chapter 12 will show you what scales are available, how to adjust their parameters, and how to control the appearance of axes and legends.
+- Coordinate systems and facetting control the position of elements of the plot. These are described in Section 13.7. Faceting is a very powerful graphical tool as it allows you to rapidly compare different subsets of your data. Different coordinate systems are less commonly needed, but are very important for certain types of data.
+- To polish your plots for publication, you will need to learn about the tools described in Chapter 17. There you will learn about how to control the theming system of `ggplot2` and how to save plots to disk.
 
 # Prerequisites
 
@@ -161,13 +161,13 @@ Many other R packages, such as `vcd` [@meyer2007strucplot], `plotrix` [@lemon200
 
 Before we continue, make sure you have all the software you need for this book:
 
--   **R**: If you don’t have R installed already, you may be reading the wrong book; we assume a basic familiarity with R throughout this book. If you’d like to learn how to use R, we’d recommend [R for Data Science](https://r4ds.had.co.nz) which is designed to get you up and running with R with a minimum of fuss.
+- **R**: If you don’t have R installed already, you may be reading the wrong book; we assume a basic familiarity with R throughout this book. If you’d like to learn how to use R, we’d recommend [R for Data Science](https://r4ds.had.co.nz) which is designed to get you up and running with R with a minimum of fuss.
 
--   **RStudio**: RStudio is a free and open source integrated development environment (IDE) for R. While you can write and use R code with any R environment (including R GUI and ESS), RStudio has some nice features specifically for authoring and debugging your code. We recommend giving it a try, but it’s not required to be successful with `ggplot2` or with this book. You can download RStudio Desktop from <https://posit.co/download/rstudio-desktop>
+- **RStudio**: RStudio is a free and open source integrated development environment (IDE) for R. While you can write and use R code with any R environment (including R GUI and ESS), RStudio has some nice features specifically for authoring and debugging your code. We recommend giving it a try, but it’s not required to be successful with `ggplot2` or with this book. You can download RStudio Desktop from <https://posit.co/download/rstudio-desktop>
 
 ------------------------------------------------------------------------
 
--   **R packages**: This book uses a bunch of R packages. You can install them all at once by running:
+- **R packages**: This book uses a bunch of R packages. You can install them all at once by running:
 
 ```{r,echo=TRUE,eval=FALSE}
 install.packages(c(
@@ -207,10 +207,10 @@ Finally, the complete source code for the book is available online at <https://g
 
 ## Acknowledgement
 
--   **Copyright notice.** These teaching materials have been adapted from [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/getting-started.html). All rights are reserved by the original authors and publishers.
+- **Copyright notice.** These teaching materials have been adapted from [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/getting-started.html). All rights are reserved by the original authors and publishers.
 
--   **Non-commercial use only.** These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.
+- **Non-commercial use only.** These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.
 
--   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
+- **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
 
 ## References
