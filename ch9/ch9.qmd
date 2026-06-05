@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -393,4 +394,3 @@ patchwork additionally supports non-ggplot graphic objects (base R graphics, gri
 
 -   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
 
-## References

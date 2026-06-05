@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -574,4 +575,3 @@ For **interactive 3D surfaces** (true perspective views, rotatable plots), the `
 
 -   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
 
-## References

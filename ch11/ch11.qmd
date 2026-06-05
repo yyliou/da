@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -800,4 +801,3 @@ Use `legend.margin = unit(0, "mm")` to remove the padding around the legend box 
 
 -   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
 
-## References

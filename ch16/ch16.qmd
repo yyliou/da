@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -275,4 +276,3 @@ Note: the faceting formula does **not** evaluate functions, so create the discre
 
 -   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
 
-## References

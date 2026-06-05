@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: visual
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -234,7 +235,7 @@ install.packages(c(
 
 最後，本書的完整原始碼可在線上取得：<https://github.com/hadley/ggplot2-book>。其中包含本書的完整內文，以及重現所有圖形所需的全部程式碼與資料。
 
-## 致謝
+## 版權聲明
 
 - **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/getting-started.html)。所有權利均由原作者與出版者保留。
 
@@ -242,4 +243,3 @@ install.packages(c(
 
 - **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
 
-## 參考文獻

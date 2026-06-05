@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -578,12 +579,10 @@ ggplot(small, aes(eruptions, waiting)) +
 
 至於**互動式 3D 曲面**（真正的透視視圖、可旋轉的圖），`rgl` 套件（<http://rgl.neoscientists.org>）提供了超出 ggplot2 範疇的必要工具。
 
-## 致謝
+## 版權聲明
 
 -   **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/statistical-summaries.html)。所有權利均由原作者與出版者保留。
 
 -   **僅供非商業用途。** 本教材嚴格限定用於教育目的，不得用於商業獲利。
 
--   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
-
-## 參考文獻
+-   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處

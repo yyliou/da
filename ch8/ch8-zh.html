@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-05">
+  <meta name="dcterms.date" content="2026-06-06">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-05</p>
+  <p class="date">2026-06-06</p>
 </section>
 <section>
 <section id="標註" class="title-slide slide level1 center">
@@ -246,7 +246,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href=""></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb1-3"><a href=""></a></span>
-<span id="cb1-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
 <span id="cb1-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
 <span id="cb1-6"><a href=""></a>  <span class="fu">labs</span>(</span>
 <span id="cb1-7"><a href=""></a>    <span class="at">x        =</span> <span class="st">"引擎排氣量（公升）"</span>,</span>
@@ -255,23 +255,29 @@
 <span id="cb1-10"><a href=""></a>    <span class="at">title    =</span> <span class="st">"里程數與引擎大小、汽缸數的關係"</span>,</span>
 <span id="cb1-11"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"來源：https://fueleconomy.gov"</span></span>
 <span id="cb1-12"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong>標籤中的數學表達式</strong></p>
 <p>標籤值通常是純字元字串，並以 <code>\n</code> 插入換行。當標籤需要一個數學表達式時，用 <code>quote()</code> 把它包起來，並使用 R 的 plotmath 語法。可用的符號與運算子記錄在 <code>?plotmath</code>：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>values <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">by =</span> .<span class="dv">01</span>)</span>
-<span id="cb2-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> values, <span class="at">y =</span> values <span class="sc">^</span> <span class="dv">3</span>)</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb2-5"><a href=""></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
-<span id="cb2-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">quote</span>(<span class="fu">f</span>(x) <span class="sc">==</span> x<span class="sc">^</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>values <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">by =</span> .<span class="dv">01</span>)</span>
+<span id="cb3-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> values, <span class="at">y =</span> values <span class="sc">^</span> <span class="dv">3</span>)</span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb3-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">quote</span>(<span class="fu">f</span>(x) <span class="sc">==</span> x<span class="sc">^</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
 <p><strong>用 <code>ggtext</code> 在標籤中使用 Markdown</strong></p>
@@ -280,20 +286,20 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb3-2"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb3-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb3-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"帶有 *斜體* 與 **粗體** 的座標軸標題"</span>)</span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>p1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"預設（無 markdown）"</span>)</span>
-<span id="cb3-7"><a href=""></a>p2 <span class="ot">&lt;-</span> base <span class="sc">+</span></span>
-<span id="cb3-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> ggtext<span class="sc">::</span><span class="fu">element_markdown</span>()) <span class="sc">+</span></span>
-<span id="cb3-9"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"使用 element_markdown()"</span>)</span>
-<span id="cb3-10"><a href=""></a></span>
-<span id="cb3-11"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb4-2"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"帶有 *斜體* 與 **粗體** 的座標軸標題"</span>)</span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a>p1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"預設（無 markdown）"</span>)</span>
+<span id="cb4-7"><a href=""></a>p2 <span class="ot">&lt;-</span> base <span class="sc">+</span></span>
+<span id="cb4-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> ggtext<span class="sc">::</span><span class="fu">element_markdown</span>()) <span class="sc">+</span></span>
+<span id="cb4-9"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"使用 element_markdown()"</span>)</span>
+<span id="cb4-10"><a href=""></a></span>
+<span id="cb4-11"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong>移除座標軸標籤</strong></p>
@@ -327,12 +333,12 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">family =</span> <span class="fu">c</span>(<span class="st">"sans"</span>, <span class="st">"serif"</span>, <span class="st">"mono"</span>))</span>
-<span id="cb4-2"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> family, <span class="at">family =</span> family))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">family =</span> <span class="fu">c</span>(<span class="st">"sans"</span>, <span class="st">"serif"</span>, <span class="st">"mono"</span>))</span>
+<span id="cb5-2"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> family, <span class="at">family =</span> family))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
 <p><strong>跨繪圖裝置的字型呈現</strong></p>
@@ -348,12 +354,12 @@
 <p><strong><code>fontface</code> 美學——文字樣式</strong></p>
 <p><code>fontface</code> 接受三個值，控制文字的字重與傾斜：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">face =</span> <span class="fu">c</span>(<span class="st">"plain"</span>, <span class="st">"bold"</span>, <span class="st">"italic"</span>))</span>
-<span id="cb5-2"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb5-3"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> face, <span class="at">fontface =</span> face))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">face =</span> <span class="fu">c</span>(<span class="st">"plain"</span>, <span class="st">"bold"</span>, <span class="st">"italic"</span>))</span>
+<span id="cb6-2"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> face, <span class="at">fontface =</span> face))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
 <p><strong><code>hjust</code> 與 <code>vjust</code> 美學——對齊</strong></p>
@@ -363,21 +369,21 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-2"><a href=""></a>  <span class="at">x    =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="fl">1.5</span>),</span>
-<span id="cb6-3"><a href=""></a>  <span class="at">y    =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">1.5</span>),</span>
-<span id="cb6-4"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(<span class="st">"bottom-left"</span>, <span class="st">"top-left"</span>, <span class="st">"bottom-right"</span>, <span class="st">"top-right"</span>, <span class="st">"center"</span>)</span>
-<span id="cb6-5"><a href=""></a>)</span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> text)) <span class="sc">+</span></span>
-<span id="cb6-8"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"預設對齊"</span>)</span>
-<span id="cb6-9"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb6-10"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> text), <span class="at">vjust =</span> <span class="st">"inward"</span>, <span class="at">hjust =</span> <span class="st">"inward"</span>) <span class="sc">+</span></span>
-<span id="cb6-11"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"向內對齊"</span>)</span>
-<span id="cb6-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-2"><a href=""></a>  <span class="at">x    =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="fl">1.5</span>),</span>
+<span id="cb7-3"><a href=""></a>  <span class="at">y    =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">1.5</span>),</span>
+<span id="cb7-4"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(<span class="st">"bottom-left"</span>, <span class="st">"top-left"</span>, <span class="st">"bottom-right"</span>, <span class="st">"top-right"</span>, <span class="st">"center"</span>)</span>
+<span id="cb7-5"><a href=""></a>)</span>
+<span id="cb7-6"><a href=""></a></span>
+<span id="cb7-7"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> text)) <span class="sc">+</span></span>
+<span id="cb7-8"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"預設對齊"</span>)</span>
+<span id="cb7-9"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb7-10"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> text), <span class="at">vjust =</span> <span class="st">"inward"</span>, <span class="at">hjust =</span> <span class="st">"inward"</span>) <span class="sc">+</span></span>
+<span id="cb7-11"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"向內對齊"</span>)</span>
+<span id="cb7-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong><code>size</code> 美學——字型大小</strong></p>
@@ -390,50 +396,50 @@
 <p><strong>輕推標籤——<code>nudge_x</code> 與 <code>nudge_y</code></strong></p>
 <p>當為既有資料點加標籤時，文字與點重疊是個常見的問題。<code>nudge_x</code> 與 <code>nudge_y</code> 參數把標籤相對於資料點移動一個固定的量，而不改變 <code>x</code>／<code>y</code> 美學所使用的位置：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">treatment =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">3.4</span>, <span class="fl">2.5</span>))</span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(treatment, response)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-5"><a href=""></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb7-6"><a href=""></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"("</span>, response, <span class="st">")"</span>)),</span>
-<span id="cb7-7"><a href=""></a>    <span class="at">nudge_x =</span> <span class="sc">-</span><span class="fl">0.3</span></span>
-<span id="cb7-8"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb7-9"><a href=""></a>  <span class="fu">ylim</span>(<span class="fl">1.1</span>, <span class="fl">3.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">treatment =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">3.4</span>, <span class="fl">2.5</span>))</span>
+<span id="cb8-2"><a href=""></a></span>
+<span id="cb8-3"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(treatment, response)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href=""></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb8-6"><a href=""></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"("</span>, response, <span class="st">")"</span>)),</span>
+<span id="cb8-7"><a href=""></a>    <span class="at">nudge_x =</span> <span class="sc">-</span><span class="fl">0.3</span></span>
+<span id="cb8-8"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb8-9"><a href=""></a>  <span class="fu">ylim</span>(<span class="fl">1.1</span>, <span class="fl">3.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
 <p><strong>移除重疊的標籤——<code>check_overlap</code></strong></p>
 <p>設定 <code>check_overlap = TRUE</code> 會自動抑制會與先前所繪標籤重疊的標籤。標籤依資料框的列順序被評估——較前面的列優先。如果你在繪圖前依重要性把資料排序，所得結果便是一組強調最重要觀測值的標籤：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> model)) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">1</span>, <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"check_overlap = FALSE"</span>)</span>
-<span id="cb8-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
-<span id="cb8-5"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> model), <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">1</span>, <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb8-6"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"check_overlap = TRUE"</span>)</span>
-<span id="cb8-7"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> model)) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">1</span>, <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"check_overlap = FALSE"</span>)</span>
+<span id="cb9-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href=""></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> model), <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">1</span>, <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"check_overlap = TRUE"</span>)</span>
+<span id="cb9-7"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong><code>geom_label()</code>——帶背景框的文字</strong></p>
 <p><code>geom_label()</code> 是 <code>geom_text()</code> 的一個變體，會在文字後面畫一個圓角矩形。不透明的背景確保在複雜或多彩的圖背景上仍清晰可讀：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>label <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-2"><a href=""></a>  <span class="at">waiting   =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">80</span>),</span>
-<span id="cb9-3"><a href=""></a>  <span class="at">eruptions =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">4.3</span>),</span>
-<span id="cb9-4"><a href=""></a>  <span class="at">label     =</span> <span class="fu">c</span>(<span class="st">"peak one"</span>, <span class="st">"peak two"</span>)</span>
-<span id="cb9-5"><a href=""></a>)</span>
-<span id="cb9-6"><a href=""></a></span>
-<span id="cb9-7"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions)) <span class="sc">+</span></span>
-<span id="cb9-8"><a href=""></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density)) <span class="sc">+</span></span>
-<span id="cb9-9"><a href=""></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> label, <span class="fu">aes</span>(<span class="at">label =</span> label))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>label <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-2"><a href=""></a>  <span class="at">waiting   =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">80</span>),</span>
+<span id="cb10-3"><a href=""></a>  <span class="at">eruptions =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">4.3</span>),</span>
+<span id="cb10-4"><a href=""></a>  <span class="at">label     =</span> <span class="fu">c</span>(<span class="st">"peak one"</span>, <span class="st">"peak two"</span>)</span>
+<span id="cb10-5"><a href=""></a>)</span>
+<span id="cb10-6"><a href=""></a></span>
+<span id="cb10-7"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions)) <span class="sc">+</span></span>
+<span id="cb10-8"><a href=""></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href=""></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> label, <span class="fu">aes</span>(<span class="at">label =</span> label))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
 <p><strong>文字標籤的常見挑戰</strong></p>
@@ -445,14 +451,14 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb10-2"><a href=""></a>mini_mpg <span class="ot">&lt;-</span> mpg[<span class="fu">sample</span>(<span class="fu">nrow</span>(mpg), <span class="dv">20</span>), ]</span>
-<span id="cb10-3"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a href=""></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>(<span class="at">data =</span> mini_mpg, <span class="fu">aes</span>(<span class="at">label =</span> class))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb11-2"><a href=""></a>mini_mpg <span class="ot">&lt;-</span> mpg[<span class="fu">sample</span>(<span class="fu">nrow</span>(mpg), <span class="dv">20</span>), ]</span>
+<span id="cb11-3"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href=""></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>(<span class="at">data =</span> mini_mpg, <span class="fu">aes</span>(<span class="at">label =</span> class))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><ul>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><ul>
 <li><strong>把標籤塞進長條或方塊內。</strong> Claus Wilke 的 <code>ggfittext</code> 套件提供能自動調整大小或修剪文字以塞入指定邊界區域的 geoms。</li>
 </ul>
 </section></section>
@@ -482,107 +488,107 @@
 <p><strong>範例：以總統任期標註時間序列</strong></p>
 <p><code>economics</code> 資料集記錄了美國失業隨時間的變化。我們將用四個獨立的圖層，疊加指示總統任期的陰影矩形、任期界線處的垂直線，以及總統姓名標籤：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>presidential_sub <span class="ot">&lt;-</span> <span class="fu">subset</span>(presidential, start <span class="sc">&gt;</span> economics<span class="sc">$</span>date[<span class="dv">1</span>])</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics) <span class="sc">+</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">geom_rect</span>(</span>
-<span id="cb11-5"><a href=""></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> start, <span class="at">xmax =</span> end, <span class="at">fill =</span> party),</span>
-<span id="cb11-6"><a href=""></a>    <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>,</span>
-<span id="cb11-7"><a href=""></a>    <span class="at">data =</span> presidential_sub</span>
-<span id="cb11-8"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb11-9"><a href=""></a>  <span class="fu">geom_vline</span>(</span>
-<span id="cb11-10"><a href=""></a>    <span class="fu">aes</span>(<span class="at">xintercept =</span> start),</span>
-<span id="cb11-11"><a href=""></a>    <span class="at">data =</span> presidential_sub, <span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span></span>
-<span id="cb11-12"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb11-13"><a href=""></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb11-14"><a href=""></a>    <span class="fu">aes</span>(<span class="at">x =</span> start, <span class="at">y =</span> <span class="dv">2500</span>, <span class="at">label =</span> name),</span>
-<span id="cb11-15"><a href=""></a>    <span class="at">data =</span> presidential_sub, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="dv">50</span></span>
-<span id="cb11-16"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb11-17"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
-<span id="cb11-18"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>)) <span class="sc">+</span></span>
-<span id="cb11-19"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"日期"</span>, <span class="at">y =</span> <span class="st">"失業人數"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>presidential_sub <span class="ot">&lt;-</span> <span class="fu">subset</span>(presidential, start <span class="sc">&gt;</span> economics<span class="sc">$</span>date[<span class="dv">1</span>])</span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a>fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics) <span class="sc">+</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">geom_rect</span>(</span>
+<span id="cb12-5"><a href=""></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> start, <span class="at">xmax =</span> end, <span class="at">fill =</span> party),</span>
+<span id="cb12-6"><a href=""></a>    <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb12-7"><a href=""></a>    <span class="at">data =</span> presidential_sub</span>
+<span id="cb12-8"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb12-9"><a href=""></a>  <span class="fu">geom_vline</span>(</span>
+<span id="cb12-10"><a href=""></a>    <span class="fu">aes</span>(<span class="at">xintercept =</span> start),</span>
+<span id="cb12-11"><a href=""></a>    <span class="at">data =</span> presidential_sub, <span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb12-12"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb12-13"><a href=""></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb12-14"><a href=""></a>    <span class="fu">aes</span>(<span class="at">x =</span> start, <span class="at">y =</span> <span class="dv">2500</span>, <span class="at">label =</span> name),</span>
+<span id="cb12-15"><a href=""></a>    <span class="at">data =</span> presidential_sub, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="dv">50</span></span>
+<span id="cb12-16"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb12-17"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
+<span id="cb12-18"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb12-19"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"日期"</span>, <span class="at">y =</span> <span class="st">"失業人數"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>每個圖層都取自它<strong>自己的資料框</strong>——請注意 <code>data = presidential_sub</code> 如何在每個標註 geom 內被指定，而 <code>geom_line()</code> 則繼承預設的 <code>economics</code> 資料。這是把標註資料與主資料集混用的標準模式。</p>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>每個圖層都取自它<strong>自己的資料框</strong>——請注意 <code>data = presidential_sub</code> 如何在每個標註 geom 內被指定，而 <code>geom_line()</code> 則繼承預設的 <code>economics</code> 資料。這是把標註資料與主資料集混用的標準模式。</p>
 </section>
 <section class="slide level2">
 
 <p><strong><code>annotate()</code>——單一標註的簡寫</strong></p>
 <p>透過 geom 加上單一標註，需要建構一個只有一列的資料框，這很冗長。<code>annotate()</code> 輔助函式在內部建構這個資料框：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># 冗長的做法（使用資料框）</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb13-4"><a href=""></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb13-5"><a href=""></a>    <span class="fu">aes</span>(x, y, <span class="at">label =</span> caption),</span>
-<span id="cb13-6"><a href=""></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> xrng[<span class="dv">1</span>], <span class="at">y =</span> yrng[<span class="dv">2</span>], <span class="at">caption =</span> caption),</span>
-<span id="cb13-7"><a href=""></a>    <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">4</span></span>
-<span id="cb13-8"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># 冗長的做法（使用資料框）</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href=""></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb14-5"><a href=""></a>    <span class="fu">aes</span>(x, y, <span class="at">label =</span> caption),</span>
+<span id="cb14-6"><a href=""></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> xrng[<span class="dv">1</span>], <span class="at">y =</span> yrng[<span class="dv">2</span>], <span class="at">caption =</span> caption),</span>
+<span id="cb14-7"><a href=""></a>    <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">4</span></span>
+<span id="cb14-8"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># 使用 annotate() 的精簡做法</span></span>
-<span id="cb14-2"><a href=""></a>yrng    <span class="ot">&lt;-</span> <span class="fu">range</span>(economics<span class="sc">$</span>unemploy)</span>
-<span id="cb14-3"><a href=""></a>xrng    <span class="ot">&lt;-</span> <span class="fu">range</span>(economics<span class="sc">$</span>date)</span>
-<span id="cb14-4"><a href=""></a>caption <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">strwrap</span>(</span>
-<span id="cb14-5"><a href=""></a>  <span class="st">"美國的失業率多年來變動甚大"</span>, <span class="dv">40</span></span>
-<span id="cb14-6"><a href=""></a>), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-7"><a href=""></a></span>
-<span id="cb14-8"><a href=""></a>fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
-<span id="cb14-9"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb14-10"><a href=""></a>  <span class="fu">annotate</span>(</span>
-<span id="cb14-11"><a href=""></a>    <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">x =</span> xrng[<span class="dv">1</span>], <span class="at">y =</span> yrng[<span class="dv">2</span>],</span>
-<span id="cb14-12"><a href=""></a>    <span class="at">label =</span> caption, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">4</span></span>
-<span id="cb14-13"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># 使用 annotate() 的精簡做法</span></span>
+<span id="cb15-2"><a href=""></a>yrng    <span class="ot">&lt;-</span> <span class="fu">range</span>(economics<span class="sc">$</span>unemploy)</span>
+<span id="cb15-3"><a href=""></a>xrng    <span class="ot">&lt;-</span> <span class="fu">range</span>(economics<span class="sc">$</span>date)</span>
+<span id="cb15-4"><a href=""></a>caption <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">strwrap</span>(</span>
+<span id="cb15-5"><a href=""></a>  <span class="st">"美國的失業率多年來變動甚大"</span>, <span class="dv">40</span></span>
+<span id="cb15-6"><a href=""></a>), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb15-7"><a href=""></a></span>
+<span id="cb15-8"><a href=""></a>fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
+<span id="cb15-9"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-10"><a href=""></a>  <span class="fu">annotate</span>(</span>
+<span id="cb15-11"><a href=""></a>    <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">x =</span> xrng[<span class="dv">1</span>], <span class="at">y =</span> yrng[<span class="dv">2</span>],</span>
+<span id="cb15-12"><a href=""></a>    <span class="at">label =</span> caption, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">4</span></span>
+<span id="cb15-13"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
-</div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
-<section class="slide level2">
-
-<p><strong>用手動標註凸顯一個子集</strong></p>
-<p>一個常見的模式是把一個子群組畫兩次來凸顯它——一次在主散佈圖層之下畫一個較大、顏色不同的點——然後用 <code>annotate()</code> 為它加標籤：</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb16-3"><a href=""></a>    <span class="at">data  =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(mpg, manufacturer <span class="sc">==</span> <span class="st">"subaru"</span>),</span>
-<span id="cb16-4"><a href=""></a>    <span class="at">colour =</span> <span class="st">"orange"</span>, <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb16-5"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb16-6"><a href=""></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb16-7"><a href=""></a></span>
-<span id="cb16-8"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb16-9"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">x =</span> <span class="fl">5.5</span>, <span class="at">y =</span> <span class="dv">40</span>, <span class="at">colour =</span> <span class="st">"orange"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb16-10"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">x =</span> <span class="fl">5.5</span>, <span class="at">y =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
-<span id="cb16-11"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>,  <span class="at">x =</span> <span class="fl">5.6</span>, <span class="at">y =</span> <span class="dv">40</span>, <span class="at">label =</span> <span class="st">"subaru"</span>, <span class="at">hjust =</span> <span class="st">"left"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
+<p><strong>用手動標註凸顯一個子集</strong></p>
+<p>一個常見的模式是把一個子群組畫兩次來凸顯它——一次在主散佈圖層之下畫一個較大、顏色不同的點——然後用 <code>annotate()</code> 為它加標籤：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb17-3"><a href=""></a>    <span class="at">data  =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(mpg, manufacturer <span class="sc">==</span> <span class="st">"subaru"</span>),</span>
+<span id="cb17-4"><a href=""></a>    <span class="at">colour =</span> <span class="st">"orange"</span>, <span class="at">size =</span> <span class="dv">3</span></span>
+<span id="cb17-5"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb17-6"><a href=""></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb17-7"><a href=""></a></span>
+<span id="cb17-8"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb17-9"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">x =</span> <span class="fl">5.5</span>, <span class="at">y =</span> <span class="dv">40</span>, <span class="at">colour =</span> <span class="st">"orange"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">x =</span> <span class="fl">5.5</span>, <span class="at">y =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
+<span id="cb17-11"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>,  <span class="at">x =</span> <span class="fl">5.6</span>, <span class="at">y =</span> <span class="dv">40</span>, <span class="at">label =</span> <span class="st">"subaru"</span>, <span class="at">hjust =</span> <span class="st">"left"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
 <p><strong>用 <code>geom_curve()</code> 的曲線連接器</strong></p>
 <p>當標籤必須放在遠離其目標處以避免雜亂時，<code>geom_curve()</code> 畫出一條帶有選用箭頭的曲線弧，以視覺方式把兩者連起來。用 <code>curvature</code> 控制弧的彎曲程度（正 = 順時針，負 = 逆時針）：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">annotate</span>(</span>
-<span id="cb17-3"><a href=""></a>    <span class="at">geom      =</span> <span class="st">"curve"</span>,</span>
-<span id="cb17-4"><a href=""></a>    <span class="at">x =</span> <span class="dv">4</span>, <span class="at">y =</span> <span class="dv">35</span>, <span class="at">xend =</span> <span class="fl">2.65</span>, <span class="at">yend =</span> <span class="dv">27</span>,</span>
-<span id="cb17-5"><a href=""></a>    <span class="at">curvature =</span> .<span class="dv">3</span>,</span>
-<span id="cb17-6"><a href=""></a>    <span class="at">arrow     =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">"mm"</span>))</span>
-<span id="cb17-7"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb17-8"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">4.1</span>, <span class="at">y =</span> <span class="dv">35</span>, <span class="at">label =</span> <span class="st">"subaru"</span>, <span class="at">hjust =</span> <span class="st">"left"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">annotate</span>(</span>
+<span id="cb18-3"><a href=""></a>    <span class="at">geom      =</span> <span class="st">"curve"</span>,</span>
+<span id="cb18-4"><a href=""></a>    <span class="at">x =</span> <span class="dv">4</span>, <span class="at">y =</span> <span class="dv">35</span>, <span class="at">xend =</span> <span class="fl">2.65</span>, <span class="at">yend =</span> <span class="dv">27</span>,</span>
+<span id="cb18-5"><a href=""></a>    <span class="at">curvature =</span> .<span class="dv">3</span>,</span>
+<span id="cb18-6"><a href=""></a>    <span class="at">arrow     =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">"mm"</span>))</span>
+<span id="cb18-7"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb18-8"><a href=""></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">4.1</span>, <span class="at">y =</span> <span class="dv">35</span>, <span class="at">label =</span> <span class="st">"subaru"</span>, <span class="at">hjust =</span> <span class="st">"left"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section></section>
 <section>
 <section id="直接標示" class="title-slide slide level1 center">
 <h1>直接標示</h1>
@@ -601,31 +607,31 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"圖例（預設）"</span>)</span>
-<span id="cb18-4"><a href=""></a></span>
-<span id="cb18-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
-<span id="cb18-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb18-7"><a href=""></a>  directlabels<span class="sc">::</span><span class="fu">geom_dl</span>(<span class="fu">aes</span>(<span class="at">label =</span> class), <span class="at">method =</span> <span class="st">"smart.grid"</span>) <span class="sc">+</span></span>
-<span id="cb18-8"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"直接標籤（smart.grid）"</span>)</span>
-<span id="cb18-9"><a href=""></a></span>
-<span id="cb18-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"圖例（預設）"</span>)</span>
+<span id="cb19-4"><a href=""></a></span>
+<span id="cb19-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb19-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href=""></a>  directlabels<span class="sc">::</span><span class="fu">geom_dl</span>(<span class="fu">aes</span>(<span class="at">label =</span> class), <span class="at">method =</span> <span class="st">"smart.grid"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"直接標籤（smart.grid）"</span>)</span>
+<span id="cb19-9"><a href=""></a></span>
+<span id="cb19-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p><code>"smart.grid"</code> 對散佈圖是個不錯的預設。對於折線圖與次數多邊形，其他方法（例如 <code>"last.points"</code>、<code>"angled.boxes"</code>）更為適當。完整目錄請見 directlabels 網站（<a href="http://directlabels.r-forge.r-project.org" class="uri">http://directlabels.r-forge.r-project.org</a>）。</p>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p><code>"smart.grid"</code> 對散佈圖是個不錯的預設。對於折線圖與次數多邊形，其他方法（例如 <code>"last.points"</code>、<code>"angled.boxes"</code>）更為適當。完整目錄請見 directlabels 網站（<a href="http://directlabels.r-forge.r-project.org" class="uri">http://directlabels.r-forge.r-project.org</a>）。</p>
 </section>
 <section class="slide level2">
 
 <p><strong><code>ggforce</code>——橢圓凸顯記號</strong></p>
 <p><code>ggforce</code> 套件（Pedersen）以一系列專門的 geoms 擴展 ggplot2，包括 <code>geom_mark_ellipse()</code>。這個 geom 在每一群點周圍畫出橢圓形的凸顯，並加上標籤，使群組歸屬無須圖例便立即顯現：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb19-3"><a href=""></a>  ggforce<span class="sc">::</span><span class="fu">geom_mark_ellipse</span>(<span class="fu">aes</span>(<span class="at">label =</span> cyl, <span class="at">group =</span> cyl))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href=""></a>  ggforce<span class="sc">::</span><span class="fu">geom_mark_ellipse</span>(<span class="fu">aes</span>(<span class="at">label =</span> cyl, <span class="at">group =</span> cyl))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong><code>gghighlight</code>——強調選定的資料</strong></p>
@@ -634,15 +640,15 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">data</span>(Oxboys, <span class="at">package =</span> <span class="st">"nlme"</span>)</span>
-<span id="cb20-2"><a href=""></a></span>
-<span id="cb20-3"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height, <span class="at">group =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb20-4"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-6"><a href=""></a>  gghighlight<span class="sc">::</span><span class="fu">gghighlight</span>(Subject <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">data</span>(Oxboys, <span class="at">package =</span> <span class="st">"nlme"</span>)</span>
+<span id="cb21-2"><a href=""></a></span>
+<span id="cb21-3"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height, <span class="at">group =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-6"><a href=""></a>  gghighlight<span class="sc">::</span><span class="fu">gghighlight</span>(Subject <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>被凸顯的受試者以全彩繪製；所有其他軌跡則以柔和的灰色呈現，在不爭奪注意力的情況下提供整個資料集的視覺脈絡。</p>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>被凸顯的受試者以全彩繪製；所有其他軌跡則以柔和的灰色呈現，在不爭奪注意力的情況下提供整個資料集的視覺脈絡。</p>
 </section></section>
 <section>
 <section id="跨分面的標註" class="title-slide slide level1 center">
@@ -658,12 +664,12 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="fu">log10</span>(carat), <span class="fu">log10</span>(price))) <span class="sc">+</span></span>
-<span id="cb21-2"><a href=""></a>  <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
-<span id="cb21-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(cut), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="fu">log10</span>(carat), <span class="fu">log10</span>(price))) <span class="sc">+</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(cut), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section class="slide level2">
 
 <p><strong>為所有分面加上一條共享的參考線</strong></p>
@@ -672,20 +678,20 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>mod_coef <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(price) <span class="sc">~</span> <span class="fu">log10</span>(carat), <span class="at">data =</span> diamonds))</span>
-<span id="cb22-2"><a href=""></a></span>
-<span id="cb22-3"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="fu">log10</span>(carat), <span class="fu">log10</span>(price))) <span class="sc">+</span></span>
-<span id="cb22-4"><a href=""></a>  <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
-<span id="cb22-5"><a href=""></a>  <span class="fu">geom_abline</span>(</span>
-<span id="cb22-6"><a href=""></a>    <span class="at">intercept =</span> mod_coef[<span class="dv">1</span>],</span>
-<span id="cb22-7"><a href=""></a>    <span class="at">slope     =</span> mod_coef[<span class="dv">2</span>],</span>
-<span id="cb22-8"><a href=""></a>    <span class="at">colour    =</span> <span class="st">"white"</span>,</span>
-<span id="cb22-9"><a href=""></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
-<span id="cb22-10"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb22-11"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(cut), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>mod_coef <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(price) <span class="sc">~</span> <span class="fu">log10</span>(carat), <span class="at">data =</span> diamonds))</span>
+<span id="cb23-2"><a href=""></a></span>
+<span id="cb23-3"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="fu">log10</span>(carat), <span class="fu">log10</span>(price))) <span class="sc">+</span></span>
+<span id="cb23-4"><a href=""></a>  <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
+<span id="cb23-5"><a href=""></a>  <span class="fu">geom_abline</span>(</span>
+<span id="cb23-6"><a href=""></a>    <span class="at">intercept =</span> mod_coef[<span class="dv">1</span>],</span>
+<span id="cb23-7"><a href=""></a>    <span class="at">slope     =</span> mod_coef[<span class="dv">2</span>],</span>
+<span id="cb23-8"><a href=""></a>    <span class="at">colour    =</span> <span class="st">"white"</span>,</span>
+<span id="cb23-9"><a href=""></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
+<span id="cb23-10"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb23-11"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(cut), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>如今每個分面都相對於<strong>同一條</strong>迴歸線顯示其資料，使跨分面的比較毫不含糊。用白線襯著 2D 分箱的顏色尺度，使它清晰可讀而不壓過資料。</p>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>如今每個分面都相對於<strong>同一條</strong>迴歸線顯示其資料，使跨分面的比較毫不含糊。用白線襯著 2D 分箱的顏色尺度，使它清晰可讀而不壓過資料。</p>
 </section>
 <section class="slide level2">
 
@@ -695,24 +701,21 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb23-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb23-3"><a href=""></a>  gghighlight<span class="sc">::</span><span class="fu">gghighlight</span>() <span class="sc">+</span></span>
-<span id="cb23-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(cyl))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb24-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href=""></a>  gghighlight<span class="sc">::</span><span class="fu">gghighlight</span>() <span class="sc">+</span></span>
+<span id="cb24-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(cyl))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>每個面板把一個汽缸群組的資料置於前景，同時以灰色維持整個資料集的完整脈絡。這個技巧優雅地把分面的細節與同時顯示所有資料的脈絡豐富性結合起來。</p>
+<img data-src="ch8-zh_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>每個面板把一個汽缸群組的資料置於前景，同時以灰色維持整個資料集的完整脈絡。這個技巧優雅地把分面的細節與同時顯示所有資料的脈絡豐富性結合起來。</p>
 </section>
-<section id="致謝" class="slide level2">
-<h2>致謝</h2>
+<section id="版權聲明" class="slide level2">
+<h2>版權聲明</h2>
 <ul>
 <li><p><strong>版權聲明。</strong> 本教材改編自 <a href="https://ggplot2-book.org/annotations.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>。所有權利均由原作者與出版者保留。</p></li>
 <li><p><strong>僅供非商業用途。</strong> 本教材嚴格限定用於教育目的，不得用於商業獲利。</p></li>
 <li><p><strong>適當標註出處。</strong> 任何對本教材的重製、散布或使用，都必須適當標註原始出處。</p></li>
 </ul>
-</section>
-<section id="參考文獻" class="slide level2">
-<h2>參考文獻</h2>
 
 </section></section>
     </div>

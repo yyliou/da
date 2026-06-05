@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: visual
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -228,4 +229,3 @@ Finally, the complete source code for the book is available online at <https://g
 
 - **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
 
-## References

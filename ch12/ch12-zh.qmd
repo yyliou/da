@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -466,7 +467,7 @@ ggplot(luv_colours, aes(u, v)) +
 
 7. 用 `luv_colours` 重現恆等尺度的散佈圖。然後加上第二個圖層，只用名稱含 `"blue"` 的顏色子集，畫成帶黑色邊框（`shape = 21`）的較大點。在這個脈絡下 `scale_fill_identity()` 有什麼作用？
 
-## 致謝
+## 版權聲明
 
 -   **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/scales-other.html)。所有權利均由原作者與出版者保留。
 
@@ -474,4 +475,3 @@ ggplot(luv_colours, aes(u, v)) +
 
 -   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
 
-## 參考文獻

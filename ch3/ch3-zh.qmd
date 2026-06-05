@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -133,7 +134,7 @@ p8 <- p + geom_polygon() + ggtitle("polygon")
 
 
 
-## 致謝
+## 版權聲明
 
 -   **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/getting-started.html)。所有權利均由原作者與出版者保留。
 
@@ -141,4 +142,3 @@ p8 <- p + geom_polygon() + ggtitle("polygon")
 
 -   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
 
-## 參考文獻

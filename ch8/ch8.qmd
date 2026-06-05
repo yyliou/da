@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -64,7 +65,7 @@ The `labs()` helper function provides a unified interface for setting all text l
 library(ggplot2)
 library(patchwork)
 
-ggplot(mpg, aes(displ, hwy)) +
+a <- ggplot(mpg, aes(displ, hwy)) +
   geom_point(aes(colour = factor(cyl))) +
   labs(
     x        = "Engine displacement (litres)",
@@ -76,6 +77,13 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 ------------------------------------------------------------------------
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
+a
+```
+
+------------------------------------------------------------------------
+
 
 **Mathematical expressions in labels**
 
@@ -539,4 +547,4 @@ Each panel foregrounds the data for one cylinder group while maintaining the ful
 
 -   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
 
-## References
+ 

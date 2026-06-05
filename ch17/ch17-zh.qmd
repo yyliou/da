@@ -11,6 +11,7 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
+suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -351,7 +352,7 @@ ggsave("output.pdf")
 
 7. 用 `ggsave()` 把同一張圖存成 `.pdf` 與 600 dpi 的 `.png`。各種格式何時該選用？
 
-## 致謝
+## 版權聲明
 
 -   **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/themes.html)。所有權利均由原作者與出版者保留。
 
@@ -359,4 +360,3 @@ ggsave("output.pdf")
 
 -   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
 
-## 參考文獻
