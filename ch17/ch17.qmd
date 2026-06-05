@@ -108,9 +108,11 @@ The signature theme is `theme_grey()` — a light grey background with white gri
 library(ggplot2)
 df <- data.frame(x = 1:3, y = 1:3)
 base <- ggplot(df, aes(x, y)) + geom_point()
-base + theme_grey()    + ggtitle("theme_grey()")
-base + theme_bw()      + ggtitle("theme_bw()")
-base + theme_minimal() + ggtitle("theme_minimal()")
+a <- base + theme_grey()    + ggtitle("theme_grey()")
+b <- base + theme_bw()      + ggtitle("theme_bw()")
+c <- base + theme_minimal() + ggtitle("theme_minimal()")
+library(patchwork)
+(a|b|c)
 ```
 
 Every theme has a `base_size` argument controlling the base font size (axis titles); the plot title is larger (1.2×) and tick/strip labels smaller (0.8×).
@@ -136,11 +138,15 @@ To modify one component: `plot + theme(element.name = element_function())`. Ther
 - `element_rect()` — rectangles/backgrounds: `fill`, plus border `colour`, `linewidth`, `linetype`
 - `element_blank()` — draws nothing **and** allocates no space
 
+---
+
 ```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
 base_t <- base + labs(title = "This is a ggplot") + xlab(NULL) + ylab(NULL)
-base_t + theme(plot.title = element_text(size = 16))
-base_t + theme(plot.title = element_text(face = "bold", colour = "red"))
-base_t + theme(plot.title = element_text(hjust = 1))
+a <- base_t + theme(plot.title = element_text(size = 16))
+b <- base_t + theme(plot.title = element_text(face = "bold", colour = "red"))
+c <- base_t + theme(plot.title = element_text(hjust = 1))
+library(patchwork)
+(a|b|c)
 ```
 
 ---
@@ -148,9 +154,11 @@ base_t + theme(plot.title = element_text(hjust = 1))
 `element_line()` and `element_rect()` parameterise lines and backgrounds:
 
 ```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
-base + theme(panel.grid.major = element_line(colour = "black"))
-base + theme(panel.grid.major = element_line(linetype = "dotted"))
-base + theme(panel.background = element_rect(fill = "linen"))
+a <- base + theme(panel.grid.major = element_line(colour = "black"))
+b <- base + theme(panel.grid.major = element_line(linetype = "dotted"))
+c <- base + theme(panel.background = element_rect(fill = "linen"))
+library(patchwork)
+(a|b|c)
 ```
 
 `element_blank()` suppresses an element entirely. Note that the plot **reclaims** the freed space — to keep the space (e.g. to align with other plots) use invisible elements via `colour = NA, fill = NA` instead.
@@ -182,9 +190,13 @@ Around 40 elements control plot appearance, grouped into five categories. **Plot
 | `plot.title` | `element_text()` | plot title |
 | `plot.margin` | `margin()` | margins around the plot |
 
+----
+
 ```{r, echo=TRUE, warning=FALSE, out.width="38%", fig.align='center'}
-base + theme(plot.background = element_rect(colour = "grey50", linewidth = 2))
-base + theme(plot.background = element_rect(fill = "lightblue"))
+a <- base + theme(plot.background = element_rect(colour = "grey50", linewidth = 2))
+b <- base + theme(plot.background = element_rect(fill = "lightblue"))
+library(patchwork)
+(a|b)
 ```
 
 ---
@@ -201,12 +213,16 @@ base + theme(plot.background = element_rect(fill = "lightblue"))
 
 `axis.text` sets both axes at once; `axis.text.x` / `.y` inherit from it and override per axis. The most common tweak is rotating long x labels — negative angles look best, with `hjust = 0, vjust = 1`:
 
+---
+
 ```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
 df2 <- data.frame(x = c("label", "a long label", "an even longer label"), y = 1:3)
 b2 <- ggplot(df2, aes(x, y)) + geom_point()
-b2
-b2 + theme(axis.text.x = element_text(angle = -30, vjust = 1, hjust = 0)) +
+a <- b2
+b <- b2 + theme(axis.text.x = element_text(angle = -30, vjust = 1, hjust = 0)) +
   xlab(NULL) + ylab(NULL)
+library(patchwork)
+(a|b)
 ```
 
 ---
@@ -223,11 +239,15 @@ b2 + theme(axis.text.x = element_text(angle = -30, vjust = 1, hjust = 0)) +
 
 Layout is governed separately by `legend.position`, `legend.direction`, `legend.justification`, and `legend.box` (see §11.7).
 
+---
+
 ```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
 df3 <- data.frame(x = 1:4, y = 1:4, z = rep(c("a", "b"), each = 2))
 b3 <- ggplot(df3, aes(x, y, colour = z)) + geom_point()
-b3 + theme(legend.background = element_rect(fill = "lemonchiffon", colour = "grey50", linewidth = 1))
-b3 + theme(legend.text = element_text(size = 15), legend.title = element_text(size = 15, face = "bold"))
+a <- b3 + theme(legend.background = element_rect(fill = "lemonchiffon", colour = "grey50", linewidth = 1))
+b <- b3 + theme(legend.text = element_text(size = 15), legend.title = element_text(size = 15, face = "bold"))
+library(patchwork)
+(a|b)
 ```
 
 ---
@@ -243,15 +263,17 @@ b3 + theme(legend.text = element_text(size = 15), legend.title = element_text(si
 
 `panel.background` is drawn *under* the data, `panel.border` *over* it — so always set `fill = NA` when overriding the border. `aspect.ratio` controls the **panel**, not the whole plot:
 
-```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
-base + theme(panel.background = element_rect(fill = "lightblue"))
-base + theme(panel.grid.major = element_line(colour = "gray60", linewidth = 0.8))
-base + theme(aspect.ratio = 9 / 16)
-```
-
 ---
 
-### Faceting Elements
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+a <- base + theme(panel.background = element_rect(fill = "lightblue"))
+b <- base + theme(panel.grid.major = element_line(colour = "gray60", linewidth = 0.8))
+c <- base + theme(aspect.ratio = 9 / 16)
+library(patchwork)
+(a|b|c)
+```
+
+## Faceting Elements
 
 | Element | Setter | Description |
 |---|---|---|
@@ -261,12 +283,16 @@ base + theme(aspect.ratio = 9 / 16)
 
 `strip.text.x` affects both `facet_wrap()` and `facet_grid()`; `strip.text.y` affects only `facet_grid()`.
 
+---
+
 ```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
 df4 <- data.frame(x = 1:4, y = 1:4, z = c("a", "a", "b", "b"))
 bf <- ggplot(df4, aes(x, y)) + geom_point() + facet_wrap(~z)
-bf + theme(panel.spacing = unit(0.5, "in"))
-bf + theme(strip.text = element_text(colour = "white"),
+a <- bf + theme(panel.spacing = unit(0.5, "in"))
+b <- bf + theme(strip.text = element_text(colour = "white"),
            strip.background = element_rect(fill = "grey20", colour = "grey80", linewidth = 1))
+library(patchwork)
+(a|b)
 ```
 
 # Saving Your Output
@@ -280,7 +306,7 @@ When exporting a plot you choose between two output families:
 
 ---
 
-ggplot2 provides `ggsave()`, optimised for interactive use — call it right after drawing a plot:
+`ggplot2` provides `ggsave()`, optimised for interactive use — call it right after drawing a plot:
 
 ```{r, echo=TRUE, warning=FALSE, eval=FALSE}
 ggplot(mpg, aes(displ, cty)) + geom_point()

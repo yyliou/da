@@ -322,23 +322,18 @@
 <span id="cb3-2"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
 <span id="cb3-3"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme_grey</span>()    <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"theme_grey()"</span>)</span>
 <span id="cb3-4"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme_bw</span>()      <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"theme_bw()"</span>)</span>
-<span id="cb3-5"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"theme_minimal()"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb4-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-5"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"theme_minimal()"</span>)</span>
+<span id="cb3-6"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb3-7"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>每個主題都有 <code>base_size</code> 引數控制基準字型大小（軸標題）；圖標題較大（1.2×），刻度與標籤條較小（0.8×）。</p>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>每個主題都有 <code>base_size</code> 引數控制基準字型大小（軸標題）；圖標題較大（1.2×），刻度與標籤條較小（0.8×）。</p>
 </section>
 <section class="slide level2">
 
 <p>可對單一圖套用主題，也可用 <code>theme_set()</code> 改變所有圖的<strong>預設</strong>：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())   <span class="co"># 之後每張圖都白色背景</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())   <span class="co"># 之後每張圖都白色背景</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>你不限於內建主題。<strong>ggthemes</strong> 等套件加入更多，如 <code>theme_tufte()</code>、<code>theme_economist()</code>、<code>theme_solarized()</code>。完整主題是很好的起點，但提供的細部控制有限——若要細控，就修改個別元素。</p>
 </section></section>
@@ -356,51 +351,44 @@
 <li><code>element_rect()</code>——矩形／背景：<code>fill</code>，加上邊框 <code>colour</code>、<code>linewidth</code>、<code>linetype</code></li>
 <li><code>element_blank()</code>——什麼都不畫，<strong>且</strong>不配置空間</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>base_t <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"This is a ggplot"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
-<span id="cb6-2"><a href=""></a>a <span class="ot">&lt;-</span> base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>))</span>
-<span id="cb6-3"><a href=""></a>b <span class="ot">&lt;-</span> base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">colour =</span> <span class="st">"red"</span>))</span>
-<span id="cb6-4"><a href=""></a>c <span class="ot">&lt;-</span> base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb7-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>base_t <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"This is a ggplot"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
+<span id="cb5-2"><a href=""></a>a <span class="ot">&lt;-</span> base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>))</span>
+<span id="cb5-3"><a href=""></a>b <span class="ot">&lt;-</span> base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">colour =</span> <span class="st">"red"</span>))</span>
+<span id="cb5-4"><a href=""></a>c <span class="ot">&lt;-</span> base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb5-5"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb5-6"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
 <section class="slide level2">
 
 <p><code>element_line()</code> 與 <code>element_rect()</code> 參數化線與背景：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>))</span>
-<span id="cb8-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dotted"</span>))</span>
-<span id="cb8-3"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"linen"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb9-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>))</span>
+<span id="cb6-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dotted"</span>))</span>
+<span id="cb6-3"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"linen"</span>))</span>
+<span id="cb6-4"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb6-5"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p><code>element_blank()</code> 會完全抑制一個元素。注意圖會<strong>收回</strong>釋出的空間——若想保留空間（例如要與其他圖對齊），改用 <code>colour = NA, fill = NA</code> 製造仍佔空間的隱形元素。</p>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p><code>element_blank()</code> 會完全抑制一個元素。注意圖會<strong>收回</strong>釋出的空間——若想保留空間（例如要與其他圖對齊），改用 <code>colour = NA, fill = NA</code> 製造仍佔空間的隱形元素。</p>
 </section>
 <section class="slide level2">
 
 <p>要為<strong>所有未來的圖</strong>修改元素，用 <code>theme_update()</code>，它會回傳先前的設定，方便你還原：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>old_theme <span class="ot">&lt;-</span> <span class="fu">theme_update</span>(</span>
-<span id="cb10-2"><a href=""></a>  <span class="at">plot.background  =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue3"</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
-<span id="cb10-3"><a href=""></a>  <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>,  <span class="at">colour =</span> <span class="cn">NA</span>),</span>
-<span id="cb10-4"><a href=""></a>  <span class="at">axis.text  =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"linen"</span>),</span>
-<span id="cb10-5"><a href=""></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"linen"</span>)</span>
-<span id="cb10-6"><a href=""></a>)</span>
-<span id="cb10-7"><a href=""></a><span class="co"># ... 畫一些圖 ...</span></span>
-<span id="cb10-8"><a href=""></a><span class="fu">theme_set</span>(old_theme)  <span class="co"># 還原</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>old_theme <span class="ot">&lt;-</span> <span class="fu">theme_update</span>(</span>
+<span id="cb7-2"><a href=""></a>  <span class="at">plot.background  =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue3"</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb7-3"><a href=""></a>  <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>,  <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb7-4"><a href=""></a>  <span class="at">axis.text  =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"linen"</span>),</span>
+<span id="cb7-5"><a href=""></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"linen"</span>)</span>
+<span id="cb7-6"><a href=""></a>)</span>
+<span id="cb7-7"><a href=""></a><span class="co"># ... 畫一些圖 ...</span></span>
+<span id="cb7-8"><a href=""></a><span class="fu">theme_set</span>(old_theme)  <span class="co"># 還原</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -441,19 +429,15 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>))</span>
-<span id="cb11-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>))</span>
-<span id="cb11-3"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb11-4"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" style="width:38.0%"></p>
-</figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>))</span>
+<span id="cb8-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>))</span>
+<span id="cb8-3"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb8-4"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
 </div>
-</div>
-</div>
-<h3 id="軸元素">軸元素</h3>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:38.0%"></section>
+<section id="軸元素" class="slide level2">
+<h2>軸元素</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -491,28 +475,20 @@
 </tbody>
 </table>
 <p><code>axis.text</code> 同時設定兩軸；<code>axis.text.x</code> / <code>.y</code> 會繼承它並可逐軸覆寫。最常見的調整是旋轉過長的 x 標籤——負角度最好看，搭配 <code>hjust = 0, vjust = 1</code>：</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"a long label"</span>, <span class="st">"an even longer label"</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb12-2"><a href=""></a>b2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb12-3"><a href=""></a>b2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>b2 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="sc">-</span><span class="dv">30</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-12-2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"a long label"</span>, <span class="st">"an even longer label"</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb9-2"><a href=""></a>b2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb9-3"><a href=""></a>a <span class="ot">&lt;-</span> b2</span>
+<span id="cb9-4"><a href=""></a>b <span class="ot">&lt;-</span> b2 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="sc">-</span><span class="dv">30</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
+<span id="cb9-6"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb9-7"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
 <section class="slide level2">
 
 <h3 id="圖例元素">圖例元素</h3>
@@ -553,30 +529,21 @@
 </tbody>
 </table>
 <p>版面另由 <code>legend.position</code>、<code>legend.direction</code>、<code>legend.justification</code>、<code>legend.box</code> 掌控（見 §11.7）。</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">z =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>), <span class="at">each =</span> <span class="dv">2</span>))</span>
-<span id="cb14-2"><a href=""></a>b3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df3, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> z)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb14-3"><a href=""></a>b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lemonchiffon"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-13-2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section class="slide level2">
 
-<h3 id="面板元素">面板元素</h3>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb10-2"><a href=""></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">z =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>), <span class="at">each =</span> <span class="dv">2</span>))</span>
+<span id="cb10-3"><a href=""></a>b3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df3, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> z)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb10-4"><a href=""></a>a <span class="ot">&lt;-</span> b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lemonchiffon"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span>
+<span id="cb10-5"><a href=""></a>b <span class="ot">&lt;-</span> b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb10-6"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<section id="面板元素" class="slide level2">
+<h2>面板元素</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -609,15 +576,20 @@
 </tbody>
 </table>
 <p><code>panel.background</code> 畫在資料<em>下方</em>、<code>panel.border</code> 畫在<em>上方</em>——所以覆寫邊框時務必設 <code>fill = NA</code>。<code>aspect.ratio</code> 控制的是<strong>面板</strong>、而非整張圖：</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>))</span>
-<span id="cb16-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"gray60"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>))</span>
-<span id="cb16-3"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">9</span> <span class="sc">/</span> <span class="dv">16</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
 <section class="slide level2">
 
-<h3 id="分面元素">分面元素</h3>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb11-2"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>))</span>
+<span id="cb11-3"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"gray60"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>))</span>
+<span id="cb11-4"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">9</span> <span class="sc">/</span> <span class="dv">16</span>)</span>
+<span id="cb11-5"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<section id="分面元素" class="slide level2">
+<h2>分面元素</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -645,28 +617,20 @@
 </tbody>
 </table>
 <p><code>strip.text.x</code> 同時影響 <code>facet_wrap()</code> 與 <code>facet_grid()</code>；<code>strip.text.y</code> 只影響 <code>facet_grid()</code>。</p>
+</section>
+<section class="slide level2">
+
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>df4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"b"</span>))</span>
-<span id="cb17-2"><a href=""></a>bf <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df4, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)</span>
-<span id="cb17-3"><a href=""></a>bf <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"in"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>df4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"b"</span>))</span>
+<span id="cb12-2"><a href=""></a>bf <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df4, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)</span>
+<span id="cb12-3"><a href=""></a>a <span class="ot">&lt;-</span> bf <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"in"</span>))</span>
+<span id="cb12-4"><a href=""></a>b <span class="ot">&lt;-</span> bf <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb12-5"><a href=""></a>           <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey20"</span>, <span class="at">colour =</span> <span class="st">"grey80"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span>
+<span id="cb12-6"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb12-7"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
 </div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>bf <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
-<span id="cb18-2"><a href=""></a>           <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey20"</span>, <span class="at">colour =</span> <span class="st">"grey80"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-15-2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section></section>
+<img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section></section>
 <section>
 <section id="儲存輸出" class="title-slide slide level1 center">
 <h1>儲存輸出</h1>
@@ -684,8 +648,8 @@
 
 <p>ggplot2 提供 <code>ggsave()</code>，為互動使用而最佳化——畫完圖後立即呼叫即可：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb19-2"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"output.pdf"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb13-2"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"output.pdf"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>重要引數：</p>
 <ul>
