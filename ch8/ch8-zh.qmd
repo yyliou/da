@@ -1,0 +1,554 @@
+---
+title: "資料分析"
+subtitle: "第八章：標註"
+author: "劉昱佑"
+institute: "實踐大學"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: source
+bibliography: bib.bib
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+title-slide-attributes:
+  data-notes: ""
+include-after-body:
+  text: |
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch8.html"  style="color:#555;">[English version]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(showtext)
+
+# 載入中文字型，讓圖內中文正常顯示
+font_add_google("Noto Sans TC", "noto")
+showtext_auto()
+theme_update(text = element_text(family = "noto"))
+
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+# 標註
+
+## 標註
+
+在建構一份資料視覺化時，光提供圖本身很少足夠——讀者也需要**脈絡**。標註（annotations）提供那份脈絡：它們是附加在視覺呈現上的詮釋資料，幫助讀者解讀他們所看到的東西。
+
+在概念上，標註就只是關於資料的資料。正因如此，ggplot2 用與繪製資料完全相同的 geoms 來實作標註，並在其上疊加一小組輔助函式以方便使用。
+
+------------------------------------------------------------------------
+
+**本章路線圖**
+
+- **第 8.1 節**——用 `labs()` 設定圖與座標軸的標題。
+- **第 8.2 節**——用 `geom_text()` 與 `geom_label()` 加上文字標籤。
+- **第 8.3 節**——用各種 geoms 與 `annotate()` 建構自訂標註。
+- **第 8.4 節**——以 `directlabels`、`ggforce` 與 `gghighlight` 進行直接標示。
+- **第 8.5 節**——跨分面的標註。
+
+# 圖與座標軸的標題
+
+## 圖與座標軸的標題
+
+`labs()` 輔助函式提供一個統一的介面，用以設定與圖相關的所有文字標籤：主標題、副標題、圖說、座標軸標籤與圖例標題。標籤以具名引數指定，並以美學或標籤名稱作為鍵：
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
+library(ggplot2)
+library(patchwork)
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = factor(cyl))) +
+  labs(
+    x        = "引擎排氣量（公升）",
+    y        = "高速公路每加侖英里數",
+    colour   = "汽缸數",
+    title    = "里程數與引擎大小、汽缸數的關係",
+    subtitle = "來源：https://fueleconomy.gov"
+  )
+```
+
+------------------------------------------------------------------------
+
+**標籤中的數學表達式**
+
+標籤值通常是純字元字串，並以 `\n` 插入換行。當標籤需要一個數學表達式時，用 `quote()` 把它包起來，並使用 R 的 plotmath 語法。可用的符號與運算子記錄在 `?plotmath`：
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+values <- seq(from = -2, to = 2, by = .01)
+df <- data.frame(x = values, y = values ^ 3)
+
+ggplot(df, aes(x, y)) +
+  geom_path() +
+  labs(y = quote(f(x) == x^3))
+```
+
+------------------------------------------------------------------------
+
+**用 `ggtext` 在標籤中使用 Markdown**
+
+`ggtext` 套件（Wilke 2020）讓 Markdown 語法的一個子集——斜體、粗體、行內 HTML——能在座標軸與圖例標題內被呈現。要為特定元素啟用 Markdown 呈現，請把對應的主題元素設為 `ggtext::element_markdown()`：
+
+----
+
+```{r,echo=T,warning=FALSE,out.width="70%",fig.align='center'}
+df <- data.frame(x = 1:3, y = 1:3)
+base <- ggplot(df, aes(x, y)) +
+  geom_point() +
+  labs(x = "帶有 *斜體* 與 **粗體** 的座標軸標題")
+
+p1 <- base + ggtitle("預設（無 markdown）")
+p2 <- base +
+  theme(axis.title.x = ggtext::element_markdown()) +
+  ggtitle("使用 element_markdown()")
+
+p1 | p2
+```
+
+------------------------------------------------------------------------
+
+**移除座標軸標籤**
+
+移除座標軸標籤有兩種策略，它們的行為各不相同：
+
+- `labs(x = "")`——移除標籤文字，但保留它原本會占據的空間。
+- `labs(x = NULL)`——同時移除標籤文字與其所配置的空間，使座標軸更貼近繪圖面板。
+
+`labs()` 與底層尺度名稱系統之間的關係，在第 14 章有進一步的討論。
+
+# 文字標籤
+
+## 文字標籤
+
+把文字直接加到圖上，是最常見的標註技巧之一。雖然為每一個資料點都加標籤很少是明智的，但標記離群值、值得注意的觀測值，或感興趣的小群組則非常有效。
+
+文字標註的主要 geom 是 `geom_text()`，它在指定的 (`x`, `y`) 位置放置一個 `label` 字串。它公開的美學比 ggplot2 中幾乎任何其他 geom 都多。
+
+------------------------------------------------------------------------
+
+**`family` 美學——字型選擇**
+
+`family` 美學接受一個字型名稱。有三個值保證能在所有平台與輸出裝置上正確呈現：
+
+- `"sans"`——無襯線字型（預設）。
+- `"serif"`——襯線字型。
+- `"mono"`——等寬字型。
+
+---
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+df <- data.frame(x = 1, y = 3:1, family = c("sans", "serif", "mono"))
+ggplot(df, aes(x, y)) +
+  geom_text(aes(label = family, family = family))
+```
+
+------------------------------------------------------------------------
+
+**跨繪圖裝置的字型呈現**
+
+超出三個保證值之外的系統字型，可能無法在所有繪圖裝置（螢幕 vs. 檔案）上一致地呈現。兩個套件解決這點：
+
+- **showtext**（<https://github.com/yixuan/showtext>）——把文字轉換成多邊形，使字型呈現與裝置無關。
+- **extrafont**（<https://github.com/wch/extrafont>）——註冊已安裝的系統字型，使所有裝置都能使用共同的格式。
+
+各種方法各有取捨；值得在你的工作流程中把兩者都測試一遍。
+
+------------------------------------------------------------------------
+
+**`fontface` 美學——文字樣式**
+
+`fontface` 接受三個值，控制文字的字重與傾斜：
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+df <- data.frame(x = 1, y = 3:1, face = c("plain", "bold", "italic"))
+ggplot(df, aes(x, y)) +
+  geom_text(aes(label = face, fontface = face))
+```
+
+------------------------------------------------------------------------
+
+**`hjust` 與 `vjust` 美學——對齊**
+
+`hjust`（水平對齊）與 `vjust`（垂直對齊）控制標籤相對於其錨點如何定位。兩者都接受具名字串或 [0, 1] 之間的數值。
+
+特別有用的值是 `"inward"` / `"outward"`，無論標籤的位置為何，它們都把文字朝向或遠離圖的中心對齊——確保標籤停留在圖的邊界內：
+
+---
+
+```{r,echo=T,warning=FALSE,out.width="70%",fig.align='center'}
+df <- data.frame(
+  x    = c(1, 1, 2, 2, 1.5),
+  y    = c(1, 2, 1, 2, 1.5),
+  text = c("bottom-left", "top-left", "bottom-right", "top-right", "center")
+)
+
+p1 <- ggplot(df, aes(x, y)) + geom_text(aes(label = text)) +
+  ggtitle("預設對齊")
+p2 <- ggplot(df, aes(x, y)) +
+  geom_text(aes(label = text), vjust = "inward", hjust = "inward") +
+  ggtitle("向內對齊")
+p1 | p2
+```
+
+------------------------------------------------------------------------
+
+**`size` 美學——字型大小**
+
+字型大小以**毫米（mm）**而非點（point）指定。這使文字大小與 ggplot2 中所有其他 size 美學所用的單位一致。要從點換算到 mm：乘以 25.4 / 72.27。
+
+**`angle` 參數——旋轉**
+
+`angle` 把標籤旋轉指定的度數，從水平方向逆時針量測。
+
+------------------------------------------------------------------------
+
+**輕推標籤——`nudge_x` 與 `nudge_y`**
+
+當為既有資料點加標籤時，文字與點重疊是個常見的問題。`nudge_x` 與 `nudge_y` 參數把標籤相對於資料點移動一個固定的量，而不改變 `x`／`y` 美學所使用的位置：
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+df <- data.frame(treatment = c("a", "b", "c"), response = c(1.2, 3.4, 2.5))
+
+ggplot(df, aes(treatment, response)) +
+  geom_point() +
+  geom_text(
+    aes(label = paste0("(", response, ")")),
+    nudge_x = -0.3
+  ) +
+  ylim(1.1, 3.6)
+```
+
+------------------------------------------------------------------------
+
+**移除重疊的標籤——`check_overlap`**
+
+設定 `check_overlap = TRUE` 會自動抑制會與先前所繪標籤重疊的標籤。標籤依資料框的列順序被評估——較前面的列優先。如果你在繪圖前依重要性把資料排序，所得結果便是一組強調最重要觀測值的標籤：
+
+```{r,echo=T,warning=FALSE,out.width="70%",fig.align='center'}
+p1 <- ggplot(mpg, aes(displ, hwy)) +
+  geom_text(aes(label = model)) + xlim(1, 8) +
+  ggtitle("check_overlap = FALSE")
+p2 <- ggplot(mpg, aes(displ, hwy)) +
+  geom_text(aes(label = model), check_overlap = TRUE) + xlim(1, 8) +
+  ggtitle("check_overlap = TRUE")
+p1 | p2
+```
+
+------------------------------------------------------------------------
+
+**`geom_label()`——帶背景框的文字**
+
+`geom_label()` 是 `geom_text()` 的一個變體，會在文字後面畫一個圓角矩形。不透明的背景確保在複雜或多彩的圖背景上仍清晰可讀：
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+label <- data.frame(
+  waiting   = c(55, 80),
+  eruptions = c(2, 4.3),
+  label     = c("peak one", "peak two")
+)
+
+ggplot(faithfuld, aes(waiting, eruptions)) +
+  geom_tile(aes(fill = density)) +
+  geom_label(data = label, aes(label = label))
+```
+
+------------------------------------------------------------------------
+
+**文字標籤的常見挑戰**
+
+- **標籤不會擴展圖的範圍。** 由於標籤有一個與圖尺寸無關的固定物理大小（例如 3 公分），ggplot2 無法自動擴展圖的邊界來容納它。請手動調整 `xlim()` / `ylim()`。
+
+- **避免眾多標籤重疊。** Kamil Slowikowski 的 `ggrepel` 套件（<https://github.com/slowkow/ggrepel>）提供 `geom_text_repel()`，它最佳化標籤位置以最小化重疊：
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="65%",fig.align='center'}
+set.seed(42)
+mini_mpg <- mpg[sample(nrow(mpg), 20), ]
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(colour = "red") +
+  ggrepel::geom_text_repel(data = mini_mpg, aes(label = class))
+```
+
+- **把標籤塞進長條或方塊內。** Claus Wilke 的 `ggfittext` 套件提供能自動調整大小或修剪文字以塞入指定邊界區域的 geoms。
+
+# 建構自訂標註
+
+## 建構自訂標註
+
+除了文字標籤，ggplot2 還提供數個適合標註特定類型資訊的 geoms。這些 geoms 的運作方式和繪製資料的 geoms 完全相同——它們接受一個獨立的資料框，或用 `annotate()` 輔助函式來放置。
+
+**關鍵的標註 geoms：**
+
+- `geom_rect()`——填滿一個矩形區域；使用 `xmin`、`xmax`、`ymin`、`ymax` 美學。
+- `geom_segment()` / `geom_line()` / `geom_path()`——畫出線段或路徑；全都接受一個 `arrow` 引數來加箭頭（用 `arrow(angle, length, ends, type)` 建立）。
+- `geom_curve()`——在兩點之間畫出一條曲線弧；用於把標籤連到資料點時很有用。
+- `geom_vline()` / `geom_hline()` / `geom_abline()`——畫出橫跨圖完整範圍的參考線。
+
+------------------------------------------------------------------------
+
+**用 `-Inf` 與 `Inf` 作為位置值**
+
+當一個 geom 應該延伸到繪圖面板的最邊緣——無論資料範圍為何——時，用 `-Inf`（底／左界限）與 `Inf`（頂／右界限）作為位置值。這在用 `geom_rect()` 製作背景陰影時特別有用。
+
+------------------------------------------------------------------------
+
+**範例：以總統任期標註時間序列**
+
+`economics` 資料集記錄了美國失業隨時間的變化。我們將用四個獨立的圖層，疊加指示總統任期的陰影矩形、任期界線處的垂直線，以及總統姓名標籤：
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
+presidential_sub <- subset(presidential, start > economics$date[1])
+
+fig <- ggplot(economics) +
+  geom_rect(
+    aes(xmin = start, xmax = end, fill = party),
+    ymin = -Inf, ymax = Inf, alpha = 0.2,
+    data = presidential_sub
+  ) +
+  geom_vline(
+    aes(xintercept = start),
+    data = presidential_sub, colour = "grey50", alpha = 0.5
+  ) +
+  geom_text(
+    aes(x = start, y = 2500, label = name),
+    data = presidential_sub, size = 3, vjust = 0, hjust = 0, nudge_x = 50
+  ) +
+  geom_line(aes(date, unemploy)) +
+  scale_fill_manual(values = c("blue", "red")) +
+  labs(x = "日期", y = "失業人數")
+```
+
+----
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
+fig
+```
+
+每個圖層都取自它**自己的資料框**——請注意 `data = presidential_sub` 如何在每個標註 geom 內被指定，而 `geom_line()` 則繼承預設的 `economics` 資料。這是把標註資料與主資料集混用的標準模式。
+
+------------------------------------------------------------------------
+
+**`annotate()`——單一標註的簡寫**
+
+透過 geom 加上單一標註，需要建構一個只有一列的資料框，這很冗長。`annotate()` 輔助函式在內部建構這個資料框：
+
+```{r,echo=T,eval=FALSE}
+# 冗長的做法（使用資料框）
+ggplot(economics, aes(date, unemploy)) +
+  geom_line() +
+  geom_text(
+    aes(x, y, label = caption),
+    data = data.frame(x = xrng[1], y = yrng[2], caption = caption),
+    hjust = 0, vjust = 1, size = 4
+  )
+```
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+# 使用 annotate() 的精簡做法
+yrng    <- range(economics$unemploy)
+xrng    <- range(economics$date)
+caption <- paste(strwrap(
+  "美國的失業率多年來變動甚大", 40
+), collapse = "\n")
+
+fig <- ggplot(economics, aes(date, unemploy)) +
+  geom_line() +
+  annotate(
+    geom = "text", x = xrng[1], y = yrng[2],
+    label = caption, hjust = 0, vjust = 1, size = 4
+  )
+```
+
+---
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+fig
+```
+
+------------------------------------------------------------------------
+
+**用手動標註凸顯一個子集**
+
+一個常見的模式是把一個子群組畫兩次來凸顯它——一次在主散佈圖層之下畫一個較大、顏色不同的點——然後用 `annotate()` 為它加標籤：
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+p <- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(
+    data  = dplyr::filter(mpg, manufacturer == "subaru"),
+    colour = "orange", size = 3
+  ) +
+  geom_point()
+
+p +
+  annotate(geom = "point", x = 5.5, y = 40, colour = "orange", size = 3) +
+  annotate(geom = "point", x = 5.5, y = 40) +
+  annotate(geom = "text",  x = 5.6, y = 40, label = "subaru", hjust = "left")
+```
+
+------------------------------------------------------------------------
+
+**用 `geom_curve()` 的曲線連接器**
+
+當標籤必須放在遠離其目標處以避免雜亂時，`geom_curve()` 畫出一條帶有選用箭頭的曲線弧，以視覺方式把兩者連起來。用 `curvature` 控制弧的彎曲程度（正 = 順時針，負 = 逆時針）：
+
+```{r,echo=T,warning=FALSE,out.width="65%",fig.align='center'}
+p +
+  annotate(
+    geom      = "curve",
+    x = 4, y = 35, xend = 2.65, yend = 27,
+    curvature = .3,
+    arrow     = arrow(length = unit(2, "mm"))
+  ) +
+  annotate(geom = "text", x = 4.1, y = 35, label = "subaru", hjust = "left")
+```
+
+# 直接標示
+
+## 直接標示
+
+**直接標示（direct labelling）**指的是把群組標籤直接放在圖上——緊鄰或位於它們所識別的資料之內——而非放在獨立圖例中的做法。這個方法通常縮短了標籤與其資料之間的視覺距離，使圖表讀起來更快。
+
+更廣泛的 ggplot2 生態系中有三個套件提供自動化直接標示的工具。
+
+------------------------------------------------------------------------
+
+**`directlabels`——聰明的標籤放置**
+
+`directlabels` 套件（Hocking）提供 `geom_dl()`，它在以演算法決定的位置加上群組標籤。`method` 引數選擇一種放置策略：
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
+p1 <- ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point() +
+  ggtitle("圖例（預設）")
+
+p2 <- ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point(show.legend = FALSE) +
+  directlabels::geom_dl(aes(label = class), method = "smart.grid") +
+  ggtitle("直接標籤（smart.grid）")
+
+p1 | p2
+```
+
+`"smart.grid"` 對散佈圖是個不錯的預設。對於折線圖與次數多邊形，其他方法（例如 `"last.points"`、`"angled.boxes"`）更為適當。完整目錄請見 directlabels 網站（<http://directlabels.r-forge.r-project.org>）。
+
+------------------------------------------------------------------------
+
+**`ggforce`——橢圓凸顯記號**
+
+`ggforce` 套件（Pedersen）以一系列專門的 geoms 擴展 ggplot2，包括 `geom_mark_ellipse()`。這個 geom 在每一群點周圍畫出橢圓形的凸顯，並加上標籤，使群組歸屬無須圖例便立即顯現：
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  ggforce::geom_mark_ellipse(aes(label = cyl, group = cyl))
+```
+
+------------------------------------------------------------------------
+
+**`gghighlight`——強調選定的資料**
+
+`gghighlight` 套件（Yutani）的設計目的，是在視覺上強調一個觀測值子集，同時在背景顯示完整資料集以提供脈絡。它對縱貫性或分組資料特別有效：
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
+data(Oxboys, package = "nlme")
+
+ggplot(Oxboys, aes(age, height, group = Subject)) +
+  geom_line() +
+  geom_point() +
+  gghighlight::gghighlight(Subject %in% 1:3)
+```
+
+被凸顯的受試者以全彩繪製；所有其他軌跡則以柔和的灰色呈現，在不爭奪注意力的情況下提供整個資料集的視覺脈絡。
+
+# 跨分面的標註
+
+## 跨分面的標註
+
+標註在分面圖中變得格外強大，因為它們能提供一個共享的視覺參考，使面板之間的比較更容易。
+
+**引發動機的範例：分面的鑽石價格 vs 克拉數**
+
+下面的圖依鑽石的 `cut` 把 `log10(carat)` 與 `log10(price)` 之間的關係分面。面板內的關係很清楚，但跨切工等級之斜率或截距的細微差異，若沒有參考便難以察覺：
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="80%",fig.align='center'}
+ggplot(diamonds, aes(log10(carat), log10(price))) +
+  geom_bin2d() +
+  facet_wrap(vars(cut), nrow = 1)
+```
+
+------------------------------------------------------------------------
+
+**為所有分面加上一條共享的參考線**
+
+對整個資料集配適單一條迴歸線，並把它疊加在每個分面中，給予眼睛一個固定的參考。偏離這條線——或資料雲相對於線的位置差異——如今便在視覺上凸顯出來：
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="80%",fig.align='center'}
+mod_coef <- coef(lm(log10(price) ~ log10(carat), data = diamonds))
+
+ggplot(diamonds, aes(log10(carat), log10(price))) +
+  geom_bin2d() +
+  geom_abline(
+    intercept = mod_coef[1],
+    slope     = mod_coef[2],
+    colour    = "white",
+    linewidth = 1
+  ) +
+  facet_wrap(vars(cut), nrow = 1)
+```
+
+如今每個分面都相對於**同一條**迴歸線顯示其資料，使跨分面的比較毫不含糊。用白線襯著 2D 分箱的顏色尺度，使它清晰可讀而不壓過資料。
+
+------------------------------------------------------------------------
+
+**分面內的 `gghighlight`——變灰的背景資料**
+
+另一個有效的模式是依群組分面，同時在每個面板中以變灰的方式顯示完整資料集。每個分面以彩色凸顯一個群組，而所有其他資料則仍可見以提供脈絡。`gghighlight::gghighlight()` 不帶任何篩選引數便會自動達成這點：
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="75%",fig.align='center'}
+ggplot(mpg, aes(displ, hwy, colour = factor(cyl))) +
+  geom_point() +
+  gghighlight::gghighlight() +
+  facet_wrap(vars(cyl))
+```
+
+每個面板把一個汽缸群組的資料置於前景，同時以灰色維持整個資料集的完整脈絡。這個技巧優雅地把分面的細節與同時顯示所有資料的脈絡豐富性結合起來。
+
+## 致謝
+
+-   **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/annotations.html)。所有權利均由原作者與出版者保留。
+
+-   **僅供非商業用途。** 本教材嚴格限定用於教育目的，不得用於商業獲利。
+
+-   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
+
+## 參考文獻

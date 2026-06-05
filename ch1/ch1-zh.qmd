@@ -1,0 +1,245 @@
+---
+title: "資料分析"
+subtitle: "第一章：簡介"
+author: "劉昱佑"
+institute: "實踐大學"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: visual
+bibliography: bib.bib
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+title-slide-attributes:
+  data-notes: ""
+include-after-body:
+  text: |
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch1.html"  style="color:#555;">[English version]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(showtext)
+
+# 載入中文字型，讓圖內中文正常顯示
+font_add_google("Noto Sans TC", "noto")
+showtext_auto()
+theme_update(text = element_text(family = "noto"))
+
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+# **歡迎來到 `ggplot2`**
+
+## 資料
+
+```{r,echo=T,message=FALSE,warning=FALSE,out.width = "80%",fig.align='center'}
+library(ggplot2)
+data(diamonds)
+dim(diamonds)
+diamonds[1:15,]
+```
+
+## 範例
+
+```{r,echo=T,message=FALSE,warning=FALSE,out.width = "80%",fig.align='center'}
+ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point(alpha = 0.3) + labs(
+    title = "鑽石價格與克拉數",
+    subtitle = "依切工等級著色",
+    x = "克拉數", y = "價格（美元）", color = "切工"
+  ) + theme_minimal(base_size = 14)
+```
+
+## 歷史
+
+`ggplot2` 是一個用來產生統計圖（或資料圖）的 R 套件。與大多數其他繪圖套件不同，`ggplot2` 背後有一套文法，建立在圖形文法（Grammar of Graphics）[@wilkinson2011grammar] 之上，讓你能夠藉由組合各個獨立的元件來建構圖形。這正是 `ggplot2` 強大之處。
+
+你不再受限於一組預先定義好的圖形，而能夠創造出為你的特定問題量身打造的全新圖形。雖然「必須學一套文法」聽起來令人卻步，但 `ggplot2` 其實很容易上手：它只有一組簡單的核心原則，特例也非常少。比較困難的部分，反而是你得花點時間去忘掉過去使用其他繪圖工具時帶來的種種既有觀念。
+
+## 優點
+
+**節省時間**
+
+`ggplot2` 能產生漂亮、零負擔的圖形，並自動處理像是繪製圖例這類繁瑣的細節。事實上，它精心挑選的預設值，意味著你可以在幾秒內產出達到出版品質的圖形。然而，若你確實有特殊的格式需求，`ggplot2` 完整的主題（theming）系統也能讓你輕鬆做到想要的效果。歸根究底，這代表你不必把時間花在把圖變漂亮上，而能專注於製作出最能揭示資料訊息的那張圖。
+
+**迭代**
+
+`ggplot2` 的設計是為了能以迭代的方式運作。你先從一個顯示原始資料的圖層開始，接著再加上標註與統計摘要的圖層。這讓你能用設計分析時所使用的同一套結構化思維來產生圖形，縮短了腦中構想的圖與紙上呈現的圖之間的距離。對於那些尚未養成專家式結構化分析方法的學生而言，這特別有幫助。
+
+## 複雜的任務
+
+學習這套文法不只能幫你做出熟悉的圖形，也能幫你創造出更新穎、更好的圖形。沒有文法，就沒有底層的理論，因此大多數繪圖套件都只是一大堆特例的集合。舉例來說，在基礎 R（base R）中，若你要設計一個新圖形，它是由線條與點等原始繪圖元素所組成，因此很難設計出能與現有圖形結合的新元件。在 `ggplot2` 中，用來建立新圖形的表達式是由更高層次的元素所組成，例如原始資料的表示與統計轉換，這些都能輕易地與新的資料集和其他圖形結合。
+
+## 關於本書
+
+**範例**
+
+本書透過大量的範例程式碼與圖形，提供 `ggplot2` 的實作入門。它同時也說明了 `ggplot2` 所依據的文法。如同其他形式化的系統，即使你不理解其底層模型，`ggplot2` 依然好用；不過你對它了解得越多，就越能有效地運用 `ggplot2`。
+
+**容易上手**
+
+本書假設你是初學者、不熟悉這套文法，並會：向你介紹 `ggplot2`；教你基本概念，讓你能重現你已經熟悉的圖形；示範如何運用文法創造出新型態的圖形；最終把你培養成能建立新元件、擴充文法的專家。
+
+# 什麼是圖形文法？
+
+## 圖形文法
+
+@wilkinson2011grammar 提出圖形文法（grammar of graphics），用以描述所有統計圖形背後的基本特徵。圖形文法是對「什麼是統計圖形？」這個問題的回答。`ggplot2` [@wickham2010layered] 在 Wilkinson 的文法基礎上，著重於圖層（layer）的核心地位，並將其調整為適合在 R 中使用。
+
+簡而言之，這套文法告訴我們：一張圖形是把資料映射（map）到幾何物件（點、線、長條）的美學屬性（aesthetic attributes，如顏色、形狀、大小）上。圖中也可能包含資料的統計轉換，以及關於座標系統的資訊。分面（facetting）則可用來為資料的不同子集繪圖。將這些獨立元件加以組合，便構成了一張圖形。
+
+## 元件
+
+隨著本書的推進，這套形式化的文法將被更詳細地說明。以下是元件的初步描述，介紹貫穿全書的部分術語，並概述每個元件的基本功能。如果一時無法理解也不必擔心：你之後還會有許多機會學習這些元件以及它們如何協同運作。
+
+- 所有圖形都由**資料**（data，你想視覺化的資訊）與**映射**（mapping，描述資料變數如何對應到美學屬性）所組成。映射共有五個元件：
+
+- **圖層**（layer）是幾何元素與統計轉換的集合。幾何元素（簡稱 geoms）代表你在圖中實際看到的東西：點、線、多邊形等等。統計轉換（簡稱 stats）則對資料進行摘要：例如將觀測值分組、計數以製作直方圖，或是配適線性模型。
+
+------------------------------------------------------------------------
+
+- **尺度**（scales）將資料空間中的值映射到美學空間中的值，包括顏色、形狀或大小的運用。尺度也會繪製圖例與座標軸，使我們能從圖中讀回原始的資料值（即一種反向映射）。
+
+- **座標**（coord，即座標系統）描述資料座標如何映射到圖形的平面上。它也提供座標軸與格線以協助判讀。我們通常使用笛卡兒座標系統，但也有許多其他選擇，包括極座標與地圖投影。
+
+- **分面**（facet）指定如何把資料子集拆開，並以小倍數圖（small multiples）的方式呈現。這也被稱為條件化（conditioning）或格狀化（latticing/trellising）。
+
+- **主題**（theme）控制顯示的細節，例如字體大小與背景顏色。雖然 `ggplot2` 的預設值都經過細心挑選，你仍可能需要參考其他資料才能做出美觀的圖。一個好的起點是 Tufte 的早期著作 [@tufte1991envisioning; @tufte1997visual; @tufte1983visual]。
+
+------------------------------------------------------------------------
+
+同樣重要的是要注意這套文法**不做**什麼：
+
+**建議**
+
+它不會建議你該用哪種圖形。雖然本書致力於推廣一套合理的繪圖流程，但重點在於「如何做出你想要的圖」，而非「該做哪一種圖」。關於如何選擇或創造圖形以回答你感興趣的問題，你可以參考 @robbins2005creating、@cleveland1993visualizing、@chambers2018graphical 與 @tukey1977exploratory。
+
+**互動式圖形**
+
+它不描述互動式圖形，只描述靜態圖形。在電腦螢幕上顯示 ggplot2 圖形，與把它們印在紙上，本質上並無差別。
+
+# `ggplot2` 與其他 R 繪圖系統的關係為何？
+
+## 討論
+
+R 中還有其他幾種繪圖系統：基礎繪圖（base graphics）、grid 繪圖與 trellis/lattice 繪圖。`ggplot2` 與它們有何不同？
+
+- 基礎繪圖由 Ross Ihaka 撰寫，部分根據實作 S 繪圖驅動程式的經驗，部分參考 @chambers2018graphical。基礎繪圖採用「筆在紙上」的模型：你只能在圖上往上疊加繪製，無法修改或刪除既有內容。除了它們在螢幕上的外觀外，並沒有（使用者可存取的）圖形表示。基礎繪圖同時包含繪製基本元素與整張圖的工具。基礎繪圖函式通常很快，但適用範圍有限。如果你過去曾畫過單張散佈圖、直方圖，或一組盒鬚圖，那你大概就用過基礎繪圖。
+
+------------------------------------------------------------------------
+
+- 「grid」繪圖是一套更豐富的繪圖基本元素系統，其開發始於 2000 年。grid 由 Paul Murrell 開發，源自他的博士研究 [@murrell1998investigations]。grid 的 grob（graphical objects，圖形物件）可以獨立於圖形之外表示，並於日後修改。一套視埠（viewport，各自帶有自己的座標系統）系統，使得安排複雜圖形的版面更為容易。grid 提供繪圖基本元素，但沒有產生統計圖形的工具。
+
+- `lattice` 套件由 Deepayan Sarkar 開發，運用 grid 繪圖實作了 @cleveland1993visualizing 的 trellis 繪圖系統，相較於基礎繪圖是相當大的改進。你可以輕鬆產生條件化的圖，而某些繪圖細節（例如圖例）也會被自動處理。然而 lattice 繪圖缺乏形式化的模型，這使得它難以擴充。lattice 繪圖在 @sarkar2008multivariate 中有深入說明。
+
+------------------------------------------------------------------------
+
+- `ggplot2` 始於 2005 年，嘗試擷取基礎繪圖與 lattice 繪圖的優點，並以一個強而有力的底層模型加以改進；該模型基於前述原則，支援產生任何種類的統計圖形。`ggplot2` 紮實的底層模型，使其能以精簡的語法描述各式各樣的圖形，而獨立的元件又使擴充變得容易。與 lattice 一樣，`ggplot2` 使用 grid 來繪圖，這代表你能對圖形外觀進行許多底層的控制。
+
+- [`htmlwidgets`](http://www.htmlwidgets.org) 提供一個共通框架，讓你能從 R 存取網頁視覺化工具。建立在 [`htmlwidgets`](http://www.htmlwidgets.org) 之上的套件包括用於地圖的 [`leaflet`](https://rstudio.github.io/leaflet/)、用於時間序列的 [`dygraph`](http://rstudio.github.io/dygraphs/)，以及用於網路圖的 [`networkD3`](http://christophergandrud.github.io/networkD3/)。
+
+- [`plotly`](https://plotly-r.com) 是一個受歡迎的 JavaScript 視覺化工具組，並具備 R 介面。如果你想為 HTML 文件製作互動式圖形，它是個很棒的工具，甚至附帶一個 `ggplotly()` 函式，能將許多 `ggplot2` 圖形轉換成對應的互動版本。
+
+------------------------------------------------------------------------
+
+許多其他的 R 套件，例如 `vcd` [@meyer2007strucplot]、`plotrix` [@lemon2008plotrix] 與 `gplots` [@warnes2005gplots]，都實作了專門的圖形，但沒有任何一個提供產生統計圖形的框架。其他套件所提供的所有繪圖工具，其完整清單可在繪圖任務視圖（graphics task view）中找到：<http://cran.r-project.org/web/views/Graphics.html>。
+
+# 關於本書
+
+## 關於本書
+
+- 第一個章節，也就是第 2 章，說明如何快速上手，運用 `ggplot2` 製作有用的圖形。本章介紹幾個重要的 `ggplot2` 概念：geoms、美學映射與分面。
+
+- 第 3 章到第 9 章探討如何運用基本工具箱，解決你在實務中可能遇到的各種視覺化問題。
+
+- 接著第 10 章到第 12 章示範如何控制最重要的尺度，讓你能微調座標軸與圖例的細節。
+
+- 在「文法」一節中，我們描述 `ggplot2` 所依據的分層圖形文法。該理論在第 13 章中得到說明，示範如何為你的圖加上額外的圖層，並對其中所用的 geoms 與 stats 行使完整的控制。
+
+------------------------------------------------------------------------
+
+- 理解尺度的運作方式，對於微調圖形的知覺屬性至關重要。客製化尺度能讓你精細控制圖形的確切外觀，並有助於支撐你想傳達的故事。第 10、11、12 章將示範有哪些尺度可用、如何調整其參數，以及如何控制座標軸與圖例的外觀。
+
+- 座標系統與分面控制圖形元素的位置，這些在第 13.7 節中說明。分面是非常強大的繪圖工具，因為它能讓你迅速比較資料的不同子集。不同的座標系統較少需要用到，但對某些類型的資料而言非常重要。
+
+- 為了讓你的圖能達到出版水準，你需要學習第 17 章所描述的工具。在那裡你將學到如何控制 `ggplot2` 的主題系統，以及如何把圖存到磁碟。
+
+# 先備需求
+
+## 先備需求
+
+在我們繼續之前，請確認你已備齊本書所需的所有軟體：
+
+- **R**：如果你還沒安裝 R，那你可能拿錯書了；本書全程假設你對 R 有基本的熟悉。若你想學習如何使用 R，我們推薦 [R for Data Science](https://r4ds.had.co.nz)，它的設計能讓你以最少的麻煩快速上手 R。
+
+- **RStudio**：RStudio 是一套免費且開源的 R 整合開發環境（IDE）。雖然你可以用任何 R 環境（包括 R GUI 與 ESS）撰寫並執行 R 程式碼，但 RStudio 具備一些專為撰寫與除錯程式碼而設計的優良功能。我們建議你試試看，但這對於成功使用 `ggplot2` 或本書並非必要。你可以從 <https://posit.co/download/rstudio-desktop> 下載 RStudio Desktop。
+
+------------------------------------------------------------------------
+
+- **R 套件**：本書使用了一堆 R 套件。你可以執行以下指令一次全部安裝：
+
+```{r,echo=TRUE,eval=FALSE}
+install.packages(c(
+  "colorBlindness", "directlabels", "dplyr", "ggforce", "gghighlight",
+  "ggnewscale", "ggplot2", "ggraph", "ggrepel", "ggtext", "ggthemes",
+  "hexbin", "Hmisc", "mapproj", "maps", "munsell", "ozmaps",
+  "paletteer", "patchwork", "rmapshaper", "scico", "seriation", "sf",
+  "stars", "tidygraph", "tidyr", "wesanderson"
+))
+```
+
+# 其他資源
+
+## 其他資源
+
+本書教你 `ggplot2` 文法的各個元素以及它們如何組合，但並未鉅細靡遺地記錄每一個函式。隨著你對 `ggplot2` 的運用變得更複雜、更多樣，你會需要額外的文件。
+
+**內建說明文件**
+
+關於 `ggplot2` 函式及其引數的具體細節，最好的資源永遠是內建的說明文件。你可以在線上存取它：<https://ggplot2.tidyverse.org/reference/index.html>，也可以在 R 中使用一般的 help 語法。線上文件的優點是你可以看到所有範例圖形，並更輕鬆地在各主題間瀏覽。
+
+------------------------------------------------------------------------
+
+**郵件論壇／stackoverflow**
+
+如果你經常使用 `ggplot2`，建議加入 `ggplot2` 的[郵件論壇](http://groups.google.com/group/ggplot2)。這個論壇流量相對較低，且對新手非常友善。另一個有用的資源是 [stackoverflow](https://stackoverflow.com)。stackoverflow 上有活躍的 `ggplot2` 社群，許多常見問題都已經有人提問並獲得解答。無論在哪裡，如果你提供一個最小可重現範例（minimal reproducible example），會更容易得到協助。Jenny Bryan 開發的 reprex 套件提供了一個方便的方式來做到這點，並附上建立良好範例的建議。你提供的資訊越多，社群就越容易幫助你。
+
+------------------------------------------------------------------------
+
+**RStudio 速查表**
+
+`ggplot2` 的函式數量之多可能令人不知所措，但 RStudio 提供了一些很棒的[速查表](https://posit.co/resources/cheatsheets/)來喚起你的記憶。
+
+**本書**
+
+最後，本書的完整原始碼可在線上取得：<https://github.com/hadley/ggplot2-book>。其中包含本書的完整內文，以及重現所有圖形所需的全部程式碼與資料。
+
+## 致謝
+
+- **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/getting-started.html)。所有權利均由原作者與出版者保留。
+
+- **僅供非商業用途。** 本教材嚴格限定用於教育目的，不得用於商業獲利。
+
+- **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
+
+## 參考文獻

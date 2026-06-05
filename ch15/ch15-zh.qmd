@@ -1,0 +1,211 @@
+---
+title: "資料分析"
+subtitle: "第十五章：座標系統"
+author: "劉昱佑"
+institute: "實踐大學"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: source
+bibliography: bib.bib
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+title-slide-attributes:
+  data-notes: ""
+include-after-body:
+  text: |
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch15.html"  style="color:#555;">[English version]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(showtext)
+
+# 載入中文字型，讓圖內中文正常顯示
+font_add_google("Noto Sans TC", "noto")
+showtext_auto()
+theme_update(text = element_text(family = "noto"))
+
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+# 座標系統
+
+## 概覽
+
+座標系統有兩項主要工作。其一，把兩個位置美學**結合**成圖上的 2D 位置——`x` 與 `y` 或許更該叫「位置 1」與「位置 2」，因為它們的意義取決於座標系統（極座標中是角度與半徑、地圖中是緯度與經度）。其二，與分面器協作，**繪製軸與面板背景**。
+
+座標系統有兩大類：
+
+- **線性**系統保留 geom 的形狀：`coord_cartesian()`、`coord_flip()`、`coord_fixed()`
+- **非線性**系統可改變形狀——直線未必保持筆直：`coord_polar()`、`coord_trans()`、`coord_map()` / `coord_quickmap()` / `coord_sf()`
+
+# 線性座標系統
+
+## 以 `coord_cartesian()` 縮放
+
+`coord_cartesian()` 接受 `xlim` 與 `ylim`。既然尺度已有 `limits` 引數，為何還需要它們？差別很根本：
+
+- **尺度界限**在計算統計量*之前*就*丟棄*範圍外的資料。
+- **座標界限**保留所有資料，只*顯示較小的區域*——像放大鏡。
+
+每當涉及 stat（如平滑器）時這就很重要：縮放保留配適，而裁切尺度則對倖存的資料重新配適。
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+base <- ggplot(mpg, aes(displ, hwy)) + geom_point() + geom_smooth()
+
+base                                        # 全部資料
+base + scale_x_continuous(limits = c(4, 6)) # 丟棄資料、重新配適平滑線
+base + coord_cartesian(xlim = c(4, 6))      # 保留資料、放大
+```
+
+中間面板會警告有列被移除、且平滑線在一小片資料上重新配適；右面板保留原始配適、僅放大。
+
+---
+
+## 以 `coord_flip()` 翻轉
+
+多數 stat 假設你想要 `y` 對 `x` 的條件關係。要交換兩者的角色——或只是旋轉 90°——用 `coord_flip()`。這與單純交換變數不同，因為 stat 是對**原始**資料配適，再把*輸出*旋轉：
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+ggplot(mpg, aes(displ, cty)) + geom_point() + geom_smooth()
+ggplot(mpg, aes(cty, displ)) + geom_point() + geom_smooth()  # 平滑線配適於旋轉後的資料
+ggplot(mpg, aes(displ, cty)) + geom_point() + geom_smooth() + coord_flip()
+```
+
+## 以 `coord_fixed()` 等比例
+
+`coord_fixed()` 固定 x 與 y 軸上實體長度之間的比例。預設的 `ratio = 1` 保證 x 軸上 1 公分所跨的資料範圍，等於 y 軸上 1 公分所跨的範圍，且無論輸出裝置形狀如何都維持此映射。
+
+# 非線性座標系統
+
+## 改變形狀
+
+與線性座標不同，非線性座標可改變 geom 的**形狀**——矩形變成弧、兩點間最短路徑未必是直線：
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+rect <- data.frame(x = 50, y = 50)
+line <- data.frame(x = c(1, 200), y = c(100, 1))
+base <- ggplot(mapping = aes(x, y)) +
+  geom_tile(data = rect, aes(width = 50, height = 50)) +
+  geom_line(data = line) + xlab(NULL) + ylab(NULL)
+base
+base + coord_polar("x")
+base + coord_polar("y")
+```
+
+---
+
+### 切細（Munching）
+
+ggplot2 如何轉換形狀？分兩步。首先它把每個 geom 重新參數化為純**位置式**的形式（長條的高與寬變成四角多邊形）。其次它把每個位置轉換到新系統。
+
+點很容易——點在哪裡都還是點。線與多邊形很難，因為直線可能彎曲。假設轉換是平滑的，ggplot2 把長線打散成許多短段、逐段轉換。這稱為**切細（munching）**：
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df <- data.frame(r = c(0, 1), theta = c(0, 3 / 2 * pi))
+interp <- function(rng, n) seq(rng[1], rng[2], length = n)
+munched <- data.frame(r = interp(df$r, 15), theta = interp(df$theta, 15))
+transformed <- transform(munched, x = r * sin(theta), y = r * cos(theta))
+ggplot(transformed, aes(x, y)) +
+  geom_path() + geom_point(size = 2, colour = "red") + coord_fixed()
+```
+
+---
+
+### `coord_trans()`
+
+如同界限，轉換可在**兩處**作用。在**尺度**層級，它發生在 stat *之前*、不改變 geom 形狀；在**座標**層級，它發生在 stat *之後*、*會*改變形狀。兩者並用，可讓你在轉換後的尺度上建模、再反轉換以利詮釋：
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+base <- ggplot(diamonds, aes(carat, price)) +
+  stat_bin2d() + geom_smooth(method = "lm") +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+base                                        # 線性配適不佳
+base + scale_x_log10() + scale_y_log10()    # 配適佳、但難讀
+pow10 <- scales::exp_trans(10)
+base + scale_x_log10() + scale_y_log10() + coord_trans(x = pow10, y = pow10)
+```
+
+---
+
+### `coord_polar()`
+
+極座標把長條 geom 變成**圓餅圖**與**靶心圖**，把線 geom 變成雷達圖。`theta` 引數選擇哪個位置映射到角度。要小心：角度比長度更難知覺，尤其在小半徑處。
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+base <- ggplot(mtcars, aes(factor(1), fill = factor(cyl))) +
+  geom_bar(width = 1) + theme(legend.position = "none") +
+  scale_x_discrete(NULL, expand = c(0, 0)) +
+  scale_y_continuous(NULL, expand = c(0, 0))
+base                            # 堆疊長條
+base + coord_polar(theta = "y")# 圓餅圖
+base + coord_polar()           # 靶心圖
+```
+
+---
+
+### 地圖投影
+
+地圖顯示的是球面資料，因此直接畫原始經緯度會誤導——你必須**投影**。ggplot2 提供兩種做法：
+
+- `coord_quickmap()`——快速近似，固定長寬比使圖中央處 1° 緯度與 1° 經度相等。適合小區域。
+- `coord_map()`——透過 **mapproj** 套件做正式投影，引數與 `mapproj::mapproject()` 相同。較慢，因為它必須切細並轉換每一片。
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+nzmap <- ggplot(map_data("nz"), aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black") + xlab(NULL) + ylab(NULL)
+nzmap                     # 笛卡兒座標——變形
+nzmap + coord_quickmap()  # 校正長寬比
+```
+
+---
+
+**練習**
+
+1. 在含 `geom_smooth()` 的 `mpg` 散佈圖上，對比 `scale_x_continuous(limits = c(4, 6))` 與 `coord_cartesian(xlim = c(4, 6))`。為什麼兩條平滑線不同？
+
+2. 建立一張 `displ` vs `cty` 帶平滑線的圖，再用 `coord_flip()` 旋轉它。這與交換 `x`、`y` 映射有何不同？
+
+3. 在散佈圖上用 `coord_fixed()`。預設的 `ratio = 1` 提供什麼保證？
+
+4. 用 `coord_polar()` 把 `mtcars` 的 `cyl` 堆疊長條變成圓餅圖與靶心圖。為什麼圓餅圖在知覺上較弱？
+
+---
+
+5. 重現 `diamonds` 的反轉換範例：在對數尺度上配適線性模型，再用 `coord_trans()` 搭配 `scales::exp_trans(10)` 回到原始軸。這對大克拉鑽石揭示了什麼？
+
+6. 用你自己的話解釋「切細（munching）」。為什麼點容易轉換，而線與多邊形困難？
+
+7. 分別在笛卡兒座標與 `coord_quickmap()` 下繪製紐西蘭地圖。何時你會寧願付出代價使用 `coord_map()`？
+
+## 致謝
+
+-   **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/coord.html)。所有權利均由原作者與出版者保留。
+
+-   **僅供非商業用途。** 本教材嚴格限定用於教育目的，不得用於商業獲利。
+
+-   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
+
+## 參考文獻

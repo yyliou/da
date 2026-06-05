@@ -30,6 +30,14 @@
 
 ## Part IV: The Grammar
 
+-   [**Chapter 13**: Build a plot layer by layer](https://yyliou.github.io/da/ch13/ch13.html)
 
+-   [**Chapter 14**: Scales and guides](https://yyliou.github.io/da/ch14/ch14.html)
+
+-   [**Chapter 15**: Coordinate systems](https://yyliou.github.io/da/ch15/ch15.html)
+
+-   [**Chapter 16**: Faceting](https://yyliou.github.io/da/ch16/ch16.html)
+
+-   [**Chapter 17**: Themes](https://yyliou.github.io/da/ch17/ch17.html)
 
 

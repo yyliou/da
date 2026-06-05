@@ -1,0 +1,385 @@
+---
+title: "Data Analysis"
+subtitle: "Chapter 13: Build a Plot Layer by Layer"
+author: "Yu-You Liou (NTU)"
+institute: "Shih Chien University"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: source
+bibliography: bib.bib
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+title-slide-attributes:
+  data-notes: ""
+include-after-body:
+  text: |
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch13-zh.html"  style="color:#555;">[中文版由此去]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+---
+
+# Build a Plot Layer by Layer
+
+## Overview
+
+One of the key ideas behind `ggplot2` is that it lets you **iterate**, building up a complex plot a layer at a time. Each layer can draw on a different dataset and a different aesthetic mapping, making it possible to combine data from multiple sources in a single graphic.
+
+You have already created layers with functions like `geom_point()` and `geom_histogram()`. This chapter dissects a layer and shows how to control all **five** of its components:
+
+- **Data** — the data frame the layer draws from
+- **Aesthetic mappings** — how variables connect to visual properties
+- **Geom** — the geometric object that renders each observation
+- **Stat** — the statistical transformation applied before drawing
+- **Position adjustment** — how overlapping elements are nudged apart
+
+# Building a Plot
+
+## Two Distinct Steps
+
+Whenever we create a plot with `ggplot()` and immediately add a geom, two distinct steps are actually happening. First, we create a plot with a default dataset and aesthetic mappings:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="50%", fig.align='center'}
+library(ggplot2)
+
+p <- ggplot(mpg, aes(displ, hwy))
+p
+```
+
+There is nothing to see yet — we have specified the data and mappings but no geometric object to draw them.
+
+---
+
+We then add a layer to make something appear:
+
+```{r, echo=TRUE, warning=FALSE, out.width="55%", fig.align='center'}
+p + geom_point()
+```
+
+`geom_point()` is a **shortcut**. Behind the scenes it calls the `layer()` function to build a new layer with all five components fully specified.
+
+---
+
+The explicit `layer()` call makes the five components visible:
+
+```{r, echo=TRUE, eval=FALSE}
+p + layer(
+  mapping  = NULL,        # inherit aes() from ggplot()
+  data     = NULL,        # inherit data from ggplot()
+  geom     = "point",     # geometric object
+  stat     = "identity",  # statistical transformation
+  position = "identity"   # position adjustment
+)
+```
+
+You will rarely write `layer()` in full because it is so verbose. Instead, the `geom_` functions are convenient shortcuts: `geom_point(mapping, data, ...)` is exactly equivalent to `layer(mapping, data, geom = "point", ...)`. Understanding `layer()` nonetheless gives you a clearer mental model of what a layer really is.
+
+# Data
+
+## Data
+
+Every layer must have data associated with it, and that data must be a **tidy data frame** — variables in columns, observations in rows. This is a strong restriction, but it has good reasons: your data is explicit, a single data frame is easy to save and share, and it enforces a clean separation between *making* data and *visualising* it.
+
+Crucially, the data on each layer **need not be the same**. Combining several datasets in one plot is often useful. To illustrate, we generate two datasets derived from `mpg`: a loess fit and a set of outliers.
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+library(tibble)
+library(dplyr)
+
+mod  <- loess(hwy ~ displ, data = mpg)
+grid <- tibble(displ = seq(min(mpg$displ), max(mpg$displ), length = 50))
+grid$hwy <- predict(mod, newdata = grid)
+
+std_resid <- resid(mod) / mod$s
+outlier   <- filter(mpg, abs(std_resid) > 2)
+outlier[, c("model", "displ", "hwy")]
+```
+
+---
+
+With these new datasets we can enhance the raw scatterplot — overlaying a smoothed line and labelling the outlying points. Note that each layer supplies its own `data =`:
+
+```{r, echo=TRUE, warning=FALSE, out.width="55%", fig.align='center'}
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  geom_line(data = grid, colour = "blue", linewidth = 1.5) +
+  geom_text(data = outlier, aes(label = model))
+```
+
+---
+
+You need the explicit `data =` in the layers, but not in the call to `ggplot()`. This is because the argument order differs: `ggplot(data, mapping)` versus `geom_*(mapping, data)`. The inconsistency reduces typing for the common case of specifying the data once in `ggplot()`.
+
+The same plot can be written without a default dataset, supplying data to every layer instead:
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(mapping = aes(displ, hwy)) +
+  geom_point(data = mpg) +
+  geom_line(data = grid) +
+  geom_text(data = outlier, aes(label = model))
+```
+
+This style is less clear when there is a primary dataset, but you may prefer it when no single dataset dominates.
+
+# Aesthetic Mappings
+
+## Aesthetic Mappings
+
+The aesthetic mappings, defined with `aes()`, describe how variables map to visual properties:
+
+```{r, echo=TRUE, eval=FALSE}
+aes(x = displ, y = hwy, colour = class)
+```
+
+The first two arguments default to `x` and `y`, so `aes(displ, hwy, colour = class)` is equivalent. A few guidelines:
+
+- Keep calculations in `aes()` simple; move complex transformations into an explicit `dplyr::mutate()`.
+- **Never** refer to a variable with `$` (e.g. `diamonds$carat`) inside `aes()`. This breaks containment and fails when ggplot2 reorders rows (as it does when faceting).
+
+---
+
+### Plot vs. Layer Aesthetics
+
+Mappings can be supplied in `ggplot()`, in individual layers, or both. All of these produce the same specification:
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
+ggplot(mpg, aes(displ, hwy)) + geom_point(aes(colour = class))
+ggplot(mpg, aes(displ)) + geom_point(aes(y = hwy, colour = class))
+ggplot(mpg) + geom_point(aes(displ, hwy, colour = class))
+```
+
+Within a layer you can **add**, **override**, or **remove** mappings:
+
+| Operation | Layer aesthetics | Result |
+|---|---|---|
+| Add | `aes(colour = cyl)` | `aes(displ, hwy, colour = cyl)` |
+| Override | `aes(y = cty)` | `aes(displ, cty)` |
+| Remove | `aes(y = NULL)` | `aes(displ)` |
+
+---
+
+The distinction matters once you add multiple layers. These two plots are both valid but emphasise different things — the left colours *both* the points and the smooth by class; the right colours only the points:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="50%", fig.align='center'}
+library(patchwork)
+p1 <- ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point() + geom_smooth(method = "lm", se = FALSE) +
+  theme(legend.position = "none")
+p2 <- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) + geom_smooth(method = "lm", se = FALSE) +
+  theme(legend.position = "none")
+p1 | p2
+```
+
+---
+
+### Setting vs. Mapping
+
+Instead of **mapping** an aesthetic to a variable, you can **set** it to a single constant value as a layer parameter. The rule:
+
+- To govern appearance by a variable → put it **inside** `aes()`.
+- To override a fixed colour or size → put the value **outside** `aes()`.
+
+```{r, echo=TRUE, warning=FALSE, out.width="48%", fig.align='center'}
+s1 <- ggplot(mpg, aes(cty, hwy)) + geom_point(colour = "darkblue")
+s2 <- ggplot(mpg, aes(cty, hwy)) + geom_point(aes(colour = "darkblue"))
+s1 | s2
+```
+
+---
+
+The second plot above **maps** colour to the literal string `"darkblue"`. This creates a one-level variable that the default discrete scale renders as a pinkish hue — almost certainly not what you wanted.
+
+Mapping to constants is, however, genuinely useful for **naming** layers so they appear in a legend:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="55%", fig.align='center'}
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  geom_smooth(aes(colour = "loess"), method = "loess", se = FALSE) +
+  geom_smooth(aes(colour = "lm"), method = "lm", se = FALSE) +
+  labs(colour = "Method")
+```
+
+# Geoms
+
+## Geoms
+
+Geometric objects, or **geoms**, perform the actual rendering of a layer and determine the type of plot. A point geom makes a scatterplot; a line geom makes a line plot. ggplot2 ships with a large vocabulary of geoms, organised by the number of variables they display:
+
+- **Graphical primitives**: `geom_blank()`, `geom_point()`, `geom_path()`, `geom_ribbon()`, `geom_segment()`, `geom_rect()`, `geom_polygon()`, `geom_text()`
+- **One variable**: `geom_bar()`, `geom_histogram()`, `geom_density()`, `geom_dotplot()`, `geom_freqpoly()`
+- **Two variables**: `geom_point()`, `geom_smooth()`, `geom_boxplot()`, `geom_bin2d()`, `geom_hex()`, `geom_count()`, `geom_jitter()`, `geom_area()`, `geom_line()`, `geom_step()`
+- **Three variables**: `geom_contour()`, `geom_tile()`, `geom_raster()`
+
+---
+
+Each geom understands a set of aesthetics, some of which are **required**. A point requires `x` and `y` and understands `colour`, `size`, and `shape`; a bar requires a height (`ymax`) and understands `width`, border colour, and fill.
+
+Some geoms differ mainly in how they are **parameterised**. You can draw the same square three ways:
+
+| Geom | Parameterisation |
+|---|---|
+| `geom_tile()` | location (`x`, `y`) + dimensions (`width`, `height`) |
+| `geom_rect()` | corners (`xmin`, `xmax`, `ymin`, `ymax`) |
+| `geom_polygon()` | a four-row data frame of corner `x`/`y` positions |
+
+Picking the parameterisation that matches your data usually makes a plot much easier to draw.
+
+# Stats
+
+## Stats
+
+A statistical transformation, or **stat**, transforms the data — typically by summarising it. Many familiar geoms are powered by a stat behind the scenes:
+
+| Stat | Geoms |
+|---|---|
+| `stat_bin()` | `geom_bar()`, `geom_freqpoly()`, `geom_histogram()` |
+| `stat_bin2d()` | `geom_bin2d()` |
+| `stat_boxplot()` | `geom_boxplot()` |
+| `stat_smooth()` | `geom_smooth()` |
+| `stat_sum()` | `geom_count()` |
+
+Other stats have no `geom_` shortcut, e.g. `stat_ecdf()`, `stat_function()`, `stat_summary()`, `stat_qq()`, `stat_unique()`.
+
+---
+
+You can either add a `stat_()` and override its geom, or add a `geom_()` and override its stat. Both produce the same red mean marker:
+
+```{r, echo=TRUE, warning=FALSE, out.width="48%", fig.align='center'}
+m1 <- ggplot(mpg, aes(trans, cty)) +
+  geom_point() +
+  stat_summary(geom = "point", fun = "mean", colour = "red", size = 4)
+m2 <- ggplot(mpg, aes(trans, cty)) +
+  geom_point() +
+  geom_point(stat = "summary", fun = "mean", colour = "red", size = 4)
+m1 | m2
+```
+
+The second form is preferable: it makes clear that you are displaying a **summary**, not the raw data.
+
+---
+
+### Generated Variables
+
+A stat takes a data frame and returns a data frame, often adding **new variables** you can map to aesthetics. For example, `stat_bin()` (used by histograms) generates `count`, `density`, and `x`. To map a generated variable, wrap its name in `after_stat()`:
+
+```{r, echo=TRUE, warning=FALSE, out.width="48%", fig.align='center'}
+h1 <- ggplot(diamonds, aes(price)) + geom_histogram(binwidth = 500)
+h2 <- ggplot(diamonds, aes(price)) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 500)
+h1 | h2
+```
+
+---
+
+`after_stat()` prevents confusion when the raw data already contains a variable of the same name, and signals to any reader that the variable was stat-generated.
+
+Standardising to density is especially useful for comparing groups of very different sizes. Compare counts versus densities of `price` within `cut`:
+
+```{r, echo=TRUE, warning=FALSE, out.width="48%", fig.align='center'}
+f1 <- ggplot(diamonds, aes(price, colour = cut)) +
+  geom_freqpoly(binwidth = 500) + theme(legend.position = "none")
+f2 <- ggplot(diamonds, aes(price, colour = cut)) +
+  geom_freqpoly(aes(y = after_stat(density)), binwidth = 500) +
+  theme(legend.position = "none")
+f1 | f2
+```
+
+The density view reveals a surprise: low-quality diamonds appear *more* expensive on average.
+
+# Position Adjustments
+
+## Position Adjustments
+
+Position adjustments apply minor tweaks to the positions of elements within a layer. Three apply mainly to **bars**:
+
+- `position_stack()` — stack overlapping bars on top of each other (the default for bars)
+- `position_fill()` — stack and rescale so each bar reaches 1
+- `position_dodge()` — place overlapping bars side by side
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+a <- dplot <- ggplot(diamonds, aes(color, fill = cut)) +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+b <- dplot + geom_bar()
+c <- dplot + geom_bar(position = "fill")
+d <- dplot + geom_bar(position = "dodge")
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+(a|b)/(c|d)
+```
+
+---
+
+There is also `position_identity()`, which does nothing. It is useless for bars (each obscures those behind it) but fine for geoms like lines that do not need adjusting.
+
+Three position adjustments apply mainly to **points**:
+
+- `position_nudge()` — move points by a fixed offset
+- `position_jitter()` — add random noise to every position
+- `position_jitterdodge()` — dodge within groups, then add noise
+
+---
+
+Position adjustments take parameters differently from stats and geoms: you construct a position object and supply arguments to it.
+
+```{r, echo=TRUE, warning=FALSE, out.width="48%", fig.align='center'}
+j1 <- ggplot(mpg, aes(displ, hwy)) + geom_point(position = "jitter")
+j2 <- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(position = position_jitter(width = 0.05, height = 0.5))
+j1 | j2
+```
+
+The verbose form has a shortcut: `geom_jitter(width = 0.05, height = 0.5)`. Jittering is most useful for **discrete** data, where exact overlaps are common.
+
+---
+
+**Exercises**
+
+1. The first two arguments to `ggplot()` are `data` then `mapping`; for every layer function they are `mapping` then `data`. Why does the order differ? What does this tell you about what you set most commonly?
+
+2. Using `geom_line(data = grid)` and `geom_text(data = outlier)`, reproduce the enhanced `mpg` scatterplot from §13.3. Then rewrite it specifying data in every layer instead of in `ggplot()`.
+
+3. Explain the difference in output between `geom_point(colour = "darkblue")` and `geom_point(aes(colour = "darkblue"))`. How does adding `scale_colour_identity()` change the second?
+
+---
+
+4. The default histogram maps bar height to `count`. Rewrite it to use `after_stat(density)` and explain when each is appropriate.
+
+5. Recreate a red "mean" marker on top of a scatterplot of `cty` by `trans`, once with `stat_summary(geom = "point", ...)` and once with `geom_point(stat = "summary", ...)`. Which form communicates intent more clearly?
+
+6. Build a stacked, a filled, and a dodged bar chart of `cut` within `color` from `diamonds`. When is each position adjustment most useful?
+
+7. Why might you use `geom_jitter()` instead of `geom_count()` for overplotted discrete data? What are the trade-offs?
+
+## Acknowledgement
+
+-   **Copyright notice.** These teaching materials have been adapted from [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/layers.html). All rights are reserved by the original authors and publishers.
+
+-   **Non-commercial use only.** These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.
+
+-   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
+
+## References

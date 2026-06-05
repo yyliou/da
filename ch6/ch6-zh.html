@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ch6-zh_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch6-zh_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch6-zh_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch6-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch6-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch6-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch6-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="劉昱佑">
+  <meta name="dcterms.date" content="2026-06-05">
+  <title>資料分析</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ch6-zh_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch6-zh_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="ch6-zh_files/libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
+  <link href="ch6-zh_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch6-zh_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch6-zh_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch6-zh_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-notes="" class="quarto-title-block center">
+  <h1 class="title">資料分析</h1>
+  <p class="subtitle">第六章：地圖</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+劉昱佑 
+</div>
+        <p class="quarto-title-affiliation">
+            實踐大學
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-06-05</p>
+</section>
+<section>
+<section id="地圖" class="title-slide slide level1 center">
+<h1>地圖</h1>
+
+</section>
+<section id="地圖-1" class="slide level2">
+<h2>地圖</h2>
+<p>繪製地理空間資料是最常遇到的視覺化任務之一，它需要超越標準 ggplot2 geoms 的工具。這個挑戰可分解成兩個不同的子問題：</p>
+<ol type="1">
+<li><strong>繪製地圖</strong>——從空間資料來源呈現地理邊界或地形。</li>
+<li><strong>疊加詮釋資料</strong>——把來自另一個資料來源的額外變數（例如人口密度、選舉結果、降雨量）投影到所繪製的地圖上。</li>
+</ol>
+<p>本章處理這兩個問題，並按以下方式組織：</p>
+<ul>
+<li><strong>第 6.1 節</strong>——以 <code>geom_polygon()</code> 製作的、以多邊形為基礎的地圖，最簡單的方法。</li>
+<li><strong>第 6.2 節</strong>——以 <code>geom_sf()</code> 製作的現代簡單要素（sf）地圖。</li>
+<li><strong>第 6.3 節</strong>——地圖投影與座標參考系統。</li>
+<li><strong>第 6.4 節</strong>——以程式化方式處理 sf 資料結構。</li>
+<li><strong>第 6.5 節</strong>——使用衛星影像、以光柵為基礎的地圖。</li>
+</ul>
+</section></section>
+<section>
+<section id="多邊形地圖" class="title-slide slide level1 center">
+<h1>多邊形地圖</h1>
+
+</section>
+<section id="多邊形地圖-1" class="slide level2">
+<h2>多邊形地圖</h2>
+<p>在 ggplot2 中繪製地圖最直接的途徑，是把地理邊界表示為普通的多邊形，並以 <code>geom_polygon()</code> 呈現它們。與 R 一起附帶的 <code>maps</code> 套件，提供了可透過 <code>ggplot2::map_data()</code> 存取的邊界資料。</p>
+<p>下面的程式碼擷取密西根州的郡層級邊界，並為求清晰而重新命名欄位：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a>mi_counties <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"county"</span>, <span class="st">"michigan"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="fu">select</span>(<span class="at">lon =</span> long, lat, group, <span class="at">id =</span> subregion)</span>
+<span id="cb1-7"><a href=""></a><span class="fu">head</span>(mi_counties)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        lon      lat group     id
+1 -83.88675 44.85686     1 alcona
+2 -83.36536 44.86832     1 alcona
+3 -83.36536 44.86832     1 alcona
+4 -83.33098 44.83968     1 alcona
+5 -83.30806 44.80530     1 alcona
+6 -83.30233 44.77665     1 alcona</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>理解資料結構</strong></p>
+<p>回傳的資料框包含四個變數：</p>
+<ul>
+<li><code>lon</code> / <code>lat</code>——每個個別多邊形<strong>頂點</strong>（角點）的經度與緯度。</li>
+<li><code>id</code>——該頂點所屬郡的名稱。</li>
+<li><code>group</code>——識別每個相連多邊形的唯一整數。由多個分離部分組成的郡（例如島嶼）需要多個 group 值，每個多邊形一個。</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong>從散佈圖到面量圖（choropleth map）</strong></p>
+<p>用 <code>geom_point()</code> 把原始頂點繪製成點，會產生一張所有多邊形角點的散佈圖——這是一個有用的診斷步驟，可確認資料已正確載入。把 <code>geom_point()</code> 換成 <code>geom_polygon()</code> 並映射 <code>group</code>，便能把頂點連接成填色的郡界輪廓：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mi_counties, <span class="fu">aes</span>(lon, lat)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">25</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">coord_quickmap</span>()</span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mi_counties, <span class="fu">aes</span>(lon, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href=""></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href=""></a>  <span class="fu">coord_quickmap</span>()</span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
+<section class="slide level2">
+
+<p><strong><code>coord_quickmap()</code></strong></p>
+<p>兩張圖都呼叫 <code>coord_quickmap()</code>，它調整圖的長寬比，使一度經度與一度緯度在頁面上占據相等的長度。沒有這個校正，地圖就會在幾何上失真——在赤道附近被水平拉伸，或在較高緯度被壓縮。</p>
+<p><code>coord_quickmap()</code> 是一個快速的線性近似。對於高精度的製圖——尤其是大區域、極區，或出版用的製圖產品——<code>geom_sf()</code> / <code>coord_sf()</code> 工作流程（第 6.2 節）提供了以正規地圖投影為基礎的嚴謹解法。</p>
+</section></section>
+<section>
+<section id="簡單要素地圖" class="title-slide slide level1 center">
+<h1>簡單要素地圖</h1>
+
+</section>
+<section id="簡單要素地圖-1" class="slide level2">
+<h2>簡單要素地圖</h2>
+<p>多邊形方法適用於快速的視覺化，但它有實際的限制。在實務上，向量地理空間資料是以<strong>簡單要素（simple features）</strong>格式散布的，這是開放地理空間聯盟（OGC）所發布的國際標準。<code>sf</code> 套件（Pebesma 2018）是這個標準在 R 中的標準實作。</p>
+<p>ggplot2 透過兩個專用函式與 <code>sf</code> 整合：</p>
+<ul>
+<li><code>geom_sf()</code>——呈現 sf 幾何（點、線、多邊形、多重多邊形……）。</li>
+<li><code>coord_sf()</code>——控制套用於整張圖的座標參考系統（CRS）。</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong><code>ozmaps</code> 套件</strong></p>
+<p>以下範例使用 <code>ozmaps</code> 套件（Sumner 2019），它附帶了澳洲行政與選舉邊界的 sf 資料集。我們先檢視 <code>ozmap_states</code> 物件，它包含澳洲所有州與領地的邊界：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(ozmaps)</span>
+<span id="cb4-2"><a href=""></a><span class="fu">library</span>(sf)</span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a>oz_states <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>ozmap_states</span>
+<span id="cb4-5"><a href=""></a>oz_states</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 9 features and 1 field
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 105.5507 ymin: -43.63203 xmax: 167.9969 ymax: -9.229287
+Geodetic CRS:  GDA94
+# A tibble: 9 × 2
+  NAME                                                                  geometry
+* &lt;chr&gt;                                                       &lt;MULTIPOLYGON [°]&gt;
+1 New South Wales              (((150.7016 -35.12286, 150.6611 -35.11782, 150.6…
+2 Victoria                     (((146.6196 -38.70196, 146.6721 -38.70259, 146.6…
+3 Queensland                   (((148.8473 -20.3457, 148.8722 -20.37575, 148.85…
+4 South Australia              (((137.3481 -34.48242, 137.3749 -34.46885, 137.3…
+5 Western Australia            (((126.3868 -14.01168, 126.3625 -13.98264, 126.3…
+6 Tasmania                     (((147.8397 -40.29844, 147.8902 -40.30258, 147.8…
+7 Northern Territory           (((136.3669 -13.84237, 136.3339 -13.83922, 136.3…
+8 Australian Capital Territory (((149.2317 -35.222, 149.2346 -35.24047, 149.271…
+9 Other Territories            (((167.9333 -29.05421, 167.9188 -29.0344, 167.93…</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>sf tibble 的結構</strong></p>
+<p>與多邊形方法「每列一個頂點」的布局相對，sf tibble 中的每一列代表<strong>一個完整的地理單元</strong>。特殊的 <code>geometry</code> 欄位為每一列儲存完整的多邊形定義——可能是由數個不相連多邊形組合而成的 <code>MULTIPOLYGON</code>。</p>
+<p>印在 tibble 上方的詮釋資料（幾何類型、邊界框、大地測量 CRS）直接內嵌在 sf 物件中，不需要分析者另行管理。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>用 <code>geom_sf()</code> 畫出最簡地圖</strong></p>
+<p>由於 <code>geom_sf()</code> 會自動偵測名為 <code>geometry</code> 的欄位，因此不需要提供任何美學映射：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(oz_states) <span class="sc">+</span></span>
+<span id="cb6-2"><a href=""></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p><strong><code>geom_sf()</code> 如何解析 geometry 美學</strong></p>
+<p><code>geom_sf()</code> 仰賴一個其他 geom 都不使用的內部 <code>geometry</code> 美學。它依優先順序由以下三種機制之一解析：</p>
+<ol type="1">
+<li><strong>隱含</strong>——當沒有給定映射、且 sf 物件包含名為 <code>geometry</code> 的欄位時，它會被自動使用（如上）。</li>
+<li><strong>自動偵測</strong>——若資料是 sf 物件，<code>geom_sf()</code> 會找到 geometry 欄位，無論其名稱為何。</li>
+<li><strong>明確</strong>——你永遠可以寫 <code>aes(geometry = my_column)</code> 來直接指定欄位。當一個資料框包含多個 geometry 欄位時，這是必要的。</li>
+</ol>
+<p><code>coord_sf()</code> 處理地圖投影；它的角色將在第 6.3 節完整討論。</p>
+</section>
+<section id="分層地圖" class="slide level2">
+<h2>分層地圖</h2>
+<p>ggplot2 支援堆疊多個 <code>geom_sf()</code> 圖層，以疊加具有不同地理細節層級的資料集。下面的例子畫出以不同顏色填色的澳洲州界，再於其上疊加簡化後的聯邦選舉邊界。</p>
+<p>首先需要兩個前處理步驟：</p>
+<ul>
+<li><strong>篩選</strong>——透過 <code>dplyr::filter()</code> 從 <code>oz_states</code> 移除「Other Territories」，因為它橫跨一個遼闊的離岸區域，會使地圖失真。</li>
+<li><strong>簡化</strong>——<code>rmapshaper::ms_simplify()</code> 降低選舉邊界資料（<code>ozmaps::abs_ced</code>）的解析度，以配合最終圖的尺度，大幅加快呈現速度。</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(rmapshaper)</span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>oz_states <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>ozmap_states <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">!=</span> <span class="st">"Other Territories"</span>)</span>
+<span id="cb7-4"><a href=""></a>oz_votes  <span class="ot">&lt;-</span> <span class="fu">ms_simplify</span>(ozmaps<span class="sc">::</span>abs_ced)</span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-7"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p><code>fill = NAME</code> 映射為每個州指派不同的顏色。雖然 <code>NAME</code> 在這裡並未傳達量化資訊，但相同的模式可推廣到任何地區層級的變數：把 <code>NAME</code> 換成像 <code>unemployment_rate</code> 這樣的欄位，便會產生一張面量圖。請注意，當不同圖層取自不同的資料框時，<code>data =</code> 引數要在每一個個別的 <code>geom_sf()</code> 呼叫內指定，而 <code>ggplot()</code> 則不帶預設資料集。</p>
+</section>
+<section id="加上標籤的地圖" class="slide level2">
+<h2>加上標籤的地圖</h2>
+<p>文字標籤可用兩個 geoms 放置在 sf 地圖上：</p>
+<ul>
+<li><code>geom_sf_label()</code>——把標籤呈現在一個矩形背景框內（當標籤必須在複雜的地圖背景中突顯時適用）。</li>
+<li><code>geom_sf_text()</code>——呈現沒有框的純文字。</li>
+</ul>
+<p>兩個函式內部都使用 <code>sf::st_point_on_surface()</code> 來計算一個保證落在每個多邊形內的錨點。</p>
+<p>下面的例子放大到雪梨都會區，並為每個聯邦選區加上標籤：</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>sydney_map <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb8-2"><a href=""></a>  <span class="st">"Sydney"</span>, <span class="st">"Wentworth"</span>, <span class="st">"Warringah"</span>, <span class="st">"Kingsford Smith"</span>, <span class="st">"Grayndler"</span>, <span class="st">"Lowe"</span>,</span>
+<span id="cb8-3"><a href=""></a>  <span class="st">"North Sydney"</span>, <span class="st">"Barton"</span>, <span class="st">"Bradfield"</span>, <span class="st">"Banks"</span>, <span class="st">"Blaxland"</span>, <span class="st">"Reid"</span>,</span>
+<span id="cb8-4"><a href=""></a>  <span class="st">"Watson"</span>, <span class="st">"Fowler"</span>, <span class="st">"Werriwa"</span>, <span class="st">"Prospect"</span>, <span class="st">"Parramatta"</span>, <span class="st">"Bennelong"</span>,</span>
+<span id="cb8-5"><a href=""></a>  <span class="st">"Mackellar"</span>, <span class="st">"Greenway"</span>, <span class="st">"Mitchell"</span>, <span class="st">"Chifley"</span>, <span class="st">"McMahon"</span></span>
+<span id="cb8-6"><a href=""></a>))</span>
+<span id="cb8-7"><a href=""></a></span>
+<span id="cb8-8"><a href=""></a><span class="fu">ggplot</span>(sydney_map) <span class="sc">+</span></span>
+<span id="cb8-9"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href=""></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">150.97</span>, <span class="fl">151.3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">33.98</span>, <span class="sc">-</span><span class="fl">33.79</span>)) <span class="sc">+</span></span>
+<span id="cb8-11"><a href=""></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> NAME), <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p><strong>警告：<code>st_point_on_surface</code> 與經緯度資料</strong></p>
+<p>執行這段程式碼會觸發一個警告，指出結果對於經緯度座標可能不正確。這個警告之所以出現，是因為許多 sf 幾何演算法假設一個平坦的笛卡兒平面，而經緯度資料則位於橢球面上。對於非極區、中等尺度的地圖，這個近似通常可以接受。對於大陸尺度的地圖或接近極點的區域，資料應在加標籤前重新投影到一個平面的 CRS。</p>
+</section>
+<section id="加入其他-geoms" class="slide level2">
+<h2>加入其他 geoms</h2>
+<p><code>geom_sf()</code> 的行為和其他任何 ggplot2 圖層一樣，並可自由地與標準 geoms 結合。只要座標是在與 sf 圖層相同的空間參考框架中提供的，<code>geom_point()</code>、<code>geom_text()</code> 與其他 geoms 都能如預期運作。</p>
+<p>下面的程式碼用 <code>geom_point()</code> 把澳洲各首府的位置——以一個經緯度值的普通 tibble 儲存——疊加到選舉地圖上：</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>oz_capitals <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb9-2"><a href=""></a>  <span class="sc">~</span>city,        <span class="sc">~</span>lat,      <span class="sc">~</span>lon,</span>
+<span id="cb9-3"><a href=""></a>  <span class="st">"Sydney"</span>,    <span class="sc">-</span><span class="fl">33.8688</span>,  <span class="fl">151.2093</span>,</span>
+<span id="cb9-4"><a href=""></a>  <span class="st">"Melbourne"</span>, <span class="sc">-</span><span class="fl">37.8136</span>,  <span class="fl">144.9631</span>,</span>
+<span id="cb9-5"><a href=""></a>  <span class="st">"Brisbane"</span>,  <span class="sc">-</span><span class="fl">27.4698</span>,  <span class="fl">153.0251</span>,</span>
+<span id="cb9-6"><a href=""></a>  <span class="st">"Adelaide"</span>,  <span class="sc">-</span><span class="fl">34.9285</span>,  <span class="fl">138.6007</span>,</span>
+<span id="cb9-7"><a href=""></a>  <span class="st">"Perth"</span>,     <span class="sc">-</span><span class="fl">31.9505</span>,  <span class="fl">115.8605</span>,</span>
+<span id="cb9-8"><a href=""></a>  <span class="st">"Hobart"</span>,    <span class="sc">-</span><span class="fl">42.8821</span>,  <span class="fl">147.3272</span>,</span>
+<span id="cb9-9"><a href=""></a>  <span class="st">"Canberra"</span>,  <span class="sc">-</span><span class="fl">35.2809</span>,  <span class="fl">149.1300</span>,</span>
+<span id="cb9-10"><a href=""></a>  <span class="st">"Darwin"</span>,    <span class="sc">-</span><span class="fl">12.4634</span>,  <span class="fl">130.8456</span></span>
+<span id="cb9-11"><a href=""></a>)</span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-14"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes) <span class="sc">+</span></span>
+<span id="cb9-15"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb9-16"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oz_capitals, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat), <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb9-17"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p><code>geom_point()</code> 中任何可用的美學都能編碼額外的詮釋資料。例如，若 <code>oz_capitals</code> 包含一個記錄每個都會區內聯邦選區數目的欄位，把該欄位映射到 <code>size</code> 便會在選舉邊界上疊加一張比例符號地圖。</p>
+</section></section>
+<section>
+<section id="地圖投影" class="title-slide slide level1 center">
+<h1>地圖投影</h1>
+
+</section>
+<section id="地圖投影-1" class="slide level2">
+<h2>地圖投影</h2>
+<p>把經度與緯度當作普通的笛卡兒座標軸，在小尺度時是個方便的簡化，但在較大尺度時，由於兩個根本問題，它會變得在幾何上不準確。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>問題 1——地球的形狀</strong></p>
+<p>地球是一個扁球體，既非平面也非完美的球。因此，把一對座標（經度、緯度）對應到一個精確的物理位置，需要一組幾何假設。這組假設——參考橢球的形狀、極軸的位置、海平面的定義，以及本初子午線的位置——被稱為<strong>大地基準（geodetic datum）</strong>。</p>
+<p>兩個常用的基準是：</p>
+<ul>
+<li><strong>NAD83</strong>（北美基準 1983）——為北美做了良好的校準。</li>
+<li><strong>WGS84</strong>（世界大地測量系統 1984）——GPS 接收器與大多數現代地理空間資料集所使用的全球標準。</li>
+</ul>
+<p>相同的一對經緯度，在不同的基準下可能對應到物理上不同的位置——這種差異在某些區域可能超過許多公尺。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>問題 2——把橢球投影到平面上</strong></p>
+<p>印刷的或螢幕上的地圖本質上是二維的，然而地球表面是彎曲的。任何把橢球面「攤平」到平面上的方法都不可避免地引入失真。<strong>地圖投影（map projection）</strong>定義了哪些幾何性質被保留、哪些被犧牲。</p>
+<p>兩個常被提及的投影族是：</p>
+<ul>
+<li><strong>等積投影</strong>——地球上面積相等的區域在地圖上占據相等的面積。局部形狀可能顯得失真。</li>
+<li><strong>保角投影</strong>——局部形狀被保留（每一點的角度都正確）。面積被失真，在高緯度往往很嚴重（麥卡托投影是最熟悉的例子）。</li>
+</ul>
+<p>沒有任何單一投影能同時保留面積與形狀——分析者必須選擇一個適合地圖預期用途的投影。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>座標參考系統（CRS）</strong></p>
+<p><strong>座標參考系統（coordinate reference system, CRS）</strong>是地理座標如何被轉換成 2D 地圖的完整規格。它結合了：</p>
+<ol type="1">
+<li>大地基準。</li>
+<li>投影類型（例如麥卡托、蘭伯特保角圓錐、亞爾伯斯等積）。</li>
+<li>投影參數（原點、標準緯線、偽東距／偽北距、單位）。</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<p>sf 物件把它的 CRS 儲存為內嵌的詮釋資料，可透過 <code>sf::st_crs()</code> 存取：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coordinate Reference System:
+  User input: EPSG:4283 
+  wkt:
+GEOGCRS["GDA94",
+    DATUM["Geocentric Datum of Australia 1994",
+        ELLIPSOID["GRS 1980",6378137,298.257222101,
+            LENGTHUNIT["metre",1]]],
+    PRIMEM["Greenwich",0,
+        ANGLEUNIT["degree",0.0174532925199433]],
+    CS[ellipsoidal,2],
+        AXIS["geodetic latitude (Lat)",north,
+            ORDER[1],
+            ANGLEUNIT["degree",0.0174532925199433]],
+        AXIS["geodetic longitude (Lon)",east,
+            ORDER[2],
+            ANGLEUNIT["degree",0.0174532925199433]],
+    USAGE[
+        SCOPE["Horizontal component of 3D system."],
+        AREA["Australia including Lord Howe Island, Macquarie Islands, Ashmore and Cartier Islands, Christmas Island, Cocos (Keeling) Islands, Norfolk Island. All onshore and offshore."],
+        BBOX[-60.56,93.41,-8.47,173.35]],
+    ID["EPSG",4283]]</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>印在上面的冗長<strong>眾所周知文字（well-known text, WKT）</strong>字串明確地描述了 CRS。一個遠為精簡的表示是 <strong>EPSG 代碼</strong>——由 EPSG 大地測量參數資料集（<a href="https://epsg.org" class="uri">https://epsg.org</a>）所指派的唯一整數。<code>oz_votes</code> 的預設 CRS 對應到 EPSG 4283（GDA94）：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes) <span class="sc">==</span> <span class="fu">st_crs</span>(<span class="dv">4283</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>用 <code>coord_sf()</code> 改變投影</strong></p>
+<p><code>coord_sf()</code> 控制套用於整張圖的 CRS。預設情況下它採用第一個 sf 圖層的 CRS。要覆寫這點，請給 <code>crs</code> 引數一個有效的 CRS：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
+<span id="cb14-2"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="fu">st_crs</span>(<span class="dv">3112</span>))</span>
+<span id="cb14-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p>EPSG 3112 是 GDA94 / 澳洲地球科學蘭伯特投影，它使整個澳洲大陸的面積失真最小化。兩個面板之間輪廓形狀的差異，說明了地圖的視覺印象會隨投影的選擇而有多大的改變。</p>
+<p>關於 R 中地圖投影的詳盡論述，請見 <em>Geocomputation with R</em>（<a href="https://geocompr.robinlovelace.net/" class="uri">https://geocompr.robinlovelace.net/</a>）。</p>
+</section></section>
+<section>
+<section id="處理-sf-資料" class="title-slide slide level1 center">
+<h1>處理 sf 資料</h1>
+
+</section>
+<section id="處理-sf-資料-1" class="slide level2">
+<h2>處理 sf 資料</h2>
+<p>除了繪圖，<code>sf</code> 套件還提供一組豐富的函式，用於檢視與轉換空間物件。本節介紹最常需要的工具；完整文件可見於 <a href="https://r-spatial.github.io/sf/" class="uri">https://r-spatial.github.io/sf/</a>。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>動機：複雜的地理單元</strong></p>
+<p>簡單要素格式的一個關鍵優勢，是它能在單一列中表示<strong>幾何上複雜</strong>的區域。<code>MULTIPOLYGON</code> 幾何編碼了一組不相連的多邊形，這自然地建模了像群島或帶有飛地的領地這樣的區域。</p>
+<p>新南威爾斯州的 Eden-Monaro 聯邦選區是一個好例子。它由以下部分構成：(1) 一個中間有洞的大型大陸多邊形（澳洲首都領地是一個完全被 Eden-Monaro 包圍的獨立政治單元，而選舉邊界不會越過州界），以及 (2) 一個分離的小島。下面兩個面板都由單一列的 sf 資料產生：</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>edenmonaro <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span> <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Eden-Monaro"</span>)</span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(edenmonaro) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
+<span id="cb15-4"><a href=""></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">147.75</span>, <span class="fl">150.25</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">37.5</span>, <span class="sc">-</span><span class="fl">34.5</span>))</span>
+<span id="cb15-5"><a href=""></a>p2 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="fl">150.25</span>),    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">36.3</span>, <span class="sc">-</span><span class="dv">36</span>))</span>
+<span id="cb15-6"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p><strong>擷取 geometry 欄位</strong></p>
+<p>geometry 欄位可用 <code>dplyr::pull()</code> 分離成一個獨立的 <code>sfc</code>（simple feature column，簡單要素欄）物件：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>edenmonaro <span class="ot">&lt;-</span> edenmonaro <span class="sc">|&gt;</span> <span class="fu">pull</span>(geometry)</span>
+<span id="cb16-2"><a href=""></a>edenmonaro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Geometry set for 1 feature 
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 147.6874 ymin: -37.50503 xmax: 150.2307 ymax: -34.53558
+Geodetic CRS:  GDA94</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>詮釋資料輔助函式</strong></p>
+<p>數個 <code>sf</code> 函式可從一個幾何物件擷取詮釋資料：</p>
+<ul>
+<li><code>st_geometry_type()</code>——回傳幾何類型（例如 <code>MULTIPOLYGON</code>、<code>POLYGON</code>、<code>LINESTRING</code>、<code>POINT</code>）。</li>
+<li><code>st_dimension()</code>——回傳空間維度計數：XY 資料為 2，XYZ 為 3。</li>
+<li><code>st_bbox()</code>——以具名數值向量（<code>xmin</code>、<code>ymin</code>、<code>xmax</code>、<code>ymax</code>）回傳邊界框。</li>
+<li><code>st_crs()</code>——以一個包含 EPSG 代碼與 WKT 字串的清單回傳座標參考系統。</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">st_bbox</span>(edenmonaro)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     xmin      ymin      xmax      ymax 
+147.68741 -37.50503 150.23068 -34.53558 </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>用 <code>st_cast()</code> 在幾何類型之間轉換</strong></p>
+<p><code>MULTIPOLYGON</code> 可用 <code>st_cast()</code> 分解成它構成的 <code>POLYGON</code> 物件。對 Eden-Monaro 而言，這揭示出組成該選區的兩個不同多邊形：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">st_cast</span>(edenmonaro, <span class="st">"POLYGON"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Geometry set for 2 features 
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 147.6874 ymin: -37.50503 xmax: 150.2307 ymax: -34.53558
+Geodetic CRS:  GDA94</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong>實際應用：分離出島嶼</strong></p>
+<p>昆士蘭州的 Dawson 選區由 69 個離岸島嶼加上一個大型沿海大陸區域組成——共 70 個多邊形構件：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>dawson <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>abs_ced <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Dawson"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href=""></a>  <span class="fu">pull</span>(geometry)</span>
+<span id="cb22-4"><a href=""></a></span>
+<span id="cb22-5"><a href=""></a><span class="fu">ggplot</span>(dawson) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p>要只繪製島嶼，可轉換成個別多邊形，用 <code>st_area()</code> 計算每個多邊形的面積，用 <code>which.max()</code> 找出最大的多邊形（大陸），並以負索引把它排除：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>dawson <span class="ot">&lt;-</span> <span class="fu">st_cast</span>(dawson, <span class="st">"POLYGON"</span>)</span>
+<span id="cb23-2"><a href=""></a><span class="fu">which.max</span>(<span class="fu">st_area</span>(dawson))  <span class="co"># 大陸是第 69 個多邊形</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 69</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(dawson[<span class="sc">-</span><span class="dv">69</span>]) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>這個「轉換 → 量測 → 取子集」的工作流程，可推廣到任何必須獨立處理一個區域之地理構件的情境——例如把大陸與島嶼領地分開，或在一個複雜的多重多邊形中找出最大的相連區域。</p>
+</section></section>
+<section>
+<section id="光柵地圖" class="title-slide slide level1 center">
+<h1>光柵地圖</h1>
+
+</section>
+<section id="光柵地圖-1" class="slide level2">
+<h2>光柵地圖</h2>
+<p>除了以向量為基礎的簡單要素外，地理空間資訊也常被儲存為<strong>光柵資料（raster data）</strong>：一個規則的矩形儲存格（像素）格網，其中每個格子保存一個或多個數值。光柵是衛星影像、數值高程模型、土地覆蓋分類與格網化氣候資料集的自然格式。</p>
+<p>許多光柵檔案格式——最著名的是 <strong>GeoTIFF</strong>——內嵌了空間詮釋資料（大地基準、CRS、空間範圍、像素大小），讓影像能被準確地定位在地球表面上。R 可透過 GDAL（地理空間資料抽象函式庫，<a href="https://gdal.org/" class="uri">https://gdal.org/</a>）讀取這些格式，<code>sf</code> 套件透過 <code>sf::gdal_read()</code> 公開了它。在實務上，更高階的套件會透明地處理這件事。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>用 <code>stars</code> 套件讀取光柵資料</strong></p>
+<p><code>stars</code> 套件（Pebesma 2020）提供讀取與操作時空光柵陣列的工具。下面的例子匯入一個 GeoTIFF 檔，內含由向日葵 8 號（Himawari-8）地球同步衛星拍攝、原始來源為澳洲氣象局的可見光衛星影像。</p>
+<p><code>RasterIO</code> 清單被直接傳給 GDAL：<code>nBufXSize</code> 與 <code>nBufYSize</code> 在匯入時把影像降採樣為 600 × 600 像素，在保留足夠視覺化細節的同時減少記憶體使用：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">library</span>(stars)</span>
+<span id="cb26-2"><a href=""></a></span>
+<span id="cb26-3"><a href=""></a>sat_vis <span class="ot">&lt;-</span> <span class="fu">read_stars</span>(</span>
+<span id="cb26-4"><a href=""></a>  <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/hadley/"</span>,</span>
+<span id="cb26-5"><a href=""></a>  <span class="st">"ggplot2-book/main/IDE00422.202001072100.tif"</span>),</span>
+<span id="cb26-6"><a href=""></a>  <span class="at">RasterIO =</span> <span class="fu">list</span>(<span class="at">nBufXSize =</span> <span class="dv">600</span>, <span class="at">nBufYSize =</span> <span class="dv">600</span>)</span>
+<span id="cb26-7"><a href=""></a>)</span>
+<span id="cb26-8"><a href=""></a>sat_vis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>stars object with 3 dimensions and 1 attribute
+attribute(s), summary of first 1e+05 cells:
+                           Min. 1st Qu. Median     Mean 3rd Qu. Max.
+IDE00422.202001072100.tif     0       0      0 18.12981       0  255
+dimension(s):
+     from  to   offset  delta                  refsys point x/y
+x       1 600 -5500000  18333 Geostationary_Satellite FALSE [x]
+y       1 600  5500000 -18333 Geostationary_Satellite FALSE [y]
+band    1   3       NA     NA                      NA    NA    </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><strong><code>stars</code> 物件的結構</strong></p>
+<p><code>stars</code> 物件是一個 n 維的具標籤陣列。對於這張衛星影像，三個維度是：</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>維度</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>x</code></td>
+<td>欄（東西向），與一個 CRS 關聯</td>
+</tr>
+<tr class="even">
+<td><code>y</code></td>
+<td>列（南北向），與一個 CRS 關聯</td>
+</tr>
+<tr class="odd">
+<td><code>band</code></td>
+<td>顏色通道：1 = 紅，2 = 綠，3 = 藍</td>
+</tr>
+</tbody>
+</table>
+<p>由於影像是灰階的，三個波段都帶有相同的值。更複雜的資料集可能包含一個 <code>time</code> 維度（多時相合成）或額外的波段（超光譜感測器）。每個空間維度的 CRS 都與資料一起儲存。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>用 <code>geom_stars()</code> 繪製光柵資料</strong></p>
+<p>由 <code>stars</code> 套件提供的 <code>geom_stars()</code>，把光柵像素值映射到 <code>fill</code> 美學。一張最簡的圖會把 ggplot2 預設的循序藍色尺度套用到原始的 0–255 像素值：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">library</span>(stars)</span>
+<span id="cb28-2"><a href=""></a></span>
+<span id="cb28-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis) <span class="sc">+</span></span>
+<span id="cb28-5"><a href=""></a>  <span class="fu">coord_equal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>藍色反映的是 ggplot2 的尺度選擇，而非原始影像的外觀。要以灰階顯示影像——對可見光衛星影像而言是更忠實的呈現——請套用 <code>scale_fill_gradient(low = "black", high = "white")</code>。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>用 <code>facet_wrap()</code> 分離波段</strong></p>
+<p>由於 <code>sat_vis</code> 包含三個波段，它們可用 <code>facet_wrap()</code> 顯示在不同的面板中。對於灰階影像，三個面板都會相同；對於多光譜影像，這些面板會揭示各感測器所擷取的空間型態：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-2"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb29-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(band)) <span class="sc">+</span></span>
+<span id="cb29-4"><a href=""></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb29-5"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p><strong>把向量資料重新投影以配合光柵的 CRS</strong></p>
+<p>不重新投影的話，把 <code>oz_states</code>（EPSG 4283）疊加到 <code>sat_vis</code>（地球同步投影）上會使圖層錯位。<code>sf::st_transform()</code> 把向量資料重新投影以配合光柵的 CRS：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>oz_states <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(oz_states, <span class="at">crs =</span> <span class="fu">st_crs</span>(sat_vis))</span>
+<span id="cb30-2"><a href=""></a></span>
+<span id="cb30-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb30-4"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb30-6"><a href=""></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
+<span id="cb30-7"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb30-8"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>有了正確重新投影的州界，白色輪廓就會精確地與衛星影像中可見的海岸線對齊。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>在重新投影的光柵上疊加點資料</strong></p>
+<p>表格式的點資料（普通資料框中的經緯度欄）在疊加到重新投影的光柵上之前，也必須經過轉換。所需的兩步驟工作流程是：</p>
+<ol type="1">
+<li>用 <code>st_as_sf()</code> 轉換成 sf 物件，把來源 CRS 指定為 WGS84（EPSG 4326）。</li>
+<li>用 <code>st_transform()</code> 重新投影到光柵的 CRS。</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>cities <span class="ot">&lt;-</span> oz_capitals <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href=""></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-3"><a href=""></a></span>
+<span id="cb31-4"><a href=""></a>cities <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(cities, <span class="fu">st_crs</span>(sat_vis))</span>
+<span id="cb31-5"><a href=""></a></span>
+<span id="cb31-6"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb31-7"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb31-8"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb31-9"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> cities, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb31-10"><a href=""></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
+<span id="cb31-11"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb31-12"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p><strong>詮釋這張合成地圖</strong></p>
+<p>把各首府位置正確地投影到衛星影像上後，便顯而易見這張影像大約是在達爾文日出時拍攝的：東部的首府（雪梨、墨爾本、布里斯本、坎培拉）位於受光照的區域，而西部的伯斯仍處於黑暗中。城市名稱可用以下方式加上：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">geom_sf_text</span>(<span class="at">data =</span> cities, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> city))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>mapping: label = ~city 
+geom_text: parse = FALSE, check_overlap = FALSE, na.rm = FALSE
+stat_sf_coordinates: na.rm = FALSE, fun.geometry = NULL
+position_nudge </code></pre>
+</div>
+</div>
+<p>需要做一些標籤位置調整以防止重疊（見第 8 章的標註）。</p>
+<p><strong>關於互動式 3D 地圖的提醒：</strong> 至於超出 ggplot2 範疇的真正透視視圖或可旋轉 3D 曲面視覺化，<code>rgl</code> 套件（<a href="http://rgl.neoscientists.org" class="uri">http://rgl.neoscientists.org</a>）是標準工具。</p>
+</section></section>
+<section>
+<section id="資料來源" class="title-slide slide level1 center">
+<h1>資料來源</h1>
+
+</section>
+<section id="資料來源-1" class="slide level2">
+<h2>資料來源</h2>
+<p>各式各樣的 R 套件提供現成可用的地理空間資料集，可搭配 <code>geom_sf()</code> 與相關工具使用：</p>
+</section>
+<section class="slide level2">
+
+<p><strong>以美國為主的資料</strong></p>
+<ul>
+<li><p><strong>USAboundaries</strong>（<a href="https://github.com/ropensci/USAboundaries" class="uri">https://github.com/ropensci/USAboundaries</a>）——美國本土的州、郡與郵遞區號邊界，外加可回溯到 1600 年代的歷史邊界（Mullen &amp; Bratt 2018）。</p></li>
+<li><p><strong>tigris</strong>（<a href="https://github.com/walkerke/tigris" class="uri">https://github.com/walkerke/tigris</a>）——隨需下載美國人口普查局的 TIGER/Line shapefile。提供州、郡、郵遞區號與普查地段邊界，以及道路、水體與其他地理圖層（Walker 2019）。</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong>全球資料</strong></p>
+<ul>
+<li><p><strong>rnaturalearth</strong>（<a href="https://CRAN.R-project.org/package=rnaturalearth" class="uri">https://CRAN.R-project.org/package=rnaturalearth</a>）——包裝 Natural Earth 專案（<a href="https://naturalearthdata.com/" class="uri">https://naturalearthdata.com/</a>），一個免費、維護良好的全球資料集。包含每個國家的國界與第一級行政區劃（州、省、地區、郡）（South 2017）。</p></li>
+<li><p><strong>osmar</strong>（<a href="https://cran.r-project.org/package=osmar" class="uri">https://cran.r-project.org/package=osmar</a>）——與 OpenStreetMap API 介接，以擷取細緻的向量資料：街區層級的個別街道、建築、公園與興趣點（Eugster &amp; Schlesinger 2010）。</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong>處理你自己的 shapefile</strong></p>
+<p>如果地理空間資料已以 ESRI Shapefile 格式（<code>.shp</code>）在本機可用，可用以下方式直接把它們匯入 R 成為 sf 物件：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>my_map <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">read_sf</span>(<span class="st">"path/to/my_shapefile.shp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>一旦載入，這個物件就與 <code>geom_sf()</code>、<code>coord_sf()</code> 以及本章涵蓋的所有其他 sf 感知函式完全相容。</p>
+</section>
+<section id="致謝" class="slide level2">
+<h2>致謝</h2>
+<ul>
+<li><p><strong>版權聲明。</strong> 本教材改編自 <a href="https://ggplot2-book.org/maps.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>。所有權利均由原作者與出版者保留。</p></li>
+<li><p><strong>僅供非商業用途。</strong> 本教材嚴格限定用於教育目的，不得用於商業獲利。</p></li>
+<li><p><strong>適當標註出處。</strong> 任何對本教材的重製、散布或使用，都必須適當標註原始出處。</p></li>
+</ul>
+</section>
+<section id="參考文獻" class="slide level2">
+<h2>參考文獻</h2>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><code>ggplot2</code>: Elegant Graphics for Data Analysis</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ch6-zh_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ch6-zh_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch6-zh_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch6-zh_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch6-zh_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch6-zh_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ch6-zh_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch6-zh_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch6-zh_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch6-zh_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"hideMissingTitles":true,"titleSelector":"h1"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch6.html"  style="color:#555;">[English version]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+    
+
+</body></html>

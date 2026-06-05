@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<script src="ch9_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch9_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch9_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch9_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch9_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch9_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch9_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-05-31">
-  <title>Data Aanlysis – Data Analysis</title>
+  <meta name="dcterms.date" content="2026-06-05">
+  <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="ch9_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch9_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -96,11 +99,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="ch9_files/libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
+  <link href="ch9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch9_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch9_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -193,7 +196,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-notes="" class="quarto-title-block center">
   <h1 class="title">Data Analysis</h1>
   <p class="subtitle">Chapter 9: Arranging plots</p>
 
@@ -208,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-05-31</p>
+  <p class="date">2026-06-05</p>
 </section>
 <section>
 <section id="arranging-plots" class="title-slide slide level1 center">
@@ -234,25 +237,25 @@ Yu-You Liou (NTU)
 <p><strong>Preparing the example plots</strong></p>
 <p>Four plots of the <code>mpg</code> dataset will be used throughout this chapter:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
-<span id="cb1-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy))</span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
-<span id="cb1-8"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(year), <span class="at">fill =</span> drv), <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb1-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"year"</span>)</span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
-<span id="cb1-12"><a></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">fill =</span> drv), <span class="at">colour =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb1-13"><a></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(drv))</span>
-<span id="cb1-14"><a></a></span>
-<span id="cb1-15"><a></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
-<span id="cb1-16"><a></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">y =</span> hwy, <span class="at">fill =</span> drv),</span>
-<span id="cb1-17"><a></a>               <span class="at">geom =</span> <span class="st">"col"</span>, <span class="at">fun.data =</span> mean_se) <span class="sc">+</span></span>
-<span id="cb1-18"><a></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">y =</span> hwy),</span>
-<span id="cb1-19"><a></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">fun.data =</span> mean_se, <span class="at">width =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy))</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(year), <span class="at">fill =</span> drv), <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb1-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"year"</span>)</span>
+<span id="cb1-10"><a href=""></a></span>
+<span id="cb1-11"><a href=""></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
+<span id="cb1-12"><a href=""></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">fill =</span> drv), <span class="at">colour =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href=""></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(drv))</span>
+<span id="cb1-14"><a href=""></a></span>
+<span id="cb1-15"><a href=""></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
+<span id="cb1-16"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">y =</span> hwy, <span class="at">fill =</span> drv),</span>
+<span id="cb1-17"><a href=""></a>               <span class="at">geom =</span> <span class="st">"col"</span>, <span class="at">fun.data =</span> mean_se) <span class="sc">+</span></span>
+<span id="cb1-18"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">y =</span> hwy),</span>
+<span id="cb1-19"><a href=""></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">fun.data =</span> mean_se, <span class="at">width =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -264,7 +267,7 @@ Yu-You Liou (NTU)
 <h2>Laying out plots side by side</h2>
 <p>At its core, patchwork overloads the <code>+</code> operator to combine ggplot objects. Placing two plots on either side of <code>+</code> assembles them into a joint display:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -272,7 +275,7 @@ Yu-You Liou (NTU)
 
 <p>When no layout is specified explicitly, patchwork applies the same heuristic used by <code>facet_wrap()</code> to determine the number of rows and columns. Adding three plots produces a 1 × 3 grid; four plots produce a 2 × 2 grid:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -292,7 +295,7 @@ Yu-You Liou (NTU)
 <p><strong><code>plot_layout()</code> — explicit grid specification</strong></p>
 <p>The most direct way to override the default layout is to append <code>plot_layout()</code> to the assembled plot. Its <code>ncol</code> and <code>nrow</code> arguments set the number of columns and rows respectively:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -305,14 +308,14 @@ Yu-You Liou (NTU)
 <li><code>p1 / p2</code> — forces a single <strong>column</strong> (all plots stacked vertically).</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>p3 <span class="sc">|</span> p4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>p3 <span class="sc">|</span> p4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>Under the hood, <code>|</code> and <code>/</code> are syntactic sugar for <code>plot_layout(nrow = 1)</code> and <code>plot_layout(ncol = 1)</code> respectively, but using them makes the intended structure of the layout immediately clear when reading the code.</p>
@@ -322,7 +325,7 @@ Yu-You Liou (NTU)
 <p><strong>Nested layouts</strong></p>
 <p>The <code>|</code> and <code>/</code> operators can be nested inside parentheses to construct complex, non-uniform layouts:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>p3 <span class="sc">|</span> (p2 <span class="sc">/</span> (p1 <span class="sc">|</span> p4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>p3 <span class="sc">|</span> (p2 <span class="sc">/</span> (p1 <span class="sc">|</span> p4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>Reading this expression left-to-right: <code>p3</code> occupies the left half of the plot; the right half is split vertically into <code>p2</code> on top and a side-by-side arrangement of <code>p1</code> and <code>p4</code> on the bottom.</p>
@@ -335,13 +338,13 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>layout <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb8-2"><a></a><span class="st">AAB</span></span>
-<span id="cb8-3"><a></a><span class="st">C#B</span></span>
-<span id="cb8-4"><a></a><span class="st">CDD</span></span>
-<span id="cb8-5"><a></a><span class="st">"</span></span>
-<span id="cb8-6"><a></a></span>
-<span id="cb8-7"><a></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> layout)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>layout <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb8-2"><a href=""></a><span class="st">AAB</span></span>
+<span id="cb8-3"><a href=""></a><span class="st">C#B</span></span>
+<span id="cb8-4"><a href=""></a><span class="st">CDD</span></span>
+<span id="cb8-5"><a href=""></a><span class="st">"</span></span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> layout)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>Each letter maps to a plot in the order they were added with <code>+</code>. Here: <code>p1</code> spans the top-left two cells, <code>p2</code> occupies the right column across rows 1 and 2, <code>p3</code> spans the left column of rows 2 and 3, and <code>p4</code> spans the bottom-right two cells.</p>
@@ -351,7 +354,7 @@ Yu-You Liou (NTU)
 <p><strong>Collecting legends — <code>guides = "collect"</code></strong></p>
 <p>When multiple panels share the same aesthetic mapping, their legends are identical and displaying all of them wastes space. Setting <code>guides = "collect"</code> in <code>plot_layout()</code> gathers all guides into a single location, removes exact duplicates, and positions them according to the global theme:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -360,7 +363,7 @@ Yu-You Liou (NTU)
 <p><strong><code>guide_area()</code> — placing collected guides in empty space</strong></p>
 <p>If the layout contains an empty cell (a <code>#</code> in the design string), that space can be used to house the collected guides instead of placing them outside the plot boundary. <code>guide_area()</code> reserves a plot-sized slot specifically for this purpose:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">guide_area</span>() <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">guide_area</span>() <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>The fourth position in the 2 × 2 grid is now occupied by the collected legend rather than empty whitespace.</p>
@@ -370,9 +373,9 @@ Yu-You Liou (NTU)
 <p><strong>Indexing individual panels with <code>[[]]</code></strong></p>
 <p>Because assembled plots remain standard ggplot objects until rendered, individual sub-plots can be extracted, modified, and reinserted using <code>[[]]</code> double-bracket indexing. The index corresponds to the plot’s position in the assembly (left-to-right, top-to-bottom):</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p12 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> p2</span>
-<span id="cb11-2"><a></a>p12[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> p12[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">theme_light</span>()</span>
-<span id="cb11-3"><a></a>p12</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>p12 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> p2</span>
+<span id="cb11-2"><a href=""></a>p12[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> p12[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">theme_light</span>()</span>
+<span id="cb11-3"><a href=""></a>p12</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p><code>p12[[2]]</code> retrieves the second plot (<code>p2</code>), applies <code>theme_light()</code>, and stores the modified version back in position 2.</p>
@@ -382,7 +385,7 @@ Yu-You Liou (NTU)
 <p><strong>The <code>&amp;</code> operator — applying a modification to all subplots</strong></p>
 <p>Modifying each subplot individually is verbose. The <code>&amp;</code> operator broadcasts any ggplot2 addition — a theme, a scale, a coordinate system — to <strong>every subplot</strong> in the assembly simultaneously:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -391,7 +394,7 @@ Yu-You Liou (NTU)
 <p><strong>Synchronising axes with <code>&amp;</code></strong></p>
 <p><code>&amp;</code> is particularly useful for enforcing a shared axis range across panels that display the same variable. Applying the same <code>scale_y_continuous()</code> to all plots ensures the y-axes are directly comparable:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">45</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">45</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -400,11 +403,11 @@ Yu-You Liou (NTU)
 <p><strong><code>plot_annotation()</code> — titles and captions for the whole assembly</strong></p>
 <p>Once multiple plots are combined, they function as a single visual unit. Titles, subtitles, and captions that describe the composite figure — rather than any individual panel — should be attached to the assembly using <code>plot_annotation()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>p34 <span class="ot">&lt;-</span> p3 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="fu">plot_annotation</span>(</span>
-<span id="cb14-2"><a></a>  <span class="at">title   =</span> <span class="st">"A closer look at the effect of drive train in cars"</span>,</span>
-<span id="cb14-3"><a></a>  <span class="at">caption =</span> <span class="st">"Source: mpg dataset in ggplot2"</span></span>
-<span id="cb14-4"><a></a>)</span>
-<span id="cb14-5"><a></a>p34</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p34 <span class="ot">&lt;-</span> p3 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="fu">plot_annotation</span>(</span>
+<span id="cb14-2"><a href=""></a>  <span class="at">title   =</span> <span class="st">"A closer look at the effect of drive train in cars"</span>,</span>
+<span id="cb14-3"><a href=""></a>  <span class="at">caption =</span> <span class="st">"Source: mpg dataset in ggplot2"</span></span>
+<span id="cb14-4"><a href=""></a>)</span>
+<span id="cb14-5"><a href=""></a>p34</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -413,7 +416,7 @@ Yu-You Liou (NTU)
 <p><strong>Applying a theme to the annotation text</strong></p>
 <p>The <code>theme</code> argument of <code>plot_annotation()</code> controls the typographic style of the composite-level title, subtitle, and caption independently of the subplot themes:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>p34 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">theme =</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p34 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">theme =</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -421,7 +424,7 @@ Yu-You Liou (NTU)
 
 <p>To apply the same theme to both the annotation text and all subplot panels in one step, use <code>&amp;</code> with a theme object. This modifies the global theme (which governs annotation typography) and each subplot’s theme simultaneously:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>p34 <span class="sc">&amp;</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>p34 <span class="sc">&amp;</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -430,8 +433,8 @@ Yu-You Liou (NTU)
 <p><strong><code>tag_levels</code> — automatic subplot labels</strong></p>
 <p>In scientific publications, multi-panel figures are conventionally labelled with letters or numerals (A, B, C… or I, II, III…) so that figure captions can refer to specific panels. patchwork automates this with the <code>tag_levels</code> argument of <code>plot_annotation()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>p123 <span class="ot">&lt;-</span> p1 <span class="sc">|</span> (p2 <span class="sc">/</span> p3)</span>
-<span id="cb17-2"><a></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>)   <span class="co"># Uppercase Roman numerals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>p123 <span class="ot">&lt;-</span> p1 <span class="sc">|</span> (p2 <span class="sc">/</span> p3)</span>
+<span id="cb17-2"><a href=""></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>)   <span class="co"># Uppercase Roman numerals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>Other accepted values are <code>"A"</code> (uppercase Latin), <code>"a"</code> (lowercase Latin), and <code>"1"</code> (Arabic numerals).</p>
@@ -441,8 +444,8 @@ Yu-You Liou (NTU)
 <p><strong>Nested tag levels</strong></p>
 <p>For assemblies that contain nested patchworks, a second tagging level can be activated on the inner assembly using <code>plot_layout(tag_level = "new")</code>. The <code>tag_levels</code> argument of <code>plot_annotation()</code> then accepts a vector specifying the scheme for each level:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>p123[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> p123[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">tag_level =</span> <span class="st">"new"</span>)</span>
-<span id="cb18-2"><a></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"a"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>p123[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> p123[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">tag_level =</span> <span class="st">"new"</span>)</span>
+<span id="cb18-2"><a href=""></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"a"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>The outer level uses uppercase Roman numerals (I, II, …) and the inner level uses lowercase Latin letters (a, b, …), producing tags such as “IIa” and “IIb” for the two nested panels.</p>
@@ -460,7 +463,7 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p2, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.4</span>, <span class="at">right =</span> <span class="fl">0.9</span>, <span class="at">top =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p2, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.4</span>, <span class="at">right =</span> <span class="fl">0.9</span>, <span class="at">top =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -473,15 +476,15 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>p1 <span class="sc">+</span></span>
-<span id="cb20-2"><a></a>  <span class="fu">inset_element</span>(</span>
-<span id="cb20-3"><a></a>    p2,</span>
-<span id="cb20-4"><a></a>    <span class="at">left   =</span> <span class="fl">0.4</span>,</span>
-<span id="cb20-5"><a></a>    <span class="at">bottom =</span> <span class="fl">0.4</span>,</span>
-<span id="cb20-6"><a></a>    <span class="at">right  =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>) <span class="sc">-</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="st">"mm"</span>),</span>
-<span id="cb20-7"><a></a>    <span class="at">top    =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>) <span class="sc">-</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="st">"mm"</span>),</span>
-<span id="cb20-8"><a></a>    <span class="at">align_to =</span> <span class="st">"full"</span></span>
-<span id="cb20-9"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>p1 <span class="sc">+</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">inset_element</span>(</span>
+<span id="cb20-3"><a href=""></a>    p2,</span>
+<span id="cb20-4"><a href=""></a>    <span class="at">left   =</span> <span class="fl">0.4</span>,</span>
+<span id="cb20-5"><a href=""></a>    <span class="at">bottom =</span> <span class="fl">0.4</span>,</span>
+<span id="cb20-6"><a href=""></a>    <span class="at">right  =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>) <span class="sc">-</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="st">"mm"</span>),</span>
+<span id="cb20-7"><a href=""></a>    <span class="at">top    =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>) <span class="sc">-</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="st">"mm"</span>),</span>
+<span id="cb20-8"><a href=""></a>    <span class="at">align_to =</span> <span class="st">"full"</span></span>
+<span id="cb20-9"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -490,8 +493,8 @@ Yu-You Liou (NTU)
 <p><strong>Insets are not limited to single ggplots</strong></p>
 <p>Any graphics object that <code>wrap_elements()</code> can handle — including a nested patchwork assembly — can serve as the inset. The example below insets a stacked two-panel patchwork (<code>p2 / p4</code>) onto <code>p1</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>p24 <span class="ot">&lt;-</span> p2 <span class="sc">/</span> p4 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span>
-<span id="cb21-2"><a></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p24, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.05</span>, <span class="at">right =</span> <span class="fl">0.95</span>, <span class="at">top =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>p24 <span class="ot">&lt;-</span> p2 <span class="sc">/</span> p4 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span>
+<span id="cb21-2"><a href=""></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p24, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.05</span>, <span class="at">right =</span> <span class="fl">0.95</span>, <span class="at">top =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -500,8 +503,8 @@ Yu-You Liou (NTU)
 <p><strong>Modifying insets after assembly</strong></p>
 <p>Insets remain as live patchwork subplots until rendering, so the <code>&amp;</code> operator applies modifications to both the background plot and the inset simultaneously:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>p12 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p2, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.5</span>, <span class="at">right =</span> <span class="fl">0.9</span>, <span class="at">top =</span> <span class="fl">0.95</span>)</span>
-<span id="cb22-2"><a></a>p12 <span class="sc">&amp;</span> <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p12 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p2, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.5</span>, <span class="at">right =</span> <span class="fl">0.9</span>, <span class="at">top =</span> <span class="fl">0.95</span>)</span>
+<span id="cb22-2"><a href=""></a>p12 <span class="sc">&amp;</span> <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -510,7 +513,7 @@ Yu-You Liou (NTU)
 <p><strong>Auto-tagging works with insets</strong></p>
 <p>Subplot tags assigned through <code>plot_annotation(tag_levels = ...)</code> apply to insets in the same way as to regular side-by-side panels:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>p12 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"A"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p12 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"A"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>Both the background plot and the inset receive a tag, enabling them to be referenced individually in a figure caption.</p>
@@ -585,7 +588,6 @@ Yu-You Liou (NTU)
 <section id="references" class="slide level2">
 <h2>References</h2>
 
-
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -596,19 +598,19 @@ Yu-You Liou (NTU)
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="ch9_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch9_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1009,6 +1011,17 @@ Yu-You Liou (NTU)
         }
       });
       </script>
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch9-zh.html"  style="color:#555;">[中文版由此去]</a>' +
+          '</p>');
+      }
+    });
+    </script>
     
 
 </body></html>

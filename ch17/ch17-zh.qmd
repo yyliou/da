@@ -1,0 +1,358 @@
+---
+title: "資料分析"
+subtitle: "第十七章：主題"
+author: "劉昱佑"
+institute: "實踐大學"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: source
+bibliography: bib.bib
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+title-slide-attributes:
+  data-notes: ""
+include-after-body:
+  text: |
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch17.html"  style="color:#555;">[English version]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(showtext)
+
+# 載入中文字型，讓圖內中文正常顯示
+font_add_google("Noto Sans TC", "noto")
+showtext_auto()
+theme_update(text = element_text(family = "noto"))
+
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+# 主題
+
+## 概覽
+
+**主題系統（theme system）**讓你能精細控制圖形中*非資料*的元素——字型、刻度、分面標籤條、背景、圖例。主題**不會**改變 geom 如何渲染資料或尺度如何轉換它；它讓圖形更美觀，或符合風格指南。
+
+這個分離是關鍵理念：先決定*資料如何顯示*，再——在圖*存在之後*——編輯其渲染的每個細節。此系統有四個成分：
+
+- **元素（Elements）**——你能控制的非資料部分（`plot.title`、`axis.ticks.x`……）
+- **元素函式（Element functions）**——描述元素的外觀（`element_text()`、`element_line()`、`element_rect()`、`element_blank()`）
+- **`theme()`**——覆寫個別元素
+- **完整主題（Complete themes）**——如 `theme_grey()`，把所有元素設成協調的值
+
+# 一個引導範例
+
+## 從探索到出版
+
+假設你有一張探索性圖形。要出版它，你先用前幾章的工具改善標籤、標題與顏色尺度：
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="48%", fig.align='center'}
+base <- ggplot(mpg, aes(cty, hwy, colour = factor(cyl))) +
+  geom_jitter() + geom_abline(colour = "grey50", linewidth = 2)
+labelled <- base +
+  labs(x = "City mileage/gallon", y = "Highway mileage/gallon",
+       colour = "Cylinders",
+       title = "Highway and city mileage are highly correlated") +
+  scale_colour_brewer(type = "seq", palette = "Spectral")
+labelled
+```
+
+---
+
+接著用 `theme_bw()` 加上一個 `theme()` 呼叫，符合期刊風格——白色背景、圖例置於圖內、淡色主格線、無次格線、12pt 粗體標題：
+
+```{r, echo=TRUE, warning=FALSE, out.width="46%", fig.align='center'}
+styled <- labelled +
+  theme_bw() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    legend.background = element_rect(fill = "white", linewidth = 4, colour = "white"),
+    legend.justification = c(0, 1),
+    legend.position = c(0, 1),
+    axis.ticks = element_line(colour = "grey70", linewidth = 0.2),
+    panel.grid.major = element_line(colour = "grey70", linewidth = 0.2),
+    panel.grid.minor = element_blank()
+  )
+styled
+```
+
+# 完整主題
+
+## 內建主題
+
+招牌主題是 `theme_grey()`——淺灰背景配白色格線，設計上把資料推到前面、同時仍支援位置判斷。ggplot2 另內建七個：
+
+| 主題 | 特性 |
+|---|---|
+| `theme_bw()` | 白色背景、細灰格線 |
+| `theme_linedraw()` | 僅黑線，如線描畫 |
+| `theme_light()` | 淺灰線，注意力放在資料 |
+| `theme_dark()` | `theme_light()` 的深色版 |
+| `theme_minimal()` | 無背景註記 |
+| `theme_classic()` | 有軸線、無格線 |
+| `theme_void()` | 完全空白 |
+
+---
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+df <- data.frame(x = 1:3, y = 1:3)
+base <- ggplot(df, aes(x, y)) + geom_point()
+a <- base + theme_grey()    + ggtitle("theme_grey()")
+b <- base + theme_bw()      + ggtitle("theme_bw()")
+c <- base + theme_minimal() + ggtitle("theme_minimal()")
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b)
+```
+
+每個主題都有 `base_size` 引數控制基準字型大小（軸標題）；圖標題較大（1.2×），刻度與標籤條較小（0.8×）。
+
+---
+
+可對單一圖套用主題，也可用 `theme_set()` 改變所有圖的**預設**：
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+theme_set(theme_bw())   # 之後每張圖都白色背景
+```
+
+你不限於內建主題。**ggthemes** 等套件加入更多，如 `theme_tufte()`、`theme_economist()`、`theme_solarized()`。完整主題是很好的起點，但提供的細部控制有限——若要細控，就修改個別元素。
+
+# 修改主題成分
+
+## 四個元素函式
+
+要修改一個成分：`plot + theme(element.name = element_function())`。有四個基本元素函式：
+
+- `element_text()`——標籤與標題：`family`、`face`、`colour`、`size`、`hjust`、`vjust`、`angle`、`lineheight`，以及 `margin()`
+- `element_line()`——線：`colour`、`linewidth`、`linetype`
+- `element_rect()`——矩形／背景：`fill`，加上邊框 `colour`、`linewidth`、`linetype`
+- `element_blank()`——什麼都不畫，**且**不配置空間
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+base_t <- base + labs(title = "This is a ggplot") + xlab(NULL) + ylab(NULL)
+a <- base_t + theme(plot.title = element_text(size = 16))
+b <- base_t + theme(plot.title = element_text(face = "bold", colour = "red"))
+c <- base_t + theme(plot.title = element_text(hjust = 1))
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b|c)
+```
+
+---
+
+`element_line()` 與 `element_rect()` 參數化線與背景：
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+a <- base + theme(panel.grid.major = element_line(colour = "black"))
+b <- base + theme(panel.grid.major = element_line(linetype = "dotted"))
+c <- base + theme(panel.background = element_rect(fill = "linen"))
+```
+
+----
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b|c)
+```
+
+`element_blank()` 會完全抑制一個元素。注意圖會**收回**釋出的空間——若想保留空間（例如要與其他圖對齊），改用 `colour = NA, fill = NA` 製造仍佔空間的隱形元素。
+
+---
+
+要為**所有未來的圖**修改元素，用 `theme_update()`，它會回傳先前的設定，方便你還原：
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+old_theme <- theme_update(
+  plot.background  = element_rect(fill = "lightblue3", colour = NA),
+  panel.background = element_rect(fill = "lightblue",  colour = NA),
+  axis.text  = element_text(colour = "linen"),
+  axis.title = element_text(colour = "linen")
+)
+# ... 畫一些圖 ...
+theme_set(old_theme)  # 還原
+```
+
+# 主題元素
+
+## 五個元素類別
+
+約有 40 個元素控制圖形外觀，分成五個類別。**圖（plot）**元素影響整張圖：
+
+| 元素 | 設定器 | 說明 |
+|---|---|---|
+| `plot.background` | `element_rect()` | 一切之下的背景 |
+| `plot.title` | `element_text()` | 圖標題 |
+| `plot.margin` | `margin()` | 圖周圍的邊距 |
+
+---
+
+```{r, echo=TRUE, warning=FALSE, out.width="38%", fig.align='center'}
+a <- base + theme(plot.background = element_rect(colour = "grey50", linewidth = 2))
+b <- base + theme(plot.background = element_rect(fill = "lightblue"))
+library(patchwork)
+(a|b)
+```
+
+### 軸元素
+
+| 元素 | 設定器 | 說明 |
+|---|---|---|
+| `axis.line` | `element_line()` | 軸線（預設隱藏） |
+| `axis.text` / `.x` / `.y` | `element_text()` | 刻度標籤 |
+| `axis.title` / `.x` / `.y` | `element_text()` | 軸標題 |
+| `axis.ticks` | `element_line()` | 刻度線 |
+| `axis.ticks.length` | `unit()` | 刻度長度 |
+
+`axis.text` 同時設定兩軸；`axis.text.x` / `.y` 會繼承它並可逐軸覆寫。最常見的調整是旋轉過長的 x 標籤——負角度最好看，搭配 `hjust = 0, vjust = 1`：
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df2 <- data.frame(x = c("label", "a long label", "an even longer label"), y = 1:3)
+b2 <- ggplot(df2, aes(x, y)) + geom_point()
+b2
+b2 + theme(axis.text.x = element_text(angle = -30, vjust = 1, hjust = 0)) +
+  xlab(NULL) + ylab(NULL)
+```
+
+---
+
+### 圖例元素
+
+| 元素 | 設定器 | 說明 |
+|---|---|---|
+| `legend.background` | `element_rect()` | 整個圖例的背景 |
+| `legend.key` | `element_rect()` | 鍵後方的背景 |
+| `legend.key.height` / `.width` | `unit()` | 鍵的尺寸 |
+| `legend.text` | `element_text()` | 鍵標籤 |
+| `legend.title` | `element_text()` | 圖例名稱 |
+
+版面另由 `legend.position`、`legend.direction`、`legend.justification`、`legend.box` 掌控（見 §11.7）。
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df3 <- data.frame(x = 1:4, y = 1:4, z = rep(c("a", "b"), each = 2))
+b3 <- ggplot(df3, aes(x, y, colour = z)) + geom_point()
+b3 + theme(legend.background = element_rect(fill = "lemonchiffon", colour = "grey50", linewidth = 1))
+b3 + theme(legend.text = element_text(size = 15), legend.title = element_text(size = 15, face = "bold"))
+```
+
+---
+
+### 面板元素
+
+| 元素 | 設定器 | 說明 |
+|---|---|---|
+| `panel.background` | `element_rect()` | 面板背景（資料下方） |
+| `panel.border` | `element_rect()` | 面板邊框（資料上方） |
+| `panel.grid.major` / `.minor` | `element_line()` | 格線 |
+| `aspect.ratio` | 數值 | 面板長寬比 |
+
+`panel.background` 畫在資料*下方*、`panel.border` 畫在*上方*——所以覆寫邊框時務必設 `fill = NA`。`aspect.ratio` 控制的是**面板**、而非整張圖：
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+a <- base + theme(panel.background = element_rect(fill = "lightblue"))
+b <- base + theme(panel.grid.major = element_line(colour = "gray60", linewidth = 0.8))
+c <- base + theme(aspect.ratio = 9 / 16)
+```
+
+
+---
+
+### 分面元素
+
+| 元素 | 設定器 | 說明 |
+|---|---|---|
+| `strip.background` | `element_rect()` | 標籤條的背景 |
+| `strip.text` / `.x` / `.y` | `element_text()` | 標籤條文字 |
+| `panel.spacing` / `.x` / `.y` | `unit()` | 面板之間的邊距 |
+
+`strip.text.x` 同時影響 `facet_wrap()` 與 `facet_grid()`；`strip.text.y` 只影響 `facet_grid()`。
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df4 <- data.frame(x = 1:4, y = 1:4, z = c("a", "a", "b", "b"))
+bf <- ggplot(df4, aes(x, y)) + geom_point() + facet_wrap(~z)
+bf + theme(panel.spacing = unit(0.5, "in"))
+bf + theme(strip.text = element_text(colour = "white"),
+           strip.background = element_rect(fill = "grey20", colour = "grey80", linewidth = 1))
+```
+
+# 儲存輸出
+
+## 點陣 vs. 向量
+
+匯出圖形時，你在兩大輸出家族間做選擇：
+
+- **向量（Vector）**圖（pdf、svg）描述繪圖操作，因此可說是無限縮放、無細節損失。除非有理由，否則優先選它。
+- **點陣（Raster）**圖（png、jpg）是固定最佳尺寸的像素陣列。當圖有上千個物件（向量檔會龐大又慢）、或要嵌入向量支援不佳的 MS Office 時使用。
+
+---
+
+ggplot2 提供 `ggsave()`，為互動使用而最佳化——畫完圖後立即呼叫即可：
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+ggplot(mpg, aes(displ, cty)) + geom_point()
+ggsave("output.pdf")
+```
+
+重要引數：
+
+- `filename`——副檔名自動選擇裝置（`.eps`、`.pdf`、`.svg`、`.png`、`.jpg`、`.tiff`……）
+- `width`、`height`——以英吋為單位的輸出尺寸（預設用螢幕裝置大小）
+- `dpi`——點陣輸出的解析度（列印用 300、高解析用 600、螢幕用 96）
+
+---
+
+**練習**
+
+1. 結合盡量多的刺眼 `theme()` 設定，做出你能做到最醜的圖。哪些元素的視覺衝擊最大？
+
+2. `theme_dark()` 只把圖內變暗。也把*圖*背景改成黑色，再更新文字顏色，使標籤仍可讀。
+
+3. 做一個雅致的主題，背景用 "linen"、所有文字用襯線（serif）字型。
+
+---
+
+4. 重現引導範例的出版級 `mpg` 圖：從 `theme_bw()` 出發，用單一 `theme()` 呼叫把圖例移到圖內、淡化主格線、移除次格線、並把 12pt 標題加粗。
+
+5. 對一個多行的圖標題，系統性地改變 `hjust`。為什麼 `vjust` 對標題沒有可見效果？
+
+6. 比較 `panel.background` 與 `panel.border`。為什麼覆寫邊框時必須設 `fill = NA`？
+
+7. 用 `ggsave()` 把同一張圖存成 `.pdf` 與 600 dpi 的 `.png`。各種格式何時該選用？
+
+## 致謝
+
+-   **版權聲明。** 本教材改編自 [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/themes.html)。所有權利均由原作者與出版者保留。
+
+-   **僅供非商業用途。** 本教材嚴格限定用於教育目的，不得用於商業獲利。
+
+-   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
+
+## 參考文獻

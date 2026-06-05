@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="ch1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch1_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch1_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch1_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Yu-You Liou (NTU)">
   <meta name="dcterms.date" content="2026-06-05">
-  <title>Data Aanlysis – Data Analysis</title>
+  <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="ch1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch1_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -118,11 +118,11 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="ch1_files/libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
+  <link href="ch1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -215,7 +215,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-notes="" class="quarto-title-block center">
   <h1 class="title">Data Analysis</h1>
   <p class="subtitle">Chapter 1: Introduction</p>
 
@@ -240,13 +240,13 @@ Yu-You Liou (NTU)
 <section id="data" class="slide level2">
 <h2>Data</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a></a><span class="fu">data</span>(diamonds)</span>
-<span id="cb1-3"><a></a><span class="fu">dim</span>(diamonds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">data</span>(diamonds)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">dim</span>(diamonds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 53940    10</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>diamonds[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>diamonds[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 10
    carat cut       color clarity depth table price     x     y     z
@@ -272,12 +272,12 @@ Yu-You Liou (NTU)
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
-<span id="cb5-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb5-3"><a></a>    <span class="at">title =</span> <span class="st">"Diamond Price vs Carat"</span>,</span>
-<span id="cb5-4"><a></a>    <span class="at">subtitle =</span> <span class="st">"Colored by Cut Quality"</span>,</span>
-<span id="cb5-5"><a></a>    <span class="at">x =</span> <span class="st">"Carat"</span>, <span class="at">y =</span> <span class="st">"Price (USD)"</span>, <span class="at">color =</span> <span class="st">"Cut"</span></span>
-<span id="cb5-6"><a></a>  ) <span class="sc">+</span> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb5-3"><a href=""></a>    <span class="at">title =</span> <span class="st">"Diamond Price vs Carat"</span>,</span>
+<span id="cb5-4"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"Colored by Cut Quality"</span>,</span>
+<span id="cb5-5"><a href=""></a>    <span class="at">x =</span> <span class="st">"Carat"</span>, <span class="at">y =</span> <span class="st">"Price (USD)"</span>, <span class="at">color =</span> <span class="st">"Cut"</span></span>
+<span id="cb5-6"><a href=""></a>  ) <span class="sc">+</span> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch1_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -411,13 +411,13 @@ Yu-You Liou (NTU)
 <li><strong>R packages</strong>: This book uses a bunch of R packages. You can install them all at once by running:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
-<span id="cb6-2"><a></a>  <span class="st">"colorBlindness"</span>, <span class="st">"directlabels"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggforce"</span>, <span class="st">"gghighlight"</span>, </span>
-<span id="cb6-3"><a></a>  <span class="st">"ggnewscale"</span>, <span class="st">"ggplot2"</span>, <span class="st">"ggraph"</span>, <span class="st">"ggrepel"</span>, <span class="st">"ggtext"</span>, <span class="st">"ggthemes"</span>, </span>
-<span id="cb6-4"><a></a>  <span class="st">"hexbin"</span>, <span class="st">"Hmisc"</span>, <span class="st">"mapproj"</span>, <span class="st">"maps"</span>, <span class="st">"munsell"</span>, <span class="st">"ozmaps"</span>, </span>
-<span id="cb6-5"><a></a>  <span class="st">"paletteer"</span>, <span class="st">"patchwork"</span>, <span class="st">"rmapshaper"</span>, <span class="st">"scico"</span>, <span class="st">"seriation"</span>, <span class="st">"sf"</span>, </span>
-<span id="cb6-6"><a></a>  <span class="st">"stars"</span>, <span class="st">"tidygraph"</span>, <span class="st">"tidyr"</span>, <span class="st">"wesanderson"</span> </span>
-<span id="cb6-7"><a></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb6-2"><a href=""></a>  <span class="st">"colorBlindness"</span>, <span class="st">"directlabels"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggforce"</span>, <span class="st">"gghighlight"</span>, </span>
+<span id="cb6-3"><a href=""></a>  <span class="st">"ggnewscale"</span>, <span class="st">"ggplot2"</span>, <span class="st">"ggraph"</span>, <span class="st">"ggrepel"</span>, <span class="st">"ggtext"</span>, <span class="st">"ggthemes"</span>, </span>
+<span id="cb6-4"><a href=""></a>  <span class="st">"hexbin"</span>, <span class="st">"Hmisc"</span>, <span class="st">"mapproj"</span>, <span class="st">"maps"</span>, <span class="st">"munsell"</span>, <span class="st">"ozmaps"</span>, </span>
+<span id="cb6-5"><a href=""></a>  <span class="st">"paletteer"</span>, <span class="st">"patchwork"</span>, <span class="st">"rmapshaper"</span>, <span class="st">"scico"</span>, <span class="st">"seriation"</span>, <span class="st">"sf"</span>, </span>
+<span id="cb6-6"><a href=""></a>  <span class="st">"stars"</span>, <span class="st">"tidygraph"</span>, <span class="st">"tidyr"</span>, <span class="st">"wesanderson"</span> </span>
+<span id="cb6-7"><a href=""></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -453,7 +453,6 @@ Yu-You Liou (NTU)
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-chambers2018graphical" class="csl-entry" role="listitem">
@@ -509,19 +508,19 @@ Wilkinson, Leland. 2011. <span>“The Grammar of Graphics.”</span> In <em>Hand
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="ch1_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch1_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -922,6 +921,17 @@ Wilkinson, Leland. 2011. <span>“The Grammar of Graphics.”</span> In <em>Hand
         }
       });
       </script>
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch1-zh.html"  style="color:#555;">[中文版由此去]</a>' +
+          '</p>');
+      }
+    });
+    </script>
     
 
 </body></html>

@@ -1,0 +1,238 @@
+---
+title: "Data Analysis"
+subtitle: "Chapter 15: Coordinate Systems"
+author: "Yu-You Liou (NTU)"
+institute: "Shih Chien University"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: source
+bibliography: bib.bib
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+title-slide-attributes:
+  data-notes: ""
+include-after-body:
+  text: |
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch15-zh.html"  style="color:#555;">[中文版由此去]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+---
+
+# Coordinate Systems
+
+## Overview
+
+Coordinate systems have two main jobs. First, they **combine** the two position aesthetics into a 2D position on the plot — `x` and `y` might better be called "position 1" and "position 2", because their meaning depends on the system (angle and radius in polar coordinates, latitude and longitude on maps). Second, in coordination with the faceter, they **draw the axes and panel backgrounds**.
+
+There are two families:
+
+- **Linear** systems preserve the shape of geoms: `coord_cartesian()`, `coord_flip()`, `coord_fixed()`
+- **Non-linear** systems can change shapes — a straight line need not stay straight: `coord_polar()`, `coord_trans()`, `coord_map()` / `coord_quickmap()` / `coord_sf()`
+
+# Linear Coordinate Systems
+
+## Zooming with `coord_cartesian()`
+
+`coord_cartesian()` takes `xlim` and `ylim`. Why, when scales already have a `limits` argument? The difference is fundamental:
+
+- **Scale limits** *throw away* data outside the range before statistics are computed.
+- **Coordinate limits** keep all the data and merely *display a smaller region* — like a magnifying glass.
+
+This matters whenever a stat (such as a smoother) is involved: zooming preserves the fit, whereas clipping the scale refits to the surviving data.
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+library(ggplot2)
+base <- ggplot(mpg, aes(displ, hwy)) + geom_point() + geom_smooth()
+
+a <- base                                        # full data
+b <- base + scale_x_continuous(limits = c(4, 6)) # throws data away, refits smooth
+c <- base + coord_cartesian(xlim = c(4, 6))      # keeps data, zooms in
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b|c)
+```
+
+The middle panel warns that rows were removed and the smooth is refit to a sliver of data; the right panel keeps the original fit and simply zooms.
+
+---
+
+## Flipping with `coord_flip()`
+
+Most stats assume you want `y` conditional on `x`. To swap the roles — or just rotate 90° — use `coord_flip()`. This differs from merely exchanging the variables, because the stat is fit to the **original** data and the *output* is rotated:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+a <- ggplot(mpg, aes(displ, cty)) + geom_point() + geom_smooth()
+b <- ggplot(mpg, aes(cty, displ)) + geom_point() + geom_smooth()  
+# smooth fit to rotated data
+c <- ggplot(mpg, aes(displ, cty)) + geom_point() + geom_smooth() + coord_flip()
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b|c)
+```
+
+## Equal Scales with `coord_fixed()`
+
+`coord_fixed()` fixes the ratio between physical length on the x and y axes. The default `ratio = 1` guarantees that one centimetre on the x axis spans the same data range as one centimetre on the y axis, and holds that mapping regardless of the output device's shape.
+
+# Non-linear Coordinate Systems
+
+## Changing Shapes
+
+Unlike linear coordinates, non-linear coordinates can change the **shape** of geoms — a rectangle becomes an arc, the shortest path between two points need not be straight:
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+library(ggplot2)
+rect <- data.frame(x = 50, y = 50)
+line <- data.frame(x = c(1, 200), y = c(100, 1))
+base <- ggplot(mapping = aes(x, y)) +
+  geom_tile(data = rect, aes(width = 50, height = 50)) +
+  geom_line(data = line) + xlab(NULL) + ylab(NULL)
+a <- base
+b <- base + coord_polar("x")
+c <- base + coord_polar("y")
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b|c)
+```
+
+---
+
+### Munching
+
+How does ggplot2 transform shapes? In two steps. First it re-parameterises each geom into a purely **location-based** form (a bar's height and width become a four-corner polygon). Second it transforms each location into the new system.
+
+Points are easy — a point is a point anywhere. Lines and polygons are hard, since a straight line may bend. Assuming transformations are smooth, ggplot2 breaks long lines into many short segments and transforms each. This is called **munching**:
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df <- data.frame(r = c(0, 1), theta = c(0, 3 / 2 * pi))
+interp <- function(rng, n) seq(rng[1], rng[2], length = n)
+munched <- data.frame(r = interp(df$r, 15), theta = interp(df$theta, 15))
+transformed <- transform(munched, x = r * sin(theta), y = r * cos(theta))
+ggplot(transformed, aes(x, y)) +
+  geom_path() + geom_point(size = 2, colour = "red") + coord_fixed()
+```
+
+---
+
+### `coord_trans()`
+
+Like limits, transformations can act at **two** places. At the **scale** level they occur *before* stats and do not change geom shape; at the **coordinate** level they occur *after* stats and *do* change shape. Using both lets you model on a transformed scale and back-transform for interpretation:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+library(ggplot2)
+base <- ggplot(diamonds, aes(carat, price)) +
+  stat_bin2d() + geom_smooth(method = "lm") +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+a <- base                                        # poor linear fit
+b <- base + scale_x_log10() + scale_y_log10()    # good fit, hard to read
+pow10 <- scales::exp_trans(10)
+c <- base + scale_x_log10() + scale_y_log10() + coord_trans(x = pow10, y = pow10)
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b|c)
+```
+
+
+### `coord_polar()`
+
+Polar coordinates turn bar geoms into **pie charts** and **bullseye charts**, and line geoms into radar charts. The `theta` argument chooses which position maps to angle. Beware: angle is harder to perceive than length, especially at small radii.
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+library(ggplot2)
+base <- ggplot(mtcars, aes(factor(1), fill = factor(cyl))) +
+  geom_bar(width = 1) + theme(legend.position = "none") +
+  scale_x_discrete(NULL, expand = c(0, 0)) +
+  scale_y_continuous(NULL, expand = c(0, 0))
+a <- base                            # stacked bar
+b <- base + coord_polar(theta = "y")# pie chart
+c <- base + coord_polar()           # bullseye
+```
+
+---
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="32%", fig.align='center'}
+library(patchwork)
+(a|b|c)
+```
+
+### Map Projections
+
+Maps display spherical data, so plotting raw longitude and latitude is misleading — you must **project**. ggplot2 offers two approaches:
+
+- `coord_quickmap()` — a fast approximation that fixes the aspect ratio so 1° of latitude and 1° of longitude are equal in the middle of the plot. Good for small regions.
+- `coord_map()` — a formal projection via the **mapproj** package, taking the same arguments as `mapproj::mapproject()`. Slower, because it must munch and transform every piece.
+
+---
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+nzmap <- ggplot(map_data("nz"), aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black") + xlab(NULL) + ylab(NULL)
+nzmap                     # cartesian — distorted
+nzmap + coord_quickmap()  # aspect-ratio corrected
+```
+
+---
+
+**Exercises**
+
+1. Contrast `scale_x_continuous(limits = c(4, 6))` with `coord_cartesian(xlim = c(4, 6))` on a `mpg` scatterplot that includes `geom_smooth()`. Why do the smooths differ?
+
+2. Build a plot of `displ` vs `cty` with a smoother, then rotate it with `coord_flip()`. How does this differ from swapping the `x` and `y` mappings?
+
+3. Use `coord_fixed()` on a scatterplot. What guarantee does the default `ratio = 1` provide?
+
+4. Turn a stacked bar of `cyl` from `mtcars` into a pie chart and a bullseye chart with `coord_polar()`. Why are pie charts perceptually weak?
+
+---
+
+5. Reproduce the `diamonds` back-transformation example: fit a linear model on the log scale, then use `coord_trans()` with `scales::exp_trans(10)` to return to the original axes. What does this reveal about large-carat diamonds?
+
+6. Explain "munching" in your own words. Why are points easy to transform but lines and polygons hard?
+
+7. Plot the New Zealand map in Cartesian coordinates and again with `coord_quickmap()`. When would you prefer `coord_map()` despite its cost?
+
+## Acknowledgement
+
+-   **Copyright notice.** These teaching materials have been adapted from [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/coord.html). All rights are reserved by the original authors and publishers.
+
+-   **Non-commercial use only.** These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.
+
+-   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
+
+## References

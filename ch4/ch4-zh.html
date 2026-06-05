@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ch4-zh_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch4-zh_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch4-zh_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch4-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch4-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch4-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch4-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="劉昱佑">
+  <meta name="dcterms.date" content="2026-06-05">
+  <title>資料分析</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ch4-zh_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch4-zh_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="ch4-zh_files/libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
+  <link href="ch4-zh_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch4-zh_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch4-zh_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch4-zh_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-notes="" class="quarto-title-block center">
+  <h1 class="title">資料分析</h1>
+  <p class="subtitle">第四章：集體 geoms</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+劉昱佑 
+</div>
+        <p class="quarto-title-affiliation">
+            實踐大學
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-06-05</p>
+</section>
+<section>
+<section id="集體-geoms" class="title-slide slide level1 center">
+<h1>集體 geoms</h1>
+
+</section>
+<section id="集體-geoms-1" class="slide level2">
+<h2>集體 geoms</h2>
+<p>geoms 大致可分為<strong>個別（individual）</strong>或<strong>集體（collective）</strong>兩類。個別 geom 為資料的每一列呈現一個獨立的圖形物件——例如，<code>geom_point()</code> 為每筆觀測值放置單一個點。</p>
+<p>相對地，<strong>集體 geom（collective geom）</strong>用單一個幾何物件代表多筆觀測值。這種行為可能源自統計摘要（例如盒鬚圖），也可能是該 geom 定義本身所固有的（例如多邊形）。</p>
+<p>線（lines）與路徑（paths）則居於中間位置：每條呈現出來的線都由一連串直線段所構成，而每一段都編碼了兩個資料點。</p>
+</section>
+<section class="slide level2">
+
+<p>支配觀測值如何被指派給圖形元素的機制，就是 <code>group</code> 美學。</p>
+<p>預設情況下，<code>group</code> 由圖中所映射的所有離散變數的交互作用推導而來。這種隱含的分組經常能產生我們想要的劃分——但當它做不到時，或當沒有任何離散變數存在時，就必須藉由把 <code>group</code> 映射到適當的變數，明確指定分組結構。</p>
+</section>
+<section class="slide level2">
+
+<p><strong><code>Oxboys</code> 資料集</strong></p>
+<p>本章各範例都取材自 <code>nlme</code> 套件中的 <code>Oxboys</code> 資料集。它記錄了 26 個男孩（<code>Subject</code>）的身高（<code>height</code>）與置中後的年齡（<code>age</code>），每個人在九個不同時點（<code>Occasion</code>）被量測。<code>Subject</code> 與 <code>Occasion</code> 都以有序因子儲存。</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(nlme)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">data</span>(Oxboys, <span class="at">package =</span> <span class="st">"nlme"</span>)</span>
+<span id="cb1-4"><a href=""></a><span class="fu">head</span>(Oxboys)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Grouped Data: height ~ age | Subject
+  Subject     age height Occasion
+1       1 -1.0000  140.5        1
+2       1 -0.7479  143.4        2
+3       1 -0.4630  144.8        3
+4       1 -0.1643  147.1        4
+5       1 -0.0027  147.7        5
+6       1  0.2466  150.2        6</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="多個群組單一美學" class="title-slide slide level1 center">
+<h1>多個群組、單一美學</h1>
+
+</section>
+<section id="多個群組單一美學-1" class="slide level2">
+<h2>多個群組、單一美學</h2>
+<p>一個常見的情境是：想把資料分成不同群組，同時又以相同的視覺樣式呈現所有群組。目標是讓個別受試者可被區分，而不必為它們加上標籤。具有許多受試者的縱貫性研究經常需要這種處理，所產生的圖非正式地被稱為<strong>義大利麵圖（spaghetti plots）</strong>。</p>
+<p>下圖描繪每個男孩隨時間的成長軌跡。在 <code>aes()</code> 中設定 <code>group = Subject</code>，會指示 <code>geom_line()</code> 為每位受試者畫出一條相連的線：</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height, <span class="at">group =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
+<section class="slide level2">
+
+<p><strong>沒有正確分組會發生什麼？</strong></p>
+<p>如果省略 <code>group</code> 美學，ggplot2 找不到離散變數，便會把所有觀測值都視為屬於同一個群組。其結果是一種特有的<strong>鋸齒型態（sawtooth pattern）</strong>——線以任意的順序連接來自不同受試者的觀測值——這顯然會造成誤導：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p><strong>依多個變數分組</strong></p>
+<p>當一個群組是由多於一個變數的組合、而非單一欄位所定義時，使用 <code>interaction()</code> 建構一個複合的分組鍵：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># 範例：同時依學校與學生分組</span></span>
+<span id="cb5-2"><a href=""></a><span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">interaction</span>(school_id, student_id))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>這確保了共享相同學校<em>且</em>相同學生識別碼的觀測值，會被視為屬於同一個群組。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>練習</strong></p>
+<ol type="1">
+<li><p>為 <code>cyl</code> 的每個值畫出 <code>hwy</code> 的盒鬚圖，但不要把 <code>cyl</code> 轉換成因子。你必須設定哪個額外的美學才能讓它運作？</p></li>
+<li><p>修改下面的圖，使得 <code>displ</code> 的每個整數值都產生一個獨立的盒鬚圖：</p></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section>
+<section>
+<section id="不同圖層上的不同群組" class="title-slide slide level1 center">
+<h1>不同圖層上的不同群組</h1>
+
+</section>
+<section id="不同圖層上的不同群組-1" class="slide level2">
+<h2>不同圖層上的不同群組</h2>
+<p>在某些情況下，一張圖的不同圖層需要不同層級的彙總。例如，某一個圖層可能顯示個別的軌跡，而另一個圖層則覆蓋單一條整體趨勢線。</p>
+<p>如果分組美學在 <code>ggplot()</code> 中被全域設定，它會傳播到每一個圖層——包括 <code>geom_smooth()</code>。其結果是每個群組各有一條平滑線，而這通常不是我們想要的：</p>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height, <span class="at">group =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>這會為每位受試者各產生一條線性配適，而非一條摘要所有男孩的單一趨勢線。請記得：分組不僅控制幾何，也控制統計轉換——每個 stat 都會針對每個群組獨立執行。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>解決問題：圖層專屬的分組</strong></p>
+<p>解法是把 <code>group</code> 美學從全域的 <code>ggplot()</code> 呼叫移到 <code>geom_line()</code> 之中。<code>geom_smooth()</code> 圖層於是沒有離散變數可供分組，便預設把所有觀測值視為一個群組，產生單一條整體的平滑線：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p><strong>關鍵重點</strong></p>
+<p>在 <code>ggplot()</code> 中設定的美學是<strong>全域的</strong>，會套用到後續的每一個圖層。在個別 geom 函式中設定的美學則是<strong>局部的</strong>，只套用到該圖層。當不同圖層需要不同的分組結構時，這個區別至關重要。</p>
+</section></section>
+<section>
+<section id="覆寫預設的分組" class="title-slide slide level1 center">
+<h1>覆寫預設的分組</h1>
+
+</section>
+<section id="覆寫預設的分組-1" class="slide level2">
+<h2>覆寫預設的分組</h2>
+<p>有時一張圖具有離散的 x 軸，但我們仍想畫出<em>跨</em>群組、而非群組內連接觀測值的線。這種型態出現在交互作用圖、剖面圖與平行座標圖等。</p>
+<p>考慮在每個量測時點 <code>Occasion</code> 畫出 <code>height</code> 的盒鬚圖。由於 <code>Occasion</code> 是離散變數，ggplot2 自動為每個時點畫一個盒鬚圖：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(Occasion, height)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p><strong>天真地加上線並不奏效</strong></p>
+<p>只是把 <code>geom_line()</code> 加到盒鬚圖上，所畫出的線是在每個時點<em>之內</em>（連接同一個 x 位置的觀測值），而非<em>跨</em>時點、依受試者連接。這是因為預設的分組是由 <code>Occasion</code> 驅動的：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(Occasion, height)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#3366FF"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p><strong>在單一圖層中覆寫分組</strong></p>
+<p>修正之道是在 <code>geom_line()</code> 中明確覆寫分組，指定每位受試者各一條線。盒鬚圖圖層保留其依 <code>Occasion</code> 的預設分組，而線圖層使用 <code>Subject</code>：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(Occasion, height)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> Subject), <span class="at">colour =</span> <span class="st">"#3366FF"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>如今每一條藍線都描繪出一個男孩在全部九個時點的成長，正如我們所期望的。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>練習</strong></p>
+<ol start="3" type="1">
+<li>在示範「把連續顏色 vs.&nbsp;離散顏色映射到線」的差異時，離散的例子需要 <code>aes(group = 1)</code>。為什麼？省略它會發生什麼？<code>aes(group = 1)</code> 與 <code>aes(group = 2)</code> 之間有什麼差別？</li>
+</ol>
+</section></section>
+<section>
+<section id="把美學對應到圖形物件" class="title-slide slide level1 center">
+<h1>把美學對應到圖形物件</h1>
+
+</section>
+<section id="把美學對應到圖形物件-1" class="slide level2">
+<h2>把美學對應到圖形物件</h2>
+<p>集體 geoms 會引出一個重要問題：當個別觀測值帶有不同的美學值時，這些值該如何映射到單一個幾何物件上？</p>
+<p>ggplot2 依 geom 類型不同而以不同方式處理。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>線與路徑：「第一個值」規則</strong></p>
+<p>對於 <code>geom_line()</code> 與 <code>geom_path()</code>，每一段都由兩個連續的觀測值定義。ggplot2 會把兩個觀測值中<strong>第一個</strong>的美學值（例如 <code>colour</code>）套用到每一段。最後一個觀測值的美學則永遠不會被套用到任何一段。</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb12-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">colour =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb12-3"><a href=""></a></span>
+<span id="cb12-4"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> <span class="fu">factor</span>(colour))) <span class="sc">+</span></span>
+<span id="cb12-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb12-7"><a href=""></a></span>
+<span id="cb12-8"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> colour)) <span class="sc">+</span></span>
+<span id="cb12-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb12-11"><a href=""></a></span>
+<span id="cb12-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p>在左圖（離散顏色）中，第一個點與第一段是紅色，第二個點與第二段是綠色，而最後一個點（後面沒有跟著任何段）是藍色。</p>
+<p>在右圖（連續顏色）中，相同的「第一個值」原則套用於三種深淺的藍色。關鍵在於，ggplot2 <strong>不會</strong>在美學值之間平滑地內插——即使是連續變數也一樣。如果想要沿著線有平滑的顏色漸層，就必須手動執行內插：</p>
+</section>
+<section class="slide level2">
+
+<p><strong>手動線性內插以做出平滑的顏色漸層</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>xgrid <span class="ot">&lt;-</span> <span class="fu">with</span>(df, <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length =</span> <span class="dv">50</span>))</span>
+<span id="cb13-2"><a href=""></a>interp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-3"><a href=""></a>  <span class="at">x      =</span> xgrid,</span>
+<span id="cb13-4"><a href=""></a>  <span class="at">y      =</span> <span class="fu">approx</span>(df<span class="sc">$</span>x, df<span class="sc">$</span>y,      <span class="at">xout =</span> xgrid)<span class="sc">$</span>y,</span>
+<span id="cb13-5"><a href=""></a>  <span class="at">colour =</span> <span class="fu">approx</span>(df<span class="sc">$</span>x, df<span class="sc">$</span>colour, <span class="at">xout =</span> xgrid)<span class="sc">$</span>y</span>
+<span id="cb13-6"><a href=""></a>)</span>
+<span id="cb13-7"><a href=""></a><span class="fu">ggplot</span>(interp, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> colour)) <span class="sc">+</span></span>
+<span id="cb13-8"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p><code>approx()</code> 函式在 50 個等距的位置上，對 <code>y</code> 座標與 <code>colour</code> 值都進行線性內插，沿著路徑產生平滑的漸層。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>額外的限制：線型必須固定</strong></p>
+<p>路徑與線受到一個重要限制：<code>linetype</code> 美學在整條線上必須保持固定。R 沒有任何機制可以呈現一條其線型（實線、虛線、點線等）沿其長度連續變化的線。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>多邊形與其他複雜的集體 geoms</strong></p>
+<p>對於比線更複雜的 geoms——例如多邊形——單一個幾何物件可能對應到許多觀測值，使得不同美學值該如何協調變得曖昧不清。例如，如果一個多邊形的每個邊界頂點都指定不同的填色，那它該如何填色？</p>
+<p>ggplot2 用一條簡單的規則化解這個模糊：<strong>只有當整個群組的美學值全都相同時，才使用來自個別觀測值的美學</strong>。如果美學值有所不同，ggplot2 便改用它的預設值。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>離散變數：分裂成子群組</strong></p>
+<p>對於<strong>離散的</strong> fill 或 colour 變數，ggplot2 會自動把該變數納入 group 美學。這會把集體 geom 分裂成更小的片段。對於長條圖與面積圖，把這些片段堆疊起來會保留未分組資料的形狀：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb14-3"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class, <span class="at">fill =</span> drv)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb14-5"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section class="slide level2">
+
+<p><strong>長條搭配連續 fill：一個常見的陷阱</strong></p>
+<p>在 <code>geom_bar()</code> 中把<strong>連續</strong>變數映射到 <code>fill</code> 並不會以相同方式運作。由於每根長條橫跨多筆有不同 <code>hwy</code> 值的觀測值，沒有單一顏色能摘要它們，於是 ggplot2 退回到預設的灰色：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class, <span class="at">fill =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section class="slide level2">
+
+<p><strong>修正之道：覆寫分組</strong></p>
+<p>要在每根長條內顯示多種填色，我們必須覆寫分組，使每個獨特的 <code>hwy</code> 值各自形成一段子長條。堆疊後的結果揭示了每個車輛 class 內高速公路燃油經濟性的分布：</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class, <span class="at">fill =</span> hwy, <span class="at">group =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>使用這個技巧時，長條會依分組變數（此處為 <code>hwy</code>）所定義的順序堆疊。如果需要精確控制堆疊順序，請把 <code>hwy</code> 轉換成因子，並依需求排列其水準。</p>
+</section>
+<section class="slide level2">
+
+<p><strong>練習</strong></p>
+<ol start="4" type="1">
+<li>以下每張圖各顯示多少根長條？解釋你的推理。</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb17-3"><a href=""></a></span>
+<span id="cb17-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, <span class="at">fill =</span> hwy, <span class="at">group =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-8"><a href=""></a>mpg2 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">arrange</span>(hwy) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">seq_along</span>(hwy))</span>
+<span id="cb17-9"><a href=""></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(drv, <span class="at">fill =</span> hwy, <span class="at">group =</span> id)) <span class="sc">+</span></span>
+<span id="cb17-10"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>（提示：加上 <code>colour = "white"</code> 來描出個別子長條的外框。）</em></p>
+<ol start="5" type="1">
+<li>安裝 <code>babynames</code> 套件並執行下面的程式碼。找出所產生的圖有什麼問題並加以修正。為什麼未修正的版本看起來出乎意料？</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(babynames)</span>
+<span id="cb18-2"><a href=""></a>hadley <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(babynames, name <span class="sc">==</span> <span class="st">"Hadley"</span>)</span>
+<span id="cb18-3"><a href=""></a><span class="fu">ggplot</span>(hadley, <span class="fu">aes</span>(year, n)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="致謝" class="slide level2">
+<h2>致謝</h2>
+<ul>
+<li><p><strong>版權聲明。</strong> 本教材改編自 <a href="https://ggplot2-book.org/collective-geoms.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>。所有權利均由原作者與出版者保留。</p></li>
+<li><p><strong>僅供非商業用途。</strong> 本教材嚴格限定用於教育目的，不得用於商業獲利。</p></li>
+<li><p><strong>適當標註出處。</strong> 任何對本教材的重製、散布或使用，都必須適當標註原始出處。</p></li>
+</ul>
+</section>
+<section id="參考文獻" class="slide level2">
+<h2>參考文獻</h2>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><code>ggplot2</code>: Elegant Graphics for Data Analysis</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ch4-zh_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ch4-zh_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch4-zh_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch4-zh_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch4-zh_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch4-zh_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ch4-zh_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch4-zh_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch4-zh_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch4-zh_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"hideMissingTitles":true,"titleSelector":"h1"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch4.html"  style="color:#555;">[English version]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+    
+
+</body></html>

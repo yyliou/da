@@ -1,0 +1,324 @@
+---
+title: "Data Analysis"
+subtitle: "Chapter 17: Themes"
+author: "Yu-You Liou (NTU)"
+institute: "Shih Chien University"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: source
+bibliography: bib.bib
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+title-slide-attributes:
+  data-notes: ""
+include-after-body:
+  text: |
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch17-zh.html"  style="color:#555;">[中文版由此去]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+---
+
+# Themes
+
+## Overview
+
+The **theme system** gives you fine control over the *non-data* elements of a plot — fonts, ticks, strips, backgrounds, legends. Themes do **not** change how geoms render data or how scales transform it; they make the plot aesthetically pleasing or match a style guide.
+
+This separation is the key idea: first decide *how the data is displayed*, then — *after* the plot exists — edit every detail of its rendering. The system has four components:
+
+- **Elements** — the non-data parts you can control (`plot.title`, `axis.ticks.x`, …)
+- **Element functions** — describe an element's appearance (`element_text()`, `element_line()`, `element_rect()`, `element_blank()`)
+- **`theme()`** — overrides individual elements
+- **Complete themes** — like `theme_grey()`, set all elements harmoniously
+
+# A Motivating Example
+
+## From Exploration to Publication
+
+Suppose you have an exploratory plot. To publish it, you first improve labels, title, and colour scale with tools from earlier chapters:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="48%", fig.align='center'}
+library(ggplot2)
+base <- ggplot(mpg, aes(cty, hwy, colour = factor(cyl))) +
+  geom_jitter() + geom_abline(colour = "grey50", linewidth = 2)
+labelled <- base +
+  labs(x = "City mileage/gallon", y = "Highway mileage/gallon",
+       colour = "Cylinders",
+       title = "Highway and city mileage are highly correlated") +
+  scale_colour_brewer(type = "seq", palette = "Spectral")
+labelled
+```
+
+---
+
+Next you match the journal's style guide — white background, legend inside the plot, pale major gridlines, no minor gridlines, 12pt bold title — using `theme_bw()` plus a `theme()` call:
+
+```{r, echo=TRUE, warning=FALSE, out.width="46%", fig.align='center'}
+styled <- labelled +
+  theme_bw() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    legend.background = element_rect(fill = "white", linewidth = 4, colour = "white"),
+    legend.justification = c(0, 1),
+    legend.position = c(0, 1),
+    axis.ticks = element_line(colour = "grey70", linewidth = 0.2),
+    panel.grid.major = element_line(colour = "grey70", linewidth = 0.2),
+    panel.grid.minor = element_blank()
+  )
+styled
+```
+
+# Complete Themes
+
+## Built-in Themes
+
+The signature theme is `theme_grey()` — a light grey background with white gridlines, designed to put the data forward while still supporting position judgements. ggplot2 ships seven more:
+
+| Theme | Character |
+|---|---|
+| `theme_bw()` | white background, thin grey gridlines |
+| `theme_linedraw()` | only black lines, like a line drawing |
+| `theme_light()` | light grey lines, attention on the data |
+| `theme_dark()` | dark cousin of `theme_light()` |
+| `theme_minimal()` | no background annotations |
+| `theme_classic()` | axis lines, no gridlines |
+| `theme_void()` | completely empty |
+
+---
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+library(ggplot2)
+df <- data.frame(x = 1:3, y = 1:3)
+base <- ggplot(df, aes(x, y)) + geom_point()
+base + theme_grey()    + ggtitle("theme_grey()")
+base + theme_bw()      + ggtitle("theme_bw()")
+base + theme_minimal() + ggtitle("theme_minimal()")
+```
+
+Every theme has a `base_size` argument controlling the base font size (axis titles); the plot title is larger (1.2×) and tick/strip labels smaller (0.8×).
+
+---
+
+Apply a theme to a single plot, or change the **default** for all plots with `theme_set()`:
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+theme_set(theme_bw())   # white background for every subsequent plot
+```
+
+You are not limited to the built-ins. Packages such as **ggthemes** add many more, e.g. `theme_tufte()`, `theme_economist()`, `theme_solarized()`. Complete themes are a great starting point but offer little granular control — for that, you modify individual elements.
+
+# Modifying Theme Components
+
+## The Four Element Functions
+
+To modify one component: `plot + theme(element.name = element_function())`. There are four basic element functions:
+
+- `element_text()` — labels and headings: `family`, `face`, `colour`, `size`, `hjust`, `vjust`, `angle`, `lineheight`, plus `margin()`
+- `element_line()` — lines: `colour`, `linewidth`, `linetype`
+- `element_rect()` — rectangles/backgrounds: `fill`, plus border `colour`, `linewidth`, `linetype`
+- `element_blank()` — draws nothing **and** allocates no space
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+base_t <- base + labs(title = "This is a ggplot") + xlab(NULL) + ylab(NULL)
+base_t + theme(plot.title = element_text(size = 16))
+base_t + theme(plot.title = element_text(face = "bold", colour = "red"))
+base_t + theme(plot.title = element_text(hjust = 1))
+```
+
+---
+
+`element_line()` and `element_rect()` parameterise lines and backgrounds:
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+base + theme(panel.grid.major = element_line(colour = "black"))
+base + theme(panel.grid.major = element_line(linetype = "dotted"))
+base + theme(panel.background = element_rect(fill = "linen"))
+```
+
+`element_blank()` suppresses an element entirely. Note that the plot **reclaims** the freed space — to keep the space (e.g. to align with other plots) use invisible elements via `colour = NA, fill = NA` instead.
+
+---
+
+To modify elements for **all future plots**, use `theme_update()`, which returns the previous settings so you can restore them:
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+old_theme <- theme_update(
+  plot.background  = element_rect(fill = "lightblue3", colour = NA),
+  panel.background = element_rect(fill = "lightblue",  colour = NA),
+  axis.text  = element_text(colour = "linen"),
+  axis.title = element_text(colour = "linen")
+)
+# ... draw some plots ...
+theme_set(old_theme)  # restore
+```
+
+# Theme Elements
+
+## The Five Element Categories
+
+Around 40 elements control plot appearance, grouped into five categories. **Plot** elements affect the whole plot:
+
+| Element | Setter | Description |
+|---|---|---|
+| `plot.background` | `element_rect()` | background under everything |
+| `plot.title` | `element_text()` | plot title |
+| `plot.margin` | `margin()` | margins around the plot |
+
+```{r, echo=TRUE, warning=FALSE, out.width="38%", fig.align='center'}
+base + theme(plot.background = element_rect(colour = "grey50", linewidth = 2))
+base + theme(plot.background = element_rect(fill = "lightblue"))
+```
+
+---
+
+### Axis Elements
+
+| Element | Setter | Description |
+|---|---|---|
+| `axis.line` | `element_line()` | axis line (hidden by default) |
+| `axis.text` / `.x` / `.y` | `element_text()` | tick labels |
+| `axis.title` / `.x` / `.y` | `element_text()` | axis titles |
+| `axis.ticks` | `element_line()` | tick marks |
+| `axis.ticks.length` | `unit()` | tick length |
+
+`axis.text` sets both axes at once; `axis.text.x` / `.y` inherit from it and override per axis. The most common tweak is rotating long x labels — negative angles look best, with `hjust = 0, vjust = 1`:
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df2 <- data.frame(x = c("label", "a long label", "an even longer label"), y = 1:3)
+b2 <- ggplot(df2, aes(x, y)) + geom_point()
+b2
+b2 + theme(axis.text.x = element_text(angle = -30, vjust = 1, hjust = 0)) +
+  xlab(NULL) + ylab(NULL)
+```
+
+---
+
+### Legend Elements
+
+| Element | Setter | Description |
+|---|---|---|
+| `legend.background` | `element_rect()` | whole-legend background |
+| `legend.key` | `element_rect()` | background behind keys |
+| `legend.key.height` / `.width` | `unit()` | key dimensions |
+| `legend.text` | `element_text()` | key labels |
+| `legend.title` | `element_text()` | legend name |
+
+Layout is governed separately by `legend.position`, `legend.direction`, `legend.justification`, and `legend.box` (see §11.7).
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df3 <- data.frame(x = 1:4, y = 1:4, z = rep(c("a", "b"), each = 2))
+b3 <- ggplot(df3, aes(x, y, colour = z)) + geom_point()
+b3 + theme(legend.background = element_rect(fill = "lemonchiffon", colour = "grey50", linewidth = 1))
+b3 + theme(legend.text = element_text(size = 15), legend.title = element_text(size = 15, face = "bold"))
+```
+
+---
+
+### Panel Elements
+
+| Element | Setter | Description |
+|---|---|---|
+| `panel.background` | `element_rect()` | panel background (under data) |
+| `panel.border` | `element_rect()` | panel border (over data) |
+| `panel.grid.major` / `.minor` | `element_line()` | grid lines |
+| `aspect.ratio` | numeric | panel aspect ratio |
+
+`panel.background` is drawn *under* the data, `panel.border` *over* it — so always set `fill = NA` when overriding the border. `aspect.ratio` controls the **panel**, not the whole plot:
+
+```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+base + theme(panel.background = element_rect(fill = "lightblue"))
+base + theme(panel.grid.major = element_line(colour = "gray60", linewidth = 0.8))
+base + theme(aspect.ratio = 9 / 16)
+```
+
+---
+
+### Faceting Elements
+
+| Element | Setter | Description |
+|---|---|---|
+| `strip.background` | `element_rect()` | background of panel strips |
+| `strip.text` / `.x` / `.y` | `element_text()` | strip text |
+| `panel.spacing` / `.x` / `.y` | `unit()` | margin between facets |
+
+`strip.text.x` affects both `facet_wrap()` and `facet_grid()`; `strip.text.y` affects only `facet_grid()`.
+
+```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
+df4 <- data.frame(x = 1:4, y = 1:4, z = c("a", "a", "b", "b"))
+bf <- ggplot(df4, aes(x, y)) + geom_point() + facet_wrap(~z)
+bf + theme(panel.spacing = unit(0.5, "in"))
+bf + theme(strip.text = element_text(colour = "white"),
+           strip.background = element_rect(fill = "grey20", colour = "grey80", linewidth = 1))
+```
+
+# Saving Your Output
+
+## Raster vs. Vector
+
+When exporting a plot you choose between two output families:
+
+- **Vector** graphics (pdf, svg) describe drawing operations, so they are effectively infinitely zoomable with no loss of detail. Prefer these unless you have a reason not to.
+- **Raster** graphics (png, jpg) are arrays of pixels with a fixed optimal size. Use them when the plot has thousands of objects (a vector file would be huge and slow) or when embedding in MS Office, which has poor vector support.
+
+---
+
+ggplot2 provides `ggsave()`, optimised for interactive use — call it right after drawing a plot:
+
+```{r, echo=TRUE, warning=FALSE, eval=FALSE}
+ggplot(mpg, aes(displ, cty)) + geom_point()
+ggsave("output.pdf")
+```
+
+Key arguments:
+
+- `filename` — the file extension selects the device automatically (`.eps`, `.pdf`, `.svg`, `.png`, `.jpg`, `.tiff`, …)
+- `width`, `height` — output size in inches (defaults to the on-screen device size)
+- `dpi` — resolution for raster output (300 for print, 600 for high-resolution, 96 for screen)
+
+---
+
+**Exercises**
+
+1. Create the ugliest plot you can, combining as many garish `theme()` settings as possible. Which elements have the biggest visual impact?
+
+2. `theme_dark()` darkens only the inside of the plot. Change the *plot* background to black too, then update the text colours so the labels remain readable.
+
+3. Build an elegant theme that uses "linen" as the background colour and a serif font for all text.
+
+---
+
+4. Reproduce the publication-ready `mpg` plot from the motivating example: start from `theme_bw()` and use a single `theme()` call to move the legend inside, pale the major gridlines, drop the minor gridlines, and bold the 12pt title.
+
+5. Systematically vary `hjust` for a multiline plot title. Why does `vjust` have no visible effect on the title?
+
+6. Compare `panel.background` against `panel.border`. Why must you set `fill = NA` when overriding the border?
+
+7. Save the same plot as both a `.pdf` and a `.png` at 600 dpi with `ggsave()`. When would you choose each format?
+
+## Acknowledgement
+
+-   **Copyright notice.** These teaching materials have been adapted from [**ggplot2: Elegant Graphics for Data Analysis (3e)**](https://ggplot2-book.org/themes.html). All rights are reserved by the original authors and publishers.
+
+-   **Non-commercial use only.** These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.
+
+-   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
+
+## References

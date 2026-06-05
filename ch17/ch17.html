@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ch17_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch17_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch17_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch17_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch17_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch17_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch17_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Yu-You Liou (NTU)">
+  <meta name="dcterms.date" content="2026-06-05">
+  <title>Data Analysis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ch17_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch17_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="ch17_files/libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
+  <link href="ch17_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch17_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch17_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch17_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-notes="" class="quarto-title-block center">
+  <h1 class="title">Data Analysis</h1>
+  <p class="subtitle">Chapter 17: Themes</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Yu-You Liou (NTU) 
+</div>
+        <p class="quarto-title-affiliation">
+            Shih Chien University
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-06-05</p>
+</section>
+<section>
+<section id="themes" class="title-slide slide level1 center">
+<h1>Themes</h1>
+
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<p>The <strong>theme system</strong> gives you fine control over the <em>non-data</em> elements of a plot — fonts, ticks, strips, backgrounds, legends. Themes do <strong>not</strong> change how geoms render data or how scales transform it; they make the plot aesthetically pleasing or match a style guide.</p>
+<p>This separation is the key idea: first decide <em>how the data is displayed</em>, then — <em>after</em> the plot exists — edit every detail of its rendering. The system has four components:</p>
+<ul>
+<li><strong>Elements</strong> — the non-data parts you can control (<code>plot.title</code>, <code>axis.ticks.x</code>, …)</li>
+<li><strong>Element functions</strong> — describe an element’s appearance (<code>element_text()</code>, <code>element_line()</code>, <code>element_rect()</code>, <code>element_blank()</code>)</li>
+<li><strong><code>theme()</code></strong> — overrides individual elements</li>
+<li><strong>Complete themes</strong> — like <code>theme_grey()</code>, set all elements harmoniously</li>
+</ul>
+</section></section>
+<section>
+<section id="a-motivating-example" class="title-slide slide level1 center">
+<h1>A Motivating Example</h1>
+
+</section>
+<section id="from-exploration-to-publication" class="slide level2">
+<h2>From Exploration to Publication</h2>
+<p>Suppose you have an exploratory plot. To publish it, you first improve labels, title, and colour scale with tools from earlier chapters:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy, <span class="at">colour =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb1-3"><a href=""></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span>
+<span id="cb1-4"><a href=""></a>labelled <span class="ot">&lt;-</span> base <span class="sc">+</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"City mileage/gallon"</span>, <span class="at">y =</span> <span class="st">"Highway mileage/gallon"</span>,</span>
+<span id="cb1-6"><a href=""></a>       <span class="at">colour =</span> <span class="st">"Cylinders"</span>,</span>
+<span id="cb1-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Highway and city mileage are highly correlated"</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">type =</span> <span class="st">"seq"</span>, <span class="at">palette =</span> <span class="st">"Spectral"</span>)</span>
+<span id="cb1-9"><a href=""></a>labelled</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch17_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:48.0%"></section>
+<section class="slide level2">
+
+<p>Next you match the journal’s style guide — white background, legend inside the plot, pale major gridlines, no minor gridlines, 12pt bold title — using <code>theme_bw()</code> plus a <code>theme()</code> call:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>styled <span class="ot">&lt;-</span> labelled <span class="sc">+</span></span>
+<span id="cb2-2"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-3"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-4"><a href=""></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb2-5"><a href=""></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb2-6"><a href=""></a>    <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb2-7"><a href=""></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb2-8"><a href=""></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"grey70"</span>, <span class="at">linewidth =</span> <span class="fl">0.2</span>),</span>
+<span id="cb2-9"><a href=""></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"grey70"</span>, <span class="at">linewidth =</span> <span class="fl">0.2</span>),</span>
+<span id="cb2-10"><a href=""></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb2-11"><a href=""></a>  )</span>
+<span id="cb2-12"><a href=""></a>styled</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch17_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:46.0%"></section></section>
+<section>
+<section id="complete-themes" class="title-slide slide level1 center">
+<h1>Complete Themes</h1>
+
+</section>
+<section id="built-in-themes" class="slide level2">
+<h2>Built-in Themes</h2>
+<p>The signature theme is <code>theme_grey()</code> — a light grey background with white gridlines, designed to put the data forward while still supporting position judgements. ggplot2 ships seven more:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Theme</th>
+<th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>theme_bw()</code></td>
+<td>white background, thin grey gridlines</td>
+</tr>
+<tr class="even">
+<td><code>theme_linedraw()</code></td>
+<td>only black lines, like a line drawing</td>
+</tr>
+<tr class="odd">
+<td><code>theme_light()</code></td>
+<td>light grey lines, attention on the data</td>
+</tr>
+<tr class="even">
+<td><code>theme_dark()</code></td>
+<td>dark cousin of <code>theme_light()</code></td>
+</tr>
+<tr class="odd">
+<td><code>theme_minimal()</code></td>
+<td>no background annotations</td>
+</tr>
+<tr class="even">
+<td><code>theme_classic()</code></td>
+<td>axis lines, no gridlines</td>
+</tr>
+<tr class="odd">
+<td><code>theme_void()</code></td>
+<td>completely empty</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-3"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb3-4"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme_grey</span>()    <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"theme_grey()"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme_bw</span>()      <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"theme_bw()"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-3-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"theme_minimal()"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-3-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Every theme has a <code>base_size</code> argument controlling the base font size (axis titles); the plot title is larger (1.2×) and tick/strip labels smaller (0.8×).</p>
+</section>
+<section class="slide level2">
+
+<p>Apply a theme to a single plot, or change the <strong>default</strong> for all plots with <code>theme_set()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())   <span class="co"># white background for every subsequent plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You are not limited to the built-ins. Packages such as <strong>ggthemes</strong> add many more, e.g.&nbsp;<code>theme_tufte()</code>, <code>theme_economist()</code>, <code>theme_solarized()</code>. Complete themes are a great starting point but offer little granular control — for that, you modify individual elements.</p>
+</section></section>
+<section>
+<section id="modifying-theme-components" class="title-slide slide level1 center">
+<h1>Modifying Theme Components</h1>
+
+</section>
+<section id="the-four-element-functions" class="slide level2">
+<h2>The Four Element Functions</h2>
+<p>To modify one component: <code>plot + theme(element.name = element_function())</code>. There are four basic element functions:</p>
+<ul>
+<li><code>element_text()</code> — labels and headings: <code>family</code>, <code>face</code>, <code>colour</code>, <code>size</code>, <code>hjust</code>, <code>vjust</code>, <code>angle</code>, <code>lineheight</code>, plus <code>margin()</code></li>
+<li><code>element_line()</code> — lines: <code>colour</code>, <code>linewidth</code>, <code>linetype</code></li>
+<li><code>element_rect()</code> — rectangles/backgrounds: <code>fill</code>, plus border <code>colour</code>, <code>linewidth</code>, <code>linetype</code></li>
+<li><code>element_blank()</code> — draws nothing <strong>and</strong> allocates no space</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>base_t <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"This is a ggplot"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
+<span id="cb7-2"><a href=""></a>base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">colour =</span> <span class="st">"red"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-5-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>base_t <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-5-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><code>element_line()</code> and <code>element_rect()</code> parameterise lines and backgrounds:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dotted"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-6-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"linen"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-6-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>element_blank()</code> suppresses an element entirely. Note that the plot <strong>reclaims</strong> the freed space — to keep the space (e.g.&nbsp;to align with other plots) use invisible elements via <code>colour = NA, fill = NA</code> instead.</p>
+</section>
+<section class="slide level2">
+
+<p>To modify elements for <strong>all future plots</strong>, use <code>theme_update()</code>, which returns the previous settings so you can restore them:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>old_theme <span class="ot">&lt;-</span> <span class="fu">theme_update</span>(</span>
+<span id="cb13-2"><a href=""></a>  <span class="at">plot.background  =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue3"</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb13-3"><a href=""></a>  <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>,  <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb13-4"><a href=""></a>  <span class="at">axis.text  =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"linen"</span>),</span>
+<span id="cb13-5"><a href=""></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"linen"</span>)</span>
+<span id="cb13-6"><a href=""></a>)</span>
+<span id="cb13-7"><a href=""></a><span class="co"># ... draw some plots ...</span></span>
+<span id="cb13-8"><a href=""></a><span class="fu">theme_set</span>(old_theme)  <span class="co"># restore</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section>
+<section>
+<section id="theme-elements" class="title-slide slide level1 center">
+<h1>Theme Elements</h1>
+
+</section>
+<section id="the-five-element-categories" class="slide level2">
+<h2>The Five Element Categories</h2>
+<p>Around 40 elements control plot appearance, grouped into five categories. <strong>Plot</strong> elements affect the whole plot:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Setter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>plot.background</code></td>
+<td><code>element_rect()</code></td>
+<td>background under everything</td>
+</tr>
+<tr class="even">
+<td><code>plot.title</code></td>
+<td><code>element_text()</code></td>
+<td>plot title</td>
+</tr>
+<tr class="odd">
+<td><code>plot.margin</code></td>
+<td><code>margin()</code></td>
+<td>margins around the plot</td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:38.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-8-2.png" class="quarto-figure quarto-figure-center" style="width:38.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="axis-elements">Axis Elements</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Setter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>axis.line</code></td>
+<td><code>element_line()</code></td>
+<td>axis line (hidden by default)</td>
+</tr>
+<tr class="even">
+<td><code>axis.text</code> / <code>.x</code> / <code>.y</code></td>
+<td><code>element_text()</code></td>
+<td>tick labels</td>
+</tr>
+<tr class="odd">
+<td><code>axis.title</code> / <code>.x</code> / <code>.y</code></td>
+<td><code>element_text()</code></td>
+<td>axis titles</td>
+</tr>
+<tr class="even">
+<td><code>axis.ticks</code></td>
+<td><code>element_line()</code></td>
+<td>tick marks</td>
+</tr>
+<tr class="odd">
+<td><code>axis.ticks.length</code></td>
+<td><code>unit()</code></td>
+<td>tick length</td>
+</tr>
+</tbody>
+</table>
+<p><code>axis.text</code> sets both axes at once; <code>axis.text.x</code> / <code>.y</code> inherit from it and override per axis. The most common tweak is rotating long x labels — negative angles look best, with <code>hjust = 0, vjust = 1</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"a long label"</span>, <span class="st">"an even longer label"</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb16-2"><a href=""></a>b2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb16-3"><a href=""></a>b2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>b2 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="sc">-</span><span class="dv">30</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-9-2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="legend-elements">Legend Elements</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Setter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>legend.background</code></td>
+<td><code>element_rect()</code></td>
+<td>whole-legend background</td>
+</tr>
+<tr class="even">
+<td><code>legend.key</code></td>
+<td><code>element_rect()</code></td>
+<td>background behind keys</td>
+</tr>
+<tr class="odd">
+<td><code>legend.key.height</code> / <code>.width</code></td>
+<td><code>unit()</code></td>
+<td>key dimensions</td>
+</tr>
+<tr class="even">
+<td><code>legend.text</code></td>
+<td><code>element_text()</code></td>
+<td>key labels</td>
+</tr>
+<tr class="odd">
+<td><code>legend.title</code></td>
+<td><code>element_text()</code></td>
+<td>legend name</td>
+</tr>
+</tbody>
+</table>
+<p>Layout is governed separately by <code>legend.position</code>, <code>legend.direction</code>, <code>legend.justification</code>, and <code>legend.box</code> (see §11.7).</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">z =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>), <span class="at">each =</span> <span class="dv">2</span>))</span>
+<span id="cb18-2"><a href=""></a>b3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df3, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> z)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb18-3"><a href=""></a>b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lemonchiffon"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-10-2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="panel-elements">Panel Elements</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Setter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>panel.background</code></td>
+<td><code>element_rect()</code></td>
+<td>panel background (under data)</td>
+</tr>
+<tr class="even">
+<td><code>panel.border</code></td>
+<td><code>element_rect()</code></td>
+<td>panel border (over data)</td>
+</tr>
+<tr class="odd">
+<td><code>panel.grid.major</code> / <code>.minor</code></td>
+<td><code>element_line()</code></td>
+<td>grid lines</td>
+</tr>
+<tr class="even">
+<td><code>aspect.ratio</code></td>
+<td>numeric</td>
+<td>panel aspect ratio</td>
+</tr>
+</tbody>
+</table>
+<p><code>panel.background</code> is drawn <em>under</em> the data, <code>panel.border</code> <em>over</em> it — so always set <code>fill = NA</code> when overriding the border. <code>aspect.ratio</code> controls the <strong>panel</strong>, not the whole plot:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"gray60"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-11-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">9</span> <span class="sc">/</span> <span class="dv">16</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-11-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="faceting-elements">Faceting Elements</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Setter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>strip.background</code></td>
+<td><code>element_rect()</code></td>
+<td>background of panel strips</td>
+</tr>
+<tr class="even">
+<td><code>strip.text</code> / <code>.x</code> / <code>.y</code></td>
+<td><code>element_text()</code></td>
+<td>strip text</td>
+</tr>
+<tr class="odd">
+<td><code>panel.spacing</code> / <code>.x</code> / <code>.y</code></td>
+<td><code>unit()</code></td>
+<td>margin between facets</td>
+</tr>
+</tbody>
+</table>
+<p><code>strip.text.x</code> affects both <code>facet_wrap()</code> and <code>facet_grid()</code>; <code>strip.text.y</code> affects only <code>facet_grid()</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>df4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"b"</span>))</span>
+<span id="cb23-2"><a href=""></a>bf <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df4, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)</span>
+<span id="cb23-3"><a href=""></a>bf <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"in"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>bf <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"white"</span>),</span>
+<span id="cb24-2"><a href=""></a>           <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey20"</span>, <span class="at">colour =</span> <span class="st">"grey80"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch17_files/figure-revealjs/unnamed-chunk-12-2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="saving-your-output" class="title-slide slide level1 center">
+<h1>Saving Your Output</h1>
+
+</section>
+<section id="raster-vs.-vector" class="slide level2">
+<h2>Raster vs.&nbsp;Vector</h2>
+<p>When exporting a plot you choose between two output families:</p>
+<ul>
+<li><strong>Vector</strong> graphics (pdf, svg) describe drawing operations, so they are effectively infinitely zoomable with no loss of detail. Prefer these unless you have a reason not to.</li>
+<li><strong>Raster</strong> graphics (png, jpg) are arrays of pixels with a fixed optimal size. Use them when the plot has thousands of objects (a vector file would be huge and slow) or when embedding in MS Office, which has poor vector support.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>ggplot2 provides <code>ggsave()</code>, optimised for interactive use — call it right after drawing a plot:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb25-2"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"output.pdf"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Key arguments:</p>
+<ul>
+<li><code>filename</code> — the file extension selects the device automatically (<code>.eps</code>, <code>.pdf</code>, <code>.svg</code>, <code>.png</code>, <code>.jpg</code>, <code>.tiff</code>, …)</li>
+<li><code>width</code>, <code>height</code> — output size in inches (defaults to the on-screen device size)</li>
+<li><code>dpi</code> — resolution for raster output (300 for print, 600 for high-resolution, 96 for screen)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong>Exercises</strong></p>
+<ol type="1">
+<li><p>Create the ugliest plot you can, combining as many garish <code>theme()</code> settings as possible. Which elements have the biggest visual impact?</p></li>
+<li><p><code>theme_dark()</code> darkens only the inside of the plot. Change the <em>plot</em> background to black too, then update the text colours so the labels remain readable.</p></li>
+<li><p>Build an elegant theme that uses “linen” as the background colour and a serif font for all text.</p></li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="4" type="1">
+<li><p>Reproduce the publication-ready <code>mpg</code> plot from the motivating example: start from <code>theme_bw()</code> and use a single <code>theme()</code> call to move the legend inside, pale the major gridlines, drop the minor gridlines, and bold the 12pt title.</p></li>
+<li><p>Systematically vary <code>hjust</code> for a multiline plot title. Why does <code>vjust</code> have no visible effect on the title?</p></li>
+<li><p>Compare <code>panel.background</code> against <code>panel.border</code>. Why must you set <code>fill = NA</code> when overriding the border?</p></li>
+<li><p>Save the same plot as both a <code>.pdf</code> and a <code>.png</code> at 600 dpi with <code>ggsave()</code>. When would you choose each format?</p></li>
+</ol>
+</section>
+<section id="acknowledgement" class="slide level2">
+<h2>Acknowledgement</h2>
+<ul>
+<li><p><strong>Copyright notice.</strong> These teaching materials have been adapted from <a href="https://ggplot2-book.org/themes.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>. All rights are reserved by the original authors and publishers.</p></li>
+<li><p><strong>Non-commercial use only.</strong> These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.</p></li>
+<li><p><strong>Proper attribution.</strong> Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.</p></li>
+</ul>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><code>ggplot2</code>: Elegant Graphics for Data Analysis</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ch17_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ch17_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch17_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch17_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch17_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch17_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ch17_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch17_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch17_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch17_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"hideMissingTitles":true,"titleSelector":"h1"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch17-zh.html"  style="color:#555;">[中文版由此去]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+    
+
+</body></html>

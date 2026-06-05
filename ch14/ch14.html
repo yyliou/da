@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ch14_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ch14_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ch14_files/libs/quarto-html/popper.min.js"></script>
+<script src="ch14_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ch14_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ch14_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ch14_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Yu-You Liou (NTU)">
+  <meta name="dcterms.date" content="2026-06-05">
+  <title>Data Analysis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ch14_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ch14_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="ch14_files/libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
+  <link href="ch14_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ch14_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ch14_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ch14_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-notes="" class="quarto-title-block center">
+  <h1 class="title">Data Analysis</h1>
+  <p class="subtitle">Chapter 14: Scales and Guides</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Yu-You Liou (NTU) 
+</div>
+        <p class="quarto-title-affiliation">
+            Shih Chien University
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-06-05</p>
+</section>
+<section>
+<section id="scales-and-guides" class="title-slide slide level1 center">
+<h1>Scales and Guides</h1>
+
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<p>The scales toolbox in Chapters 10–12 solved practical visualisation problems. This chapter steps back to the <strong>theory</strong> that underpins scales and guides, showing that ideas introduced for position or colour scales apply across <em>every</em> aesthetic.</p>
+<p>This chapter covers:</p>
+<ul>
+<li><strong>Theory</strong> — scales as functions from data space to aesthetic space, and guides as their inverse</li>
+<li><strong>Scale names</strong> — axis labels and legend titles as the same object</li>
+<li><strong>Breaks and limits</strong> — the values a guide displays, and out-of-bounds handling</li>
+<li><strong>Scale guides</strong> — the default guide for each scale type</li>
+<li><strong>Transformations</strong> — transforming non-position aesthetics</li>
+<li><strong>Legend merging and splitting</strong> — and customising legend key glyphs</li>
+</ul>
+</section></section>
+<section>
+<section id="theory-of-scales-and-guides" class="title-slide slide level1 center">
+<h1>Theory of Scales and Guides</h1>
+
+</section>
+<section id="scales-and-guides-1" class="slide level2">
+<h2>Scales and Guides</h2>
+<p>Formally, a <strong>scale</strong> is a function from a region of <em>data space</em> (its domain) to a region of <em>aesthetic space</em> (its range). The <strong>guide</strong> — an axis or a legend — is the inverse function: it lets you read visual properties back to data values.</p>
+<p>It may surprise you that axes and legends are the <em>same kind of thing</em>. They look very different but share one purpose, and their components line up:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Axis</th>
+<th>Legend</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td>Label</td>
+<td>Title</td>
+</tr>
+<tr class="even">
+<td><code>breaks</code></td>
+<td>Ticks &amp; grid lines</td>
+<td>Keys</td>
+</tr>
+<tr class="odd">
+<td><code>labels</code></td>
+<td>Tick labels</td>
+<td>Key labels</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<p>Legends are more complex than axes in three ways:</p>
+<ol type="1">
+<li>A legend can display <strong>multiple aesthetics</strong> (e.g.&nbsp;colour and shape) from <strong>multiple layers</strong>, and the key symbol depends on the geom used.</li>
+<li>Axes always appear in the same place; <strong>legends can be positioned</strong> anywhere, so they need a global positioning system.</li>
+<li>Legends have many tweakable details: orientation, number of columns, key size.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<h3 id="scale-specification">Scale Specification</h3>
+<p>Every aesthetic is associated with <strong>exactly one</strong> scale. When you write a mapping, ggplot2 silently adds a default scale for each aesthetic:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-3"><a href=""></a><span class="co"># What you write:</span></span>
+<span id="cb1-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class))</span>
+<span id="cb1-5"><a href=""></a></span>
+<span id="cb1-6"><a href=""></a><span class="co"># What ggplot2 does behind the scenes:</span></span>
+<span id="cb1-7"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb1-9"><a href=""></a>  <span class="fu">scale_x_continuous</span>() <span class="sc">+</span></span>
+<span id="cb1-10"><a href=""></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb1-11"><a href=""></a>  <span class="fu">scale_colour_discrete</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The default depends on the aesthetic and the variable type: a continuous <code>hwy</code> on <code>y</code> yields <code>scale_y_continuous()</code>; a discrete <code>class</code> on colour yields <code>scale_colour_discrete()</code>.</p>
+</section>
+<section class="slide level2">
+
+<p>Adding a scale with <code>+</code> actually <strong>overrides</strong> any existing scale for that aesthetic — the last one wins. ggplot2 warns you when this happens:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href=""></a>  <span class="fu">scale_x_sqrt</span>() <span class="sc">+</span></span>
+<span id="cb2-5"><a href=""></a>  <span class="fu">scale_colour_brewer</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch14_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>Here <code>scale_x_sqrt()</code> replaces the default x scale and <code>scale_colour_brewer()</code> replaces the default colour scale.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="naming-scheme-fundamental-types">Naming Scheme &amp; Fundamental Types</h3>
+<p>User-facing scale functions follow a three-part naming scheme separated by <code>_</code>:</p>
+<ol type="1">
+<li><code>scale</code></li>
+<li>the primary <strong>aesthetic</strong> (<code>colour</code>, <code>shape</code>, <code>x</code>, …)</li>
+<li>the <strong>name</strong> of the scale (<code>continuous</code>, <code>discrete</code>, <code>brewer</code>, …)</li>
+</ol>
+<p>Internally, <strong>all</strong> scales belong to one of three fundamental types, each built by a constructor you should never need to call directly:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Fundamental type</th>
+<th>Constructor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Continuous</td>
+<td><code>continuous_scale()</code></td>
+</tr>
+<tr class="even">
+<td>Discrete</td>
+<td><code>discrete_scale()</code></td>
+</tr>
+<tr class="odd">
+<td>Binned</td>
+<td><code>binned_scale()</code></td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="scale-limits" class="title-slide slide level1 center">
+<h1>Scale Limits</h1>
+
+</section>
+<section id="scale-limits-1" class="slide level2">
+<h2>Scale Limits</h2>
+<p>Scale <strong>limits</strong> define the <em>region</em> of data space over which the mapping is defined. The region differs by fundamental type: continuous and binned scales are defined by two end points, while discrete scales must <strong>enumerate</strong> their categories.</p>
+<p>This raises a question: what should ggplot2 do with <strong>out-of-bounds</strong> values that fall outside the limits? The behaviour is governed by the <code>oob</code> argument:</p>
+<ul>
+<li><code>scales::oob_censor()</code> (default) — replace out-of-bounds values with <code>NA</code></li>
+<li><code>scales::oob_squish()</code> — squish out-of-bounds values into the range</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">y =</span> <span class="dv">8</span><span class="sc">:</span><span class="dv">13</span>)</span>
+<span id="cb3-3"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> x)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">3.5</span>, <span class="at">colour =</span> <span class="st">"red"</span>)</span>
+<span id="cb3-6"><a href=""></a></span>
+<span id="cb3-7"><a href=""></a>a <span class="ot">&lt;-</span> base</span>
+<span id="cb3-8"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb3-9"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">oob =</span> scales<span class="sc">::</span>squish)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb4-2"><a href=""></a>a<span class="sc">|</span>b<span class="sc">|</span>c</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch14_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>Left: default fill. Middle: the three rightmost bars fall outside <code>limits = c(1, 3)</code> and become grey <code>NA</code>. Right: <code>oob = scales::squish</code> clamps them into range instead.</p>
+</section></section>
+<section>
+<section id="scale-guides" class="title-slide slide level1 center">
+<h1>Scale Guides</h1>
+
+</section>
+<section id="scale-guides-1" class="slide level2">
+<h2>Scale Guides</h2>
+<p>Where <code>name</code> takes text, the <code>guide</code> argument takes a <strong>guide object</strong> created by a guide function. Each scale type has a default guide:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Scale type</th>
+<th>Default guide</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>continuous colour/fill</td>
+<td><code>guide_colourbar()</code></td>
+</tr>
+<tr class="even">
+<td>binned colour/fill</td>
+<td><code>guide_coloursteps()</code></td>
+</tr>
+<tr class="odd">
+<td>position scales</td>
+<td><code>guide_axis()</code></td>
+</tr>
+<tr class="even">
+<td>discrete (non-position)</td>
+<td><code>guide_legend()</code></td>
+</tr>
+<tr class="odd">
+<td>binned (other)</td>
+<td><code>guide_bins()</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each guide function carries many arguments — equivalent to theme settings (text colour, size, font) but scoped to a single guide. Those settings are covered in Chapter 17.</p>
+</section></section>
+<section>
+<section id="scale-transformation" class="title-slide slide level1 center">
+<h1>Scale Transformation</h1>
+
+</section>
+<section id="scale-transformation-1" class="slide level2">
+<h2>Scale Transformation</h2>
+<p>Scale transformations are most common on continuous <strong>position</strong> scales (§10.1.7), but they apply to other aesthetics too. Often the purpose is visual emphasis. For the Old Faithful density, a square-root fill transform reveals the low-density regions around each peak:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb5-6"><a href=""></a>a <span class="ot">&lt;-</span> base</span>
+<span id="cb5-7"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">trans =</span> <span class="st">"sqrt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb6-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch14_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section>
+<section class="slide level2">
+
+<p>Transforming a <strong>size</strong> aesthetic changes its interpretation. On the left, <code>z</code> reads as a <em>weight</em> (larger = bigger group); reversing the scale makes <code>z</code> read as a <em>distance</em> (larger = appears smaller):</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb7-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">20</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">20</span>), <span class="at">z =</span> <span class="fu">sample</span>(<span class="dv">20</span>))</span>
+<span id="cb7-3"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">size =</span> z)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb7-4"><a href=""></a>a <span class="ot">&lt;-</span> base</span>
+<span id="cb7-5"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_size</span>(<span class="at">trans =</span> <span class="st">"reverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb8-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch14_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section></section>
+<section>
+<section id="legend-merging-and-splitting" class="title-slide slide level1 center">
+<h1>Legend Merging and Splitting</h1>
+
+</section>
+<section id="merging-legends" class="slide level2">
+<h2>Merging Legends</h2>
+<p>Position scales correspond one-to-one with axes, but the link between non-position scales and legends is looser: one legend may draw from multiple layers (<strong>merging</strong>), or one aesthetic may need multiple legends (<strong>splitting</strong>).</p>
+<p>ggplot2 uses the <strong>fewest</strong> legends possible, combining those where the same variable is mapped to different aesthetics. If both <code>colour</code> and <code>shape</code> map to the same variable, a single legend results:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href=""></a>toy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">const =</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">txt =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb9-3"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(const, up)) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>)</span>
+<span id="cb9-4"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> txt))</span>
+<span id="cb9-5"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape =</span> txt))</span>
+<span id="cb9-6"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape =</span> txt, <span class="at">colour =</span> txt))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb10-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch14_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section>
+<section class="slide level2">
+
+<p>For legends to merge they must share the same <code>name</code>. If you rename one scale, rename them all — <code>labs()</code> is a convenient way to do so:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(toy, <span class="fu">aes</span>(const, up)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape =</span> txt, <span class="at">colour =</span> txt)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>)</span>
+<span id="cb11-4"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">shape =</span> <span class="st">"Split legend"</span>)                              <span class="co"># two legends</span></span>
+<span id="cb11-5"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">shape =</span> <span class="st">"Merged legend"</span>, <span class="at">colour =</span> <span class="st">"Merged legend"</span>)   <span class="co"># one legend</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb12-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch14_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"><p>You can also force or suppress a layer’s appearance with the <code>show.legend</code> argument (<code>TRUE</code>/<code>FALSE</code>).</p>
+</section>
+<section class="slide level2">
+
+<h3 id="splitting-legends">Splitting Legends</h3>
+<p>Splitting is much rarer — mapping one aesthetic to two variables is usually inadvisable, so ggplot2 disallows it by default. The <strong>ggnewscale</strong> package overrides this: <code>new_scale_colour()</code> initialises a fresh colour scale. Commands above it apply to the first scale; commands below it apply to the second.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">factor</span>(year)), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">scale_colour_brewer</span>(<span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"qual"</span>, <span class="at">palette =</span> <span class="dv">5</span>)</span>
+<span id="cb13-4"><a href=""></a></span>
+<span id="cb13-5"><a href=""></a>base <span class="sc">+</span></span>
+<span id="cb13-6"><a href=""></a>  ggnewscale<span class="sc">::</span><span class="fu">new_scale_colour</span>() <span class="sc">+</span></span>
+<span id="cb13-7"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> cyl <span class="sc">==</span> <span class="dv">4</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href=""></a>  <span class="fu">scale_colour_manual</span>(<span class="st">"4 cylinder"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey60"</span>, <span class="st">"black"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section>
+<section>
+<section id="legend-key-glyphs" class="title-slide slide level1 center">
+<h1>Legend Key Glyphs</h1>
+
+</section>
+<section id="legend-key-glyphs-1" class="slide level2">
+<h2>Legend Key Glyphs</h2>
+<p>By default the glyph in a legend key matches the layer and aesthetic — coloured lines show up as coloured line segments, boxplots as small boxplots. To override this, use the <code>key_glyph</code> argument:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, psavert, <span class="at">colour =</span> <span class="st">"savings"</span>))</span>
+<span id="cb14-3"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb14-4"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">key_glyph =</span> <span class="st">"timeseries"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb15-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch14_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"><p>Each geom has an associated key-drawing function such as <code>draw_key_path()</code> or <code>draw_key_timeseries()</code>. You may pass the function directly: <code>key_glyph = draw_key_timeseries</code>.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Exercises</strong></p>
+<ol type="1">
+<li><p>Take <code>ggplot(mpg, aes(displ, hwy)) + geom_point(aes(colour = class))</code> and write out the three default scales that ggplot2 adds for you. Why is specifying them manually tedious?</p></li>
+<li><p>Build a <code>geom_col()</code> chart with <code>aes(fill = x)</code> and <code>scale_fill_gradient(limits = c(1, 3))</code>. Compare the default <code>oob</code> with <code>scales::squish</code>. When is each appropriate?</p></li>
+<li><p>List the default guide for each fundamental scale type. Which guide is shared by continuous, binned, and discrete position scales?</p></li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="4" type="1">
+<li><p>Reproduce the Old Faithful <code>faithfuld</code> raster with and without <code>trans = "sqrt"</code> on the fill scale. What does the transformation make easier to see?</p></li>
+<li><p>Using the <code>toy</code> data, create one plot where <code>colour</code> and <code>shape</code> map to the same variable and one where they map to differently named scales. Explain when legends merge.</p></li>
+<li><p>Use <code>ggnewscale::new_scale_colour()</code> to overlay two <code>geom_point()</code> layers on <code>mpg</code> with separate colour scales. Why does ggplot2 disallow splitting by default?</p></li>
+<li><p>Compare <code>geom_line()</code> with the default glyph against <code>key_glyph = "timeseries"</code> on the <code>economics</code> data. What other key-drawing functions can you find?</p></li>
+</ol>
+</section>
+<section id="acknowledgement" class="slide level2">
+<h2>Acknowledgement</h2>
+<ul>
+<li><p><strong>Copyright notice.</strong> These teaching materials have been adapted from <a href="https://ggplot2-book.org/scales-guides.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>. All rights are reserved by the original authors and publishers.</p></li>
+<li><p><strong>Non-commercial use only.</strong> These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.</p></li>
+<li><p><strong>Proper attribution.</strong> Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.</p></li>
+</ul>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><code>ggplot2</code>: Elegant Graphics for Data Analysis</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ch14_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ch14_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ch14_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ch14_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ch14_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ch14_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ch14_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ch14_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ch14_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ch14_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"hideMissingTitles":true,"titleSelector":"h1"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>
+    Reveal.on('ready', function() {
+      var title = Reveal.getSlides()[0];
+      if (title) {
+        title.insertAdjacentHTML('beforeend',
+          '<p style="font-size:0.5em; margin-top:1.5em;">' +
+          '<a href="ch14-zh.html"  style="color:#555;">[中文版由此去]</a>' +
+          '</p>');
+      }
+    });
+    </script>
+    
+
+</body></html>
