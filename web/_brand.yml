@@ -1,0 +1,9 @@
+logo:
+  medium: hex/da.svg
+
+color:
+  palette:
+    hex-terra: "#a4593e"
+    hex-terra-dark: "#7e3f2a"
+    hex-terra-light: "#e3b9a5"
+  primary: hex-terra

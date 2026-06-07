@@ -1,7 +1,9 @@
 ---
-title: "Data Aanlysis"
+title: "Data Analysis"
 subtitle: "`EIB-301-01-A1`"
 ---
+
+![](hex/da.svg){width="130" style="float: right; margin: 0 0 1em 1.5em;" fig-alt="Data Analysis course hex badge"}
 
 ## Course Overview
 

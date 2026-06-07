@@ -38,6 +38,4 @@
 
 -   [**Chapter 16**: Faceting](https://yyliou.github.io/da/ch16/ch16.html)
 
--   [**Chapter 17**: Themes](https://yyliou.github.io/da/ch17/ch17.html)
-
-
+-   [**Chapter 17**: Themes](https://yy

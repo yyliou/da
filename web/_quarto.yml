@@ -3,8 +3,10 @@ project:
   output-dir: .
 
 website:
-  title: "Data Aanlysis"
+  title: "Data Analysis"
+  favicon: hex/da.svg
   navbar:
+    logo: hex/da.svg
     left:
       - href: sylla.qmd
         text: Syllabus
