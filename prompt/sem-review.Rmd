@@ -1,0 +1,90 @@
+---
+title: "**Semester Grade Aggregator**"
+author: "Yu-You Liou"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Role
+
+You are an expert Professor of Data Analysis and an advanced R data analyst. Your task is to aggregate all graded components of this single-semester course — the midterm, the final, and the 12 in-class exercises — into one weighted final grade per student, and produce the consolidated scoreboard and statistical report described below.
+
+# Variables & Environment
+
+```
+- `[w-mid]` = 32             (Midterm weight, %)
+- `[w-fin]` = 32             (Final weight, %)
+- `[w-ex]`  = 36             (In-class exercises weight, %)
+                             (constraint: [w-mid] + [w-fin] + [w-ex] = 100)
+- Timezone: UTC+8
+- Input Score Files (all produced by the other graders):
+  |-- da-mid/mid-score.xlsx               # Midterm scoreboard
+  |-- da-fin/fin-score.xlsx               # Final scoreboard
+  `-- stu/
+       |-- <roster file>                  # Official class roster (Excel/CSV)
+       `-- ex1/ ... ex12/                 # 12 exercise folders, each with
+            `-- ex-score.xlsx             #   its own scoreboard
+- Output Directory: stu/sem/
+```
+
+# Execution Steps & Workflow
+
+## Step 1: Initialization & Roster Check
+
+1. Access the official class roster in `stu/` to retrieve the full list of student IDs and names. The roster is the **master index**: every roster student must appear in the final output exactly once.
+
+2. Load the three component sources:
+   - `da-mid/mid-score.xlsx` → column `Score` = midterm score
+   - `da-fin/fin-score.xlsx` → column `Score` = final score
+   - `stu/ex[k]/ex-score.xlsx` for $k = 1, \dots, 12$ → column `Score` = exercise $k$ score
+
+3. **Consistency Checks (abort with a clear error message if violated):**
+   - `[w-mid] + [w-fin] + [w-ex]` must equal 100.
+   - If a component file is missing or a roster student is absent from a component file, treat that component score as **0** for that student and flag it in the Note (e.g., `ex3 file missing`, `not in mid-score`). Do not silently drop students.
+
+## Step 2: Component Computation
+
+For each roster student:
+
+1. **Exercise Average:**
+$$\bar{E} = \frac{1}{12} \sum_{k=1}^{12} \text{Ex}_k$$
+
+2. **Weighted Total:**
+$$\text{Total} = \frac{[\text{w-mid}]}{100} \cdot \text{Mid} + \frac{[\text{w-fin}]}{100} \cdot \text{Fin} + \frac{[\text{w-ex}]}{100} \cdot \bar{E}$$
+
+3. Round $\bar{E}$ and Total to 2 decimal places. Total must lie in $[0, 100]$.
+
+## Step 3: Output Generation (`sem-score.xlsx`)
+
+1. Create the directory `stu/sem/`.
+
+2. Generate `sem-score.xlsx` inside it with columns (in order):
+   `StudentID`, `Name`, `Ex1`, ..., `Ex12`, `ExAvg`, `Mid`, `Fin`, `Total`, `Note`.
+
+3. **Note rules:**
+   - Carry over zero-score trigger reasons from the component scoreboards in compact form (e.g., `Mid: Invalid IP`, `Fin: Duplicate device`, `Ex: 5 missing`).
+   - Flag any data issue from Step 1.3.
+   - Students with no issues may be left blank.
+
+## Step 4: Statistical Reporting (`stat.Rmd` & `stat.pdf`)
+
+1. In `stu/sem/`, dynamically generate an RMarkdown file named `stat.Rmd` that reads `sem-score.xlsx` and performs:
+   - **Descriptive Statistics:** minimum, $Q_1$, median, $Q_3$, maximum, and mean of `Total`.
+   - **Data Visualization:**
+     - A clean boxplot of the `Total` distribution.
+     - A component-average bar chart comparing the class means of `ExAvg`, `Mid`, and `Fin`.
+     - A histogram of `Total` (bin width 10) showing the overall grade distribution.
+   - **Pass/Fail Summary:** counts and percentages of Total $\geq 60$ and Total $< 60$.
+   - **Weights Recap:** a small table restating `[w-mid]`, `[w-fin]`, `[w-ex]`.
+
+2. Knit/compile `stat.Rmd` into a production-ready `stat.pdf` in the same folder.
+
+## Step 5: Verification
+
+- Re-compute a random sample of 3 students' Totals by hand from the component files and confirm they match `sem-score.xlsx`.
+- Confirm the row count of `sem-score.xlsx` equals the roster size.

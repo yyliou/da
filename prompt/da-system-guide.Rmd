@@ -1,0 +1,751 @@
+---
+title: "**Data Analysis Teaching System: Architecture and Operations Guide**"
+author: "Yu-You Liou"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true
+header-includes:
+  - \usepackage{geometry}
+  - \geometry{a4paper, margin=2.5cm}
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{Data Analysis Teaching System}
+  - \fancyhead[R]{\thepage}
+  - \fancyfoot[C]{}
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+  - \usepackage{xcolor}
+  - \definecolor{codebg}{gray}{0.95}
+  - \usepackage{listings}
+  - \lstset{basicstyle=\ttfamily\small, breaklines=true,
+            frame=single, backgroundcolor=\color{codebg}}
+---
+
+```{r knitr-opts, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+\newpage
+
+# System Overview
+
+This document describes the complete architecture and operational procedures of the **Data Analysis Teaching System** (`da`), designed for the English Taught Program in International Business (ETP) at Shih Chien University. Unlike the two-semester Statistics system, this is a **single-semester course**; the entire system therefore carries no semester index — there is exactly one roster directory, one submission tree, and one pair of exam directories. The system is built on a core technology stack of R, Quarto, and R Markdown, integrating website publication, in-class exercises, and automated grading into a unified workflow.
+
+> **Course website:** <https://yyliou.github.io/da>
+> **Instructor:** Yu-You Liou (`d10627008@ntu.edu.tw`)
+
+## Course Structure
+
+| Course | Code | Semester | Schedule | Room | Chapters |
+|:---|:---|:---|:---|:---|:---|
+| Data Analysis | EIB-301-01-A1 | Fall 2026 | Tuesday, Periods 8--9 (15:10--17:00) | A207 | Ch. 1--17 |
+
+: Course Identification and Scheduling
+
+Each session is structured as two consecutive hours: the first hour is a **Lecture** covering foundational knowledge and concepts, and the second hour is a **Lab** in which students apply concepts through in-class exercises using the R programming language and `ggplot2`.
+
+## Assessment Structure
+
+| Component | Weight | Details |
+|:---|:---|:---|
+| In-Class Exercises | 36% | 12 exercises x 3% each |
+| Midterm Examination | 32% | |
+| Final Examination | 32% | |
+
+: Assessment Weighting and Components
+
+\newpage
+
+# Directory Architecture
+
+## Root Directory Structure
+
+The system root (`da/`) is organized as follows:
+
+```
+da/
+|-- index.html           # Published homepage (rendered output)
+|-- sylla.html           # Published syllabus landing page
+|-- slide.html           # Published slide index
+|-- prob.html            # Published problem set page
+|-- r.html               # Published R guide
+|-- site_libs/           # Quarto-generated site assets
+|-- hex/                 # Course hex logo (da.svg)
+|
+|-- web/                 # Website page sources (qmd) and configuration
+|   |-- web.Rproj        # RStudio project file
+|   |-- _quarto.yml      # Quarto website global configuration
+|   |-- _brand.yml       # Brand (theme) configuration
+|   |-- index.qmd        # Homepage (course overview, exam regulations)
+|   |-- sylla.qmd        # Syllabus landing page (links to PDF syllabus)
+|   |-- slide.qmd        # Slide index page (Parts I-IV)
+|   |-- prob.qmd         # Problem set page (template, submission links)
+|   `-- r.qmd            # R installation and usage guide
+|
+|-- ch1/ ... ch17/       # Per-chapter lecture slide directories
+|   |-- chN.qmd          # English Reveal.js slide source
+|   |-- chN-zh.qmd       # Traditional-Chinese parallel version
+|   |-- bib.bib          # Chapter bibliography
+|   `-- logo.svg         # Slide logo asset
+|
+|-- da-ps/               # In-class exercise problem sets
+|   |-- exN.qmd          # Exercise source (Reveal.js format)
+|   `-- exN.html         # Compiled HTML for publication
+|
+|-- da-ex/               # Student submissions
+|   `-- ex1/ ... ex12/
+|       `-- exN-[StudentID].pdf
+|
+|-- da-mid/              # Midterm materials and grading outputs
+|   |-- mid-score.xlsx   # Exam scoreboard (per-question scores)
+|   |-- stat.Rmd         # Analytics report source
+|   `-- stat.pdf         # Compiled analytics report
+|-- da-fin/              # Final exam materials and grading outputs
+|
+|-- stu/                 # Roster and grading outputs
+|   |-- [roster].xls     # Official roster exported from university system
+|   |-- ex[N]/
+|   |   |-- ex-score.xlsx
+|   |   |-- stat.Rmd
+|   |   `-- stat.pdf
+|   `-- sem/             # Semester-aggregate outputs
+|       |-- sem-score.xlsx
+|       |-- stat.Rmd
+|       `-- stat.pdf
+|
+|-- sylla/               # Syllabus source files
+|   `-- syllabus.Rmd / syllabus.pdf
+|
+|-- !-Archive/           # Archive of retired materials
+|
+`-- prompt/              # AI-assisted prompt documents
+    |-- prompt.Rmd       # Legacy slide generation prompt
+    |-- ex-review.Rmd    # In-class exercise grading prompt
+    |-- exam-review.Rmd  # Midterm/final exam auto-grading prompt
+    |-- sem-review.Rmd   # Semester grade aggregation prompt
+    |-- render.txt       # Batch render command for all chapter slides
+    `-- da-system-guide.Rmd   # This document
+```
+
+## Design Principles
+
+The directory structure adheres to six organizational principles:
+
+1. **One directory per chapter.** Directories `ch1/` through `ch17/` are self-contained units (sources, bibliography, logo, rendered output), facilitating independent version control and selective rendering.
+2. **Bilingual slide parity.** Every chapter maintains an English source (`chN.qmd`) and a structurally identical Traditional-Chinese version (`chN-zh.qmd`), cross-linked from the title slide.
+3. **Separation of page sources and published output.** Website page sources and configuration live in `web/`; rendered HTML is published from the repository root for GitHub Pages.
+4. **Separation of problem sets and submissions.** `da-ps/` (instructor-authored questions) and `da-ex/` (student submissions) maintain distinct responsibilities and access patterns.
+5. **Co-location of roster and grading outputs.** The `stu/` directory holds both the official class roster and all automated grading artifacts (per-exercise and semester-aggregate), enabling single-location lookup.
+6. **Centralized prompt management.** All AI-assisted documents are isolated within `prompt/`, decoupled from pedagogical content.
+
+Because the course spans a single semester, no directory carries a semester suffix (compare `stu1/`/`stu2/` and `stat1-ex/`/`stat2-ex/` in the Statistics system): the suffix-free names `stu/`, `da-ex/`, `da-mid/`, and `da-fin/` are unambiguous.
+
+\newpage
+
+# Technology Stack
+
+## Core Tools
+
+| Tool | Minimum Version | Purpose |
+|:---|:---|:------|
+| R | >= 4.2 | Statistical computation and document generation |
+| RStudio Desktop | Latest stable | Integrated development environment |
+| Quarto | >= 1.3 | Website and slide publication |
+| R Markdown | >= 2.20 | Assignment templates and grading reports |
+| TinyTeX | Current | LaTeX engine for PDF output |
+
+: Core Software Components
+
+## Required R Packages
+
+The following packages must be installed prior to system operation:
+
+```r
+# Document generation
+install.packages(c("rmarkdown", "knitr", "tinytex"))
+tinytex::install_tinytex()
+
+# Data manipulation and visualization
+install.packages(c("tidyverse", "ggplot2", "patchwork"))
+
+# Spreadsheet I/O for grading reports
+install.packages(c("readxl", "openxlsx"))
+
+# Academic integrity (UUID generation)
+install.packages("uuid")
+```
+
+## Website Publication Architecture
+
+The course website is built as a **Quarto Website** project, governed by `web/_quarto.yml` (with theme branding in `web/_brand.yml`). Key configuration decisions are summarized below.
+
+| Setting | Value |
+|:---|:------|
+| output-dir | . (HTML output at repository root for GitHub Pages) |
+| Page sources | web/ (index, sylla, slide, prob, r) |
+| Theme | Minty + brand (`_brand.yml`; styles.css disabled) |
+| Logo / favicon | hex/da.svg |
+| Navigation bar | Syllabus -> Slides -> Problem sets -> R |
+| Slide format | Reveal.js |
+| Math rendering | KaTeX |
+
+: Quarto Website Configuration Summary
+
+\newpage
+
+# Lecture Slide Authoring Workflow
+
+## File Format
+
+Each chapter's slides reside in `chN/chN.qmd` (English) and `chN/chN-zh.qmd` (Traditional Chinese), following the official textbook *ggplot2: Elegant Graphics for Data Analysis* (3rd ed.). The YAML header is **fixed**; only the subtitle and the language-switch link target may vary:
+
+```yaml
+---
+title: "Data Analysis"
+subtitle: "Chapter N: [Title]"
+author: "Yu-You Liou (NTU)"
+institute: "Shih Chien University"
+date: "`r Sys.Date()`"
+format: revealjs
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+logo: "logo.svg"
+editor: source
+bibliography: bib.bib
+suppress-bibliography: true
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+```
+
+The header additionally includes an `include-after-body` script and title-slide attributes that inject a language-switch link (`chN-zh.html` in the English file; `chN.html` in the Chinese file).
+
+## Authoring Standards
+
+Key conventions:
+
+- Each slide begins with a level-2 heading (`##`); part-level sections use level-1 headings (`#`).
+- Mathematical expressions use standard LaTeX syntax, e.g., `$\bar{x} = \frac{\sum x}{n}$`.
+- Definitions and key concepts are enclosed in Quarto callout blocks, which **must be perfectly balanced** (unbalanced callouts are the most common rendering failure):
+
+```markdown
+::: {.callout-note}
+**Definition** ...
+:::
+```
+
+- Every textbook example provides an executable R/`ggplot2` implementation with displayed output (code and plot rendered side by side where appropriate).
+- All prose must be original; verbatim reproduction of textbook text is prohibited.
+- **Bilingual parity:** `chN.qmd` and `chN-zh.qmd` must be structurally identical, slide for slide.
+- Existing chapters (`ch1/`--`ch17/`) serve as the clean reference standard for layout and style.
+
+## Generating a New Chapter
+
+```
+Step 1. Create the chapter directory with shared assets:
+        mkdir chN/ and copy bib.bib and logo.svg from an existing chapter.
+
+Step 2. Provide the slide generation prompt (prompt/prompt.Rmd) to an
+        AI assistant and request chN.qmd and chN-zh.qmd for the target
+        textbook chapter, replicating the structure of an existing
+        chapter directory.
+
+Step 3. Render both language versions (see prompt/render.txt for
+        the batch command):
+        quarto render chN/chN.qmd
+        quarto render chN/chN-zh.qmd
+
+Step 4. Update the chapter index in web/slide.qmd.
+```
+
+\newpage
+
+# Problem Set Management
+
+## Directory Mapping
+
+| Course | Problem Set Directory | Submission Directory |
+|:---|:---|:---|
+| Data Analysis | da-ps/ | da-ex/ |
+
+: Problem Set and Submission Directory Mapping
+
+## Problem Set Format
+
+Problem sets are authored as Reveal.js presentations (`da-ps/exN.qmd`), with one question per slide. A representative header:
+
+```yaml
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise N"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+---
+```
+
+## Submission and Grade Distribution Channels
+
+Submission and grade lookup are handled through shared **pCloud** links published on the problem set page (`web/prob.qmd`): one upload link (students place the PDF in the matching `exN` folder, which syncs to `da-ex/exN/`), and one read-only link for checking grades.
+
+## Submission Requirements
+
+Students must use the official template below and upload to the course pCloud folder `exN/` (synced to `da-ex/exN/`) using the exact naming convention `exN-[StudentID].pdf`.
+
+```r
+---
+title: "Ex. N"
+author: "StudentID"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+` ` `{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+` ` `
+
+` ` `{r}
+print(uuid::UUIDgenerate())
+` ` `
+```
+
+> **Every submission must include the UUID generation code block. This serves as the primary mechanism for academic integrity verification.**
+
+\newpage
+
+# Automated Grading System
+
+The system comprises three AI-driven grading pipelines: (1) in-class exercise grading (`ex-review.Rmd`), operating on PDF submissions; (2) examination grading (`exam-review.Rmd`), operating on Google Form responses; and (3) semester aggregation (`sem-review.Rmd`), which consolidates all components into the final grade.
+
+## Exercise Grading: Process Overview
+
+The grading pipeline consists of four sequential stages:
+
+```
+STAGE 1 | Initialization and Roster Reconciliation
+         Read the roster in stu/ -> construct student roster
+         Cross-reference da-ex/exN/ -> flag absent students
+         as Missing (Score = 0)
+
+STAGE 2 | Compliance Filtering (sequential; stops at first violation)
+         (i)  Submission timestamp > [deadline] (UTC+8)
+              -> Late Submission (Score = 0)
+         (ii) File is not PDF or does not match exN-[StudentID].pdf
+              -> Incorrect File Name/Format (Score = 0)
+         (iii) YAML missing title/author/date, or UUID chunk absent,
+               or author field does not match submitting student ID
+              -> Incorrect Internal Format (Score = 0)
+         (iv) UUID value identical to another submission, or
+              invalid/forged UUID
+              -> Plagiarism (Score = 0; all implicated students)
+
+STAGE 3 | Academic Content Grading
+         Total: 100 points, allocated equally across N questions
+         Each question scored against da-ps/exN.qmd answer key
+         Incorrect items noted as: [QN] is incorrect
+
+STAGE 4 | Output Generation
+         stu/exN/ex-score.xlsx  <- Scoreboard (4 columns)
+         stu/exN/stat.Rmd       <- Analytics report source
+         stu/exN/stat.pdf       <- Compiled analytics report
+```
+
+## Scoreboard Format (`ex-score.xlsx`)
+
+| Column | Type | Description |
+|:---|:---|:------|
+| StudentID | Character | University student identification number |
+| Name | Character | Student full name as listed in official roster |
+| Score | Integer (0--100) | Final score awarded for the submission |
+| Note | Character | Compliance violation code or incorrect question numbers |
+
+: Scoreboard Column Specification
+
+## Analytics Report (`stat.Rmd`)
+
+The analytics report reads `ex-score.xlsx` and produces three outputs:
+
+1. **Descriptive statistics table:** minimum, $Q_1$, median, $Q_3$, maximum, and mean of the score distribution.
+2. **Boxplot:** a publication-quality visualization of the score distribution rendered via `ggplot2`.
+3. **Submission summary table:** counts for Total, Missing, Late Submission, Incorrect Format, and Plagiarism.
+
+## Grading Note Codes
+
+| Code | Description | Score |
+|:---|:------|:---|
+| Missing | No file submitted by the deadline | 0 |
+| Late Submission | File submitted after the official deadline | 0 |
+| Incorrect File Name/Format | File is not PDF or does not follow naming convention exN-[ID].pdf | 0 |
+| Incorrect Internal Format | YAML header incomplete, author ID mismatch, or UUID chunk absent | 0 |
+| Plagiarism | UUID value matches another submission, or is invalid/forged | 0 |
+| [QN] is incorrect | Question N answer is incorrect or methodology is flawed | Partial deduction |
+
+: Grading Note Code Reference
+
+## Examination Grading Pipeline (`exam-review.Rmd`)
+
+Examinations are submitted online through a Google Form whose responses populate a Google Sheet with the fixed schema:
+
+```
+time | ip | user | id | name | q1 | q1ans | q2 | q2ans | ... | qN | qNans
+```
+
+where `qk` holds the student's R code for Question $k$ and `qkans` its reported output. The pipeline takes three parameters --- `[sheet]` (the Google Sheet URL), `[questions]` (the official question set with answers), and `[exam]` (`mid` or `fin`) --- plus the campus IP range constant `[campus-ip]`.
+
+```
+STAGE 1 | Data Acquisition and Roster Reconciliation
+         Download [sheet] as CSV; infer N from column pairs;
+         keep only the latest row per student ID.
+         Roster students with no submission -> Missing (Score = 0)
+
+STAGE 2 | Integrity Filtering (sequential; stops at first violation)
+         (i)  ip outside [campus-ip]
+              -> Invalid IP (off-campus) (Score = 0)
+         (ii) user value shared across different student IDs
+              -> Duplicate device (Score = 0; all implicated students)
+
+STAGE 3 | Per-Question Grading with Partial Credit
+         Total: 100 points, allocated equally across N questions.
+         Each question's score is recorded individually.
+         Partial-credit rubric:
+           Full -> correct method and matching answer
+           2/3  -> correct method/code, minor slip in reported answer
+           1/3  -> correct method, mis-transcribed input values
+           0    -> wrong method, irrelevant code, or blank
+
+STAGE 4 | Output Generation ([dir] = da-mid/ or da-fin/)
+         [dir]/[exam]-score.xlsx  <- Scoreboard (ID, Name, Q1..QN,
+                                     Score, Note)
+         [dir]/stat.Rmd           <- Analytics report source
+         [dir]/stat.pdf           <- Compiled analytics report
+```
+
+Compared to exercise grading, the exam analytics report adds a **per-question average-score bar chart**, and the submissions summary counts Invalid IP and Duplicate Device cases instead of Late/Plagiarism.
+
+## Semester Grade Aggregation (`sem-review.Rmd`)
+
+Run once, at the end of the semester, after all components are graded. Parameters: the component weights `[w-mid]`, `[w-fin]`, `[w-ex]` (must sum to 100; current syllabus values 32/32/36). There is no semester parameter --- the course is single-semester.
+
+```
+INPUT    da-mid/mid-score.xlsx           (midterm)
+         da-fin/fin-score.xlsx           (final)
+         stu/ex1..ex12/ex-score.xlsx     (12 exercises)
+
+COMPUTE  ExAvg = mean(Ex1..Ex12)
+         Total = w-mid/100 * Mid + w-fin/100 * Fin + w-ex/100 * ExAvg
+         (rounded to 2 decimals)
+
+OUTPUT   stu/sem/sem-score.xlsx
+           Columns: StudentID, Name, Ex1..Ex12, ExAvg, Mid, Fin,
+                    Total, Note
+         stu/sem/stat.Rmd + stat.pdf
+           Descriptive statistics of Total; boxplot; component-mean
+           bar chart; histogram (bin width 10); pass/fail summary
+           (Total >= 60); weights recap
+```
+
+Robustness rules: the roster is the master index (no student silently dropped); a missing component file or absent student contributes 0 and is flagged in `Note`; zero-score trigger reasons are carried over in compact form (e.g., `Mid: Invalid IP`); 3 randomly sampled Totals are re-computed by hand for verification.
+
+\newpage
+
+# Academic Integrity Mechanisms
+
+## UUID Verification
+
+Every submission must execute and display output from the following R code block:
+
+```r
+print(uuid::UUIDgenerate())
+```
+
+`uuid::UUIDgenerate()` produces a Version 4 UUID (Universally Unique Identifier) on each invocation, e.g., `6d2b9fda-2d9b-48f3-84bc-f82eabc39b4d`. The grading system compares this value across all submissions for a given exercise. If two or more files share an identical UUID, or if a file's UUID is invalid or forged, all implicated students receive a score of zero with the note `Plagiarism`.
+
+**Important implementation notes:**
+
+- The compliance filter is applied sequentially per file. A file that fails Stage 2 check (iii) (Incorrect Internal Format) is not evaluated for plagiarism within its own record; however, its UUID remains in the comparison pool and may trigger a Plagiarism flag in other students' records.
+- The `author` field in the YAML header must contain the submitting student's own ID. Use of another student's ID constitutes a format violation independent of the plagiarism check.
+
+## Examination Regulations
+
+In alignment with the course's paperless policy, examinations are conducted online. Examination materials are maintained in `da-mid/` and `da-fin/`.
+
+| Regulation | Policy |
+|:---|:------|
+| Mandatory attendance | Roll call 5 minutes before start; late arrival or absence results in score = 0 |
+| Network restriction | System tracks IP addresses; campus Wi-Fi required; non-campus IP results in score = 0 |
+| Authorized resources | Open-book; reference materials and AI tools are permitted as auxiliary aids |
+| Media prohibition | Photography, video/audio recording, and screenshotting result in score = 0 |
+| Communication prohibition | Interpersonal communication and disruptive behavior result in score = 0 |
+| Copy-paste disabled | Copy-paste functionality is disabled by the examination system |
+
+: Examination Conduct Regulations
+
+## AI Use Policy
+
+Students may use AI tools (e.g., ChatGPT, GitHub Copilot) as learning aids. However, students must be capable of explaining and defending any code or analysis they submit. Uncritical submission of AI-generated content without demonstrated understanding constitutes academic dishonesty and is subject to the same consequences as plagiarism.
+
+\newpage
+
+# AI Prompt Management
+
+The `prompt/` directory contains structured prompt documents for AI-assisted course material generation and grading.
+
+| File | Purpose |
+|:---|:------|
+| prompt.Rmd | Legacy slide generation prompt (retained for reference) |
+| ex-review.Rmd | Automated grading prompt for in-class exercises |
+| exam-review.Rmd | Midterm/final examination auto-grading prompt (Google Form pipeline) |
+| sem-review.Rmd | Semester grade aggregation prompt (weighted total of all components) |
+| render.txt | Batch quarto render command for all chapter slides |
+| da-system-guide.Rmd | This technical document |
+
+: Prompt Directory File Inventory
+
+## Exercise Grading Prompt (`ex-review.Rmd`)
+
+Key components of the grading prompt:
+
+- Definition of environment variables: `[deadline]` (UTC+8), `[no]` (exercise number), and root directory structure (`stu/`, `da-ps/`, `da-ex/`).
+- Specification of all four grading stages with precise conditional logic.
+- Output format requirements: scoreboard column names, Rmd content sections, and PDF compilation.
+
+Because the course is single-semester, there is exactly one exercise grading prompt (compare `ex-review1.Rmd`/`ex-review2.Rmd` in the Statistics system).
+
+## Examination Grading Prompt (`exam-review.Rmd`)
+
+Parameters: `[sheet]` (Google Sheet URL of form responses), `[questions]` (official question set with answers), `[exam]` (`mid`/`fin`), and the constant `[campus-ip]`. Implements the four-stage examination pipeline described in the Automated Grading System section: CSV acquisition and roster reconciliation, integrity filtering (campus IP, duplicate device), per-question grading with the full/2-3/1-3/0 partial-credit rubric, and output to `da-mid/` or `da-fin/`.
+
+## Semester Aggregation Prompt (`sem-review.Rmd`)
+
+Parameters: weights `[w-mid]`, `[w-fin]`, `[w-ex]` (sum = 100; no semester parameter). Consolidates the midterm, final, and 12 exercise scoreboards into `stu/sem/sem-score.xlsx` with the weighted Total, carries over zero-score reasons into the Note column, and produces the semester analytics report (`stat.Rmd`/`stat.pdf`).
+
+\newpage
+
+# Operations Guide
+
+## New Semester Initialization
+
+```
+1. Export official class roster from the university administrative system.
+   Save to stu/.
+
+2. Update sylla/syllabus.Rmd with the current semester's schedule
+   and policies. Knit to PDF.
+
+3. Verify web/_quarto.yml navigation links and semester metadata in
+   web/index.qmd and web/sylla.qmd.
+
+4. Create or empty the pCloud submission folders (ex1-ex12) and
+   confirm the upload/grade-lookup links in web/prob.qmd.
+
+5. Rebuild the website pages and republish.
+```
+
+## Weekly Problem Set Publication
+
+```
+1. Create da-ps/exN.qmd in Reveal.js format.
+   Each slide corresponds to one question.
+
+2. Render the problem set:
+   quarto render da-ps/exN.qmd
+
+3. Update the problem set index in web/prob.qmd.
+```
+
+## Weekly Submission Collection and Grading
+
+```
+1. Students upload exN-[StudentID].pdf to the course pCloud folder,
+   which syncs to da-ex/exN/.
+
+2. Execute the AI grading prompt (prompt/ex-review.Rmd) with
+   [no] set to the exercise number and [deadline] set to the
+   submission deadline (UTC+8).
+
+3. Verify generated scoreboard: stu/exN/ex-score.xlsx
+
+4. Verify analytics report: stu/exN/stat.pdf
+
+5. Grades are published to students via the read-only pCloud link.
+```
+
+## Examination Grading
+
+```
+1. Conduct the exam online; responses collect in the Google Sheet.
+
+2. Execute the AI exam grading prompt (prompt/exam-review.Rmd) with
+   [sheet] set to the response sheet URL, [questions] set to the
+   official question set (with answers), and [exam] = mid or fin.
+
+3. Verify scoreboard: da-mid/mid-score.xlsx (or da-fin/fin-score.xlsx)
+   — per-question scores plus zero-score reasons.
+
+4. Verify analytics report: stat.pdf in the same directory.
+```
+
+## End-of-Semester Grade Aggregation
+
+```
+1. Confirm all 12 exercise scoreboards and both exam scoreboards exist.
+
+2. Execute the AI aggregation prompt (prompt/sem-review.Rmd) with
+   the syllabus weights ([w-mid]/[w-fin]/[w-ex] = 32/32/36).
+
+3. Verify stu/sem/sem-score.xlsx (row count = roster size) and
+   the semester analytics report stat.pdf.
+
+4. Submit final grades to the university system.
+```
+
+## Generating a New Lecture Chapter
+
+```
+1. Create chN/ and copy bib.bib and logo.svg from an existing chapter.
+
+2. Generate chN.qmd and chN-zh.qmd with an AI assistant, replicating
+   the structure and style of the existing chapters.
+
+3. Review, edit, and finalize both files in RStudio.
+
+4. Render (batch command in prompt/render.txt):
+   quarto render 'ch*/ch*.qmd'
+
+5. Add the chapter link to web/slide.qmd.
+```
+
+## Full-Site Publication (GitHub Pages)
+
+```bash
+# Render updated pages/slides, e.g.
+quarto render 'ch*/ch*.qmd'
+
+# Commit and push to trigger GitHub Pages deployment
+git add .
+git commit -m "Update: Week N — [brief description]"
+git push origin main
+```
+
+## Troubleshooting Reference
+
+| Symptom | Probable Cause | Resolution |
+|:---|:---|:---|
+| PDF output fails | TinyTeX not installed or incomplete | Run: tinytex::install_tinytex() |
+| UUID package not found | uuid package not installed | Run: install.packages('uuid') |
+| Quarto render error | Quarto version outdated | Update Quarto to latest stable release |
+| Roster file read error | Legacy .xls format compatibility | Use readxl package or resave as .xlsx |
+| Slide math not rendering | KaTeX configuration missing | Set html-math-method: katex in YAML |
+
+: Common Issues and Resolutions
+
+\newpage
+
+# Course Chapter Reference
+
+The course follows the official textbook *ggplot2: Elegant Graphics for Data Analysis* (3rd ed.), organized into four parts across 17 chapters.
+
+## Weekly Schedule
+
+| Week | Part / Chapters | Topic | Exercises |
+|:---|:---|:------|:---|
+| 1--2 | Part I (Ch. 1--2) | Introduction to R; first steps with `ggplot2` | ex1--ex2 |
+| 3--7 | Part II (Ch. 3--9) | Layers: individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots | ex3--ex7 |
+| 8--9 | --- | Midterm presentations / Midterm Examination | --- |
+| 10--11 | Part III (Ch. 10--12) | Scales: position scales, colour scales, other aesthetics | ex8--ex9 |
+| 12--14 | Part IV (Ch. 13--17) | The grammar: building plots layer by layer, scales and guides, coordinate systems, faceting, themes | ex10--ex12 |
+| 15--16 | --- | Final presentations / Final Examination | --- |
+| 17--18 | --- | Flexible Learning Weeks | --- |
+
+: Weekly Schedule and Exercise Mapping
+
+## Chapter Index
+
+| Part | Chapter | Title |
+|:---|:---|:------|
+| I | Ch. 1 | Introduction |
+| I | Ch. 2 | First Steps |
+| II | Ch. 3 | Individual geoms |
+| II | Ch. 4 | Collective geoms |
+| II | Ch. 5 | Statistical summaries |
+| II | Ch. 6 | Maps |
+| II | Ch. 7 | Networks |
+| II | Ch. 8 | Annotations |
+| II | Ch. 9 | Arranging plots |
+| III | Ch. 10 | Position scales and axes |
+| III | Ch. 11 | Colour scales and legends |
+| III | Ch. 12 | Other aesthetics |
+| IV | Ch. 13 | Build a plot layer by layer |
+| IV | Ch. 14 | Scales and guides |
+| IV | Ch. 15 | Coordinate systems |
+| IV | Ch. 16 | Faceting |
+| IV | Ch. 17 | Themes |
+
+: Chapter Index (mirrors web/slide.qmd)
+
+\newpage
+
+# Appendix
+
+## A. Official Submission Template
+
+```yaml
+---
+title: "Ex. 1"
+author: "A113290001"
+date: "2026-09-22"
+output: pdf_document
+---
+```
+
+```r
+# This chunk is mandatory in every submission.
+print(uuid::UUIDgenerate())
+
+# Exercise solutions follow below.
+```
+
+## B. Directory Quick Reference
+
+| Directory | Purpose |
+|:---|:------|
+| web/ | Website page sources, Quarto/brand configuration, RStudio project |
+| ch1/--ch17/ | Bilingual Reveal.js lecture slide sources, one subdirectory per chapter |
+| da-ps/ | In-class exercise problem sets |
+| da-ex/exN/ | Student PDF submissions for exercise N |
+| da-mid/, da-fin/ | Exam materials and grading outputs ([exam]-score.xlsx, stat.pdf) |
+| stu/exN/ | Exercise grading outputs (scoreboard, analytics report) |
+| stu/sem/ | Semester-aggregate scoreboard and analytics report |
+| sylla/ | Syllabus R Markdown source files |
+| hex/ | Course hex logo (da.svg) |
+| prompt/ | AI prompts and this technical document |
+| !-Archive/ | Archive of retired materials |
+
+: Directory Purpose Quick Reference
+
+## C. References
+
+- Wickham, H., Navarro, D., & Pedersen, T. L. *ggplot2: Elegant Graphics for Data Analysis* (3rd ed.). <https://ggplot2-book.org>
+- Adler, J. *R in a Nutshell: A Desktop Quick Reference* (2nd ed.). O'Reilly Media.
+- R Core Team. (2024). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing. <https://www.R-project.org>
+- Posit, PBC. (2024). *RStudio Desktop*. <https://posit.co/download/rstudio-desktop>
+- Allaire, J. J., et al. (2024). *Quarto*. <https://quarto.org>
+- Course website: <https://yyliou.github.io/da>

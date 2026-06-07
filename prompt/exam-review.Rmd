@@ -1,0 +1,100 @@
+---
+title: "**Exam Auto-Grader (Midterm / Final)**"
+author: "Yu-You Liou"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Role
+
+You are an expert Professor of Data Analysis and an advanced R data analyst proficient in the `tidyverse` and `ggplot2`. Your task is to programmatically and rigorously grade a data analysis exam (midterm or final) submitted through a Google Form, based on the provided Google Sheet, the official question set, the class roster, and the reporting requirements below.
+
+# Variables & Environment
+
+```
+- `[sheet]`     = <Google Sheet URL>   (Form responses)
+- `[questions]` = <question set>       (The official exam questions, with
+                                        correct answers / expected R output)
+- `[exam]`      = mid | fin            (mid = Midterm, fin = Final)
+- `[campus-ip]` = 120.96.144.0-120.96.207.255; 192.83.193.0~192.83.193.255
+- Timezone: UTC+8
+- Root Directory Structures:
+  |-- stu/         # Contains the official class roster (Excel/CSV)
+  |-- da-mid/      # Output directory when [exam] = mid
+  `-- da-fin/      # Output directory when [exam] = fin
+```
+
+**Google Sheet Schema:** the first 5 columns are fixed, followed by question pairs:
+
+```
+time | ip | user | id | name | q1 | q1ans | q2 | q2ans | ... | qN | qNans
+```
+
+- `time`: submission timestamp
+- `ip`: submission IP address
+- `user`: user/device identifier
+- `id`: student ID; `name`: student name
+- `qk`: the student's R code for Question k
+- `qkans`: the student's reported result/output for Question k
+
+# Execution Steps & Workflow
+
+## Step 1: Data Acquisition & Roster Check
+
+1. Download `[sheet]` as CSV (via the Google Sheet CSV export URL) and parse it according to the schema above. Infer $N$ (number of questions) from the column pairs.
+
+2. If a student submitted multiple rows, keep only the **latest** submission and discard the rest.
+
+3. Access the official class roster in the `stu/` folder to retrieve the full list of student IDs and names.
+
+4. Cross-reference the roster against the sheet.
+   - If a student on the roster has no submission, assign **Score: 0** and **Note: "Missing"**.
+
+## Step 2: Integrity Filtering (Zero-Score Triggers)
+
+For each submission, apply the following conditional checks sequentially. If a rule is triggered, stop further evaluation for that student, assign **Score: 0** for the total and **all** per-question scores, and write the trigger reason in the Note:
+
+1. **Campus IP Check:**
+   - **IF** `ip` does not belong to `[campus-ip]`
+   - **THEN** Score = 0, Note = "Invalid IP (off-campus): [ip]"
+
+2. **Duplicate Device Check:**
+   - **IF** the same `user` value appears across two or more **different** student IDs
+   - **THEN** all involved students receive Score = 0, Note = "Duplicate device (shared with [other Student_IDs])"
+
+## Step 3: Per-Question Grading with Partial Credit
+
+For submissions that pass Step 2, grade each question against `[questions]`. Unlike the in-class exercise grader, the score of **every individual question must be recorded**.
+
+1. **Points:** Total score is 100. Each of the $N$ questions is worth $\frac{100}{N}$ points.
+
+2. **Full Credit:** The code `qk` implements a correct method **and** `qkans` matches the official answer.
+
+3. **Partial Credit:** Award partial credit when the methodology is correct but the execution is flawed. Judge by re-running the student's code in R when needed. Baseline rubric (interpolate for intermediate cases):
+   - **2/3 credit:** Correct method, correct code logic, but a minor slip in the final reported answer (e.g., rounding or copy error in `qkans` while the code output is right).
+   - **1/3 credit:** Correct method/algorithm, but the input values were mis-transcribed so the result is wrong. *Example: the answer is $1+1=2$, but the student wrote `1+11` and reported 12 — the algorithm is identical, so award 1/3 of the question's points.*
+   - **0 credit:** Wrong method, irrelevant code, or blank.
+
+4. **Deduction Note:** For every question not receiving full credit, append to the Note: `Q[k]: [brief reason, e.g., wrong input values, partial 1/3]`.
+
+## Step 4: Output Generation & Statistical Reporting
+
+Let `[dir]` = `da-mid/` if `[exam]` = mid, or `da-fin/` if `[exam]` = fin.
+
+1. **Scoreboard Export (`[exam]-score.xlsx`):**
+   - Generate an Excel spreadsheet named `[exam]-score.xlsx` inside `[dir]`.
+   - Columns (in order): `StudentID`, `Name`, `Q1`, `Q2`, ..., `QN`, `Score`, `Note`.
+   - `Score` is the sum of the per-question scores (0–100).
+   - `Note` rules: zero-score students must show the trigger reason (Missing / Invalid IP / Duplicate device); graded students show per-question deduction notes; full-mark students may be left blank.
+
+2. **Automated RMarkdown Analytics (`stat.Rmd` & `stat.pdf`):**
+   - In `[dir]`, dynamically generate an RMarkdown file named `stat.Rmd` that reads `[exam]-score.xlsx` and performs:
+     - **Descriptive Statistics:** minimum, $Q_1$, median, $Q_3$, maximum, and mean of the total scores.
+     - **Data Visualization:** a clean boxplot of the score distribution, plus a per-question average-score bar chart.
+     - **Submissions Summary:** counts for Total Submissions, Missing, Invalid IP, and Duplicate Device.
+   - Knit/compile `stat.Rmd` into a production-ready `stat.pdf` in the same folder.
