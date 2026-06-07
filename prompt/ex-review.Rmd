@@ -70,7 +70,7 @@ For each submitted file, apply the following conditional checks sequentially. If
 ---
 
 ## Step 3: Academic Content Grading
-For submissions that pass all filters in Step 2, grade the content against the question set in `stat1-ps/`:
+For submissions that pass all filters in Step 2, grade the content against the question set in `da-ps/`:
 
 - **Score Calculation:** Total score is 100 points. Let $N$ be the total number of questions in the problem set. Each question is worth $\frac{100}{N}$ points (e.g., 50 points each for 2 questions; 25 points each for 4 questions).
 

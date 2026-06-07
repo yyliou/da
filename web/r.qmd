@@ -6,9 +6,9 @@ R is the underlying statistical computing environment and must be installed befo
 
 1.  Navigate to the official CRAN repository: <https://cran.r-project.org>
 2.  Select the installer appropriate for your operating system:
-    -   **Windows**: Click *Download R for Windows* → *base* → download and execute the installer
-    -   **macOS**: Click *Download R for macOS* → select the build matching your architecture (Apple Silicon users should select the `arm64` build)
-    -   **Linux**: Follow the distribution-specific installation instructions provided on the page
+    - **Windows**: Click *Download R for Windows* → *base* → download and execute the installer
+    - **macOS**: Click *Download R for macOS* → select the build matching your architecture (Apple Silicon users should select the `arm64` build)
+    - **Linux**: Follow the distribution-specific installation instructions provided on the page
 3.  Run the installer using the default configuration settings.
 
 ### Step 2: Install RStudio Desktop
@@ -81,12 +81,9 @@ R Markdown uses standard Markdown syntax for formatting prose, supplemented by f
 
 **Example code chunk:**
 
-
-````{r, eval = F}
-```{r}
+```{r, eval = F}
 summary(mtcars)
 ```
-````
 
 ```{r,echo=FALSE}
 summary(mtcars)
@@ -107,4 +104,4 @@ Click the **Knit** button in the RStudio toolbar, or use the keyboard shortcut `
 >   - \setmainfont{Noto Sans CJK TC}
 > ```
 
------------------------------------------------------
+------------------------------------------------------------------------

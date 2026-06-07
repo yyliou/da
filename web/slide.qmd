@@ -1,41 +1,41 @@
 ## Part I: Introduction
 
--   [**Chapter 1**: Introduction](https://yyliou.github.io/da/ch1/ch1.html)
+- [**Chapter 1**: Introduction](https://yyliou.github.io/da/ch1/ch1.html)
 
--   [**Chapter 2**: First Steps](https://yyliou.github.io/da/ch2/ch2.html)
+- [**Chapter 2**: First Steps](https://yyliou.github.io/da/ch2/ch2.html)
 
 ## Part II: Layers
 
--   [**Chapter 3**: Individual geoms](https://yyliou.github.io/da/ch3/ch3.html)
+- [**Chapter 3**: Individual geoms](https://yyliou.github.io/da/ch3/ch3.html)
 
--   [**Chapter 4**: Collective geoms geoms](https://yyliou.github.io/da/ch4/ch4.html)
+- [**Chapter 4**: Collective geoms geoms](https://yyliou.github.io/da/ch4/ch4.html)
 
--   [**Chapter 5**: Statistical summaries geoms](https://yyliou.github.io/da/ch5/ch5.html)
+- [**Chapter 5**: Statistical summaries geoms](https://yyliou.github.io/da/ch5/ch5.html)
 
--   [**Chapter 6**: Maps](https://yyliou.github.io/da/ch6/ch6.html)
+- [**Chapter 6**: Maps](https://yyliou.github.io/da/ch6/ch6.html)
 
--   [**Chapter 7**: Networks](https://yyliou.github.io/da/ch7/ch7.html)
+- [**Chapter 7**: Networks](https://yyliou.github.io/da/ch7/ch7.html)
 
--   [**Chapter 8**: Annotations](https://yyliou.github.io/da/ch8/ch8.html)
+- [**Chapter 8**: Annotations](https://yyliou.github.io/da/ch8/ch8.html)
 
--   [**Chapter 9**: Arranging plots](https://yyliou.github.io/da/ch9/ch9.html)
+- [**Chapter 9**: Arranging plots](https://yyliou.github.io/da/ch9/ch9.html)
 
 ## Part III: Scales
 
--   [**Chapter 10**: Position scales and axes](https://yyliou.github.io/da/ch10/ch10.html)
+- [**Chapter 10**: Position scales and axes](https://yyliou.github.io/da/ch10/ch10.html)
 
--   [**Chapter 11**: Colour scales and legends](https://yyliou.github.io/da/ch11/ch11.html)
+- [**Chapter 11**: Colour scales and legends](https://yyliou.github.io/da/ch11/ch11.html)
 
--   [**Chapter 12**: Other aesthetics](https://yyliou.github.io/da/ch12/ch12.html)
+- [**Chapter 12**: Other aesthetics](https://yyliou.github.io/da/ch12/ch12.html)
 
 ## Part IV: The Grammar
 
--   [**Chapter 13**: Build a plot layer by layer](https://yyliou.github.io/da/ch13/ch13.html)
+- [**Chapter 13**: Build a plot layer by layer](https://yyliou.github.io/da/ch13/ch13.html)
 
--   [**Chapter 14**: Scales and guides](https://yyliou.github.io/da/ch14/ch14.html)
+- [**Chapter 14**: Scales and guides](https://yyliou.github.io/da/ch14/ch14.html)
 
--   [**Chapter 15**: Coordinate systems](https://yyliou.github.io/da/ch15/ch15.html)
+- [**Chapter 15**: Coordinate systems](https://yyliou.github.io/da/ch15/ch15.html)
 
--   [**Chapter 16**: Faceting](https://yyliou.github.io/da/ch16/ch16.html)
+- [**Chapter 16**: Faceting](https://yyliou.github.io/da/ch16/ch16.html)
 
--   [**Chapter 17**: Themes](https://yy
+- [**Chapter 17**: Themes](https://yyliou.github.io/da/ch17/ch17.html)
