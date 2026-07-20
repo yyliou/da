@@ -355,9 +355,7 @@ j1 | j2
 
 The verbose form has a shortcut: `geom_jitter(width = 0.05, height = 0.5)`. Jittering is most useful for **discrete** data, where exact overlaps are common.
 
----
-
-**Exercises**
+## Exercises
 
 1. The first two arguments to `ggplot()` are `data` then `mapping`; for every layer function they are `mapping` then `data`. Why does the order differ? What does this tell you about what you set most commonly?
 

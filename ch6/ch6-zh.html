@@ -6,11 +6,11 @@
 <script src="ch6-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch6-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch6-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch6-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch6-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="地圖" class="title-slide slide level1 center">
@@ -227,11 +227,11 @@
 </ol>
 <p>本章處理這兩個問題，並按以下方式組織：</p>
 <ul>
-<li><strong>第 6.1 節</strong>——以 <code>geom_polygon()</code> 製作的、以多邊形為基礎的地圖，最簡單的方法。</li>
-<li><strong>第 6.2 節</strong>——以 <code>geom_sf()</code> 製作的現代簡單要素（sf）地圖。</li>
-<li><strong>第 6.3 節</strong>——地圖投影與座標參考系統。</li>
-<li><strong>第 6.4 節</strong>——以程式化方式處理 sf 資料結構。</li>
-<li><strong>第 6.5 節</strong>——使用衛星影像、以光柵為基礎的地圖。</li>
+<li><strong>§6.1</strong>——以 <code>geom_polygon()</code> 製作的、以多邊形為基礎的地圖，最簡單的方法。</li>
+<li><strong>§6.2</strong>——以 <code>geom_sf()</code> 製作的現代簡單要素（sf）地圖。</li>
+<li><strong>§6.3</strong>——地圖投影與座標參考系統。</li>
+<li><strong>§6.4</strong>——以程式化方式處理 sf 資料結構。</li>
+<li><strong>§6.5</strong>——使用衛星影像、以光柵為基礎的地圖。</li>
 </ul>
 </section></section>
 <section>
@@ -293,7 +293,7 @@
 
 <p><strong><code>coord_quickmap()</code></strong></p>
 <p>兩張圖都呼叫 <code>coord_quickmap()</code>，它調整圖的長寬比，使一度經度與一度緯度在頁面上占據相等的長度。沒有這個校正，地圖就會在幾何上失真——在赤道附近被水平拉伸，或在較高緯度被壓縮。</p>
-<p><code>coord_quickmap()</code> 是一個快速的線性近似。對於高精度的製圖——尤其是大區域、極區，或出版用的製圖產品——<code>geom_sf()</code> / <code>coord_sf()</code> 工作流程（第 6.2 節）提供了以正規地圖投影為基礎的嚴謹解法。</p>
+<p><code>coord_quickmap()</code> 是一個快速的線性近似。對於高精度的製圖——尤其是大區域、極區，或出版用的製圖產品——<code>geom_sf()</code> / <code>coord_sf()</code> 工作流程（§6.2）提供了以正規地圖投影為基礎的嚴謹解法。</p>
 </section></section>
 <section>
 <section id="簡單要素地圖" class="title-slide slide level1 center">
@@ -366,7 +366,7 @@ Geodetic CRS:  GDA94
 <li><strong>自動偵測</strong>——若資料是 sf 物件，<code>geom_sf()</code> 會找到 geometry 欄位，無論其名稱為何。</li>
 <li><strong>明確</strong>——你永遠可以寫 <code>aes(geometry = my_column)</code> 來直接指定欄位。當一個資料框包含多個 geometry 欄位時，這是必要的。</li>
 </ol>
-<p><code>coord_sf()</code> 處理地圖投影；它的角色將在第 6.3 節完整討論。</p>
+<p><code>coord_sf()</code> 處理地圖投影；它的角色將在 §6.3 完整討論。</p>
 </section>
 <section id="分層地圖" class="slide level2">
 <h2>分層地圖</h2>

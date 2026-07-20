@@ -45,15 +45,15 @@ When building a data visualisation, supplying the plot itself is rarely sufficie
 
 Conceptually, annotations are simply data about data. Because of this, ggplot2 implements annotations using the exact same geoms used for plotting data, with a small set of helper functions layered on top for convenience.
 
-------------------------------------------------------------------------
+---
 
 **Chapter roadmap**
 
-- **Section 8.1** — Setting plot and axis titles with `labs()`.
-- **Section 8.2** — Adding text labels with `geom_text()` and `geom_label()`.
-- **Section 8.3** — Building custom annotations using geoms and `annotate()`.
-- **Section 8.4** — Direct labelling with `directlabels`, `ggforce`, and `gghighlight`.
-- **Section 8.5** — Annotation across facets.
+- **§8.1** — Setting plot and axis titles with `labs()`.
+- **§8.2** — Adding text labels with `geom_text()` and `geom_label()`.
+- **§8.3** — Building custom annotations using geoms and `annotate()`.
+- **§8.4** — Direct labelling with `directlabels`, `ggforce`, and `gghighlight`.
+- **§8.5** — Annotation across facets.
 
 # Plot and axis titles
 
@@ -76,13 +76,13 @@ a <- ggplot(mpg, aes(displ, hwy)) +
   )
 ```
 
-------------------------------------------------------------------------
+---
 
 ```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
 a
 ```
 
-------------------------------------------------------------------------
+---
 
 
 **Mathematical expressions in labels**
@@ -98,13 +98,13 @@ ggplot(df, aes(x, y)) +
   labs(y = quote(f(x) == x^3))
 ```
 
-------------------------------------------------------------------------
+---
 
 **Markdown in labels with `ggtext`**
 
 The `ggtext` package (Wilke 2020) enables a subset of Markdown syntax — italics, bold, inline HTML — to be rendered inside axis and legend titles. To activate Markdown rendering for a specific element, set the corresponding theme element to `ggtext::element_markdown()`:
 
-----
+---
 
 ```{r,echo=T,warning=FALSE,out.width="70%",fig.align='center'}
 df <- data.frame(x = 1:3, y = 1:3)
@@ -120,7 +120,7 @@ p2 <- base +
 p1 | p2
 ```
 
-------------------------------------------------------------------------
+---
 
 **Removing axis labels**
 
@@ -139,7 +139,7 @@ Adding text directly to a plot is one of the most common annotation techniques. 
 
 The primary geom for text annotation is `geom_text()`, which places a `label` string at a specified (`x`, `y`) position. It exposes more aesthetics than almost any other geom in ggplot2.
 
-------------------------------------------------------------------------
+---
 
 **The `family` aesthetic — font selection**
 
@@ -157,7 +157,7 @@ ggplot(df, aes(x, y)) +
   geom_text(aes(label = family, family = family))
 ```
 
-------------------------------------------------------------------------
+---
 
 **Font rendering across graphics devices**
 
@@ -168,7 +168,7 @@ System fonts beyond the three guaranteed values may not render consistently acro
 
 Each approach has trade-offs; it is worth testing both in your workflow.
 
-------------------------------------------------------------------------
+---
 
 **The `fontface` aesthetic — text style**
 
@@ -180,7 +180,7 @@ ggplot(df, aes(x, y)) +
   geom_text(aes(label = face, fontface = face))
 ```
 
-------------------------------------------------------------------------
+---
 
 **The `hjust` and `vjust` aesthetics — alignment**
 
@@ -205,7 +205,7 @@ p2 <- ggplot(df, aes(x, y)) +
 p1 | p2
 ```
 
-------------------------------------------------------------------------
+---
 
 **The `size` aesthetic — font size**
 
@@ -215,7 +215,7 @@ Font size is specified in **millimetres (mm)**, not points. This keeps text size
 
 `angle` rotates the label by the specified number of degrees, measured counter-clockwise from horizontal.
 
-------------------------------------------------------------------------
+---
 
 **Nudging labels — `nudge_x` and `nudge_y`**
 
@@ -233,7 +233,7 @@ ggplot(df, aes(treatment, response)) +
   ylim(1.1, 3.6)
 ```
 
-------------------------------------------------------------------------
+---
 
 **Removing overlapping labels — `check_overlap`**
 
@@ -249,7 +249,7 @@ p2 <- ggplot(mpg, aes(displ, hwy)) +
 p1 | p2
 ```
 
-------------------------------------------------------------------------
+---
 
 **`geom_label()` — text with a background box**
 
@@ -267,7 +267,7 @@ ggplot(faithfuld, aes(waiting, eruptions)) +
   geom_label(data = label, aes(label = label))
 ```
 
-------------------------------------------------------------------------
+---
 
 **Common challenges with text labels**
 
@@ -300,13 +300,13 @@ Beyond text labels, ggplot2 provides several geoms suited to annotating specific
 - `geom_curve()` — draws a curved arc between two points; useful for connecting a label to a data point.
 - `geom_vline()` / `geom_hline()` / `geom_abline()` — draw reference lines spanning the full extent of the plot.
 
-------------------------------------------------------------------------
+---
 
 **Using `-Inf` and `Inf` as position values**
 
 When a geom should extend to the very edge of the plot panel — regardless of the data range — use `-Inf` (bottom/left limit) and `Inf` (top/right limit) as position values. This is especially useful for `geom_rect()` when creating background shading.
 
-------------------------------------------------------------------------
+---
 
 **Example: annotating a time series with presidential terms**
 
@@ -334,7 +334,7 @@ fig <- ggplot(economics) +
   labs(x = "Date", y = "Unemployment")
 ```
 
-----
+---
 
 ```{r,echo=T,warning=FALSE,message=FALSE,out.width="70%",fig.align='center'}
 fig 
@@ -342,7 +342,7 @@ fig
 
 Each layer draws from its **own data frame** — note how `data = presidential_sub` is specified inside each annotation geom while `geom_line()` inherits the default `economics` data. This is the standard pattern for mixing annotation data with the primary dataset.
 
-------------------------------------------------------------------------
+---
 
 **`annotate()` — a shorthand for single annotations**
 
@@ -381,7 +381,7 @@ fig <- ggplot(economics, aes(date, unemploy)) +
 fig
 ```
 
-------------------------------------------------------------------------
+---
 
 **Highlighting a subset with manual annotation**
 
@@ -401,7 +401,7 @@ p +
   annotate(geom = "text",  x = 5.6, y = 40, label = "subaru", hjust = "left")
 ```
 
-------------------------------------------------------------------------
+---
 
 **Curved connectors with `geom_curve()`**
 
@@ -426,7 +426,7 @@ p +
 
 Three packages in the broader ggplot2 ecosystem provide tools for automated direct labelling.
 
-------------------------------------------------------------------------
+---
 
 **`directlabels` — smart label placement**
 
@@ -449,7 +449,7 @@ p1 | p2
 
 `"smart.grid"` is a good default for scatterplots. For line plots and frequency polygons, other methods (e.g., `"last.points"`, `"angled.boxes"`) are more appropriate. See the directlabels website (<http://directlabels.r-forge.r-project.org>) for a complete catalogue.
 
-------------------------------------------------------------------------
+---
 
 **`ggforce` — ellipse highlight marks**
 
@@ -461,7 +461,7 @@ ggplot(mpg, aes(displ, hwy)) +
   ggforce::geom_mark_ellipse(aes(label = cyl, group = cyl))
 ```
 
-------------------------------------------------------------------------
+---
 
 **`gghighlight` — emphasising selected data**
 
@@ -498,7 +498,7 @@ ggplot(diamonds, aes(log10(carat), log10(price))) +
   facet_wrap(vars(cut), nrow = 1)
 ```
 
-------------------------------------------------------------------------
+---
 
 **Adding a shared reference line across all facets**
 
@@ -522,7 +522,7 @@ ggplot(diamonds, aes(log10(carat), log10(price))) +
 
 Each facet now shows its data relative to the **same** regression line, making cross-facet comparisons unambiguous. Using a white line against the 2D bin colour scale makes it legible without overpowering the data.
 
-------------------------------------------------------------------------
+---
 
 **`gghighlight` inside facets — greyed background data**
 
@@ -546,5 +546,3 @@ Each panel foregrounds the data for one cylinder group while maintaining the ful
 -   **Non-commercial use only.** These materials are strictly intended for educational purposes and must not be used for commercial gain or profit.
 
 -   **Proper attribution.** Any reproduction, distribution, or use of these materials must provide proper attribution to the original source.
-
- 

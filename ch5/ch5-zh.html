@@ -6,11 +6,11 @@
 <script src="ch5-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch5-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch5-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch5-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch5-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="揭示不確定性" class="title-slide slide level1 center">
@@ -561,9 +561,8 @@
 
 <p><strong><code>geom_dotplot()</code></strong>——為每一筆個別觀測值放置一個點，並把它們堆疊起來以避免重疊。它同時保留原始資料並揭示分布形狀。它最適合用於重疊繪製不成問題的較小資料集。</p>
 </section>
-<section class="slide level2">
-
-<p><strong>練習</strong></p>
+<section id="練習" class="slide level2">
+<h2>練習</h2>
 <ol type="1">
 <li><p>哪個 <code>binwidth</code> 能揭示 <code>carat</code> 分布中最有趣的結構？</p></li>
 <li><p>畫出 <code>price</code> 的直方圖。你觀察到哪些不尋常或醒目的型態？</p></li>
@@ -644,9 +643,9 @@
 <section class="slide level2">
 
 <p><strong>策略 5：二維密度估計</strong></p>
-<p><code>stat_density2d()</code> 估計二元密度，並可與任何能顯示第三維的 geom 結合（見第 5.7 節）。這個方法產生平滑的等高線，但比分箱涉及更多的計算開銷。</p>
+<p><code>stat_density2d()</code> 估計二元密度，並可與任何能顯示第三維的 geom 結合（見 §5.7）。這個方法產生平滑的等高線，但比分箱涉及更多的計算開銷。</p>
 <p><strong>策略 6：加上摘要圖層</strong></p>
-<p>在散佈圖上方加上 <code>geom_smooth()</code>，會畫出一條平滑的條件平均，引導視線朝向底層的趨勢，而不移除原始資料。其他摘要 geoms（見第 5.6 節）也能扮演類似的角色。</p>
+<p>在散佈圖上方加上 <code>geom_smooth()</code>，會畫出一條平滑的條件平均，引導視線朝向底層的趨勢，而不移除原始資料。其他摘要 geoms（見 §5.6）也能扮演類似的角色。</p>
 </section></section>
 <section>
 <section id="統計摘要" class="title-slide slide level1 center">

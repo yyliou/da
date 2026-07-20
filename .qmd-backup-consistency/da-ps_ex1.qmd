@@ -1,0 +1,30 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 1"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "Elementary Statistics: A Step by Step Approach"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Evaluate $1 + 1$ in R.
+
+## Question 2
+
+Evaluate $3 \times 4$ in R.

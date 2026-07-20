@@ -6,11 +6,11 @@
 <script src="ch2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch2_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch2_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch2_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center">
@@ -226,13 +226,13 @@ Yu-You Liou (NTU)
 
 <p>In this chapter you’ll learn:</p>
 <ul>
-<li><p>About the <code>mpg</code> dataset included with <code>ggplot2</code>, Section 2.2.</p></li>
-<li><p>The three key components of every plot: data, aesthetics and geoms, Section 2.3.</p></li>
-<li><p>How to add additional variables to a plot with aesthetics, Section 2.4.</p></li>
-<li><p>How to display additional categorical variables in a plot using small multiples created by faceting, Section 2.5.</p></li>
-<li><p>A variety of different geoms that you can use to create different types of plots, Section 2.6.</p></li>
-<li><p>How to modify the axes, Section 2.7.</p></li>
-<li><p>Things you can do with a plot object other than display it, like save it to disk, Section 2.8.</p></li>
+<li><p>About the <code>mpg</code> dataset included with <code>ggplot2</code>, §2.2.</p></li>
+<li><p>The three key components of every plot: data, aesthetics and geoms, §2.3.</p></li>
+<li><p>How to add additional variables to a plot with aesthetics, §2.4.</p></li>
+<li><p>How to display additional categorical variables in a plot using small multiples created by faceting, §2.5.</p></li>
+<li><p>A variety of different geoms that you can use to create different types of plots, §2.6.</p></li>
+<li><p>How to modify the axes, §2.7.</p></li>
+<li><p>Things you can do with a plot object other than display it, like save it to disk, §2.8.</p></li>
 </ul>
 </section></section>
 <section>
@@ -277,8 +277,8 @@ Yu-You Liou (NTU)
 </ul>
 <p>This dataset suggests many interesting questions. How are engine size and fuel economy related? Do certain manufacturers care more about fuel economy than others? Has fuel economy improved in the last ten years? We will try to answer some of these questions, and in the process learn how to create some basic plots with ggplot2.</p>
 </section>
-<section id="exercise" class="slide level2">
-<h2>Exercise</h2>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>List five functions that you could use to get more information about the mpg dataset.</p></li>
 <li><p>How can you find out what other datasets are included with <code>ggplot2</code>?</p></li>
@@ -333,8 +333,8 @@ Yu-You Liou (NTU)
 <p>We’ll stick to that style throughout the book, so don’t forget that the first two arguments to <code>aes()</code> are <code>x</code> and <code>y</code>. Note that we’ve put each command on a new line. We recommend doing this in your own code, so it’s easy to scan a plot specification and see exactly what’s there. In this chapter, we’ll sometimes use just one line per plot, because it makes it easier to see the differences between plot variations.</p>
 <p>The plot shows a strong correlation: as the engine size gets bigger, the fuel economy gets worse. There are also some interesting outliers: some cars with large engines get higher fuel economy than average. What sort of cars do you think they are?</p>
 </section>
-<section id="exercise-1" class="slide level2">
-<h2>Exercise</h2>
+<section id="exercises-1" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>How would you describe the relationship between cty and hwy? Do you have any concerns about drawing conclusions from that plot?</p></li>
 <li><p>What does <code>ggplot(mpg, aes(model, manufacturer)) + geom_point()</code> show? Is it useful? How could you modify the data to make it more informative?</p></li>
@@ -384,15 +384,15 @@ Yu-You Liou (NTU)
 <span id="cb6-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="ch2_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>In the first plot, the value “blue” is scaled to a pinkish colour, and a legend is added. In the second plot, the points are given the R colour blue. This is an important technique and you’ll learn more about it in Section 13.4.2. See vignette(“<code>ggplot2</code>-specs”) for the values needed for colour and other aesthetics.</p>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>In the first plot, the value “blue” is scaled to a pinkish colour, and a legend is added. In the second plot, the points are given the R colour blue. This is an important technique and you’ll learn more about it in §13.4.2. See vignette(“<code>ggplot2</code>-specs”) for the values needed for colour and other aesthetics.</p>
 </section>
 <section class="slide level2">
 
 <p>Different types of aesthetic attributes work better with different types of variables. For example, colour and shape work well with categorical variables, while size works well for continuous variables. The amount of data also makes a difference: if there is a lot of data it can be hard to distinguish different groups. An alternative solution is to use faceting, as described next.</p>
 <p>When using aesthetics in a plot, less is usually more. It’s difficult to see the simultaneous relationships among colour and shape and size, so exercise restraint when using aesthetics. Instead of trying to make one very complex plot that shows everything at once, see if you can create a series of simple plots that tell a story, leading the reader from ignorance to knowledge.</p>
 </section>
-<section id="exercise-2" class="slide level2">
-<h2>Exercise</h2>
+<section id="exercises-2" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>Experiment with the colour, shape and size aesthetics. What happens when you map them to continuous values? What about categorical values? What happens when you use more than one aesthetic in a plot?</p></li>
 <li><p>What happens if you map a continuous variable to shape? Why? What happens if you map trans to shape? Why?</p></li>
@@ -417,9 +417,9 @@ Yu-You Liou (NTU)
 <span id="cb7-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch2_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>You might wonder when to use faceting and when to use aesthetics. You’ll learn more about the relative advantages and disadvantages of each in Section 16.5.</p>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>You might wonder when to use faceting and when to use aesthetics. You’ll learn more about the relative advantages and disadvantages of each in §16.5.</p>
 </section>
-<section id="exercises" class="slide level2">
+<section id="exercises-3" class="slide level2">
 <h2>Exercises</h2>
 <ol type="1">
 <li><p>What happens if you try to facet by a continuous variable like <code>hwy</code>? What about <code>cyl</code>? What’s the key difference?</p></li>
@@ -578,7 +578,7 @@ Yu-You Liou (NTU)
 <span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch2_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>(You’ll learn how to fix the labels in Section 17.4.2).</p>
+<img data-src="ch2_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>(You’ll learn how to fix the labels in §17.4.2).</p>
 </section>
 <section class="slide level2">
 
@@ -637,7 +637,7 @@ Yu-You Liou (NTU)
 <p>We can see that unemployment rate and length of unemployment are highly correlated, but in recent years the length of unemployment has been increasing relative to the unemployment rate.</p>
 <p>With longitudinal data, you often want to display multiple time series on each plot, each series representing one individual. To do this you need to map the group aesthetic to a variable encoding the group membership of each observation. This is explained in more depth in Chapter 4.</p>
 </section>
-<section id="exercises-1" class="slide level2">
+<section id="exercises-4" class="slide level2">
 <h2>Exercises</h2>
 <ol type="1">
 <li><p>What’s the problem with the plot created by <code>ggplot(mpg, aes(cty, hwy)) + geom_point()</code>? Which of the geoms described above is most effective at remedying the problem?</p></li>
@@ -741,7 +741,7 @@ Yu-You Liou (NTU)
 
 <p><strong>Save to disk</strong></p>
 <ul>
-<li>Save it to disk with <code>ggsave()</code>, described in Section 17.5.</li>
+<li>Save it to disk with <code>ggsave()</code>, described in §17.5.</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Save png to disk</span></span>

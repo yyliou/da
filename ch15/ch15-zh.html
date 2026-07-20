@@ -345,7 +345,10 @@
 <span id="cb9-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><h3 id="coord_polar"><code>coord_polar()</code></h3>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<section class="slide level2">
+
+<h3 id="coord_polar"><code>coord_polar()</code></h3>
 <p>極座標把長條 geom 變成<strong>圓餅圖</strong>與<strong>靶心圖</strong>，把線 geom 變成雷達圖。<code>theta</code> 引數選擇哪個位置映射到角度。要小心：角度比長度更難知覺，尤其在小半徑處。</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="fu">factor</span>(<span class="dv">1</span>), <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
@@ -364,7 +367,10 @@
 <span id="cb11-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><h3 id="地圖投影">地圖投影</h3>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<section class="slide level2">
+
+<h3 id="地圖投影">地圖投影</h3>
 <p>地圖顯示的是球面資料，因此直接畫原始經緯度會誤導——你必須<strong>投影</strong>。ggplot2 提供兩種做法：</p>
 <ul>
 <li><code>coord_quickmap()</code>——快速近似，固定長寬比使圖中央處 1° 緯度與 1° 經度相等。適合小區域。</li>
@@ -380,9 +386,8 @@
 <span id="cb12-4"><a href=""></a>nzmap <span class="sc">+</span> <span class="fu">coord_quickmap</span>()  <span class="co"># 校正長寬比</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2">
-
-<p><strong>練習</strong></p>
+<section id="練習" class="slide level2">
+<h2>練習</h2>
 <ol type="1">
 <li><p>在含 <code>geom_smooth()</code> 的 <code>mpg</code> 散佈圖上，對比 <code>scale_x_continuous(limits = c(4, 6))</code> 與 <code>coord_cartesian(xlim = c(4, 6))</code>。為什麼兩條平滑線不同？</p></li>
 <li><p>建立一張 <code>displ</code> vs <code>cty</code> 帶平滑線的圖，再用 <code>coord_flip()</code> 旋轉它。這與交換 <code>x</code>、<code>y</code> 映射有何不同？</p></li>

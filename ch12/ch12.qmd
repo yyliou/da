@@ -435,9 +435,7 @@ Identity scales are appropriate in two situations:
 
 In all other situations, a properly specified aesthetic mapping with an appropriate scale is preferred, because it enables legend generation and ensures reproducible, principled colour choices.
 
----
-
-**Exercises**
+## Exercises
 
 1. Using the `mpg` dataset, create a scatterplot of `displ` vs `hwy` with `size = cyl`. Compare the default `scale_size()` with `scale_size_area()`. When would you prefer the latter?
 

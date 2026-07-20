@@ -6,11 +6,11 @@
 <script src="ch14_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch14_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch14_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch14_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch14_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="scales-and-guides" class="title-slide slide level1 center">
@@ -548,9 +548,8 @@ Yu-You Liou (NTU)
 </div>
 <img data-src="ch14_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"><p>Each geom has an associated key-drawing function such as <code>draw_key_path()</code> or <code>draw_key_timeseries()</code>. You may pass the function directly: <code>key_glyph = draw_key_timeseries</code>.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>Take <code>ggplot(mpg, aes(displ, hwy)) + geom_point(aes(colour = class))</code> and write out the three default scales that ggplot2 adds for you. Why is specifying them manually tedious?</p></li>
 <li><p>Build a <code>geom_col()</code> chart with <code>aes(fill = x)</code> and <code>scale_fill_gradient(limits = c(1, 3))</code>. Compare the default <code>oob</code> with <code>scales::squish</code>. When is each appropriate?</p></li>

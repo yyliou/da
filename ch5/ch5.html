@@ -6,11 +6,11 @@
 <script src="ch5_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch5_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch5_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch5_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch5_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="revealing-uncertainty" class="title-slide slide level1 center">
@@ -566,9 +566,8 @@ Yu-You Liou (NTU)
 
 <p><strong><code>geom_dotplot()</code></strong> — places a point for each individual observation, stacking them to avoid overlap. It retains the raw data and reveals distributional shape simultaneously. It is best suited to smaller datasets where overplotting is not a concern.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>What <code>binwidth</code> reveals the most interesting structure in the distribution of <code>carat</code>?</p></li>
 <li><p>Draw a histogram of <code>price</code>. What unusual or striking patterns do you observe?</p></li>
@@ -649,9 +648,9 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <p><strong>Strategy 5: 2D density estimation</strong></p>
-<p><code>stat_density2d()</code> estimates the bivariate density and can be combined with any geom capable of displaying a third dimension (see Section 5.7). This approach produces smooth contours but involves more computational overhead than binning.</p>
+<p><code>stat_density2d()</code> estimates the bivariate density and can be combined with any geom capable of displaying a third dimension (see §5.7). This approach produces smooth contours but involves more computational overhead than binning.</p>
 <p><strong>Strategy 6: Add a summary layer</strong></p>
-<p>Adding <code>geom_smooth()</code> on top of a scatterplot draws a smooth conditional mean, guiding the eye toward the underlying trend without removing the raw data. Other summary geoms (see Section 5.6) can serve a similar role.</p>
+<p>Adding <code>geom_smooth()</code> on top of a scatterplot draws a smooth conditional mean, guiding the eye toward the underlying trend without removing the raw data. Other summary geoms (see §5.6) can serve a similar role.</p>
 </section></section>
 <section>
 <section id="statistical-summaries" class="title-slide slide level1 center">

@@ -305,9 +305,7 @@ library(patchwork)
 
 Each geom has an associated key-drawing function such as `draw_key_path()` or `draw_key_timeseries()`. You may pass the function directly: `key_glyph = draw_key_timeseries`.
 
----
-
-**Exercises**
+## Exercises
 
 1. Take `ggplot(mpg, aes(displ, hwy)) + geom_point(aes(colour = class))` and write out the three default scales that ggplot2 adds for you. Why is specifying them manually tedious?
 

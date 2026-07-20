@@ -6,11 +6,11 @@
 <script src="ch12_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch12_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch12_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch12_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch12_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="other-aesthetics" class="title-slide slide level1 center">
@@ -699,9 +699,8 @@ Yu-You Liou (NTU)
 </ol>
 <p>In all other situations, a properly specified aesthetic mapping with an appropriate scale is preferred, because it enables legend generation and ensures reproducible, principled colour choices.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>Using the <code>mpg</code> dataset, create a scatterplot of <code>displ</code> vs <code>hwy</code> with <code>size = cyl</code>. Compare the default <code>scale_size()</code> with <code>scale_size_area()</code>. When would you prefer the latter?</p></li>
 <li><p>Build a bubble chart of the <code>planets</code> data showing each planet’s orbital distance on the x-axis and its name on the y-axis, with bubble size proportional to planetary radius. Show why <code>scale_radius(limits = c(0, NA))</code> is necessary for an honest visual comparison.</p></li>

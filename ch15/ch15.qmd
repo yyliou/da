@@ -79,8 +79,6 @@ library(patchwork)
 
 The middle panel warns that rows were removed and the smooth is refit to a sliver of data; the right panel keeps the original fit and simply zooms.
 
----
-
 ## Flipping with `coord_flip()`
 
 Most stats assume you want `y` conditional on `x`. To swap the roles — or just rotate 90° — use `coord_flip()`. This differs from merely exchanging the variables, because the stat is fit to the **original** data and the *output* is rotated:
@@ -169,6 +167,7 @@ library(patchwork)
 (a|b|c)
 ```
 
+---
 
 ### `coord_polar()`
 
@@ -192,6 +191,8 @@ library(patchwork)
 (a|b|c)
 ```
 
+---
+
 ### Map Projections
 
 Maps display spherical data, so plotting raw longitude and latitude is misleading — you must **project**. ggplot2 offers two approaches:
@@ -208,9 +209,7 @@ nzmap                     # cartesian — distorted
 nzmap + coord_quickmap()  # aspect-ratio corrected
 ```
 
----
-
-**Exercises**
+## Exercises
 
 1. Contrast `scale_x_continuous(limits = c(4, 6))` with `coord_cartesian(xlim = c(4, 6))` on a `mpg` scatterplot that includes `geom_smooth()`. Why do the smooths differ?
 

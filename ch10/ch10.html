@@ -6,11 +6,11 @@
 <script src="ch10_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch10_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch10_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch10_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch10_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="position-scales-and-axes" class="title-slide slide level1 center">
@@ -1050,9 +1050,8 @@ Yu-You Liou (NTU)
 </div>
 <img data-src="ch10_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>The <code>n.breaks</code> argument controls the number of cut points. Binned scales for non-position aesthetics (colour, size, etc.) are discussed in §11.4 and §12.1.2.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>Using <code>scale_x_continuous()</code>, limit the x-axis of a <code>ggplot(mpg, aes(displ, hwy)) + geom_point()</code> plot to the range 2–5 in two ways: (a) via <code>limits</code>, and (b) via <code>coord_cartesian()</code>. Describe the difference in behaviour.</p></li>
 <li><p>Create a time-series line plot of <code>economics$psavert</code> against <code>date</code>. Set major breaks every 10 years and minor breaks every 2 years. Format the labels to show only the two-digit year.</p></li>

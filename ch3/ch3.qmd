@@ -45,17 +45,17 @@ These geoms are the fundamental building blocks of `ggplot2`. They are useful in
 
 Each of these geoms is two dimensional and requires both `x` and `y` aesthetics. All of them understand `colour` (or `color`) and `size` aesthetics, and the filled geoms (bar, tile and polygon) also understand `fill`.
 
-------------------------------------------------------------------------
+---
 
 - `geom_area()` draws an **area plot**, which is a line plot filled to the y-axis (filled lines). Multiple groups will be stacked on top of each other.
 
-- `geom_bar(stat = "identity")` makes a **bar chart**. We need `stat = "identity"` because the default stat automatically counts values (so is essentially a 1d geom, see Section 5.4). The identity stat leaves the data unchanged. Multiple bars in the same location will be stacked on top of one another.
+- `geom_bar(stat = "identity")` makes a **bar chart**. We need `stat = "identity"` because the default stat automatically counts values (so is essentially a 1d geom, see §5.4). The identity stat leaves the data unchanged. Multiple bars in the same location will be stacked on top of one another.
 
 - `geom_line()` makes a **line plot**. The group aesthetic determines which observations are connected; see Chapter 4 for more detail. `geom_line()` connects points from left to right; `geom_path()` is similar but connects points in the order they appear in the data. Both `geom_line()` and `geom_path()` also understand the aesthetic linetype, which maps a categorical variable to solid, dotted and dashed lines.
 
 - `geom_point()` produces a **scatterplot**. `geom_point()` also understands the shape aesthetic.
 
------
+---
 
 - `geom_polygon()` draws **polygons**, which are filled paths. Each vertex of the polygon requires a separate row in the data. It is often useful to merge a data frame of polygon coordinates with the data just prior to plotting. Chapter 6 illustrates this concept in more detail for map data.
 
@@ -63,7 +63,7 @@ Each of these geoms is two dimensional and requires both `x` and `y` aesthetics.
 
 - `geom_text()` adds text to a plot. It requires a `label` aesthetic that provides the text to display, and has a number of parameters (`angle`, `family`, `fontface`, `hjust` and `vjust`) that control the appearance of the text.
 
-----------
+---
 
 **Prepare the data**
 
@@ -80,7 +80,7 @@ p <- ggplot(df, aes(x, y, label = label)) +
   theme(plot.title = element_text(size = 12)) # Shrink plot title
 ```
 
-----------
+---
 
 ```{r,echo=T,warning=FALSE,out.width = "80%",fig.align='center'}
 p1 <- p + geom_point() + ggtitle("point")
@@ -90,7 +90,7 @@ p4 <- p + geom_tile(width = 0.5, height = 0.5, fill = "orange") + ggtitle("raste
 (p1 | p2 | p3 | p4)
 ```
 
-------
+---
 
 ```{r,echo=T,warning=FALSE,out.width = "80%",fig.align='center'}
 p5 <- p + geom_line() + ggtitle("line")
@@ -100,9 +100,7 @@ p8 <- p + geom_polygon() + ggtitle("polygon")
 (p5 | p6 | p7 | p8)
 ```
 
---------------
-
-**Exercises**
+## Exercises
 
 1. What geoms would you use to draw each of the following named plots?
 

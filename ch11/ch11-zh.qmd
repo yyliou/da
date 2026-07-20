@@ -712,8 +712,6 @@ p_auto | p_fmt
 
 `date_labels` 引數接受 `strptime` 風格的格式字串（完整表格見 §10.2.3）。
 
----
-
 ## Alpha 尺度
 
 `alpha` 美學控制所呈現元素的**透明度**，其中 0 是完全透明、1 是完全不透明。把 alpha 映射到一個資料變數會產生視覺上的降權效果，把視線引向高 alpha（較不透明）的觀測值。
@@ -787,9 +785,7 @@ p_tl | p_cc | p_br
 
 若有需要，用 `legend.margin = unit(0, "mm")` 移除圖例框周圍的填補。
 
----
-
-**練習**
+## 練習
 
 1. 用 `faithfuld`，把三個不同的 viridis 調色盤選項（`"viridis"`、`"magma"`、`"inferno"`）套用到 `erupt` 基礎圖，並比較各自傳達密度曲面的效果。
 

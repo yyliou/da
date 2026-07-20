@@ -316,9 +316,7 @@ library(patchwork)
 
 每個 geom 都關聯一個畫鍵函式，如 `draw_key_path()` 或 `draw_key_timeseries()`。你也可以直接傳入該函式：`key_glyph = draw_key_timeseries`。
 
----
-
-**練習**
+## 練習
 
 1. 取 `ggplot(mpg, aes(displ, hwy)) + geom_point(aes(colour = class))`，寫出 ggplot2 為你加上的三個預設尺度。為什麼手動指定它們很繁瑣？
 

@@ -6,11 +6,11 @@
 <script src="ch15_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch15_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch15_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch15_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch15_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="coordinate-systems" class="title-slide slide level1 center">
@@ -348,7 +348,10 @@ Yu-You Liou (NTU)
 <span id="cb9-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch15_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><h3 id="coord_polar"><code>coord_polar()</code></h3>
+<img data-src="ch15_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<section class="slide level2">
+
+<h3 id="coord_polar"><code>coord_polar()</code></h3>
 <p>Polar coordinates turn bar geoms into <strong>pie charts</strong> and <strong>bullseye charts</strong>, and line geoms into radar charts. The <code>theta</code> argument chooses which position maps to angle. Beware: angle is harder to perceive than length, especially at small radii.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
@@ -368,7 +371,10 @@ Yu-You Liou (NTU)
 <span id="cb11-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch15_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><h3 id="map-projections">Map Projections</h3>
+<img data-src="ch15_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<section class="slide level2">
+
+<h3 id="map-projections">Map Projections</h3>
 <p>Maps display spherical data, so plotting raw longitude and latitude is misleading — you must <strong>project</strong>. ggplot2 offers two approaches:</p>
 <ul>
 <li><code>coord_quickmap()</code> — a fast approximation that fixes the aspect ratio so 1° of latitude and 1° of longitude are equal in the middle of the plot. Good for small regions.</li>
@@ -384,9 +390,8 @@ Yu-You Liou (NTU)
 <span id="cb12-4"><a href=""></a>nzmap <span class="sc">+</span> <span class="fu">coord_quickmap</span>()  <span class="co"># aspect-ratio corrected</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>Contrast <code>scale_x_continuous(limits = c(4, 6))</code> with <code>coord_cartesian(xlim = c(4, 6))</code> on a <code>mpg</code> scatterplot that includes <code>geom_smooth()</code>. Why do the smooths differ?</p></li>
 <li><p>Build a plot of <code>displ</code> vs <code>cty</code> with a smoother, then rotate it with <code>coord_flip()</code>. How does this differ from swapping the <code>x</code> and <code>y</code> mappings?</p></li>

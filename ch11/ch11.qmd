@@ -700,8 +700,6 @@ p_auto | p_fmt
 
 The `date_labels` argument accepts `strptime`-style format strings (see §10.2.3 for the full table).
 
----
-
 ## Alpha Scales
 
 The `alpha` aesthetic controls the **transparency** of rendered elements, where 0 is fully transparent and 1 is fully opaque. Mapping alpha to a data variable creates a visual down-weighting effect, drawing the eye towards high-alpha (more opaque) observations.
@@ -775,9 +773,7 @@ p_tl | p_cc | p_br
 
 Use `legend.margin = unit(0, "mm")` to remove the padding around the legend box if needed.
 
----
-
-**Exercises**
+## Exercises
 
 1. Using `faithfuld`, apply three different viridis palette options (`"viridis"`, `"magma"`, `"inferno"`) to the `erupt` base plot and compare how well each communicates the density surface.
 

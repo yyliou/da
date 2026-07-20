@@ -9,7 +9,7 @@ format:
     html-math-method: katex
 smaller: true
 theme: serif
-footer: "Elementary Statistics: A Step by Step Approach"
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 editor: source
 slide-number: true
 scrollable: false

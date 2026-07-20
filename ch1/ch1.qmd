@@ -9,7 +9,7 @@ smaller: true
 theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
-editor: visual
+editor: source
 bibliography: bib.bib
 suppress-bibliography: true
 slide-number: true
@@ -37,7 +37,7 @@ include-after-body:
     </script>
 ---
 
-# **Welcome to `ggplot2`**
+# Welcome to `ggplot2`
 
 ## Data
 
@@ -105,7 +105,7 @@ As the book progresses, the formal grammar will be explained in greater detail. 
 
 - A **layer** is a collection of geometric elements and statistical transformations. Geometric elements, geoms for short, represent what you actually see in the plot: points, lines, polygons, etc. Statistical transformations, stats for short, summarise the data: for example, binning and counting observations to create a histogram, or fitting a linear model.
 
-------------------------------------------------------------------------
+---
 
 - **Scales** map values in the data space to values in the aesthetic space. This includes the use of colour, shape or size. Scales also draw the legend and axes, which make it possible to read the original data values from the plot (an inverse mapping).
 
@@ -115,7 +115,7 @@ As the book progresses, the formal grammar will be explained in greater detail. 
 
 - A **theme** controls the finer points of display, like the font size and background colour. While the defaults in `ggplot2` have been chosen with care, you may need to consult other references to create an attractive plot. A good starting place is Tufte’s early works [@tufte1991envisioning; @tufte1997visual; @tufte1983visual].
 
-------------------------------------------------------------------------
+---
 
 It’s also important to note what the grammar doesn’t do:
 
@@ -135,13 +135,13 @@ There are a number of other graphics systems available in R: base graphics, grid
 
 - Base graphics were written by Ross Ihaka based on experience implementing the S graphics driver and partly looking at @chambers2018graphical. Base graphics has a pen on paper model: you can only draw on top of the plot, you cannot modify or delete existing content. There is no (user accessible) representation of the graphics, apart from their appearance on the screen. Base graphics includes both tools for drawing primitives and entire plots. Base graphics functions are generally fast, but have limited scope. If you’ve created a single scatterplot, or histogram, or a set of boxplots in the past, you’ve probably used base graphics.
 
-------------------------------------------------------------------------
+---
 
 - The development of “grid” graphics, a much richer system of graphical primitives, started in 2000. Grid is developed by Paul Murrell, growing out of his PhD work [@murrell1998investigations]. Grid grobs (graphical objects) can be represented independently of the plot and modified later. A system of viewports (each containing its own coordinate system) makes it easier to lay out complex graphics. Grid provides drawing primitives, but no tools for producing statistical graphics.
 
 - The `lattice` package, developed by Deepayan Sarkar, uses grid graphics to implement the trellis graphics system of @cleveland1993visualizing and is a considerable improvement over base graphics. You can easily produce conditioned plots and some plotting details (e.g., legends) are taken care of automatically. However, lattice graphics lacks a formal model, which can make it hard to extend. Lattice graphics are explained in depth in @sarkar2008multivariate.
 
-------------------------------------------------------------------------
+---
 
 - `ggplot2`, started in 2005, is an attempt to take the good things about base and lattice graphics and improve on them with a strong underlying model which supports the production of any kind of statistical graphic, based on the principles outlined above. The solid underlying model of `ggplot2` makes it easy to describe a wide range of graphics with a compact syntax, and independent components make extension easy. Like lattice, `ggplot2` uses grid to draw the graphics, which means you can exercise much low-level control over the appearance of the plot.
 
@@ -149,7 +149,7 @@ There are a number of other graphics systems available in R: base graphics, grid
 
 - [`plotly`](https://plotly-r.com) is a popular javascript visualisation toolkit with an R interface. It’s a great tool if you want to make interactive graphics for HTML documents, and even comes with a `ggplotly()` function that can convert many `ggplot2` graphics into their interactive equivalen
 
-------------------------------------------------------------------------
+---
 
 Many other R packages, such as `vcd` [@meyer2007strucplot], `plotrix` [@lemon2008plotrix] and `gplots` [@warnes2005gplots], implement specialist graphics, but no others provide a framework for producing statistical graphics. A comprehensive list of all graphical tools available in other packages can be found in the graphics task view at <http://cran.r-project.org/web/views/Graphics.html>.
 
@@ -165,10 +165,10 @@ Many other R packages, such as `vcd` [@meyer2007strucplot], `plotrix` [@lemon200
 
 - In “The Grammar” we describe the layered grammar of graphics which underlies `ggplot2`. The theory is illustrated in Chapter 13 which demonstrates how to add additional layers to your plot, exercising full control over the geoms and stats used within them.
 
-------------------------------------------------------------------------
+---
 
 - Understanding how scales work is crucial for fine-tuning the perceptual properties of your plot. Customising scales gives fine control over the exact appearance of the plot and helps to support the story that you are telling. Chapter 10, Chapter 11 and Chapter 12 will show you what scales are available, how to adjust their parameters, and how to control the appearance of axes and legends.
-- Coordinate systems and facetting control the position of elements of the plot. These are described in Section 13.7. Faceting is a very powerful graphical tool as it allows you to rapidly compare different subsets of your data. Different coordinate systems are less commonly needed, but are very important for certain types of data.
+- Coordinate systems and facetting control the position of elements of the plot. These are described in §13.7. Faceting is a very powerful graphical tool as it allows you to rapidly compare different subsets of your data. Different coordinate systems are less commonly needed, but are very important for certain types of data.
 - To polish your plots for publication, you will need to learn about the tools described in Chapter 17. There you will learn about how to control the theming system of `ggplot2` and how to save plots to disk.
 
 # Prerequisites
@@ -181,7 +181,7 @@ Before we continue, make sure you have all the software you need for this book:
 
 - **RStudio**: RStudio is a free and open source integrated development environment (IDE) for R. While you can write and use R code with any R environment (including R GUI and ESS), RStudio has some nice features specifically for authoring and debugging your code. We recommend giving it a try, but it’s not required to be successful with `ggplot2` or with this book. You can download RStudio Desktop from <https://posit.co/download/rstudio-desktop>
 
-------------------------------------------------------------------------
+---
 
 - **R packages**: This book uses a bunch of R packages. You can install them all at once by running:
 
@@ -205,13 +205,13 @@ This book teaches you the elements of `ggplot2`’s grammar and how they fit tog
 
 The best resource for specific details of `ggplot2` functions and their arguments will always be the built-in documentation. This is accessible online, <https://ggplot2.tidyverse.org/reference/index.html>, and from within R using the usual help syntax. The advantage of the online documentation is that you can see all the example plots and navigate between topics more easily.
 
-------------------------------------------------------------------------
+---
 
 **Mailing list/stackoverflow**
 
 If you use `ggplot2` regularly, it’s a good idea to sign up for the `ggplot2` [mailing list](http://groups.google.com/group/ggplot2). The list has relatively low traffic and is very friendly to new users. Another useful resource is [stackoverflow](https://stackoverflow.com). There is an active `ggplot2` community on stackoverflow, and many common questions have already been asked and answered. In either place, you’re much more likely to get help if you create a minimal reproducible example. The reprex package by Jenny Bryan provides a convenient way to do this, and also include advice on creating a good example. The more information you provide, the easier it is for the community to help you.
 
-------------------------------------------------------------------------
+---
 
 **RStudio cheatsheets**
 

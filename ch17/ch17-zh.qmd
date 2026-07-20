@@ -211,7 +211,9 @@ library(patchwork)
 (a|b)
 ```
 
-## 軸元素
+---
+
+### 軸元素
 
 | 元素 | 設定器 | 說明 |
 |---|---|---|
@@ -249,7 +251,7 @@ library(patchwork)
 
 版面另由 `legend.position`、`legend.direction`、`legend.justification`、`legend.box` 掌控（見 §11.7）。
 
-----
+---
 
 ```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
 library(patchwork)
@@ -265,7 +267,7 @@ b <- b3 + theme(
 
 ---
 
-## 面板元素
+### 面板元素
 
 | 元素 | 設定器 | 說明 |
 |---|---|---|
@@ -289,7 +291,7 @@ c <- base + theme(aspect.ratio = 9 / 16)
 
 ---
 
-## 分面元素
+### 分面元素
 
 | 元素 | 設定器 | 說明 |
 |---|---|---|
@@ -299,7 +301,7 @@ c <- base + theme(aspect.ratio = 9 / 16)
 
 `strip.text.x` 同時影響 `facet_wrap()` 與 `facet_grid()`；`strip.text.y` 只影響 `facet_grid()`。
 
-----
+---
 
 ```{r, echo=TRUE, warning=FALSE, out.width="40%", fig.align='center'}
 df4 <- data.frame(x = 1:4, y = 1:4, z = c("a", "a", "b", "b"))
@@ -335,9 +337,7 @@ ggsave("output.pdf")
 - `width`、`height`——以英吋為單位的輸出尺寸（預設用螢幕裝置大小）
 - `dpi`——點陣輸出的解析度（列印用 300、高解析用 600、螢幕用 96）
 
----
-
-**練習**
+## 練習
 
 1. 結合盡量多的刺眼 `theme()` 設定，做出你能做到最醜的圖。哪些元素的視覺衝擊最大？
 

@@ -6,11 +6,11 @@
 <script src="ch3-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch3-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch3-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch3-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch3-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="基本圖形類型" class="title-slide slide level1 center">
@@ -227,7 +227,7 @@
 
 <ul>
 <li><p><code>geom_area()</code> 畫出<strong>面積圖（area plot）</strong>，也就是一條填到 y 軸的折線（填色的線）。多個群組會彼此堆疊。</p></li>
-<li><p><code>geom_bar(stat = "identity")</code> 製作<strong>長條圖（bar chart）</strong>。我們需要 <code>stat = "identity"</code>，因為預設的 stat 會自動計數（所以本質上是一維 geom，見第 5.4 節）。identity stat 則讓資料維持不變。位於相同位置的多個長條會彼此堆疊。</p></li>
+<li><p><code>geom_bar(stat = "identity")</code> 製作<strong>長條圖（bar chart）</strong>。我們需要 <code>stat = "identity"</code>，因為預設的 stat 會自動計數（所以本質上是一維 geom，見 §5.4）。identity stat 則讓資料維持不變。位於相同位置的多個長條會彼此堆疊。</p></li>
 <li><p><code>geom_line()</code> 製作<strong>折線圖（line plot）</strong>。group 美學決定哪些觀測值會被連起來；更多細節見第 4 章。<code>geom_line()</code> 由左至右連接點；<code>geom_path()</code> 類似，但依點在資料中出現的順序連接。<code>geom_line()</code> 與 <code>geom_path()</code> 也都理解 linetype 美學，它把類別變數映射到實線、點線與虛線。</p></li>
 <li><p><code>geom_point()</code> 產生<strong>散佈圖（scatterplot）</strong>。<code>geom_point()</code> 也理解 shape 美學。</p></li>
 </ul>
@@ -278,9 +278,8 @@
 
 </div>
 <img data-src="ch3-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
-<section class="slide level2">
-
-<p><strong>練習</strong></p>
+<section id="練習" class="slide level2">
+<h2>練習</h2>
 <ol type="1">
 <li>對於以下每一種有名稱的圖，你會用哪些 geoms 來繪製？</li>
 </ol>

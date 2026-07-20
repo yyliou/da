@@ -81,7 +81,7 @@ a <- base + facet_wrap(~class, nrow = 3)
 b <- base + facet_wrap(~class, nrow = 3, dir = "v")
 ```
 
-----
+---
 
 ```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
 library(patchwork)
@@ -104,7 +104,7 @@ b <- base + facet_grid(drv ~ .)
 c <- base + facet_grid(drv ~ cyl)
 ```
 
-----
+---
 
 ```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
 library(patchwork)
@@ -239,7 +239,7 @@ c <- plot + facet_wrap(~disp_i, nrow = 1)
 d <- plot + facet_wrap(~disp_n, nrow = 1)
 ```
 
-----
+---
 
 ```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
 library(patchwork)
@@ -248,9 +248,7 @@ library(patchwork)
 
 Note: the faceting formula does **not** evaluate functions, so create the discretised variable first.
 
----
-
-**Exercises**
+## Exercises
 
 1. Display the distribution of diamond `price` conditional on `cut` and `carat`. Try faceting by `cut` and grouping by `carat`, then the reverse. Which do you prefer, and why?
 

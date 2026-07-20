@@ -739,9 +739,7 @@ ggplot(mpg, aes(displ, hwy)) +
 
 `n.breaks` 引數控制切點的數目。非位置美學（顏色、大小等）的分箱尺度在 §11.4 與 §12.1.2 討論。
 
----
-
-**練習**
+## 練習
 
 1. 用 `scale_x_continuous()`，以兩種方式把 `ggplot(mpg, aes(displ, hwy)) + geom_point()` 圖的 x 軸限制在 2–5 的範圍：(a) 透過 `limits`，以及 (b) 透過 `coord_cartesian()`。描述兩者行為上的差異。
 

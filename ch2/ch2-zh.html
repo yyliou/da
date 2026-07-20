@@ -6,11 +6,11 @@
 <script src="ch2-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch2-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch2-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch2-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch2-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="簡介" class="title-slide slide level1 center">
@@ -226,13 +226,13 @@
 
 <p>在本章中你將學到：</p>
 <ul>
-<li><p>關於 <code>ggplot2</code> 內附的 <code>mpg</code> 資料集，第 2.2 節。</p></li>
-<li><p>每張圖都有的三個關鍵元件：資料、美學與 geoms，第 2.3 節。</p></li>
-<li><p>如何利用美學為圖加入額外的變數，第 2.4 節。</p></li>
-<li><p>如何運用分面（faceting）所建立的小倍數圖，在圖中顯示額外的類別變數，第 2.5 節。</p></li>
-<li><p>各種你可以用來製作不同類型圖形的 geoms，第 2.6 節。</p></li>
-<li><p>如何修改座標軸，第 2.7 節。</p></li>
-<li><p>除了顯示圖形物件之外你還能對它做的事，例如把它存到磁碟，第 2.8 節。</p></li>
+<li><p>關於 <code>ggplot2</code> 內附的 <code>mpg</code> 資料集，§2.2。</p></li>
+<li><p>每張圖都有的三個關鍵元件：資料、美學與 geoms，§2.3。</p></li>
+<li><p>如何利用美學為圖加入額外的變數，§2.4。</p></li>
+<li><p>如何運用分面（faceting）所建立的小倍數圖，在圖中顯示額外的類別變數，§2.5。</p></li>
+<li><p>各種你可以用來製作不同類型圖形的 geoms，§2.6。</p></li>
+<li><p>如何修改座標軸，§2.7。</p></li>
+<li><p>除了顯示圖形物件之外你還能對它做的事，例如把它存到磁碟，§2.8。</p></li>
 </ul>
 </section></section>
 <section>
@@ -384,7 +384,7 @@
 <span id="cb6-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>在第一張圖中，「blue」這個值被尺度轉換成了偏粉紅的顏色，並加上了圖例。在第二張圖中，點被賦予 R 的藍色。這是一個重要的技巧，你將在第 13.4.2 節學到更多。關於顏色與其他美學所需的值，請參見 vignette(“<code>ggplot2</code>-specs”)。</p>
+<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>在第一張圖中，「blue」這個值被尺度轉換成了偏粉紅的顏色，並加上了圖例。在第二張圖中，點被賦予 R 的藍色。這是一個重要的技巧，你將在 §13.4.2 學到更多。關於顏色與其他美學所需的值，請參見 vignette(“<code>ggplot2</code>-specs”)。</p>
 </section>
 <section class="slide level2">
 
@@ -417,7 +417,7 @@
 <span id="cb7-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>你可能會想，何時該用分面、何時該用美學。你將在第 16.5 節學到兩者各自的相對優缺點。</p>
+<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>你可能會想，何時該用分面、何時該用美學。你將在 §16.5 學到兩者各自的相對優缺點。</p>
 </section>
 <section id="練習-3" class="slide level2">
 <h2>練習</h2>
@@ -578,7 +578,7 @@
 <span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>（你將在第 17.4.2 節學到如何修正標籤。）</p>
+<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>（你將在 §17.4.2 學到如何修正標籤。）</p>
 </section>
 <section class="slide level2">
 
@@ -741,7 +741,7 @@
 
 <p><strong>存到磁碟</strong></p>
 <ul>
-<li>用 <code>ggsave()</code> 把它存到磁碟，詳見第 17.5 節。</li>
+<li>用 <code>ggsave()</code> 把它存到磁碟，詳見 §17.5。</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># 把 png 存到磁碟</span></span>

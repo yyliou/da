@@ -48,11 +48,11 @@ Plotting geospatial data is one of the most frequently encountered visualisation
 
 This chapter is organised as follows:
 
-- **Section 6.1** — polygon-based maps with `geom_polygon()`, the simplest approach.
-- **Section 6.2** — modern simple features (sf) maps with `geom_sf()`.
-- **Section 6.3** — map projections and coordinate reference systems.
-- **Section 6.4** — working programmatically with sf data structures.
-- **Section 6.5** — raster-based maps using satellite imagery.
+- **§6.1** — polygon-based maps with `geom_polygon()`, the simplest approach.
+- **§6.2** — modern simple features (sf) maps with `geom_sf()`.
+- **§6.3** — map projections and coordinate reference systems.
+- **§6.4** — working programmatically with sf data structures.
+- **§6.5** — raster-based maps using satellite imagery.
 
 # Polygon maps
 
@@ -72,7 +72,7 @@ mi_counties <- map_data("county", "michigan") |>
 head(mi_counties)
 ```
 
-------------------------------------------------------------------------
+---
 
 **Understanding the data structure**
 
@@ -82,7 +82,7 @@ The returned data frame contains four variables:
 - `id` — the name of the county to which the vertex belongs.
 - `group` — a unique integer identifying each contiguous polygon. Counties that consist of multiple separated parts (e.g., islands) require multiple group values, one per polygon.
 
-------------------------------------------------------------------------
+---
 
 **From scatterplot to choropleth map**
 
@@ -100,13 +100,13 @@ p2 <- ggplot(mi_counties, aes(lon, lat, group = group)) +
 p1 | p2
 ```
 
-------------------------------------------------------------------------
+---
 
 **`coord_quickmap()`**
 
 Both plots call `coord_quickmap()`, which adjusts the plot's aspect ratio so that one degree of longitude and one degree of latitude occupy equal lengths on the page. Without this correction the map is geometrically distorted — stretched horizontally near the equator or compressed at higher latitudes.
 
-`coord_quickmap()` is a fast linear approximation. For high-accuracy mapping — especially large regions, polar areas, or published cartographic products — the `geom_sf()` / `coord_sf()` workflow (Section 6.2) provides a rigorous solution based on proper map projections.
+`coord_quickmap()` is a fast linear approximation. For high-accuracy mapping — especially large regions, polar areas, or published cartographic products — the `geom_sf()` / `coord_sf()` workflow (§6.2) provides a rigorous solution based on proper map projections.
 
 # Simple features maps
 
@@ -119,7 +119,7 @@ ggplot2 integrates with `sf` through two dedicated functions:
 - `geom_sf()` — renders sf geometries (points, lines, polygons, multipolygons, …).
 - `coord_sf()` — controls the coordinate reference system (CRS) applied to the entire plot.
 
-------------------------------------------------------------------------
+---
 
 **The `ozmaps` package**
 
@@ -133,7 +133,7 @@ oz_states <- ozmaps::ozmap_states
 oz_states
 ```
 
-------------------------------------------------------------------------
+---
 
 **Structure of an sf tibble**
 
@@ -141,7 +141,7 @@ In contrast to the row-per-vertex layout of the polygon approach, each row in an
 
 The metadata printed above the tibble (geometry type, bounding box, geodetic CRS) is embedded directly in the sf object and does not need to be managed separately by the analyst.
 
-------------------------------------------------------------------------
+---
 
 **Drawing a minimal map with `geom_sf()`**
 
@@ -153,7 +153,7 @@ ggplot(oz_states) +
   coord_sf()
 ```
 
-------------------------------------------------------------------------
+---
 
 **How `geom_sf()` resolves the geometry aesthetic**
 
@@ -163,9 +163,7 @@ ggplot(oz_states) +
 2. **Auto-detect** — if the data is an sf object, `geom_sf()` will find the geometry column regardless of its name.
 3. **Explicit** — you can always write `aes(geometry = my_column)` to specify the column directly. This is essential when a data frame contains multiple geometry columns.
 
-`coord_sf()` handles the map projection; its role is discussed fully in Section 6.3.
-
-------------------------------------------------------------------------
+`coord_sf()` handles the map projection; its role is discussed fully in §6.3.
 
 ## Layered maps
 
@@ -190,11 +188,9 @@ ggplot() +
   coord_sf()
 ```
 
-------------------------------------------------------------------------
+---
 
 The `fill = NAME` mapping assigns a distinct colour to each state. Although `NAME` conveys no quantitative information here, the same pattern generalises to any area-level variable: replacing `NAME` with a column such as `unemployment_rate` would produce a choropleth map. Note that when different layers draw from different data frames, the `data =` argument is specified inside each individual `geom_sf()` call, and `ggplot()` is left without a default dataset.
-
-------------------------------------------------------------------------
 
 ## Labelled maps
 
@@ -223,13 +219,11 @@ ggplot(sydney_map) +
   geom_sf_label(aes(label = NAME), label.padding = unit(1, "mm"))
 ```
 
-------------------------------------------------------------------------
+---
 
 **Warning: `st_point_on_surface` with longitude–latitude data**
 
 Running this code triggers a warning indicating that results may be incorrect for longitude–latitude coordinates. The warning arises because many sf geometric algorithms assume a flat Cartesian plane, whereas longitude–latitude data sits on an ellipsoidal surface. For moderate-scale maps at non-polar latitudes, the approximation is typically acceptable. For continent-scale maps or regions near the poles, the data should be reprojected to a planar CRS before labelling.
-
-------------------------------------------------------------------------
 
 ## Adding other geoms
 
@@ -259,7 +253,7 @@ ggplot() +
   coord_sf()
 ```
 
-------------------------------------------------------------------------
+---
 
 Any aesthetic available in `geom_point()` can encode additional metadata. For instance, if `oz_capitals` contained a column recording the number of federal electorates within each metropolitan area, mapping that column to `size` would produce a proportional symbol map overlaid on the electoral boundaries.
 
@@ -269,7 +263,7 @@ Any aesthetic available in `geom_point()` can encode additional metadata. For in
 
 Treating longitude and latitude as ordinary Cartesian axes is a convenient simplification at small scales, but it becomes geometrically inaccurate at larger scales due to two fundamental problems.
 
-------------------------------------------------------------------------
+---
 
 **Problem 1 — The shape of the Earth**
 
@@ -282,7 +276,7 @@ Two commonly used datums are:
 
 The same longitude–latitude pair can correspond to physically different locations under different datums — a discrepancy that can exceed many metres in some regions.
 
-------------------------------------------------------------------------
+---
 
 **Problem 2 — Projecting an ellipsoid onto a plane**
 
@@ -295,7 +289,7 @@ Two frequently cited projection families are:
 
 No single projection can simultaneously preserve both area and shape — the analyst must choose a projection that is appropriate for the intended use of the map.
 
-------------------------------------------------------------------------
+---
 
 **Coordinate Reference Systems (CRS)**
 
@@ -313,7 +307,7 @@ An sf object stores its CRS as embedded metadata, accessible via `sf::st_crs()`:
 st_crs(oz_votes)
 ```
 
-------------------------------------------------------------------------
+---
 
 The verbose **well-known text (WKT)** string printed above unambiguously describes the CRS. A far more compact representation is the **EPSG code** — a unique integer assigned by the EPSG Geodetic Parameter Dataset (<https://epsg.org>). The default CRS for `oz_votes` corresponds to EPSG 4283 (GDA94):
 
@@ -321,7 +315,7 @@ The verbose **well-known text (WKT)** string printed above unambiguously describ
 st_crs(oz_votes) == st_crs(4283)
 ```
 
-------------------------------------------------------------------------
+---
 
 **Changing the projection with `coord_sf()`**
 
@@ -345,7 +339,7 @@ For a thorough treatment of map projections in R, see *Geocomputation with R* (<
 
 Beyond plotting, the `sf` package provides a rich set of functions for inspecting and transforming spatial objects. This section introduces the most commonly needed tools; full documentation is available at <https://r-spatial.github.io/sf/>.
 
-------------------------------------------------------------------------
+---
 
 **Motivation: complex geographic units**
 
@@ -364,7 +358,7 @@ p2 <- p + coord_sf(xlim = c(150, 150.25),    ylim = c(-36.3, -36))
 p1 | p2
 ```
 
-------------------------------------------------------------------------
+---
 
 **Extracting the geometry column**
 
@@ -375,7 +369,7 @@ edenmonaro <- edenmonaro |> pull(geometry)
 edenmonaro
 ```
 
-------------------------------------------------------------------------
+---
 
 **Metadata helper functions**
 
@@ -390,7 +384,7 @@ Several `sf` functions extract metadata from a geometry object:
 st_bbox(edenmonaro)
 ```
 
-------------------------------------------------------------------------
+---
 
 **Casting between geometry types with `st_cast()`**
 
@@ -400,7 +394,7 @@ A `MULTIPOLYGON` can be decomposed into its constituent `POLYGON` objects using 
 st_cast(edenmonaro, "POLYGON")
 ```
 
-------------------------------------------------------------------------
+---
 
 **Practical application: isolating islands**
 
@@ -414,7 +408,7 @@ dawson <- ozmaps::abs_ced |>
 ggplot(dawson) + geom_sf() + coord_sf()
 ```
 
-------------------------------------------------------------------------
+---
 
 To map only the islands, cast to individual polygons, compute each polygon's area with `st_area()`, identify the largest polygon (the mainland) with `which.max()`, and exclude it by negative indexing:
 
@@ -435,7 +429,7 @@ In addition to vector-based simple features, geospatial information is commonly 
 
 Many raster file formats — most notably **GeoTIFF** — embed spatial metadata (geodetic datum, CRS, spatial extent, pixel size) that allows the image to be accurately positioned on the Earth's surface. R can read these formats via GDAL (Geospatial Data Abstraction Library, <https://gdal.org/>), which the `sf` package exposes through `sf::gdal_read()`. In practice, higher-level packages handle this transparently.
 
-------------------------------------------------------------------------
+---
 
 **Reading raster data with the `stars` package**
 
@@ -443,7 +437,7 @@ The `stars` package (Pebesma 2020) provides tools for reading and manipulating s
 
 The `RasterIO` list is passed directly to GDAL: `nBufXSize` and `nBufYSize` downsample the image to 600 × 600 pixels on import, reducing memory usage while retaining enough detail for visualisation:
 
-------------------------------------------------------------------------
+---
 
 ```{r,echo=T,eval=TRUE}
 library(stars)
@@ -456,7 +450,7 @@ sat_vis <- read_stars(
 sat_vis
 ```
 
-------------------------------------------------------------------------
+---
 
 **Structure of a `stars` object**
 
@@ -470,7 +464,7 @@ A `stars` object is an n-dimensional labelled array. For this satellite image, t
 
 Since the image is greyscale, all three bands carry identical values. More complex datasets may include a `time` dimension (multi-temporal composites) or additional bands (hyperspectral sensors). The CRS for each spatial dimension is stored alongside the data.
 
-------------------------------------------------------------------------
+---
 
 **Plotting raster data with `geom_stars()`**
 
@@ -486,7 +480,7 @@ ggplot() +
 
 The blue colouring reflects the ggplot2 scale choice rather than the original image appearance. To display the image in greyscale — a more faithful representation of visible-light satellite imagery — apply `scale_fill_gradient(low = "black", high = "white")`.
 
-------------------------------------------------------------------------
+---
 
 **Separating bands with `facet_wrap()`**
 
@@ -500,7 +494,7 @@ ggplot() +
   scale_fill_gradient(low = "black", high = "white")
 ```
 
-------------------------------------------------------------------------
+---
 
 **Reprojecting vector data to match a raster CRS**
 
@@ -519,7 +513,7 @@ ggplot() +
 
 With correctly reprojected state boundaries, the white outlines align precisely with the coastlines visible in the satellite image.
 
-------------------------------------------------------------------------
+---
 
 **Overlaying point data on a reprojected raster**
 
@@ -545,7 +539,7 @@ ggplot() +
   scale_fill_gradient(low = "black", high = "white")
 ```
 
-------------------------------------------------------------------------
+---
 
 **Interpreting the composite map**
 
@@ -565,7 +559,7 @@ Some label positioning adjustment would be needed to prevent overlap (see Chapte
 
 A wide variety of R packages provide ready-to-use geospatial datasets for use with `geom_sf()` and related tools:
 
-------------------------------------------------------------------------
+---
 
 **US-focused data**
 
@@ -573,7 +567,7 @@ A wide variety of R packages provide ready-to-use geospatial datasets for use wi
 
 - **tigris** (<https://github.com/walkerke/tigris>) — downloads US Census Bureau TIGER/Line shapefiles on demand. Provides state, county, ZIP code, and census tract boundaries, as well as roads, water bodies, and other geographic layers (Walker 2019).
 
-------------------------------------------------------------------------
+---
 
 **Global data**
 
@@ -581,7 +575,7 @@ A wide variety of R packages provide ready-to-use geospatial datasets for use wi
 
 - **osmar** (<https://cran.r-project.org/package=osmar>) — interfaces with the OpenStreetMap API to retrieve granular vector data: individual streets, buildings, parks, and points of interest at the city block level (Eugster & Schlesinger 2010).
 
-------------------------------------------------------------------------
+---
 
 **Working with your own shapefiles**
 

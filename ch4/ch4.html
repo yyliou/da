@@ -6,11 +6,11 @@
 <script src="ch4_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch4_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch4_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch4_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch4_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="collective-geoms" class="title-slide slide level1 center">
@@ -290,9 +290,8 @@ Yu-You Liou (NTU)
 </div>
 <p>This ensures that observations sharing the same school <em>and</em> the same student identifier are treated as belonging to the same group.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li><p>Draw a boxplot of <code>hwy</code> for each value of <code>cyl</code>, without converting <code>cyl</code> into a factor. What additional aesthetic must you set to make this work?</p></li>
 <li><p>Modify the plot below so that a separate boxplot is produced for each integer value of <code>displ</code>:</p></li>
@@ -376,9 +375,8 @@ Yu-You Liou (NTU)
 </div>
 <img data-src="ch4_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>Each blue line now traces an individual boy’s growth across all nine occasions, exactly as intended.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises-1" class="slide level2">
+<h2>Exercises</h2>
 <ol start="3" type="1">
 <li>When illustrating the difference between mapping a continuous vs.&nbsp;a discrete colour to a line, the discrete example required <code>aes(group = 1)</code>. Why? What happens when it is omitted? What is the difference between <code>aes(group = 1)</code> and <code>aes(group = 2)</code>?</li>
 </ol>
@@ -480,9 +478,8 @@ Yu-You Liou (NTU)
 </div>
 <img data-src="ch4_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>When this technique is used, the bars are stacked in the order defined by the grouping variable (here, <code>hwy</code>). If precise control over the stacking order is needed, convert <code>hwy</code> to a factor with levels arranged accordingly.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises-2" class="slide level2">
+<h2>Exercises</h2>
 <ol start="4" type="1">
 <li>How many bars are displayed in each of the following plots? Explain your reasoning.</li>
 </ol>

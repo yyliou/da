@@ -57,17 +57,17 @@ knitr::opts_chunk$set(fig.align = "center")
 
 這些 geoms 每一個都是二維的，且同時需要 `x` 與 `y` 美學。它們全都理解 `colour`（或 `color`）與 `size` 美學，而有填色的 geoms（bar、tile 與 polygon）也理解 `fill`。
 
-------------------------------------------------------------------------
+---
 
 - `geom_area()` 畫出**面積圖（area plot）**，也就是一條填到 y 軸的折線（填色的線）。多個群組會彼此堆疊。
 
-- `geom_bar(stat = "identity")` 製作**長條圖（bar chart）**。我們需要 `stat = "identity"`，因為預設的 stat 會自動計數（所以本質上是一維 geom，見第 5.4 節）。identity stat 則讓資料維持不變。位於相同位置的多個長條會彼此堆疊。
+- `geom_bar(stat = "identity")` 製作**長條圖（bar chart）**。我們需要 `stat = "identity"`，因為預設的 stat 會自動計數（所以本質上是一維 geom，見 §5.4）。identity stat 則讓資料維持不變。位於相同位置的多個長條會彼此堆疊。
 
 - `geom_line()` 製作**折線圖（line plot）**。group 美學決定哪些觀測值會被連起來；更多細節見第 4 章。`geom_line()` 由左至右連接點；`geom_path()` 類似，但依點在資料中出現的順序連接。`geom_line()` 與 `geom_path()` 也都理解 linetype 美學，它把類別變數映射到實線、點線與虛線。
 
 - `geom_point()` 產生**散佈圖（scatterplot）**。`geom_point()` 也理解 shape 美學。
 
------
+---
 
 - `geom_polygon()` 畫出**多邊形（polygons）**，也就是填色的路徑。多邊形的每個頂點在資料中都需要獨立的一列。在繪圖之前，把一個多邊形座標的資料框與資料合併，往往很有用。第 6 章針對地圖資料更詳細地說明這個概念。
 
@@ -75,7 +75,7 @@ knitr::opts_chunk$set(fig.align = "center")
 
 - `geom_text()` 為圖加上文字。它需要一個提供顯示文字的 `label` 美學，並有許多參數（`angle`、`family`、`fontface`、`hjust` 與 `vjust`）控制文字的外觀。
 
-----------
+---
 
 **準備資料**
 
@@ -92,7 +92,7 @@ p <- ggplot(df, aes(x, y, label = label)) +
   theme(plot.title = element_text(size = 12)) # 縮小圖標題
 ```
 
-----------
+---
 
 ```{r,echo=T,warning=FALSE,out.width = "80%",fig.align='center'}
 p1 <- p + geom_point() + ggtitle("point")
@@ -102,7 +102,7 @@ p4 <- p + geom_tile(width = 0.5, height = 0.5, fill = "orange") + ggtitle("raste
 (p1 | p2 | p3 | p4)
 ```
 
-------
+---
 
 ```{r,echo=T,warning=FALSE,out.width = "80%",fig.align='center'}
 p5 <- p + geom_line() + ggtitle("line")
@@ -112,9 +112,7 @@ p8 <- p + geom_polygon() + ggtitle("polygon")
 (p5 | p6 | p7 | p8)
 ```
 
---------------
-
-**練習**
+## 練習
 
 1. 對於以下每一種有名稱的圖，你會用哪些 geoms 來繪製？
 

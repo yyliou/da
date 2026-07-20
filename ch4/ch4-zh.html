@@ -6,11 +6,11 @@
 <script src="ch4-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch4-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch4-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch4-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch4-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="集體-geoms" class="title-slide slide level1 center">
@@ -290,9 +290,8 @@
 </div>
 <p>這確保了共享相同學校<em>且</em>相同學生識別碼的觀測值，會被視為屬於同一個群組。</p>
 </section>
-<section class="slide level2">
-
-<p><strong>練習</strong></p>
+<section id="練習" class="slide level2">
+<h2>練習</h2>
 <ol type="1">
 <li><p>為 <code>cyl</code> 的每個值畫出 <code>hwy</code> 的盒鬚圖，但不要把 <code>cyl</code> 轉換成因子。你必須設定哪個額外的美學才能讓它運作？</p></li>
 <li><p>修改下面的圖，使得 <code>displ</code> 的每個整數值都產生一個獨立的盒鬚圖：</p></li>
@@ -376,9 +375,8 @@
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>如今每一條藍線都描繪出一個男孩在全部九個時點的成長，正如我們所期望的。</p>
 </section>
-<section class="slide level2">
-
-<p><strong>練習</strong></p>
+<section id="練習-1" class="slide level2">
+<h2>練習</h2>
 <ol start="3" type="1">
 <li>在示範「把連續顏色 vs.&nbsp;離散顏色映射到線」的差異時，離散的例子需要 <code>aes(group = 1)</code>。為什麼？省略它會發生什麼？<code>aes(group = 1)</code> 與 <code>aes(group = 2)</code> 之間有什麼差別？</li>
 </ol>
@@ -480,9 +478,8 @@
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>使用這個技巧時，長條會依分組變數（此處為 <code>hwy</code>）所定義的順序堆疊。如果需要精確控制堆疊順序，請把 <code>hwy</code> 轉換成因子，並依需求排列其水準。</p>
 </section>
-<section class="slide level2">
-
-<p><strong>練習</strong></p>
+<section id="練習-2" class="slide level2">
+<h2>練習</h2>
 <ol start="4" type="1">
 <li>以下每張圖各顯示多少根長條？解釋你的推理。</li>
 </ol>

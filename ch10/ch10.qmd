@@ -727,9 +727,7 @@ ggplot(mpg, aes(displ, hwy)) +
 
 The `n.breaks` argument controls the number of cut points. Binned scales for non-position aesthetics (colour, size, etc.) are discussed in §11.4 and §12.1.2.
 
----
-
-**Exercises**
+## Exercises
 
 1. Using `scale_x_continuous()`, limit the x-axis of a `ggplot(mpg, aes(displ, hwy)) + geom_point()` plot to the range 2–5 in two ways: (a) via `limits`, and (b) via `coord_cartesian()`. Describe the difference in behaviour.
 

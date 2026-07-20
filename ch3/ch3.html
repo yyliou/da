@@ -6,11 +6,11 @@
 <script src="ch3_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch3_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch3_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch3_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch3_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="basic-plot-types" class="title-slide slide level1 center">
@@ -227,7 +227,7 @@ Yu-You Liou (NTU)
 
 <ul>
 <li><p><code>geom_area()</code> draws an <strong>area plot</strong>, which is a line plot filled to the y-axis (filled lines). Multiple groups will be stacked on top of each other.</p></li>
-<li><p><code>geom_bar(stat = "identity")</code> makes a <strong>bar chart</strong>. We need <code>stat = "identity"</code> because the default stat automatically counts values (so is essentially a 1d geom, see Section 5.4). The identity stat leaves the data unchanged. Multiple bars in the same location will be stacked on top of one another.</p></li>
+<li><p><code>geom_bar(stat = "identity")</code> makes a <strong>bar chart</strong>. We need <code>stat = "identity"</code> because the default stat automatically counts values (so is essentially a 1d geom, see §5.4). The identity stat leaves the data unchanged. Multiple bars in the same location will be stacked on top of one another.</p></li>
 <li><p><code>geom_line()</code> makes a <strong>line plot</strong>. The group aesthetic determines which observations are connected; see Chapter 4 for more detail. <code>geom_line()</code> connects points from left to right; <code>geom_path()</code> is similar but connects points in the order they appear in the data. Both <code>geom_line()</code> and <code>geom_path()</code> also understand the aesthetic linetype, which maps a categorical variable to solid, dotted and dashed lines.</p></li>
 <li><p><code>geom_point()</code> produces a <strong>scatterplot</strong>. <code>geom_point()</code> also understands the shape aesthetic.</p></li>
 </ul>
@@ -278,9 +278,8 @@ Yu-You Liou (NTU)
 
 </div>
 <img data-src="ch3_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
-<section class="slide level2">
-
-<p><strong>Exercises</strong></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 <ol type="1">
 <li>What geoms would you use to draw each of the following named plots?</li>
 </ol>

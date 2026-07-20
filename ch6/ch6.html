@@ -227,11 +227,11 @@ Yu-You Liou (NTU)
 </ol>
 <p>This chapter is organised as follows:</p>
 <ul>
-<li><strong>Section 6.1</strong> — polygon-based maps with <code>geom_polygon()</code>, the simplest approach.</li>
-<li><strong>Section 6.2</strong> — modern simple features (sf) maps with <code>geom_sf()</code>.</li>
-<li><strong>Section 6.3</strong> — map projections and coordinate reference systems.</li>
-<li><strong>Section 6.4</strong> — working programmatically with sf data structures.</li>
-<li><strong>Section 6.5</strong> — raster-based maps using satellite imagery.</li>
+<li><strong>§6.1</strong> — polygon-based maps with <code>geom_polygon()</code>, the simplest approach.</li>
+<li><strong>§6.2</strong> — modern simple features (sf) maps with <code>geom_sf()</code>.</li>
+<li><strong>§6.3</strong> — map projections and coordinate reference systems.</li>
+<li><strong>§6.4</strong> — working programmatically with sf data structures.</li>
+<li><strong>§6.5</strong> — raster-based maps using satellite imagery.</li>
 </ul>
 </section></section>
 <section>
@@ -293,7 +293,7 @@ Yu-You Liou (NTU)
 
 <p><strong><code>coord_quickmap()</code></strong></p>
 <p>Both plots call <code>coord_quickmap()</code>, which adjusts the plot’s aspect ratio so that one degree of longitude and one degree of latitude occupy equal lengths on the page. Without this correction the map is geometrically distorted — stretched horizontally near the equator or compressed at higher latitudes.</p>
-<p><code>coord_quickmap()</code> is a fast linear approximation. For high-accuracy mapping — especially large regions, polar areas, or published cartographic products — the <code>geom_sf()</code> / <code>coord_sf()</code> workflow (Section 6.2) provides a rigorous solution based on proper map projections.</p>
+<p><code>coord_quickmap()</code> is a fast linear approximation. For high-accuracy mapping — especially large regions, polar areas, or published cartographic products — the <code>geom_sf()</code> / <code>coord_sf()</code> workflow (§6.2) provides a rigorous solution based on proper map projections.</p>
 </section></section>
 <section>
 <section id="simple-features-maps" class="title-slide slide level1 center">
@@ -366,7 +366,7 @@ Geodetic CRS:  GDA94
 <li><strong>Auto-detect</strong> — if the data is an sf object, <code>geom_sf()</code> will find the geometry column regardless of its name.</li>
 <li><strong>Explicit</strong> — you can always write <code>aes(geometry = my_column)</code> to specify the column directly. This is essential when a data frame contains multiple geometry columns.</li>
 </ol>
-<p><code>coord_sf()</code> handles the map projection; its role is discussed fully in Section 6.3.</p>
+<p><code>coord_sf()</code> handles the map projection; its role is discussed fully in §6.3.</p>
 </section>
 <section id="layered-maps" class="slide level2">
 <h2>Layered maps</h2>

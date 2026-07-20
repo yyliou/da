@@ -191,7 +191,7 @@ Around 40 elements control plot appearance, grouped into five categories. **Plot
 | `plot.title` | `element_text()` | plot title |
 | `plot.margin` | `margin()` | margins around the plot |
 
-----
+---
 
 ```{r, echo=TRUE, warning=FALSE, out.width="38%", fig.align='center'}
 a <- base + theme(plot.background = element_rect(colour = "grey50", linewidth = 2))
@@ -277,7 +277,9 @@ library(patchwork)
 (a|b|c)
 ```
 
-## Faceting Elements
+---
+
+### Faceting Elements
 
 | Element | Setter | Description |
 |---|---|---|
@@ -323,9 +325,7 @@ Key arguments:
 - `width`, `height` — output size in inches (defaults to the on-screen device size)
 - `dpi` — resolution for raster output (300 for print, 600 for high-resolution, 96 for screen)
 
----
-
-**Exercises**
+## Exercises
 
 1. Create the ugliest plot you can, combining as many garish `theme()` settings as possible. Which elements have the biggest visual impact?
 
