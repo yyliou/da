@@ -255,11 +255,8 @@ library(patchwork)
 library(patchwork)
 df3 <- data.frame(x = 1:4, y = 1:4, z = rep(c("a", "b"), each = 2))
 b3 <- ggplot(df3, aes(x, y, colour = z)) + geom_point()
-a <- b3 + theme(legend.background = element_rect(
-  fill = "lemonchiffon", colour = "grey50", linewidth = 1))
-b <- b3 + theme(
-  legend.text  = element_text(size = 15),
-  legend.title = element_text(size = 15, face = "bold"))
+a <- b3 + theme(legend.background = element_rect(fill = "lemonchiffon", colour = "grey50", linewidth = 1))
+b <- b3 + theme(legend.text = element_text(size = 15), legend.title = element_text(size = 15, face = "bold"))
 (a|b)
 ```
 

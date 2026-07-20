@@ -208,8 +208,6 @@ library(patchwork)
 (a|b)
 ```
 
----
-
 轉換**大小**美學會改變它的詮釋。左圖中 `z` 讀作*權重*（越大＝群組越大）；反轉尺度後 `z` 讀作*距離*（越大＝看起來越小）：
 
 ```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
@@ -219,8 +217,6 @@ base <- ggplot(df, aes(x, y, size = z)) + geom_point()
 a <- base
 b <- base + scale_size(trans = "reverse")
 ```
-
----
 
 ```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
 library(patchwork)

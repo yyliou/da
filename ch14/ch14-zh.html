@@ -6,11 +6,11 @@
 <script src="ch14-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch14-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch14-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch14-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch14-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="尺度與導引" class="title-slide slide level1 center">
@@ -436,14 +436,11 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb6-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
+
 </div>
-</div>
-</div>
+<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<section class="slide level2">
+
 <p>轉換<strong>大小</strong>美學會改變它的詮釋。左圖中 <code>z</code> 讀作<em>權重</em>（越大＝群組越大）；反轉尺度後 <code>z</code> 讀作<em>距離</em>（越大＝看起來越小）：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
@@ -452,18 +449,15 @@
 <span id="cb7-4"><a href=""></a>a <span class="ot">&lt;-</span> base</span>
 <span id="cb7-5"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_size</span>(<span class="at">trans =</span> <span class="st">"reverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section class="slide level2">
+
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb8-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
+
 </div>
-</div>
-</div>
-</section></section>
+<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section></section>
 <section>
 <section id="圖例合併與分裂" class="title-slide slide level1 center">
 <h1>圖例合併與分裂</h1>

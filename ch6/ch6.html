@@ -6,11 +6,11 @@
 <script src="ch6_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch6_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch6_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch6_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch6_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="maps" class="title-slide slide level1 center">
@@ -225,7 +225,7 @@ Yu-You Liou (NTU)
 <li><strong>Drawing the map</strong> — rendering geographic boundaries or terrain from a spatial data source.</li>
 <li><strong>Overlaying metadata</strong> — projecting additional variables (e.g., population density, election results, rainfall) from a separate data source onto the rendered map.</li>
 </ol>
-<p>This chapter addresses both problems and is organised as follows:</p>
+<p>This chapter is organised as follows:</p>
 <ul>
 <li><strong>Section 6.1</strong> — polygon-based maps with <code>geom_polygon()</code>, the simplest approach.</li>
 <li><strong>Section 6.2</strong> — modern simple features (sf) maps with <code>geom_sf()</code>.</li>
@@ -675,6 +675,9 @@ Geodetic CRS:  GDA94</code></pre>
 <p><strong>Reading raster data with the <code>stars</code> package</strong></p>
 <p>The <code>stars</code> package (Pebesma 2020) provides tools for reading and manipulating spatiotemporal raster arrays. The example below imports a GeoTIFF file containing a visible-light satellite image captured by the Himawari-8 geostationary satellite and originally sourced from the Australian Bureau of Meteorology.</p>
 <p>The <code>RasterIO</code> list is passed directly to GDAL: <code>nBufXSize</code> and <code>nBufYSize</code> downsample the image to 600 × 600 pixels on import, reducing memory usage while retaining enough detail for visualisation:</p>
+</section>
+<section class="slide level2">
+
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">library</span>(stars)</span>
 <span id="cb26-2"><a href=""></a></span>

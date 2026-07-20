@@ -6,11 +6,11 @@
 <script src="ch15-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch15-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch15-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch15-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch15-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="座標系統" class="title-slide slide level1 center">
@@ -246,63 +246,38 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
 <span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>base                                        <span class="co"># 全部資料</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
+<span id="cb1-3"><a href=""></a>a <span class="ot">&lt;-</span> base                                        <span class="co"># 全部資料</span></span>
+<span id="cb1-4"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>)) <span class="co"># 丟棄資料、重新配適平滑線</span></span>
+<span id="cb1-5"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))      <span class="co"># 保留資料、放大</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb2-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>)) <span class="co"># 丟棄資料、重新配適平滑線</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-1-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>))      <span class="co"># 保留資料、放大</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-1-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>中間面板會警告有列被移除、且平滑線在一小片資料上重新配適；右面板保留原始配適、僅放大。</p>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>中間面板會警告有列被移除、且平滑線在一小片資料上重新配適；右面板保留原始配適、僅放大。</p>
 </section>
 <section id="以-coord_flip-翻轉" class="slide level2">
 <h2>以 <code>coord_flip()</code> 翻轉</h2>
 <p>多數 stat 假設你想要 <code>y</code> 對 <code>x</code> 的條件關係。要交換兩者的角色——或只是旋轉 90°——用 <code>coord_flip()</code>。這與單純交換變數不同，因為 stat 是對<strong>原始</strong>資料配適，再把<em>輸出</em>旋轉：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, displ)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()  <span class="co"># 平滑線配適於旋轉後的資料</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-2-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-2-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
+<span id="cb3-2"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, displ)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
+<span id="cb3-3"><a href=""></a><span class="co"># 平滑線配適於旋轉後的資料</span></span>
+<span id="cb3-4"><a href=""></a>c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb4-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
 <section id="以-coord_fixed-等比例" class="slide level2">
 <h2>以 <code>coord_fixed()</code> 等比例</h2>
 <p><code>coord_fixed()</code> 固定 x 與 y 軸上實體長度之間的比例。預設的 <code>ratio = 1</code> 保證 x 軸上 1 公分所跨的資料範圍，等於 y 軸上 1 公分所跨的範圍，且無論輸出裝置形狀如何都維持此映射。</p>
@@ -316,135 +291,93 @@
 <h2>改變形狀</h2>
 <p>與線性座標不同，非線性座標可改變 geom 的<strong>形狀</strong>——矩形變成弧、兩點間最短路徑未必是直線：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>rect <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="dv">50</span>)</span>
-<span id="cb7-2"><a href=""></a>line <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">200</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">1</span>))</span>
-<span id="cb7-3"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href=""></a>  <span class="fu">geom_tile</span>(<span class="at">data =</span> rect, <span class="fu">aes</span>(<span class="at">width =</span> <span class="dv">50</span>, <span class="at">height =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
-<span id="cb7-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> line) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
-<span id="cb7-6"><a href=""></a>base</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">coord_polar</span>(<span class="st">"x"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-3-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">coord_polar</span>(<span class="st">"y"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-3-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>rect <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="dv">50</span>)</span>
+<span id="cb5-2"><a href=""></a>line <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">200</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">1</span>))</span>
+<span id="cb5-3"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href=""></a>  <span class="fu">geom_tile</span>(<span class="at">data =</span> rect, <span class="fu">aes</span>(<span class="at">width =</span> <span class="dv">50</span>, <span class="at">height =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> line) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
+<span id="cb5-6"><a href=""></a>a <span class="ot">&lt;-</span> base</span>
+<span id="cb5-7"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">coord_polar</span>(<span class="st">"x"</span>)</span>
+<span id="cb5-8"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">coord_polar</span>(<span class="st">"y"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb6-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
 <section class="slide level2">
 
 <h3 id="切細munching">切細（Munching）</h3>
 <p>ggplot2 如何轉換形狀？分兩步。首先它把每個 geom 重新參數化為純<strong>位置式</strong>的形式（長條的高與寬變成四角多邊形）。其次它把每個位置轉換到新系統。</p>
 <p>點很容易——點在哪裡都還是點。線與多邊形很難，因為直線可能彎曲。假設轉換是平滑的，ggplot2 把長線打散成許多短段、逐段轉換。這稱為<strong>切細（munching）</strong>：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">r =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">theta =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span> <span class="sc">/</span> <span class="dv">2</span> <span class="sc">*</span> pi))</span>
-<span id="cb10-2"><a href=""></a>interp <span class="ot">&lt;-</span> <span class="cf">function</span>(rng, n) <span class="fu">seq</span>(rng[<span class="dv">1</span>], rng[<span class="dv">2</span>], <span class="at">length =</span> n)</span>
-<span id="cb10-3"><a href=""></a>munched <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">r =</span> <span class="fu">interp</span>(df<span class="sc">$</span>r, <span class="dv">15</span>), <span class="at">theta =</span> <span class="fu">interp</span>(df<span class="sc">$</span>theta, <span class="dv">15</span>))</span>
-<span id="cb10-4"><a href=""></a>transformed <span class="ot">&lt;-</span> <span class="fu">transform</span>(munched, <span class="at">x =</span> r <span class="sc">*</span> <span class="fu">sin</span>(theta), <span class="at">y =</span> r <span class="sc">*</span> <span class="fu">cos</span>(theta))</span>
-<span id="cb10-5"><a href=""></a><span class="fu">ggplot</span>(transformed, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb10-6"><a href=""></a>  <span class="fu">geom_path</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span> <span class="fu">coord_fixed</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">r =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">theta =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span> <span class="sc">/</span> <span class="dv">2</span> <span class="sc">*</span> pi))</span>
+<span id="cb7-2"><a href=""></a>interp <span class="ot">&lt;-</span> <span class="cf">function</span>(rng, n) <span class="fu">seq</span>(rng[<span class="dv">1</span>], rng[<span class="dv">2</span>], <span class="at">length =</span> n)</span>
+<span id="cb7-3"><a href=""></a>munched <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">r =</span> <span class="fu">interp</span>(df<span class="sc">$</span>r, <span class="dv">15</span>), <span class="at">theta =</span> <span class="fu">interp</span>(df<span class="sc">$</span>theta, <span class="dv">15</span>))</span>
+<span id="cb7-4"><a href=""></a>transformed <span class="ot">&lt;-</span> <span class="fu">transform</span>(munched, <span class="at">x =</span> r <span class="sc">*</span> <span class="fu">sin</span>(theta), <span class="at">y =</span> r <span class="sc">*</span> <span class="fu">cos</span>(theta))</span>
+<span id="cb7-5"><a href=""></a><span class="fu">ggplot</span>(transformed, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb7-6"><a href=""></a>  <span class="fu">geom_path</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span> <span class="fu">coord_fixed</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
 <section class="slide level2">
 
 <h3 id="coord_trans"><code>coord_trans()</code></h3>
 <p>如同界限，轉換可在<strong>兩處</strong>作用。在<strong>尺度</strong>層級，它發生在 stat <em>之前</em>、不改變 geom 形狀；在<strong>座標</strong>層級，它發生在 stat <em>之後</em>、<em>會</em>改變形狀。兩者並用，可讓你在轉換後的尺度上建模、再反轉換以利詮釋：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, price)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">stat_bin2d</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb11-4"><a href=""></a>base                                        <span class="co"># 線性配適不佳</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()    <span class="co"># 配適佳、但難讀</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-5-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>pow10 <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">exp_trans</span>(<span class="dv">10</span>)</span>
-<span id="cb13-2"><a href=""></a>base <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="fu">coord_trans</span>(<span class="at">x =</span> pow10, <span class="at">y =</span> pow10)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-5-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, price)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">stat_bin2d</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb8-4"><a href=""></a>a <span class="ot">&lt;-</span> base                                        <span class="co"># 線性配適不佳</span></span>
+<span id="cb8-5"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()    <span class="co"># 配適佳、但難讀</span></span>
+<span id="cb8-6"><a href=""></a>pow10 <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">exp_trans</span>(<span class="dv">10</span>)</span>
+<span id="cb8-7"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="fu">coord_trans</span>(<span class="at">x =</span> pow10, <span class="at">y =</span> pow10)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="coord_polar"><code>coord_polar()</code></h3>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb9-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><h3 id="coord_polar"><code>coord_polar()</code></h3>
 <p>極座標把長條 geom 變成<strong>圓餅圖</strong>與<strong>靶心圖</strong>，把線 geom 變成雷達圖。<code>theta</code> 引數選擇哪個位置映射到角度。要小心：角度比長度更難知覺，尤其在小半徑處。</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="fu">factor</span>(<span class="dv">1</span>), <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb14-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="fu">scale_x_discrete</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb14-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb14-5"><a href=""></a>base                            <span class="co"># 堆疊長條</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)<span class="co"># 圓餅圖</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-6-2.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>base <span class="sc">+</span> <span class="fu">coord_polar</span>()           <span class="co"># 靶心圖</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-6-3.png" class="quarto-figure quarto-figure-center" style="width:32.0%"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="fu">factor</span>(<span class="dv">1</span>), <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">scale_x_discrete</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb10-5"><a href=""></a>a <span class="ot">&lt;-</span> base                            <span class="co"># 堆疊長條</span></span>
+<span id="cb10-6"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>) <span class="co"># 圓餅圖</span></span>
+<span id="cb10-7"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">coord_polar</span>()            <span class="co"># 靶心圖</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="地圖投影">地圖投影</h3>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb11-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch15-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><h3 id="地圖投影">地圖投影</h3>
 <p>地圖顯示的是球面資料，因此直接畫原始經緯度會誤導——你必須<strong>投影</strong>。ggplot2 提供兩種做法：</p>
 <ul>
 <li><code>coord_quickmap()</code>——快速近似，固定長寬比使圖中央處 1° 緯度與 1° 經度相等。適合小區域。</li>
 <li><code>coord_map()</code>——透過 <strong>mapproj</strong> 套件做正式投影，引數與 <code>mapproj::mapproject()</code> 相同。較慢，因為它必須切細並轉換每一片。</li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>nzmap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">map_data</span>(<span class="st">"nz"</span>), <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
-<span id="cb17-3"><a href=""></a>nzmap                     <span class="co"># 笛卡兒座標——變形</span></span>
-<span id="cb17-4"><a href=""></a>nzmap <span class="sc">+</span> <span class="fu">coord_quickmap</span>()  <span class="co"># 校正長寬比</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>nzmap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">map_data</span>(<span class="st">"nz"</span>), <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
+<span id="cb12-3"><a href=""></a>nzmap                     <span class="co"># 笛卡兒座標——變形</span></span>
+<span id="cb12-4"><a href=""></a>nzmap <span class="sc">+</span> <span class="fu">coord_quickmap</span>()  <span class="co"># 校正長寬比</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">

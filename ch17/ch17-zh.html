@@ -6,11 +6,11 @@
 <script src="ch17-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch17-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch17-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch17-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch17-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-07-20">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-07-20</p>
 </section>
 <section>
 <section id="主題" class="title-slide slide level1 center">
@@ -536,9 +536,12 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb10-2"><a href=""></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">z =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>), <span class="at">each =</span> <span class="dv">2</span>))</span>
 <span id="cb10-3"><a href=""></a>b3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df3, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> z)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb10-4"><a href=""></a>a <span class="ot">&lt;-</span> b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lemonchiffon"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span>
-<span id="cb10-5"><a href=""></a>b <span class="ot">&lt;-</span> b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb10-6"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-4"><a href=""></a>a <span class="ot">&lt;-</span> b3 <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_rect</span>(</span>
+<span id="cb10-5"><a href=""></a>  <span class="at">fill =</span> <span class="st">"lemonchiffon"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>))</span>
+<span id="cb10-6"><a href=""></a>b <span class="ot">&lt;-</span> b3 <span class="sc">+</span> <span class="fu">theme</span>(</span>
+<span id="cb10-7"><a href=""></a>  <span class="at">legend.text  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb10-8"><a href=""></a>  <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb10-9"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch17-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>

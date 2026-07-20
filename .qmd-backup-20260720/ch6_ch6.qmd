@@ -46,7 +46,7 @@ Plotting geospatial data is one of the most frequently encountered visualisation
 1. **Drawing the map** — rendering geographic boundaries or terrain from a spatial data source.
 2. **Overlaying metadata** — projecting additional variables (e.g., population density, election results, rainfall) from a separate data source onto the rendered map.
 
-This chapter is organised as follows:
+This chapter addresses both problems and is organised as follows:
 
 - **Section 6.1** — polygon-based maps with `geom_polygon()`, the simplest approach.
 - **Section 6.2** — modern simple features (sf) maps with `geom_sf()`.
@@ -442,8 +442,6 @@ Many raster file formats — most notably **GeoTIFF** — embed spatial metadata
 The `stars` package (Pebesma 2020) provides tools for reading and manipulating spatiotemporal raster arrays. The example below imports a GeoTIFF file containing a visible-light satellite image captured by the Himawari-8 geostationary satellite and originally sourced from the Australian Bureau of Meteorology.
 
 The `RasterIO` list is passed directly to GDAL: `nBufXSize` and `nBufYSize` downsample the image to 600 × 600 pixels on import, reducing memory usage while retaining enough detail for visualisation:
-
-------------------------------------------------------------------------
 
 ```{r,echo=T,eval=TRUE}
 library(stars)
