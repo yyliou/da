@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="尺度與導引" class="title-slide slide level1 center">
@@ -295,7 +295,7 @@
 </section>
 <section class="slide level2">
 
-<p>用 <code>+</code> 加上一個尺度，其實是<strong>覆寫</strong>該美學既有的尺度——最後一個獲勝。發生這種情況時 ggplot2 會警告你：</p>
+<p>用 <code>+</code> 加上一個尺度，其實是<strong>覆寫</strong>該美學既有的尺度——最後一個獲勝。取代預設尺度時不會有任何提示；只有當你明確為同一個美學加入兩個尺度時，ggplot2 才會顯示訊息：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
 <span id="cb2-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
@@ -438,7 +438,7 @@
 <span id="cb6-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section>
 <section class="slide level2">
 
 <p>轉換<strong>大小</strong>美學會改變它的詮釋。左圖中 <code>z</code> 讀作<em>權重</em>（越大＝群組越大）；反轉尺度後 <code>z</code> 讀作<em>距離</em>（越大＝看起來越小）：</p>
@@ -457,7 +457,7 @@
 <span id="cb8-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section></section>
+<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section></section>
 <section>
 <section id="圖例合併與分裂" class="title-slide slide level1 center">
 <h1>圖例合併與分裂</h1>
@@ -482,7 +482,7 @@
 <span id="cb10-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
+<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section>
 <section class="slide level2">
 
 <p>要合併圖例，它們必須共享相同的 <code>name</code>。若你重新命名一個尺度，就要全部一起改——<code>labs()</code> 是個方便的做法：</p>
@@ -501,7 +501,7 @@
 <span id="cb12-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>你也可以用 <code>show.legend</code> 引數（<code>TRUE</code>/<code>FALSE</code>）強制或抑制某圖層的出現。</p>
+<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"><p>你也可以用 <code>show.legend</code> 引數（<code>TRUE</code>/<code>FALSE</code>）強制或抑制某圖層的出現。</p>
 </section>
 <section class="slide level2">
 
@@ -517,15 +517,7 @@
 <span id="cb13-7"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> cyl <span class="sc">==</span> <span class="dv">4</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
 <span id="cb13-8"><a href=""></a>  <span class="fu">scale_colour_manual</span>(<span class="st">"4 cylinder"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey60"</span>, <span class="st">"black"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section class="slide level2">
-
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb14-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
-</div>
-<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section></section>
+</section></section>
 <section>
 <section id="圖例鍵符號" class="title-slide slide level1 center">
 <h1>圖例鍵符號</h1>
@@ -535,19 +527,19 @@
 <h2>圖例鍵符號</h2>
 <p>預設情況下，圖例鍵的符號會與圖層及美學相符——彩色線顯示為彩色線段、盒鬚圖顯示為小盒鬚圖。要覆寫它，使用 <code>key_glyph</code> 引數：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, psavert, <span class="at">colour =</span> <span class="st">"savings"</span>))</span>
-<span id="cb15-2"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb15-3"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">key_glyph =</span> <span class="st">"timeseries"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, psavert, <span class="at">colour =</span> <span class="st">"savings"</span>))</span>
+<span id="cb14-2"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb14-3"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">key_glyph =</span> <span class="st">"timeseries"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb16-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb15-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>每個 geom 都關聯一個畫鍵函式，如 <code>draw_key_path()</code> 或 <code>draw_key_timeseries()</code>。你也可以直接傳入該函式：<code>key_glyph = draw_key_timeseries</code>。</p>
+<img data-src="ch14-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"><p>每個 geom 都關聯一個畫鍵函式，如 <code>draw_key_path()</code> 或 <code>draw_key_timeseries()</code>。你也可以直接傳入該函式：<code>key_glyph = draw_key_timeseries</code>。</p>
 </section>
 <section id="練習" class="slide level2">
 <h2>練習</h2>

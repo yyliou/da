@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="座標系統" class="title-slide slide level1 center">
@@ -220,7 +220,7 @@
 </section>
 <section id="概覽" class="slide level2">
 <h2>概覽</h2>
-<p>座標系統有兩項主要工作。其一，把兩個位置美學<strong>結合</strong>成圖上的 2D 位置——<code>x</code> 與 <code>y</code> 或許更該叫「位置 1」與「位置 2」，因為它們的意義取決於座標系統（極座標中是角度與半徑、地圖中是緯度與經度）。其二，與分面器協作，<strong>繪製軸與面板背景</strong>。</p>
+<p>座標系統有兩項主要工作。其一，把兩個位置美學<strong>結合</strong>成圖上的 2D 位置——<code>x</code> 與 <code>y</code> 或許更該叫「位置 1」與「位置 2」，因為它們的意義取決於座標系統（極座標中是角度與半徑、地圖中是經度與緯度）。其二，與分面器協作，<strong>繪製軸與面板背景</strong>。</p>
 <p>座標系統有兩大類：</p>
 <ul>
 <li><strong>線性</strong>系統保留 geom 的形狀：<code>coord_cartesian()</code>、<code>coord_flip()</code>、<code>coord_fixed()</code></li>
@@ -373,7 +373,7 @@
 <h3 id="地圖投影">地圖投影</h3>
 <p>地圖顯示的是球面資料，因此直接畫原始經緯度會誤導——你必須<strong>投影</strong>。ggplot2 提供兩種做法：</p>
 <ul>
-<li><code>coord_quickmap()</code>——快速近似，固定長寬比使圖中央處 1° 緯度與 1° 經度相等。適合小區域。</li>
+<li><code>coord_quickmap()</code>——正式投影的廉價近似：設定長寬比，使圖中央處南北方向 1 公尺與東西方向 1 公尺佔據相同的繪圖距離。適合小區域。</li>
 <li><code>coord_map()</code>——透過 <strong>mapproj</strong> 套件做正式投影，引數與 <code>mapproj::mapproject()</code> 相同。較慢，因為它必須切細並轉換每一片。</li>
 </ul>
 </section>

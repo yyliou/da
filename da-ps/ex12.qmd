@@ -1,0 +1,60 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 12"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Take your favourite plot from earlier weeks (e.g., `displ` vs `hwy` coloured by `class`) and restyle it: apply the complete theme `theme_bw()`, then add a `theme()` call making exactly three specific modifications, for example:
+
+- `plot.title = element_text(face = "bold", size = 14)`
+- `panel.grid.minor = element_blank()`
+- `axis.title = element_text(size = 12)`
+
+Write one sentence explaining the difference between a *complete theme* (like `theme_bw()`) and individual `theme()` modifications, including why order matters.
+
+## Question 2
+
+Using the same plot, move the legend **inside** the panel with
+
+```r
+theme(
+  legend.position = "inside",
+  legend.position.inside = c(0.95, 0.95),
+  legend.justification = c("right", "top")
+)
+```
+
+(on older ggplot2, `legend.position = c(0.95, 0.95)`). Write one sentence on when placing the legend inside the panel is a good idea (empty plot region) and when it is not.
+
+## Question 3
+
+Capstone: produce **one** polished, publication-ready figure using any dataset from the course (`mpg`, `diamonds`, `txhousing`, `economics`, ...) that combines at least **two** techniques from this semester — e.g., facetting + annotation, patchwork composition + collected legends, log scales + viridis colour, or `stat_summary` + custom theme. It must include informative `labs()` (title, axis labels with units, caption) and a non-default theme. Save it with
+
+```r
+ggsave("final-figure.png", width = 8, height = 5, dpi = 300)
+```
+
+Write two or three sentences, as a figure caption would, stating the main message a reader should take away from your figure.
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex12-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

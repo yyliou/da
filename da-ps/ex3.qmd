@@ -1,0 +1,44 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 3"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Using the `economics` dataset, make **two** plots of the unemployment rate over time (`x = date`, `y = unemploy / pop`): one with `geom_line()` and one with `geom_point()`. Then make a bar chart of the number of cars in each `class` of the `mpg` dataset using `geom_bar()`.
+
+Write one sentence explaining why a line is the right geom for the unemployment series but a bar is the right geom for the class counts.
+
+## Question 2
+
+Using the `economics` dataset, plot `unemploy / pop` against `uempmed` (median duration of unemployment) with `geom_path()`. Compare it with the same plot drawn with `geom_line()`.
+
+Write one sentence explaining the difference: which geom connects observations in the order they appear in the data (time order), and why that matters for showing how the economy evolved.
+
+## Question 3
+
+Using the `mpg` dataset, plot `displ` vs `hwy` with one smooth line per vehicle class. First try mapping `colour = class` inside `aes()`, then try a version where the points are a single colour but you add `geom_smooth(aes(group = class), se = FALSE)`. Combine points and smooths as multiple geoms in one plot.
+
+Write one sentence explaining what the `group` aesthetic does when you do not want a separate colour (or legend) for each group.
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex3-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

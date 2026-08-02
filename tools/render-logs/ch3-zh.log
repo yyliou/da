@@ -1,0 +1,64 @@
+[31m
+
+processing file: ch3-zh.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |......                                              |  11%                    |                                                            |............                                        |  22% [setup]            |                                                            |.................                                   |  33%                    |                                                            |.......................                             |  44% [unnamed-chunk-1]  |                                                            |.............................                       |  56%                    |                                                            |...................................                 |  67% [unnamed-chunk-2]  |                                                            |........................................            |  78%                    |                                                            |..............................................      |  89% [unnamed-chunk-3]  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: ch3-zh.knit.md
+
+[39m[1mpandoc [22m
+  to: revealjs
+  output-file: ch3-zh.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+[1mmetadata[22m
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /Applications/RStudio.app/Contents/Resources/app/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: 資料分析
+  subtitle: 第三章：個別 geoms
+  author: 劉昱佑
+  institute: 實踐大學
+  date: '`r Sys.Date()`'
+  smaller: true
+  theme: serif
+  footer: '`ggplot2`: Elegant Graphics for Data Analysis'
+  logo: logo.svg
+  editor: source
+  bibliography:
+    - bib.bib
+  suppress-bibliography: true
+  slideNumber: true
+  scrollable: false
+  menu:
+    useTextContentForMissingTitles: false
+    hideMissingTitles: true
+    side: left
+    titleSelector: h1
+  title-slide-attributes:
+    data-notes: ''
+  
+Output created: ch3-zh.html
+

@@ -23,8 +23,34 @@ menu:
 
 ## Question 1
 
-Evaluate $1 + 1$ in R.
+Use R as a calculator. In your script, evaluate the following three expressions and show the results:
+
+- $17 + 25 \times 3$
+- $2^{10}$
+- $\sqrt{144} / (5 - 2)$
+
+Write one sentence explaining why the first expression does **not** equal $126$ (hint: operator precedence).
 
 ## Question 2
 
-Evaluate $3 \times 4$ in R.
+Create a numeric vector named `scores` containing the values `85, 92, 78, 61, 95, 88, 70`. Then:
+
+- Compute its mean with `mean()` and its standard deviation with `sd()`.
+- Use `length()` to confirm how many elements it contains.
+
+Write one sentence interpreting what the standard deviation tells you about how spread out these scores are around the mean.
+
+## Question 3
+
+Load the ggplot2 package with `library(ggplot2)` and make your first plot: a scatterplot of the `mpg` dataset with engine displacement (`displ`) on the x-axis and highway fuel economy (`hwy`) on the y-axis, using `geom_point()`.
+
+```r
+library(ggplot2)
+ggplot(mpg, aes(x = displ, y = hwy)) + geom_point()
+```
+
+Run the code, look at the plot, and write one sentence describing the relationship you see between engine size and highway fuel economy.
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex1-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

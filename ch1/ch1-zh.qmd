@@ -203,9 +203,9 @@ R 中還有其他幾種繪圖系統：基礎繪圖（base graphics）、grid 繪
 install.packages(c(
   "colorBlindness", "directlabels", "dplyr", "ggforce", "gghighlight",
   "ggnewscale", "ggplot2", "ggraph", "ggrepel", "ggtext", "ggthemes",
-  "hexbin", "Hmisc", "mapproj", "maps", "munsell", "ozmaps",
+  "gridExtra", "hexbin", "Hmisc", "mapproj", "maps", "munsell", "ozmaps",
   "paletteer", "patchwork", "rmapshaper", "scico", "seriation", "sf",
-  "stars", "tidygraph", "tidyr", "wesanderson"
+  "showtext", "stars", "tidygraph", "tidyr", "wesanderson"
 ))
 ```
 

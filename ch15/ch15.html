@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="coordinate-systems" class="title-slide slide level1 center">
@@ -220,7 +220,7 @@ Yu-You Liou (NTU)
 </section>
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
-<p>Coordinate systems have two main jobs. First, they <strong>combine</strong> the two position aesthetics into a 2D position on the plot — <code>x</code> and <code>y</code> might better be called “position 1” and “position 2”, because their meaning depends on the system (angle and radius in polar coordinates, latitude and longitude on maps). Second, in coordination with the faceter, they <strong>draw the axes and panel backgrounds</strong>.</p>
+<p>Coordinate systems have two main jobs. First, they <strong>combine</strong> the two position aesthetics into a 2D position on the plot — <code>x</code> and <code>y</code> might better be called “position 1” and “position 2”, because their meaning depends on the system (angle and radius in polar coordinates, longitude and latitude on maps). Second, in coordination with the faceter, they <strong>draw the axes and panel backgrounds</strong>.</p>
 <p>There are two families:</p>
 <ul>
 <li><strong>Linear</strong> systems preserve the shape of geoms: <code>coord_cartesian()</code>, <code>coord_flip()</code>, <code>coord_fixed()</code></li>
@@ -377,7 +377,7 @@ Yu-You Liou (NTU)
 <h3 id="map-projections">Map Projections</h3>
 <p>Maps display spherical data, so plotting raw longitude and latitude is misleading — you must <strong>project</strong>. ggplot2 offers two approaches:</p>
 <ul>
-<li><code>coord_quickmap()</code> — a fast approximation that fixes the aspect ratio so 1° of latitude and 1° of longitude are equal in the middle of the plot. Good for small regions.</li>
+<li><code>coord_quickmap()</code> — a cheap approximation to a proper projection: it sets the aspect ratio so that, at the centre of the plot, one metre north–south occupies the same plotting distance as one metre east–west. Good for small regions.</li>
 <li><code>coord_map()</code> — a formal projection via the <strong>mapproj</strong> package, taking the same arguments as <code>mapproj::mapproject()</code>. Slower, because it must munch and transform every piece.</li>
 </ul>
 </section>

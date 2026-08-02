@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="分面" class="title-slide slide level1 center">
@@ -453,7 +453,7 @@
 <span id="cb12-6"><a href=""></a>b <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_i, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
 <span id="cb12-7"><a href=""></a>c <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_n, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>注意：分面公式<strong>不會</strong>對函式求值，所以必須先建立離散化後的變數。</p>
+<p>注意：分面公式可以即時計算變數，例如 <code>facet_wrap(~cut_width(displ, 1))</code>；不過先建立離散化後的變數，往往能讓標籤更整潔。</p>
 </section>
 <section class="slide level2">
 

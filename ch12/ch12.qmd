@@ -117,7 +117,7 @@ base_pl + ggtitle("Default scale_size() — not to scale")
 
 ---
 
-With the default `scale_size()`, the area of each dot scales with radius², distorting the apparent ratios. Using `scale_radius()` with `limits = c(0, NA)` anchors the zero-radius point at zero area and renders proportions faithfully:
+With the default `scale_size()`, it is the *area* of each dot that is proportional to the mapped value (the planet's radius), so the difference between large and small planets is visually understated. Using `scale_radius()` with `limits = c(0, NA)` instead maps the dot's *radius* linearly to the planet's radius, which renders the discs geometrically similar to the planets:
 
 ```{r, echo=TRUE, warning=FALSE, out.width="65%", fig.align='center'}
 base_pl +
@@ -125,7 +125,7 @@ base_pl +
   ggtitle("scale_radius() — proportionally accurate")
 ```
 
-The contrast is immediately visible: Jupiter's disc is now visibly much larger than Saturn's, correctly reflecting that the difference between the two exceeds the diameter of Earth.
+The contrast is immediately visible: Jupiter's disc is now visibly much larger than Saturn's, correctly reflecting that the difference between the two exceeds the radius of Earth.
 
 ---
 
@@ -212,11 +212,11 @@ p_solid | p_hollow
 
 ---
 
-`ggplot2` supports 25 distinct shapes, each identified by an integer from 0 to 24:
+`ggplot2` supports 26 distinct shapes, each identified by an integer from 0 to 25:
 
 - Shapes **0–14** are hollow (border only, no fill).
 - Shapes **15–20** are solid (filled with the `colour` aesthetic).
-- Shapes **21–24** are filled shapes that respond to both `colour` (border) and `fill` aesthetics independently.
+- Shapes **21–25** are filled shapes that respond to both `colour` (border) and `fill` aesthetics independently.
 
 To assign shapes manually, use `scale_shape_manual()` with a named integer vector:
 

@@ -1,0 +1,47 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 8"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Plot `displ` vs `hwy` from `mpg`. Customise the x-axis with `scale_x_continuous()` so that breaks appear at every whole litre (`breaks = 2:7`) and labels read `"2L"`, `"3L"`, ..., `"7L"`. Also set y-axis breaks every 10 mpg.
+
+Write one sentence on how sensible breaks and labelled units change how easily a reader extracts numbers from the plot.
+
+## Question 2
+
+Using the `diamonds` dataset, plot `carat` vs `price` as points, then remake it with **log scales**: `scale_x_log10()` and `scale_y_log10()`.
+
+Write one sentence describing what the log–log version reveals about the relationship (hint: an approximately straight line on log–log axes suggests a power law).
+
+## Question 3
+
+Zooming vs dropping data. Start from `ggplot(mpg, aes(displ, hwy)) + geom_point() + geom_smooth()`. Produce two "zoomed" versions restricted to `displ` between 2 and 4:
+
+- Version A: `scale_x_continuous(limits = c(2, 4))` (equivalently `xlim(2, 4)`)
+- Version B: `coord_cartesian(xlim = c(2, 4))`
+
+Compare the smooth lines in the two versions and write two sentences explaining the difference: which version silently *drops* observations before the smooth is computed (watch for the warning message), and which one merely zooms the viewport?
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex8-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

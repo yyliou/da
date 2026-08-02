@@ -1,6 +1,17 @@
 ## Problem sets
 
 - [In-class Exercise 1](https://yyliou.github.io/da/da-ps/ex1.html)
+- [In-class Exercise 2](https://yyliou.github.io/da/da-ps/ex2.html)
+- [In-class Exercise 3](https://yyliou.github.io/da/da-ps/ex3.html)
+- [In-class Exercise 4](https://yyliou.github.io/da/da-ps/ex4.html)
+- [In-class Exercise 5](https://yyliou.github.io/da/da-ps/ex5.html)
+- [In-class Exercise 6](https://yyliou.github.io/da/da-ps/ex6.html)
+- [In-class Exercise 7](https://yyliou.github.io/da/da-ps/ex7.html)
+- [In-class Exercise 8](https://yyliou.github.io/da/da-ps/ex8.html)
+- [In-class Exercise 9](https://yyliou.github.io/da/da-ps/ex9.html)
+- [In-class Exercise 10](https://yyliou.github.io/da/da-ps/ex10.html)
+- [In-class Exercise 11](https://yyliou.github.io/da/da-ps/ex11.html)
+- [In-class Exercise 12](https://yyliou.github.io/da/da-ps/ex12.html)
 
 ## Submission Requirements
 
@@ -41,10 +52,12 @@ print(uuid::UUIDgenerate())
 
 Before submitting, verify that your document satisfies all of the following criteria:
 
--   [ ] The `title` field in the YAML header is completed.
+-   [ ] The `title` field in the YAML header is completed (e.g., `Ex. 1`).
 -   [ ] The `author` field includes your student ID *only*.
+-   [ ] The `date` field is present (keep `` `r Sys.Date()` `` from the template).
+-   [ ] The UUID code chunk (`print(uuid::UUIDgenerate())`) from the template is present and unmodified.
 -   [ ] The final document must be submitted strictly in `.pdf` format.
--   [ ] The document's name should be `ex?-id.pdf`, eg (`ex1-D10627008.pdf`).
+-   [ ] The document's name should be `exN-id.pdf` (e.g., `ex1-D10627008.pdf`).
 
 ## Submit Your Assignments
 

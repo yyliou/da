@@ -209,7 +209,7 @@ p2 <- ggplot(mpg, aes(displ, hwy)) + geom_point(colour = "blue")
 grid.arrange(p1, p2, ncol = 2) 
 ```
 
-In the first plot, the value “blue” is scaled to a pinkish colour, and a legend is added. In the second plot, the points are given the R colour blue. This is an important technique and you’ll learn more about it in §13.4.2. See vignette("`ggplot2`-specs") for the values needed for colour and other aesthetics.
+In the first plot, the value “blue” is scaled to a pinkish colour, and a legend is added. In the second plot, the points are given the R colour blue. This is an important technique and you’ll learn more about it in §13.4.2. See `vignette("ggplot2-specs")` for the values needed for colour and other aesthetics.
 
 ---
 
@@ -318,7 +318,7 @@ Loess does not work well for large datasets (it’s $O(n^2)$ in memory), so an a
 
 **Generalized additive model (`gam`)**
 
--   `method = "gam`" fits a generalised additive model provided by the `mgcv` package. You need to first load `mgcv`, then use a formula like formula = `y ~ s(x)` or `y ~ s(x, bs = "cs")` (for large data). This is what `ggplot2` uses when there are more than 1,000 points.
+-   `method = "gam"` fits a generalised additive model provided by the `mgcv` package. You need to first load `mgcv`, then use a formula like formula = `y ~ s(x)` or `y ~ s(x, bs = "cs")` (for large data). This is what `ggplot2` uses when there are more than 1,000 points.
 
 ```{r,echo=T,message=FALSE,warning=FALSE,out.width = "80%",fig.align='center'}
 library(mgcv)

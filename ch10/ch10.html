@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="position-scales-and-axes" class="title-slide slide level1 center">
@@ -646,18 +646,23 @@ Yu-You Liou (NTU)
 
 <p>The full list of built-in transformations supplied by the <code>scales</code> package:</p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
 <th>Function <span class="math inline">\(f(x)\)</span></th>
-<th>Inverse <span class="math inline">\(f^{-1}(x)\)</span></th>
+<th>Inverse <span class="math inline">\(f^{-1}(y)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>"asn"</code></td>
-<td><span class="math inline">\(\tanh^{-1}(x)\)</span></td>
-<td><span class="math inline">\(\tanh(y)\)</span></td>
+<td><span class="math inline">\(2\sin^{-1}\!\left(\sqrt{x}\right)\)</span></td>
+<td><span class="math inline">\(\sin^2\!\left(y/2\right)\)</span></td>
 </tr>
 <tr class="even">
 <td><code>"exp"</code></td>
@@ -687,12 +692,12 @@ Yu-You Liou (NTU)
 <tr class="odd">
 <td><code>"logit"</code></td>
 <td><span class="math inline">\(\log\!\left(\frac{x}{1-x}\right)\)</span></td>
-<td><span class="math inline">\(\frac{1}{1+e^y}\)</span></td>
+<td><span class="math inline">\(\frac{e^y}{1+e^y}\)</span></td>
 </tr>
 <tr class="even">
 <td><code>"probit"</code></td>
-<td><span class="math inline">\(\Phi(x)\)</span></td>
-<td><span class="math inline">\(\Phi^{-1}(y)\)</span></td>
+<td><span class="math inline">\(\Phi^{-1}(x)\)</span></td>
+<td><span class="math inline">\(\Phi(y)\)</span></td>
 </tr>
 <tr class="odd">
 <td><code>"reciprocal"</code></td>

@@ -98,7 +98,7 @@ p <- ggplot(df, aes(x, y, label = label)) +
 p1 <- p + geom_point() + ggtitle("point")
 p2 <- p + geom_text() + ggtitle("text")
 p3 <- p + geom_bar(stat = "identity", fill = "skyblue") + ggtitle("bar")
-p4 <- p + geom_tile(width = 0.5, height = 0.5, fill = "orange") + ggtitle("raster")
+p4 <- p + geom_tile(width = 0.5, height = 0.5, fill = "orange") + ggtitle("tile")
 (p1 | p2 | p3 | p4)
 ```
 

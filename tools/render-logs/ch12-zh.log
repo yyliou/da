@@ -1,0 +1,64 @@
+[31m
+
+processing file: ch12-zh.qmd
+[39m  |                                                           |                                                   |   0%  |                                                           |.                                                  |   2%                     |                                                           |..                                                 |   5% [setup]             |                                                           |....                                               |   7%                     |                                                           |.....                                              |  10% [unnamed-chunk-1]   |                                                           |......                                             |  12%                     |                                                           |.......                                            |  15% [unnamed-chunk-2]   |                                                           |.........                                          |  17%                     |                                                           |..........                                         |  20% [unnamed-chunk-3]   |                                                           |...........                                        |  22%                     |                                                           |............                                       |  24% [unnamed-chunk-4]   |                                                           |..............                                     |  27%                     |                                                           |...............                                    |  29% [unnamed-chunk-5]   |                                                           |................                                   |  32%                     |                                                           |.................                                  |  34% [unnamed-chunk-6]   |                                                           |...................                                |  37%                     |                                                           |....................                               |  39% [unnamed-chunk-7]   |                                                           |.....................                              |  41%                     |                                                           |......................                             |  44% [unnamed-chunk-8]   |                                                           |........................                           |  46%                     |                                                           |.........................                          |  49% [unnamed-chunk-9]   |                                                           |..........................                         |  51%                     |                                                           |...........................                        |  54% [unnamed-chunk-10]  |                                                           |.............................                      |  56%                     |                                                           |..............................                     |  59% [unnamed-chunk-11]  |                                                           |...............................                    |  61%                     |                                                           |................................                   |  63% [unnamed-chunk-12]  |                                                           |..................................                 |  66%                     |                                                           |...................................                |  68% [unnamed-chunk-13]  |                                                           |....................................               |  71%                     |                                                           |.....................................              |  73% [unnamed-chunk-14]  |                                                           |.......................................            |  76%                     |                                                           |........................................           |  78% [unnamed-chunk-15]  |                                                           |.........................................          |  80%                     |                                                           |..........................................         |  83% [unnamed-chunk-16]  |                                                           |............................................       |  85%                     |                                                           |.............................................      |  88% [unnamed-chunk-17]  |                                                           |..............................................     |  90%                     |                                                           |...............................................    |  93% [unnamed-chunk-18]  |                                                           |.................................................  |  95%                     |                                                           |.................................................. |  98% [unnamed-chunk-19]  |                                                           |...................................................| 100%                                                                                                                                
+[31moutput file: ch12-zh.knit.md
+
+[39m[1mpandoc [22m
+  to: revealjs
+  output-file: ch12-zh.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+[1mmetadata[22m
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /Applications/RStudio.app/Contents/Resources/app/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: 資料分析
+  subtitle: 第十二章：其他美學
+  author: 劉昱佑
+  institute: 實踐大學
+  date: '`r Sys.Date()`'
+  smaller: true
+  theme: serif
+  footer: '`ggplot2`: Elegant Graphics for Data Analysis'
+  logo: logo.svg
+  editor: source
+  bibliography:
+    - bib.bib
+  suppress-bibliography: true
+  slideNumber: true
+  scrollable: false
+  menu:
+    useTextContentForMissingTitles: false
+    hideMissingTitles: true
+    side: left
+    titleSelector: h1
+  title-slide-attributes:
+    data-notes: ''
+  
+Output created: ch12-zh.html
+

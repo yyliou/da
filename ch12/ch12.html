@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="other-aesthetics" class="title-slide slide level1 center">
@@ -324,14 +324,14 @@ Yu-You Liou (NTU)
 <img data-src="ch12_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
-<p>With the default <code>scale_size()</code>, the area of each dot scales with radius², distorting the apparent ratios. Using <code>scale_radius()</code> with <code>limits = c(0, NA)</code> anchors the zero-radius point at zero area and renders proportions faithfully:</p>
+<p>With the default <code>scale_size()</code>, it is the <em>area</em> of each dot that is proportional to the mapped value (the planet’s radius), so the difference between large and small planets is visually understated. Using <code>scale_radius()</code> with <code>limits = c(0, NA)</code> instead maps the dot’s <em>radius</em> linearly to the planet’s radius, which renders the discs geometrically similar to the planets:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>base_pl <span class="sc">+</span></span>
 <span id="cb3-2"><a href=""></a>  <span class="fu">scale_radius</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
 <span id="cb3-3"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"scale_radius() — proportionally accurate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch12_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>The contrast is immediately visible: Jupiter’s disc is now visibly much larger than Saturn’s, correctly reflecting that the difference between the two exceeds the diameter of Earth.</p>
+<img data-src="ch12_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>The contrast is immediately visible: Jupiter’s disc is now visibly much larger than Saturn’s, correctly reflecting that the difference between the two exceeds the radius of Earth.</p>
 </section>
 <section class="slide level2">
 
@@ -467,11 +467,11 @@ Yu-You Liou (NTU)
 <img data-src="ch12_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
 <section class="slide level2">
 
-<p><code>ggplot2</code> supports 25 distinct shapes, each identified by an integer from 0 to 24:</p>
+<p><code>ggplot2</code> supports 26 distinct shapes, each identified by an integer from 0 to 25:</p>
 <ul>
 <li>Shapes <strong>0–14</strong> are hollow (border only, no fill).</li>
 <li>Shapes <strong>15–20</strong> are solid (filled with the <code>colour</code> aesthetic).</li>
-<li>Shapes <strong>21–24</strong> are filled shapes that respond to both <code>colour</code> (border) and <code>fill</code> aesthetics independently.</li>
+<li>Shapes <strong>21–25</strong> are filled shapes that respond to both <code>colour</code> (border) and <code>fill</code> aesthetics independently.</li>
 </ul>
 <p>To assign shapes manually, use <code>scale_shape_manual()</code> with a named integer vector:</p>
 </section>

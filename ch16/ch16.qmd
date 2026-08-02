@@ -74,6 +74,13 @@ b <- base + facet_wrap(~class, ncol = 3, as.table = FALSE)
 
 ---
 
+```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
+library(patchwork)
+(a|b)
+```
+
+---
+
 The same facets, wrapped by rows and in vertical direction:
 
 ```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
@@ -246,7 +253,7 @@ library(patchwork)
 (a|b)/(c|d)
 ```
 
-Note: the faceting formula does **not** evaluate functions, so create the discretised variable first.
+Note: the faceting formula can compute variables on the fly, e.g. `facet_wrap(~cut_width(displ, 1))`, though creating the discretised variable first often keeps labels tidier.
 
 ## Exercises
 

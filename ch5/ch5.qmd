@@ -183,7 +183,7 @@ p1 <- ggplot(midwest, aes(percbelowpoverty)) +
 
 p2 <- ggplot(midwest, aes(percbelowpoverty)) +
   geom_histogram(aes(weight = poptotal), binwidth = 1) +
-  ylab("Population (1000s)")
+  ylab("Population")
 
 p1 | p2
 ```
@@ -317,7 +317,7 @@ Note that each KDE is normalised so that its total area equals one. As a consequ
 
 When the goal is to compare many distributions simultaneously, detail must be traded for compactness. Three geoms are particularly useful:
 
-**`geom_boxplot()`** — the box-and-whisker plot summarises a distribution using five statistics (minimum, Q1, median, Q3, maximum) and flags potential outliers. It occupies minimal space and scales well to many groups.
+**`geom_boxplot()`** — the box-and-whisker plot shows the median, Q1 and Q3 as a box, with whiskers extending to the most extreme observations within 1.5×IQR of the box; points beyond are flagged as potential outliers. It occupies minimal space and scales well to many groups.
 
 For a continuous x variable, the `group` aesthetic combined with `cut_width()` partitions the data into bins:
 

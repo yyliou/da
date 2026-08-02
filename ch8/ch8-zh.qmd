@@ -296,7 +296,7 @@ ggplot(mpg, aes(displ, hwy)) +
   ggrepel::geom_text_repel(data = mini_mpg, aes(label = class))
 ```
 
-- **把標籤塞進長條或方塊內。** Claus Wilke 的 `ggfittext` 套件提供能自動調整大小或修剪文字以塞入指定邊界區域的 geoms。
+- **把標籤塞進長條或方塊內。** David Wilkins 的 `ggfittext` 套件提供能自動調整大小或修剪文字以塞入指定邊界區域的 geoms。
 
 # 建構自訂標註
 

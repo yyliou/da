@@ -1,0 +1,60 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 10"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Every geom is a shortcut for a call to `layer()`. Rebuild the basic `mpg` scatterplot *without* `geom_point()`, spelling out the five layer components explicitly:
+
+```r
+ggplot() +
+  layer(
+    data = mpg,
+    mapping = aes(x = displ, y = hwy),
+    geom = "point",
+    stat = "identity",
+    position = "identity"
+  )
+```
+
+Write one sentence naming the five components of a layer and what role the `stat` plays.
+
+## Question 2
+
+Make a scatterplot of `displ` vs `hwy` with `colour = class` and `size = cyl`. Use `guides()` to customise the legends: show the colour legend with larger keys via `guides(colour = guide_legend(override.aes = list(size = 4)))`, and remove the size legend entirely with `size = "none"`.
+
+Write one sentence on when hiding a legend is justified (e.g., the mapping is explained in the caption or is self-evident).
+
+## Question 3
+
+Explain `after_stat()` with a working example. Default `geom_histogram()` maps `y` to the computed variable `count`. Remake a histogram of `diamonds$carat` showing **density** instead:
+
+```r
+ggplot(diamonds, aes(carat)) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 0.1)
+```
+
+Write two sentences: what does `after_stat()` do in general (it lets an aesthetic use a variable *computed by the stat* rather than a raw data column), and why is density on the y-axis useful when comparing groups of different sizes?
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex10-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

@@ -1,0 +1,51 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 9"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Draw the Old Faithful density surface with `geom_raster()`:
+
+```r
+ggplot(faithfuld, aes(waiting, eruptions, fill = density)) +
+  geom_raster()
+```
+
+Render it twice: once with the default continuous fill scale, and once adding `scale_fill_viridis_c()`.
+
+Write one sentence on why the viridis version is preferred (perceptual uniformity: equal steps in the data look like equal steps in colour, and it survives greyscale printing).
+
+## Question 2
+
+Make a bar chart of `class` counts in `mpg`, filled by `drv`. Replace the default discrete colours with a colourblind-safe palette, e.g. `scale_fill_brewer(palette = "Set2")` or `scale_fill_viridis_d()`.
+
+Write one sentence explaining why red–green default-style palettes are risky and roughly what share of the audience may be affected by colour-vision deficiency.
+
+## Question 3
+
+Using `mpg`, plot `displ` vs `hwy` and map `cyl` (number of cylinders) to point **size**. Compare the default `scale_size()` with `scale_size_area()`.
+
+Write two sentences: what does `scale_size_area()` guarantee about the mapping (value proportional to *area*, and zero maps to zero size), and why is scaling the radius instead of the area misleading?
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex9-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

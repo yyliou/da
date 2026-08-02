@@ -651,7 +651,7 @@ p_f1 | p_f2 | p_f3
 
 ### Limits, Breaks, and Labels
 
-Setting limits, breaks, and labels for binned scales follows the same conventions as for continuous scales (§11.2.4). The important difference is that the `breaks` argument defines the **edges of bins**, not just tick-mark positions. Consequently, the number of breaks equals the number of bins plus one.
+Setting limits, breaks, and labels for binned scales follows the same conventions as for continuous scales (§11.2.4). The important difference is that the `breaks` argument defines the **edges of bins**, not just tick-mark positions. Since the breaks are the interior boundaries between bins, the number of bins equals the number of breaks plus one.
 
 Both the `limits` and `breaks` arguments accept functions in addition to fixed vectors, as described in §10.1.
 
@@ -665,7 +665,7 @@ Binned colour scales use a **colour step legend** by default, rendered as a seri
 |---|---|
 | `show.limits` | Show values at the extremes of the colour bar |
 | `ticks` | Show/hide tick marks adjacent to labels |
-| `even.steps` | Whether bins are displayed at equal widths (`TRUE`) or proportional to their data frequency (`FALSE`) |
+| `even.steps` | Whether bins are displayed at equal widths (`TRUE`) or at widths proportional to the span of each bin in data space (`FALSE`) |
 
 ---
 

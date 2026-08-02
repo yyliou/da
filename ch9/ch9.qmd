@@ -93,7 +93,7 @@ p1 + p2
 
 ---
 
-When no layout is specified explicitly, patchwork applies the same heuristic used by `facet_wrap()` to determine the number of rows and columns. Adding three plots produces a 1 × 3 grid; four plots produce a 2 × 2 grid:
+When no layout is specified explicitly, patchwork applies the same heuristic used by `facet_wrap()` to determine the number of rows and columns. Adding three plots produces a 2 × 2 grid with one empty cell; four plots produce a 2 × 2 grid:
 
 ```{r,echo=T,warning=FALSE,out.width="80%",fig.align='center'}
 p1 + p2 + p3 + p4

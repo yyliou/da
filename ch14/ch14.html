@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="scales-and-guides" class="title-slide slide level1 center">
@@ -297,7 +297,7 @@ Yu-You Liou (NTU)
 </section>
 <section class="slide level2">
 
-<p>Adding a scale with <code>+</code> actually <strong>overrides</strong> any existing scale for that aesthetic — the last one wins. ggplot2 warns you when this happens:</p>
+<p>Adding a scale with <code>+</code> actually <strong>overrides</strong> any existing scale for that aesthetic — the last one wins. Replacing a default scale happens silently; ggplot2 only shows a message when you explicitly add two scales for the same aesthetic:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>

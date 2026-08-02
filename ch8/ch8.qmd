@@ -285,7 +285,7 @@ ggplot(mpg, aes(displ, hwy)) +
   ggrepel::geom_text_repel(data = mini_mpg, aes(label = class))
 ```
 
-- **Fitting labels inside bars or tiles.** The `ggfittext` package by Claus Wilke provides geoms that automatically resize or trim text to fit within a specified bounding region.
+- **Fitting labels inside bars or tiles.** The `ggfittext` package by David Wilkins provides geoms that automatically resize or trim text to fit within a specified bounding region.
 
 # Building custom annotations
 

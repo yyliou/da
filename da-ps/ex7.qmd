@@ -1,0 +1,59 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 7"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Load the patchwork package. Create three plots from `mpg` and save them as objects `p1`, `p2`, `p3`: a scatterplot of `displ` vs `hwy`, a boxplot of `hwy` by `drv`, and a bar chart of `class`. Compose them with patchwork operators:
+
+- `p1 | p2` (side by side)
+- `p1 / p2` (stacked)
+- `(p1 | p2) / p3` (two on top, one below)
+
+Write one sentence explaining what `|` and `/` each do.
+
+## Question 2
+
+Make two scatterplots from `mpg` that share the same colour mapping (`colour = drv`): `displ` vs `hwy` and `displ` vs `cty`. Place them side by side, first with a plain `p1 | p2`, then with
+
+```r
+(p1 | p2) + plot_layout(guides = "collect")
+```
+
+Write one sentence describing what `guides = "collect"` changed and why the collected version is better when the two legends are identical.
+
+## Question 3
+
+Take your composition from Question 2 and add an overall title and panel tags with `plot_annotation()`:
+
+```r
+(p1 | p2) +
+  plot_layout(guides = "collect") +
+  plot_annotation(title = "Fuel economy and engine size",
+                  tag_levels = "a")
+```
+
+Write one sentence on why panel tags such as "(a)" and "(b)" are standard practice in academic figures.
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex7-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

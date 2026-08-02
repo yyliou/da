@@ -1,0 +1,49 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 4"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Using the `diamonds` dataset, draw a histogram of `carat` three times, with `binwidth` set to `0.5`, `0.1`, and `0.01`.
+
+Write one sentence stating which binwidth you would choose and what feature of the data (hint: spikes at "round" carat values) only becomes visible at the smaller binwidths.
+
+## Question 2
+
+Using the `mpg` dataset, compare the distribution of highway fuel economy (`hwy`) across drive trains (`drv`) twice: once with `geom_boxplot()` and once with `geom_violin()`.
+
+Write one sentence on what the violin plot shows about the *shape* of the distributions that the boxplot hides (for example, any bimodality in one of the groups).
+
+## Question 3
+
+Using the `mpg` dataset, plot the **mean** highway fuel economy for each vehicle class with a point, plus an interval of one standard error around it, using `stat_summary()`:
+
+```r
+ggplot(mpg, aes(class, hwy)) +
+  stat_summary(fun.data = mean_se, geom = "pointrange")
+```
+
+Write one sentence comparing two classes whose intervals do *not* overlap and what that suggests about the difference in their average fuel economy.
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex4-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

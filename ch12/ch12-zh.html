@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="其他美學" class="title-slide slide level1 center">
@@ -324,14 +324,14 @@
 <img data-src="ch12-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
-<p>使用預設的 <code>scale_size()</code>，每個點的面積隨半徑²縮放，扭曲了表面上的比例。用 <code>scale_radius()</code> 搭配 <code>limits = c(0, NA)</code>，把零半徑的點錨定在零面積，便能忠實地呈現比例：</p>
+<p>使用預設的 <code>scale_size()</code>，與所對映的值（行星半徑）成比例的是每個點的<strong>面積</strong>，因此大行星與小行星之間的差異在視覺上被低估了。改用 <code>scale_radius()</code> 搭配 <code>limits = c(0, NA)</code>，把點的<strong>半徑</strong>線性對映到行星的半徑，使圓盤與行星在幾何上相似：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>base_pl <span class="sc">+</span></span>
 <span id="cb3-2"><a href=""></a>  <span class="fu">scale_radius</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
 <span id="cb3-3"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"scale_radius()——比例正確"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch12-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>對比立即可見：木星的圓盤如今明顯比土星大得多，正確地反映出兩者的差異超過了地球的直徑。</p>
+<img data-src="ch12-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>對比立即可見：木星的圓盤如今明顯比土星大得多，正確地反映出兩者的差異超過了地球的半徑。</p>
 </section>
 <section class="slide level2">
 
@@ -463,11 +463,11 @@
 <img data-src="ch12-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
 <section class="slide level2">
 
-<p><code>ggplot2</code> 支援 25 個相異的形狀，各以 0 到 24 的整數識別：</p>
+<p><code>ggplot2</code> 支援 26 個相異的形狀，各以 0 到 25 的整數識別：</p>
 <ul>
 <li>形狀 <strong>0–14</strong> 是空心的（只有邊框，無填色）。</li>
 <li>形狀 <strong>15–20</strong> 是實心的（以 <code>colour</code> 美學填色）。</li>
-<li>形狀 <strong>21–24</strong> 是填色形狀，會獨立地回應 <code>colour</code>（邊框）與 <code>fill</code> 兩個美學。</li>
+<li>形狀 <strong>21–25</strong> 是填色形狀，會獨立地回應 <code>colour</code>（邊框）與 <code>fill</code> 兩個美學。</li>
 </ul>
 <p>要手動指派形狀，用 <code>scale_shape_manual()</code> 搭配一個具名的整數向量：</p>
 </section>

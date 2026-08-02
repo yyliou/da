@@ -58,7 +58,7 @@ This chapter is organised as follows:
 
 ## Polygon maps
 
-The most straightforward path to drawing a map in ggplot2 is to represent geographic boundaries as ordinary polygons and render them with `geom_polygon()`. The `maps` package, bundled with R, provides boundary data accessible through `ggplot2::map_data()`.
+The most straightforward path to drawing a map in ggplot2 is to represent geographic boundaries as ordinary polygons and render them with `geom_polygon()`. The `maps` package, available from CRAN, provides boundary data accessible through `ggplot2::map_data()`.
 
 The code below retrieves county-level boundaries for the state of Michigan and renames the columns for clarity:
 
@@ -376,7 +376,7 @@ edenmonaro
 Several `sf` functions extract metadata from a geometry object:
 
 - `st_geometry_type()` — returns the geometry type (e.g., `MULTIPOLYGON`, `POLYGON`, `LINESTRING`, `POINT`).
-- `st_dimension()` — returns the spatial dimension count: 2 for XY data, 3 for XYZ.
+- `st_dimension()` — returns the topological dimension of each geometry: 0 for points, 1 for linestrings, 2 for polygons (regardless of whether coordinates are XY or XYZ).
 - `st_bbox()` — returns the bounding box as a named numeric vector (`xmin`, `ymin`, `xmax`, `ymax`).
 - `st_crs()` — returns the coordinate reference system as a list containing the EPSG code and a WKT string.
 
@@ -545,7 +545,7 @@ ggplot() +
 
 With capital city locations correctly projected onto the satellite image, it becomes apparent that the image was taken at approximately sunrise in Darwin: eastern capitals (Sydney, Melbourne, Brisbane, Canberra) lie in the illuminated zone, while Perth in the west remains in darkness. City names can be added with:
 
-```{r,echo=T,eval=TRUE}
+```{r,echo=T,eval=FALSE}
 geom_sf_text(data = cities, mapping = aes(label = city))
 ```
 

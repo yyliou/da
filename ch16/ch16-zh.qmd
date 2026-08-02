@@ -242,7 +242,7 @@ b <- plot + facet_wrap(~disp_i, nrow = 1)
 c <- plot + facet_wrap(~disp_n, nrow = 1)
 ```
 
-注意：分面公式**不會**對函式求值，所以必須先建立離散化後的變數。
+注意：分面公式可以即時計算變數，例如 `facet_wrap(~cut_width(displ, 1))`；不過先建立離散化後的變數，往往能讓標籤更整潔。
 
 ---
 

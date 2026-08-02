@@ -108,7 +108,7 @@ ggplot(mpg, aes(displ, hwy)) +
 
 ---
 
-用 `+` 加上一個尺度，其實是**覆寫**該美學既有的尺度——最後一個獲勝。發生這種情況時 ggplot2 會警告你：
+用 `+` 加上一個尺度，其實是**覆寫**該美學既有的尺度——最後一個獲勝。取代預設尺度時不會有任何提示；只有當你明確為同一個美學加入兩個尺度時，ggplot2 才會顯示訊息：
 
 ```{r, echo=TRUE, warning=FALSE, out.width="55%", fig.align='center'}
 ggplot(mpg, aes(displ, hwy)) +
@@ -203,7 +203,7 @@ b <- base + scale_fill_continuous(trans = "sqrt")
 
 ---
 
-```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
 library(patchwork)
 (a|b)
 ```
@@ -222,7 +222,7 @@ b <- base + scale_size(trans = "reverse")
 
 ---
 
-```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
 library(patchwork)
 (a|b)
 ```
@@ -245,7 +245,7 @@ c <- base + geom_point(aes(shape = txt, colour = txt))
 
 ---
 
-```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
 library(patchwork)
 (a|b|c)
 ```
@@ -264,7 +264,7 @@ b <- base + labs(shape = "Merged legend", colour = "Merged legend")   # 一個�
 
 ---
 
-```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
 library(patchwork)
 (a|b)
 ```
@@ -288,13 +288,6 @@ b <- base +
   scale_colour_manual("4 cylinder", values = c("grey60", "black"))
 ```
 
----
-
-```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
-library(patchwork)
-(a|b)
-```
-
 # 圖例鍵符號
 
 ## 圖例鍵符號
@@ -309,7 +302,7 @@ b <- base + geom_line(key_glyph = "timeseries")
 
 ---
 
-```{r, echo=TRUE, warning=FALSE, out.width="32%", fig.align='center'}
+```{r, echo=TRUE, warning=FALSE, out.width="42%", fig.align='center'}
 library(patchwork)
 (a|b)
 ```

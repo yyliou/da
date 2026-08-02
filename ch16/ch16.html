@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="faceting" class="title-slide slide level1 center">
@@ -254,20 +254,28 @@ Yu-You Liou (NTU)
 </section>
 <section class="slide level2">
 
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb3-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section>
+<section class="slide level2">
+
 <p>The same facets, wrapped by rows and in vertical direction:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb3-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">dir =</span> <span class="st">"v"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb4-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">dir =</span> <span class="st">"v"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb4-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb5-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section></section>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section></section>
 <section>
 <section id="facet-grid" class="title-slide slide level1 center">
 <h1>Facet Grid</h1>
@@ -282,19 +290,19 @@ Yu-You Liou (NTU)
 <li><code>b ~ a</code> — <code>a</code> across columns, <code>b</code> down rows</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span> cyl)</span>
-<span id="cb5-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .)</span>
-<span id="cb5-3"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span> cyl)</span>
+<span id="cb6-2"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .)</span>
+<span id="cb6-3"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb6-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb7-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>Put the variable with the most levels in the columns to exploit a wide screen.</p>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>Put the variable with the most levels in the columns to exploit a wide screen.</p>
 </section>
 <section class="slide level2">
 
@@ -339,35 +347,35 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href=""></a>  <span class="fu">geom_abline</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>)</span>
-<span id="cb7-3"><a href=""></a>a <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl)</span>
-<span id="cb7-4"><a href=""></a>b <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl, <span class="at">scales =</span> <span class="st">"free"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">geom_abline</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb8-3"><a href=""></a>a <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl)</span>
+<span id="cb8-4"><a href=""></a>b <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl, <span class="at">scales =</span> <span class="st">"free"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb8-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb9-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>Free scales are also useful for stacking time series measured on different scales — convert to long form, then <code>facet_wrap(~variable, scales = "free_y", ncol = 1)</code>.</p>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>Free scales are also useful for stacking time series measured on different scales — convert to long form, then <code>facet_wrap(~variable, scales = "free_y", ncol = 1)</code>.</p>
 </section>
 <section class="slide level2">
 
 <h3 id="the-space-argument">The <code>space</code> Argument</h3>
 <p><code>facet_grid()</code> also has a <code>space</code> argument (taking the same values as <code>scales</code>). When <code>space = "free"</code>, each row or column is sized <strong>proportionally</strong> to the range of its scale, so 1 cm maps to the same data range everywhere. This is most useful for categorical scales with differing numbers of levels:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>mpg2<span class="sc">$</span>model        <span class="ot">&lt;-</span> <span class="fu">reorder</span>(mpg2<span class="sc">$</span>model, mpg2<span class="sc">$</span>cty)</span>
-<span id="cb9-2"><a href=""></a>mpg2<span class="sc">$</span>manufacturer <span class="ot">&lt;-</span> <span class="fu">reorder</span>(mpg2<span class="sc">$</span>manufacturer, <span class="sc">-</span>mpg2<span class="sc">$</span>cty)</span>
-<span id="cb9-3"><a href=""></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, model)) <span class="sc">+</span></span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">facet_grid</span>(manufacturer <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">space =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href=""></a>  <span class="fu">theme</span>(<span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>mpg2<span class="sc">$</span>model        <span class="ot">&lt;-</span> <span class="fu">reorder</span>(mpg2<span class="sc">$</span>model, mpg2<span class="sc">$</span>cty)</span>
+<span id="cb10-2"><a href=""></a>mpg2<span class="sc">$</span>manufacturer <span class="ot">&lt;-</span> <span class="fu">reorder</span>(mpg2<span class="sc">$</span>manufacturer, <span class="sc">-</span>mpg2<span class="sc">$</span>cty)</span>
+<span id="cb10-3"><a href=""></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, model)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-5"><a href=""></a>  <span class="fu">facet_grid</span>(manufacturer <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">space =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href=""></a>  <span class="fu">theme</span>(<span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:45.0%"></section></section>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:45.0%"></section></section>
 <section>
 <section id="missing-variables-grouping" class="title-slide slide level1 center">
 <h1>Missing Variables &amp; Grouping</h1>
@@ -377,16 +385,16 @@ Yu-You Liou (NTU)
 <h2>Missing Faceting Variables</h2>
 <p>What if a layer’s dataset lacks the faceting variable? This commonly arises when adding <strong>context</strong> that should appear in every panel. ggplot2 does the sensible thing: a missing faceting variable is treated as having <em>all</em> values, so the layer is drawn in <strong>every</strong> facet.</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-2"><a href=""></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"f"</span>, <span class="st">"f"</span>, <span class="st">"m"</span>))</span>
-<span id="cb10-3"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">y =</span> <span class="dv">2</span>)</span>
-<span id="cb10-4"><a href=""></a><span class="fu">ggplot</span>(df1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb10-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df2, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb10-6"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href=""></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"f"</span>, <span class="st">"f"</span>, <span class="st">"m"</span>))</span>
+<span id="cb11-3"><a href=""></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">y =</span> <span class="dv">2</span>)</span>
+<span id="cb11-4"><a href=""></a><span class="fu">ggplot</span>(df1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df2, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-7"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:48.0%"><p>The single red point from <code>df2</code> appears in both panels.</p>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:48.0%"><p>The single red point from <code>df2</code> appears in both panels.</p>
 </section>
 <section id="grouping-vs.-faceting" class="slide level2">
 <h2>Grouping vs.&nbsp;Faceting</h2>
@@ -396,33 +404,33 @@ Yu-You Liou (NTU)
 <li><strong>Faceting</strong> — each group sits in its own panel with no overlap; good when groups overlap heavily, but small differences are harder to spot.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb11-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>)), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)),</span>
-<span id="cb11-3"><a href=""></a>                 <span class="at">z =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
-<span id="cb11-4"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z))   <span class="co"># grouping</span></span>
-<span id="cb11-5"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>z) <span class="co"># faceting</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb12-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>)), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)),</span>
+<span id="cb12-3"><a href=""></a>                 <span class="at">z =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
+<span id="cb12-4"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z))   <span class="co"># grouping</span></span>
+<span id="cb12-5"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>z) <span class="co"># faceting</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb12-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb13-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
 <section class="slide level2">
 
 <p>Faceted comparisons benefit from <strong>annotation</strong>. A useful trick is to put all the data in the background of every panel in grey, so each subset is seen against the whole:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>df2 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(df, <span class="sc">-</span>z)</span>
-<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df2, <span class="at">colour =</span> <span class="st">"grey70"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z)) <span class="sc">+</span></span>
-<span id="cb13-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>df2 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(df, <span class="sc">-</span>z)</span>
+<span id="cb14-2"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df2, <span class="at">colour =</span> <span class="st">"grey70"</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section></section>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section></section>
 <section>
 <section id="continuous-variables" class="title-slide slide level1 center">
 <h1>Continuous Variables</h1>
@@ -454,23 +462,23 @@ Yu-You Liou (NTU)
 </tbody>
 </table>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>mpg2<span class="sc">$</span>disp_w <span class="ot">&lt;-</span> <span class="fu">cut_width</span>(mpg2<span class="sc">$</span>displ, <span class="dv">1</span>)</span>
-<span id="cb14-2"><a href=""></a>mpg2<span class="sc">$</span>disp_i <span class="ot">&lt;-</span> <span class="fu">cut_interval</span>(mpg2<span class="sc">$</span>displ, <span class="dv">6</span>)</span>
-<span id="cb14-3"><a href=""></a>mpg2<span class="sc">$</span>disp_n <span class="ot">&lt;-</span> <span class="fu">cut_number</span>(mpg2<span class="sc">$</span>displ, <span class="dv">6</span>)</span>
-<span id="cb14-4"><a href=""></a>a <span class="ot">&lt;-</span> plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb14-5"><a href=""></a>b <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_w, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
-<span id="cb14-6"><a href=""></a>c <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_i, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
-<span id="cb14-7"><a href=""></a>d <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_n, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>mpg2<span class="sc">$</span>disp_w <span class="ot">&lt;-</span> <span class="fu">cut_width</span>(mpg2<span class="sc">$</span>displ, <span class="dv">1</span>)</span>
+<span id="cb15-2"><a href=""></a>mpg2<span class="sc">$</span>disp_i <span class="ot">&lt;-</span> <span class="fu">cut_interval</span>(mpg2<span class="sc">$</span>displ, <span class="dv">6</span>)</span>
+<span id="cb15-3"><a href=""></a>mpg2<span class="sc">$</span>disp_n <span class="ot">&lt;-</span> <span class="fu">cut_number</span>(mpg2<span class="sc">$</span>displ, <span class="dv">6</span>)</span>
+<span id="cb15-4"><a href=""></a>a <span class="ot">&lt;-</span> plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb15-5"><a href=""></a>b <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_w, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb15-6"><a href=""></a>c <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_i, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb15-7"><a href=""></a>d <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_n, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb15-2"><a href=""></a>(a<span class="sc">|</span>b)<span class="sc">/</span>(c<span class="sc">|</span>d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb16-2"><a href=""></a>(a<span class="sc">|</span>b)<span class="sc">/</span>(c<span class="sc">|</span>d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch16_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>Note: the faceting formula does <strong>not</strong> evaluate functions, so create the discretised variable first.</p>
+<img data-src="ch16_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>Note: the faceting formula can compute variables on the fly, e.g.&nbsp;<code>facet_wrap(~cut_width(displ, 1))</code>, though creating the discretised variable first often keeps labels tidier.</p>
 </section>
 <section id="exercises" class="slide level2">
 <h2>Exercises</h2>

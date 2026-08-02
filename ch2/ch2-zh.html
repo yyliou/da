@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="簡介" class="title-slide slide level1 center">
@@ -384,7 +384,7 @@
 <span id="cb6-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>在第一張圖中，「blue」這個值被尺度轉換成了偏粉紅的顏色，並加上了圖例。在第二張圖中，點被賦予 R 的藍色。這是一個重要的技巧，你將在 §13.4.2 學到更多。關於顏色與其他美學所需的值，請參見 vignette(“<code>ggplot2</code>-specs”)。</p>
+<img data-src="ch2-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>在第一張圖中，「blue」這個值被尺度轉換成了偏粉紅的顏色，並加上了圖例。在第二張圖中，點被賦予 R 的藍色。這是一個重要的技巧，你將在 §13.4.2 學到更多。關於顏色與其他美學所需的值，請參見 <code>vignette("ggplot2-specs")</code>。</p>
 </section>
 <section class="slide level2">
 
@@ -540,7 +540,7 @@
 <section id="直方圖與次數多邊形" class="slide level2">
 <h2>直方圖與次數多邊形</h2>
 <p>直方圖與次數多邊形（frequency polygon）的運作方式相同：它們把資料分組（bin），然後計算每一組內的觀測值數目。唯一的差別在於呈現方式：直方圖用長條，次數多邊形用線。</p>
-<p>你可以用 <code>binwidth</code> 引數控制組距（if 你不想要等距的組，可以用 <code>breaks</code> 引數）。實驗組距是<strong>非常重要</strong>的。預設只是把你的資料切成 30 組，這不太可能是最佳選擇。你應該總是嘗試多種組距，而且你可能會發現需要用多個組距才能講出資料的完整故事。</p>
+<p>你可以用 <code>binwidth</code> 引數控制組距（如果你不想要等距的組，可以改用 <code>breaks</code> 引數）。實驗組距是<strong>非常重要</strong>的。預設只是把你的資料切成 30 組，這不太可能是最佳選擇。你應該總是嘗試多種組距，而且你可能會發現需要用多個組距才能講出資料的完整故事。</p>
 </section>
 <section class="slide level2">
 

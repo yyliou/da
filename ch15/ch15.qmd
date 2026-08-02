@@ -41,7 +41,7 @@ include-after-body:
 
 ## Overview
 
-Coordinate systems have two main jobs. First, they **combine** the two position aesthetics into a 2D position on the plot — `x` and `y` might better be called "position 1" and "position 2", because their meaning depends on the system (angle and radius in polar coordinates, latitude and longitude on maps). Second, in coordination with the faceter, they **draw the axes and panel backgrounds**.
+Coordinate systems have two main jobs. First, they **combine** the two position aesthetics into a 2D position on the plot — `x` and `y` might better be called "position 1" and "position 2", because their meaning depends on the system (angle and radius in polar coordinates, longitude and latitude on maps). Second, in coordination with the faceter, they **draw the axes and panel backgrounds**.
 
 There are two families:
 
@@ -197,7 +197,7 @@ library(patchwork)
 
 Maps display spherical data, so plotting raw longitude and latitude is misleading — you must **project**. ggplot2 offers two approaches:
 
-- `coord_quickmap()` — a fast approximation that fixes the aspect ratio so 1° of latitude and 1° of longitude are equal in the middle of the plot. Good for small regions.
+- `coord_quickmap()` — a cheap approximation to a proper projection: it sets the aspect ratio so that, at the centre of the plot, one metre north–south occupies the same plotting distance as one metre east–west. Good for small regions.
 - `coord_map()` — a formal projection via the **mapproj** package, taking the same arguments as `mapproj::mapproject()`. Slower, because it must munch and transform every piece.
 
 ---

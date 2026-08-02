@@ -70,7 +70,7 @@ knitr::opts_chunk$set(fig.align = "center")
 
 ## 多邊形地圖
 
-在 ggplot2 中繪製地圖最直接的途徑，是把地理邊界表示為普通的多邊形，並以 `geom_polygon()` 呈現它們。與 R 一起附帶的 `maps` 套件，提供了可透過 `ggplot2::map_data()` 存取的邊界資料。
+在 ggplot2 中繪製地圖最直接的途徑，是把地理邊界表示為普通的多邊形，並以 `geom_polygon()` 呈現它們。可自 CRAN 安裝的 `maps` 套件，提供了可透過 `ggplot2::map_data()` 存取的邊界資料。
 
 下面的程式碼擷取密西根州的郡層級邊界，並為求清晰而重新命名欄位：
 
@@ -388,7 +388,7 @@ edenmonaro
 數個 `sf` 函式可從一個幾何物件擷取詮釋資料：
 
 - `st_geometry_type()`——回傳幾何類型（例如 `MULTIPOLYGON`、`POLYGON`、`LINESTRING`、`POINT`）。
-- `st_dimension()`——回傳空間維度計數：XY 資料為 2，XYZ 為 3。
+- `st_dimension()`——回傳每個幾何的拓撲維度：點為 0，線串為 1，多邊形為 2（與座標是 XY 或 XYZ 無關）。
 - `st_bbox()`——以具名數值向量（`xmin`、`ymin`、`xmax`、`ymax`）回傳邊界框。
 - `st_crs()`——以一個包含 EPSG 代碼與 WKT 字串的清單回傳座標參考系統。
 
@@ -555,7 +555,7 @@ ggplot() +
 
 把各首府位置正確地投影到衛星影像上後，便顯而易見這張影像大約是在達爾文日出時拍攝的：東部的首府（雪梨、墨爾本、布里斯本、坎培拉）位於受光照的區域，而西部的伯斯仍處於黑暗中。城市名稱可用以下方式加上：
 
-```{r,echo=T,eval=TRUE}
+```{r,echo=T,eval=FALSE}
 geom_sf_text(data = cities, mapping = aes(label = city))
 ```
 

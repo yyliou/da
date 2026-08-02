@@ -1,0 +1,64 @@
+[31m
+
+processing file: ch14-zh.qmd
+[39m  |                                                           |                                                   |   0%  |                                                           |..                                                 |   3%                     |                                                           |...                                                |   6% [setup]             |                                                           |.....                                              |   9%                     |                                                           |......                                             |  12% [unnamed-chunk-1]   |                                                           |........                                           |  15%                     |                                                           |.........                                          |  18% [unnamed-chunk-2]   |                                                           |...........                                        |  21%                     |                                                           |............                                       |  24% [unnamed-chunk-3]   |                                                           |..............                                     |  27%                     |                                                           |...............                                    |  30% [unnamed-chunk-4]   |                                                           |.................                                  |  33%                     |                                                           |...................                                |  36% [unnamed-chunk-5]   |                                                           |....................                               |  39%                     |                                                           |......................                             |  42% [unnamed-chunk-6]   |                                                           |.......................                            |  45%                     |                                                           |.........................                          |  48% [unnamed-chunk-7]   |                                                           |..........................                         |  52%                     |                                                           |............................                       |  55% [unnamed-chunk-8]   |                                                           |.............................                      |  58%                     |                                                           |...............................                    |  61% [unnamed-chunk-9]   |                                                           |................................                   |  64%                     |                                                           |..................................                 |  67% [unnamed-chunk-10]  |                                                           |....................................               |  70%                     |                                                           |.....................................              |  73% [unnamed-chunk-11]  |                                                           |.......................................            |  76%                     |                                                           |........................................           |  79% [unnamed-chunk-12]  |                                                           |..........................................         |  82%                     |                                                           |...........................................        |  85% [unnamed-chunk-13]  |                                                           |.............................................      |  88%                     |                                                           |..............................................     |  91% [unnamed-chunk-14]  |                                                           |................................................   |  94%                     |                                                           |.................................................  |  97% [unnamed-chunk-15]  |                                                           |...................................................| 100%                                                                                                                                
+[31moutput file: ch14-zh.knit.md
+
+[39m[1mpandoc [22m
+  to: revealjs
+  output-file: ch14-zh.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+[1mmetadata[22m
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /Applications/RStudio.app/Contents/Resources/app/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: 資料分析
+  subtitle: 第十四章：尺度與導引
+  author: 劉昱佑
+  institute: 實踐大學
+  date: '`r Sys.Date()`'
+  smaller: true
+  theme: serif
+  footer: '`ggplot2`: Elegant Graphics for Data Analysis'
+  logo: logo.svg
+  editor: source
+  bibliography:
+    - bib.bib
+  suppress-bibliography: true
+  slideNumber: true
+  scrollable: false
+  menu:
+    useTextContentForMissingTitles: false
+    hideMissingTitles: true
+    side: left
+    titleSelector: h1
+  title-slide-attributes:
+    data-notes: ''
+  
+Output created: ch14-zh.html
+

@@ -1,0 +1,51 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 5"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Draw a polygon map of a region of your choice using `map_data()` and `geom_polygon()`. For example, the counties of Texas:
+
+```r
+tx <- map_data("county", "texas")
+ggplot(tx, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "grey50") +
+  coord_quickmap()
+```
+
+(Alternatively, use the `ozmaps` package to draw the Australian states.) Write one sentence explaining why the `group` aesthetic is essential when drawing map polygons.
+
+## Question 2
+
+Take the map from Question 1 and render it twice: once **with** `coord_quickmap()` and once **without** it.
+
+Write two or three sentences explaining what changes and why: what does `coord_quickmap()` do to the aspect ratio, and why can we not simply treat longitude and latitude as ordinary x and y coordinates on a flat screen (i.e., why do map projections matter)?
+
+## Question 3
+
+Conceptual question (no coding required). You are given three datasets: (a) friendship ties among 30 students, (b) monthly sales in Texas cities from `txhousing`, and (c) flight connections between airports.
+
+Write a short paragraph stating which of these are best shown as a **network** (node-and-edge) layout rather than a map or a time series, and give one sentence of justification: what property of the data (relationships between entities, rather than positions or trends) makes a network layout appropriate?
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex5-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

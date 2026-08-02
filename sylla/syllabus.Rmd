@@ -45,7 +45,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1. **In-Class Exercises** (36%): 12 exercises × 3% each, submitted at the end of each session.
 
-2. **Mid-Term Exam** (32%) and **Final Oral Exam** (32%).
+2. **Mid-Term Exam** (32%) and **Final Exam** (32%). Both examinations are conducted online (see the exam regulations on the course website).
 
 **[Regulations]{.underline}**
 

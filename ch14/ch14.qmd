@@ -98,7 +98,7 @@ The default depends on the aesthetic and the variable type: a continuous `hwy` o
 
 ---
 
-Adding a scale with `+` actually **overrides** any existing scale for that aesthetic — the last one wins. ggplot2 warns you when this happens:
+Adding a scale with `+` actually **overrides** any existing scale for that aesthetic — the last one wins. Replacing a default scale happens silently; ggplot2 only shows a message when you explicitly add two scales for the same aesthetic:
 
 ```{r, echo=TRUE, warning=FALSE, out.width="55%", fig.align='center'}
 library(ggplot2)

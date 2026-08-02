@@ -147,7 +147,7 @@ There are a number of other graphics systems available in R: base graphics, grid
 
 - [`htmlwidgets`](http://www.htmlwidgets.org) provides a common framework for accessing web visualisation tools from R. Packages built on top of [`htmlwidgets`](http://www.htmlwidgets.org) include [`leaflet`](https://rstudio.github.io/leaflet/) for maps, [`dygraph`](http://rstudio.github.io/dygraphs/) for time series and [`networkD3`](http://christophergandrud.github.io/networkD3/) for networks.
 
-- [`plotly`](https://plotly-r.com) is a popular javascript visualisation toolkit with an R interface. It’s a great tool if you want to make interactive graphics for HTML documents, and even comes with a `ggplotly()` function that can convert many `ggplot2` graphics into their interactive equivalen
+- [`plotly`](https://plotly-r.com) is a popular javascript visualisation toolkit with an R interface. It’s a great tool if you want to make interactive graphics for HTML documents, and even comes with a `ggplotly()` function that can convert many `ggplot2` graphics into their interactive equivalents.
 
 ---
 
@@ -189,9 +189,9 @@ Before we continue, make sure you have all the software you need for this book:
 install.packages(c(
   "colorBlindness", "directlabels", "dplyr", "ggforce", "gghighlight", 
   "ggnewscale", "ggplot2", "ggraph", "ggrepel", "ggtext", "ggthemes", 
-  "hexbin", "Hmisc", "mapproj", "maps", "munsell", "ozmaps", 
-  "paletteer", "patchwork", "rmapshaper", "scico", "seriation", "sf", 
-  "stars", "tidygraph", "tidyr", "wesanderson" 
+  "gridExtra", "hexbin", "Hmisc", "mapproj", "maps", "munsell", "ozmaps",
+  "paletteer", "patchwork", "rmapshaper", "scico", "seriation", "sf",
+  "showtext", "stars", "tidygraph", "tidyr", "wesanderson"
 ))
 ```
 

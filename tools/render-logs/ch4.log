@@ -1,0 +1,64 @@
+[31m
+
+processing file: ch4.qmd
+[39m  |                                                           |                                                   |   0%  |                                                           |.                                                  |   3%                     |                                                           |...                                                |   6% [unnamed-chunk-1]   |                                                           |....                                               |   9%                     |                                                           |......                                             |  11% [unnamed-chunk-2]   |                                                           |.......                                            |  14%                     |                                                           |.........                                          |  17% [unnamed-chunk-3]   |                                                           |..........                                         |  20%                     |                                                           |............                                       |  23% [unnamed-chunk-4]   |                                                           |.............                                      |  26%                     |                                                           |...............                                    |  29% [unnamed-chunk-5]   |                                                           |................                                   |  31%                     |                                                           |.................                                  |  34% [unnamed-chunk-6]   |                                                           |...................                                |  37%                     |                                                           |....................                               |  40% [unnamed-chunk-7]   |                                                           |......................                             |  43%                     |                                                           |.......................                            |  46% [unnamed-chunk-8]   |                                                           |.........................                          |  49%                     |                                                           |..........................                         |  51% [unnamed-chunk-9]   |                                                           |............................                       |  54%                     |                                                           |.............................                      |  57% [unnamed-chunk-10]  |                                                           |...............................                    |  60%                     |                                                           |................................                   |  63% [unnamed-chunk-11]  |                                                           |..................................                 |  66%                     |                                                           |...................................                |  69% [unnamed-chunk-12]  |                                                           |....................................               |  71%                     |                                                           |......................................             |  74% [unnamed-chunk-13]  |                                                           |.......................................            |  77%                     |                                                           |.........................................          |  80% [unnamed-chunk-14]  |                                                           |..........................................         |  83%                     |                                                           |............................................       |  86% [unnamed-chunk-15]  |                                                           |.............................................      |  89%                     |                                                           |...............................................    |  91% [unnamed-chunk-16]  |                                                           |................................................   |  94%                     |                                                           |.................................................. |  97% [unnamed-chunk-17]  |                                                           |...................................................| 100%                                                                                                                                
+[31moutput file: ch4.knit.md
+
+[39m[1mpandoc [22m
+  to: revealjs
+  output-file: ch4.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+[1mmetadata[22m
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /Applications/RStudio.app/Contents/Resources/app/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Data Analysis
+  subtitle: 'Chapter 4: Collective geoms'
+  author: Yu-You Liou (NTU)
+  institute: Shih Chien University
+  date: '`r Sys.Date()`'
+  smaller: true
+  theme: serif
+  footer: '`ggplot2`: Elegant Graphics for Data Analysis'
+  logo: logo.svg
+  editor: source
+  bibliography:
+    - bib.bib
+  suppress-bibliography: true
+  slideNumber: true
+  scrollable: false
+  menu:
+    useTextContentForMissingTitles: false
+    hideMissingTitles: true
+    side: left
+    titleSelector: h1
+  title-slide-attributes:
+    data-notes: ''
+  
+Output created: ch4.html
+

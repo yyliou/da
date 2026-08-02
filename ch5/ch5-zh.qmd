@@ -1,6 +1,6 @@
 ---
 title: "資料分析"
-subtitle: "第五章：揭示不確定性與大型資料"
+subtitle: "第五章：統計摘要"
 author: "劉昱佑"
 institute: "實踐大學"
 date: "`r Sys.Date()`"
@@ -195,7 +195,7 @@ p1 <- ggplot(midwest, aes(percbelowpoverty)) +
 
 p2 <- ggplot(midwest, aes(percbelowpoverty)) +
   geom_histogram(aes(weight = poptotal), binwidth = 1) +
-  ylab("人口（千人）")
+  ylab("人口")
 
 p1 | p2
 ```
@@ -329,7 +329,7 @@ p1 | p2
 
 當目標是同時比較許多分布時，必須以細節換取精簡。有三個 geoms 特別有用：
 
-**`geom_boxplot()`**——盒鬚圖用五個統計量（最小值、Q1、中位數、Q3、最大值）摘要一個分布，並標記出可能的離群值。它占用極少空間，且能良好地擴展到許多群組。
+**`geom_boxplot()`**——盒鬚圖以盒子顯示中位數、Q1 與 Q3，鬚則延伸至盒外 1.5×IQR 範圍內最極端的觀測值，超出者標記為可能的離群值。它占用極少空間，且能良好地擴展到許多群組。
 
 對於連續的 x 變數，把 `group` 美學與 `cut_width()` 結合，可把資料劃分成組：
 
@@ -583,4 +583,4 @@ ggplot(small, aes(eruptions, waiting)) +
 
 -   **僅供非商業用途。** 本教材嚴格限定用於教育目的，不得用於商業獲利。
 
--   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處
+-   **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。

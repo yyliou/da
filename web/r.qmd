@@ -35,6 +35,7 @@ Execute the following commands in the RStudio Console:
 ``` r
 install.packages("rmarkdown")
 install.packages("knitr")
+install.packages(c("tidyverse", "patchwork", "uuid")) # course packages (tidyverse includes ggplot2)
 ```
 
 ### Step 2: Install a LaTeX Distribution
@@ -60,12 +61,14 @@ Every R Markdown document begins with a YAML front matter block delimited by `--
 
 ``` yaml
 ---
-title: "Assignment Title"
-author: "Full Name (Student ID)"
-date: "2024-01-01"
+title: "Ex. X"
+author: "Student ID"
+date: "`r Sys.Date()`"
 output: pdf_document
 ---
 ```
+
+> **Important**: For graded submissions, the `author` field must contain your **student ID only** (e.g., `author: "D10627008"`) — do **not** include your name. Always start from the official template on the [Problem sets page](https://yyliou.github.io/da/prob.html), which also includes the required UUID code chunk. Submissions that deviate from the template receive a grade of zero.
 
 ### Step 5: Write Document Content
 

@@ -1,0 +1,47 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 6"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Plot the `economics` unemployment series (`date` vs `unemploy`) as a line. Using `annotate()`, add:
+
+- a shaded rectangle (`geom = "rect"`, with `alpha`) covering the years 2008–2010, and
+- a text label (`geom = "text"`) near the rectangle reading `"Financial crisis"`.
+
+Write one sentence on what the annotation immediately communicates to a reader that the bare line chart does not.
+
+## Question 2
+
+Take your scatterplot of `displ` vs `hwy` from `mpg` (coloured by `class`) and use `labs()` to add a descriptive `title`, a `subtitle`, axis labels with units (e.g., "Engine displacement (litres)"), and a `caption` crediting the data source (EPA, via the `mpg` dataset).
+
+Write one sentence explaining why a caption naming the data source matters for a publication-ready figure.
+
+## Question 3
+
+Consider a line chart of `txhousing` median house prices over time for four cities, one coloured line per city. You can identify the lines either with a **legend** or with **direct labels** (text placed at the end of each line, e.g. via `annotate()` or `geom_text()` on a small summary dataset).
+
+Sketch or code the direct-label version, then write two sentences on the trade-off: when is direct labelling clearer than a legend, and when does it break down (e.g., many overlapping series)?
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex6-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

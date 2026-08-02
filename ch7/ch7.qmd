@@ -181,9 +181,9 @@ Because algorithms are evaluated lazily inside `mutate()`, they can also be invo
 
 This section provides only a brief orientation to `tidygraph`. A comprehensive overview of all available functions and algorithms is available at <https://tidygraph.data-imaginist.com>.
 
-# Visualizing networks
+# Visualising networks
 
-## Visualizing networks
+## Visualising networks
 
 `ggraph` extends the grammar of graphics to network data by sitting on top of both `tidygraph` and `ggplot2`. While its API is deliberately familiar, it differs from standard ggplot2 usage in one important respect: most network visualisations do **not** map variables directly to `x` and `y` aesthetics.
 

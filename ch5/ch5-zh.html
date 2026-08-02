@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -198,7 +198,7 @@
 
 <section id="title-slide" data-notes="" class="quarto-title-block center">
   <h1 class="title">資料分析</h1>
-  <p class="subtitle">第五章：揭示不確定性與大型資料</p>
+  <p class="subtitle">第五章：統計摘要</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-07-20</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="揭示不確定性" class="title-slide slide level1 center">
@@ -380,7 +380,7 @@
 <span id="cb6-4"><a href=""></a></span>
 <span id="cb6-5"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(percbelowpoverty)) <span class="sc">+</span></span>
 <span id="cb6-6"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">weight =</span> poptotal), <span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"人口（千人）"</span>)</span>
+<span id="cb6-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"人口"</span>)</span>
 <span id="cb6-8"><a href=""></a></span>
 <span id="cb6-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
@@ -525,7 +525,7 @@
 
 <p><strong>精簡的多群組摘要</strong></p>
 <p>當目標是同時比較許多分布時，必須以細節換取精簡。有三個 geoms 特別有用：</p>
-<p><strong><code>geom_boxplot()</code></strong>——盒鬚圖用五個統計量（最小值、Q1、中位數、Q3、最大值）摘要一個分布，並標記出可能的離群值。它占用極少空間，且能良好地擴展到許多群組。</p>
+<p><strong><code>geom_boxplot()</code></strong>——盒鬚圖以盒子顯示中位數、Q1 與 Q3，鬚則延伸至盒外 1.5×IQR 範圍內最極端的觀測值，超出者標記為可能的離群值。它占用極少空間，且能良好地擴展到許多群組。</p>
 <p>對於連續的 x 變數，把 <code>group</code> 美學與 <code>cut_width()</code> 結合，可把資料劃分成組：</p>
 </section>
 <section class="slide level2">
@@ -781,7 +781,7 @@
 <ul>
 <li><p><strong>版權聲明。</strong> 本教材改編自 <a href="https://ggplot2-book.org/statistical-summaries.html"><strong>ggplot2: Elegant Graphics for Data Analysis (3e)</strong></a>。所有權利均由原作者與出版者保留。</p></li>
 <li><p><strong>僅供非商業用途。</strong> 本教材嚴格限定用於教育目的，不得用於商業獲利。</p></li>
-<li><p><strong>適當標註出處。</strong> 任何對本教材的重製、散布或使用，都必須適當標註原始出處</p></li>
+<li><p><strong>適當標註出處。</strong> 任何對本教材的重製、散布或使用，都必須適當標註原始出處。</p></li>
 </ul>
 
 </section></section>

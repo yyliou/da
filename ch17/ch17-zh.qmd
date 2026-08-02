@@ -123,7 +123,7 @@ a <- base + theme_grey()    + ggtitle("theme_grey()")
 b <- base + theme_bw()      + ggtitle("theme_bw()")
 c <- base + theme_minimal() + ggtitle("theme_minimal()")
 library(patchwork)
-(a|b)
+(a|b|c)
 ```
 
 

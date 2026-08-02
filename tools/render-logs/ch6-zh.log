@@ -1,0 +1,64 @@
+[31m
+
+processing file: ch6-zh.qmd
+[39m  |                                                           |                                                   |   0%  |                                                           |.                                                  |   2%                     |                                                           |..                                                 |   4% [setup]             |                                                           |...                                                |   6%                     |                                                           |....                                               |   8% [unnamed-chunk-1]   |                                                           |.....                                              |  10%                     |                                                           |......                                             |  12% [unnamed-chunk-2]   |                                                           |.......                                            |  14%                     |                                                           |........                                           |  16% [unnamed-chunk-3]   |                                                           |.........                                          |  18%                     |                                                           |..........                                         |  20% [unnamed-chunk-4]   |                                                           |...........                                        |  22%                     |                                                           |............                                       |  24% [unnamed-chunk-5]   |                                                           |..............                                     |  27%                     |                                                           |...............                                    |  29% [unnamed-chunk-6]   |                                                           |................                                   |  31%                     |                                                           |.................                                  |  33% [unnamed-chunk-7]   |                                                           |..................                                 |  35%                     |                                                           |...................                                |  37% [unnamed-chunk-8]   |                                                           |....................                               |  39%                     |                                                           |.....................                              |  41% [unnamed-chunk-9]   |                                                           |......................                             |  43%                     |                                                           |.......................                            |  45% [unnamed-chunk-10]  |                                                           |........................                           |  47%                     |                                                           |.........................                          |  49% [unnamed-chunk-11]  |                                                           |..........................                         |  51%                     |                                                           |...........................                        |  53% [unnamed-chunk-12]  |                                                           |............................                       |  55%                     |                                                           |.............................                      |  57% [unnamed-chunk-13]  |                                                           |..............................                     |  59%                     |                                                           |...............................                    |  61% [unnamed-chunk-14]  |                                                           |................................                   |  63%                     |                                                           |.................................                  |  65% [unnamed-chunk-15]  |                                                           |..................................                 |  67%                     |                                                           |...................................                |  69% [unnamed-chunk-16]  |                                                           |....................................               |  71%                     |                                                           |.....................................              |  73% [unnamed-chunk-17]  |                                                           |.......................................            |  76%                     |                                                           |........................................           |  78% [unnamed-chunk-18]  |                                                           |.........................................          |  80%                     |                                                           |..........................................         |  82% [unnamed-chunk-19]  |                                                           |...........................................        |  84%                     |                                                           |............................................       |  86% [unnamed-chunk-20]  |                                                           |.............................................      |  88%                     |                                                           |..............................................     |  90% [unnamed-chunk-21]  |                                                           |...............................................    |  92%                     |                                                           |................................................   |  94% [unnamed-chunk-22]  |                                                           |.................................................  |  96%                     |                                                           |.................................................. |  98% [unnamed-chunk-23]  |                                                           |...................................................| 100%                                                                                                                                
+[31moutput file: ch6-zh.knit.md
+
+[39m[1mpandoc [22m
+  to: revealjs
+  output-file: ch6-zh.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  variables: {}
+  
+[1mmetadata[22m
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /Applications/RStudio.app/Contents/Resources/app/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: 資料分析
+  subtitle: 第六章：地圖
+  author: 劉昱佑
+  institute: 實踐大學
+  date: '`r Sys.Date()`'
+  smaller: true
+  theme: serif
+  footer: '`ggplot2`: Elegant Graphics for Data Analysis'
+  logo: logo.svg
+  editor: source
+  bibliography:
+    - bib.bib
+  suppress-bibliography: true
+  slideNumber: true
+  scrollable: false
+  menu:
+    useTextContentForMissingTitles: false
+    hideMissingTitles: true
+    side: left
+    titleSelector: h1
+  title-slide-attributes:
+    data-notes: ''
+  
+Output created: ch6-zh.html
+

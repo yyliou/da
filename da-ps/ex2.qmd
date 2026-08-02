@@ -1,0 +1,44 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 2"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Start from the basic scatterplot of `displ` vs `hwy` from the `mpg` dataset. Map the `class` variable to the **colour** aesthetic inside `aes()`, so that each vehicle class is drawn in a different colour.
+
+Write one sentence identifying which class of car tends to have the *worst* highway fuel economy for its engine size, judging from the colours.
+
+## Question 2
+
+Instead of colour, split the same scatterplot into small multiples: use `facet_wrap(~class)` to create one panel per vehicle class.
+
+Write one sentence comparing this facetted plot to the coloured plot from Question 1 — which one makes it easier to see the pattern *within* a single class, and why?
+
+## Question 3
+
+Return to the single-panel scatterplot of `displ` vs `hwy` and add a smooth trend layer with `geom_smooth()` on top of `geom_point()`. Then make a second version using `geom_smooth(method = "lm")`.
+
+Write one sentence explaining what the default (curved) smoother reveals about cars with very large engines that the straight line misses.
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex2-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

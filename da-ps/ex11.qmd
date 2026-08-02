@@ -1,0 +1,53 @@
+---
+title: "Data Analysis"
+subtitle: "In-Class Exercise 11"
+author: "Yu-You Liou"
+date: today
+institute: "Shih Chien University"
+format:
+  revealjs:
+    html-math-method: katex
+smaller: true
+theme: serif
+footer: "`ggplot2`: Elegant Graphics for Data Analysis"
+editor: source
+slide-number: true
+scrollable: false
+transition: "none"
+menu:
+  useTextContentForMissingTitles: false
+  hideMissingTitles: true
+  side: 'left'
+  titleSelector: 'h1'
+---
+
+## Question 1
+
+Make a horizontal boxplot of highway fuel economy by vehicle class from `mpg` in two ways:
+
+- Version A: `ggplot(mpg, aes(class, hwy)) + geom_boxplot() + coord_flip()`
+- Version B: `ggplot(mpg, aes(hwy, class)) + geom_boxplot()` (swap the aesthetics)
+
+Write one sentence confirming whether the two plots look the same, and one more explaining when `coord_flip()` is still needed (e.g., for geoms or stats that only work in one orientation).
+
+## Question 2
+
+Turn a bar chart into a pie chart using polar coordinates. Start from a stacked bar of `drv` in `mpg`:
+
+```r
+ggplot(mpg, aes(x = factor(1), fill = drv)) +
+  geom_bar(width = 1) +
+  coord_polar(theta = "y")
+```
+
+Also try `coord_polar()` with the default `theta = "x"` to get a bullseye chart. Write one sentence on why the pie chart is just a stacked bar chart in a different coordinate system, and one on why bars are usually easier to read accurately than pie slices.
+
+## Question 3
+
+Using `mpg`, facet `displ` vs `hwy` by two variables with `facet_grid(drv ~ cyl)`, then by one variable with `facet_wrap(~class, scales = "free_y")`.
+
+Write two sentences: (1) what does `facet_grid()` give you that `facet_wrap()` does not (a full 2-D grid with shared row/column labels), and (2) what is the danger of `scales = "free"` when your goal is comparing values *across* panels?
+
+## Submission
+
+Complete your answers in the official template from the [Problem sets page](https://yyliou.github.io/da/prob.html) (author = your student ID only; keep the UUID chunk). Knit to PDF, name it `ex11-[StudentID].pdf`, and upload it to the course pCloud folder before midnight of the following week.

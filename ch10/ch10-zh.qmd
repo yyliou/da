@@ -417,16 +417,16 @@ p_recip | p_log
 
 `scales` 套件所提供的內建轉換完整清單：
 
-| 名稱 | 函式 $f(x)$ | 反函式 $f^{-1}(x)$ |
+| 名稱 | 函式 $f(x)$ | 反函式 $f^{-1}(y)$ |
 |---|---|---|
-| `"asn"` | $\tanh^{-1}(x)$ | $\tanh(y)$ |
+| `"asn"` | $2\sin^{-1}\!\left(\sqrt{x}\right)$ | $\sin^2\!\left(y/2\right)$ |
 | `"exp"` | $e^x$ | $\log(y)$ |
 | `"identity"` | $x$ | $y$ |
 | `"log"` | $\log(x)$ | $e^y$ |
 | `"log10"` | $\log_{10}(x)$ | $10^y$ |
 | `"log2"` | $\log_2(x)$ | $2^y$ |
-| `"logit"` | $\log\!\left(\frac{x}{1-x}\right)$ | $\frac{1}{1+e^y}$ |
-| `"probit"` | $\Phi(x)$ | $\Phi^{-1}(y)$ |
+| `"logit"` | $\log\!\left(\frac{x}{1-x}\right)$ | $\frac{e^y}{1+e^y}$ |
+| `"probit"` | $\Phi^{-1}(x)$ | $\Phi(y)$ |
 | `"reciprocal"` | $x^{-1}$ | $y^{-1}$ |
 | `"reverse"` | $-x$ | $-y$ |
 | `"sqrt"` | $x^{1/2}$ | $y^2$ |
