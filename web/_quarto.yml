@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Data Analysis"
-  favicon: hex/da.svg
+  favicon: hex/favicon.svg
   navbar:
     logo: hex/da.svg
     left:
