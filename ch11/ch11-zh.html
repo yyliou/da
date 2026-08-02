@@ -6,11 +6,11 @@
 <script src="ch11-zh_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="ch11-zh_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ch11-zh_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ch11-zh_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="ch11-zh_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="劉昱佑">
-  <meta name="dcterms.date" content="2026-06-06">
+  <meta name="dcterms.date" content="2026-08-02">
   <title>資料分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@
     </div>
 </div>
 
-  <p class="date">2026-06-06</p>
+  <p class="date">2026-08-02</p>
 </section>
 <section>
 <section id="顏色尺度與圖例" class="title-slide slide level1 center">
@@ -891,7 +891,7 @@
 <section class="slide level2">
 
 <h3 id="範圍界限刻度與標籤-2">範圍界限、刻度與標籤</h3>
-<p>為分箱尺度設定界限、刻度與標籤，遵循與連續尺度（§11.2.4）相同的慣例。重要的差別是 <code>breaks</code> 引數定義的是<strong>箱的邊緣</strong>，而不只是刻度標記的位置。因此，刻度的數目等於箱的數目加一。</p>
+<p>為分箱尺度設定界限、刻度與標籤，遵循與連續尺度（§11.2.4）相同的慣例。重要的差別是 <code>breaks</code> 引數定義的是<strong>箱的邊緣</strong>，而不只是刻度標記的位置。由於 breaks 是箱與箱之間的內部邊界，箱的數目等於刻度的數目加一。</p>
 <p>如 §10.1 所述，<code>limits</code> 與 <code>breaks</code> 引數除了固定向量外也都接受函式。</p>
 </section>
 <section class="slide level2">
@@ -920,7 +920,7 @@
 </tr>
 <tr class="odd">
 <td><code>even.steps</code></td>
-<td>箱是以相等寬度顯示（<code>TRUE</code>），還是與其資料頻率成比例（<code>FALSE</code>）</td>
+<td>箱是以相等寬度顯示（<code>TRUE</code>），還是與各箱在資料空間中的區間長度成比例（<code>FALSE</code>）</td>
 </tr>
 </tbody>
 </table>
@@ -1062,9 +1062,8 @@
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-41-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>若有需要，用 <code>legend.margin = unit(0, "mm")</code> 移除圖例框周圍的填補。</p>
 </section>
-<section class="slide level2">
-
-<p><strong>練習</strong></p>
+<section id="練習" class="slide level2">
+<h2>練習</h2>
 <ol type="1">
 <li><p>用 <code>faithfuld</code>，把三個不同的 viridis 調色盤選項（<code>"viridis"</code>、<code>"magma"</code>、<code>"inferno"</code>）套用到 <code>erupt</code> 基礎圖，並比較各自傳達密度曲面的效果。</p></li>
 <li><p>建立一張以 <code>colour = drv</code> 的 <code>mpg</code> 散佈圖。套用 (a) <code>scale_colour_brewer(palette = "Set1")</code>、(b) <code>scale_colour_grey()</code>，以及 (c) 你自選的手動調色盤。對色盲讀者而言哪一個最好用？為什麼？</p></li>
