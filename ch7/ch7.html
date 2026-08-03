@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Yu-You Liou (NTU)">
-  <meta name="dcterms.date" content="2026-08-02">
+  <meta name="dcterms.date" content="2026-08-03">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Yu-You Liou (NTU)
     </div>
 </div>
 
-  <p class="date">2026-08-02</p>
+  <p class="date">2026-08-03</p>
 </section>
 <section>
 <section id="networks" class="title-slide slide level1 center">
@@ -470,8 +470,8 @@ Yu-You Liou (NTU)
 <p><code>ggraph</code> extends the grammar of graphics to network data by sitting on top of both <code>tidygraph</code> and <code>ggplot2</code>. While its API is deliberately familiar, it differs from standard ggplot2 usage in one important respect: most network visualisations do <strong>not</strong> map variables directly to <code>x</code> and <code>y</code> aesthetics.</p>
 <p>Instead, node positions are determined by a <strong>layout algorithm</strong> that uses the graph’s topology to assign (often mathematically arbitrary) <code>x</code> and <code>y</code> coordinates. The positions communicate structural relationships — connectivity, hierarchy, clustering — rather than the values of any measured variable.</p>
 </section>
-<section id="setting-up-the-visualization" class="slide level2">
-<h2>Setting up the visualization</h2>
+<section id="setting-up-the-visualisation" class="slide level2">
+<h2>Setting up the visualisation</h2>
 <p>A ggraph plot is initialised with <code>ggraph()</code> rather than <code>ggplot()</code>. The function signature is:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"..."</span>, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

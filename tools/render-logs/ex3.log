@@ -1,0 +1,49 @@
+[1mpandoc [22m
+  to: revealjs
+  output-file: ex3.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method: katex
+  slide-level: 2
+  variables: {}
+  
+[1mmetadata[22m
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: true
+  engines:
+    - path: /Applications/RStudio.app/Contents/Resources/app/quarto/share/extension-subtrees/julia-engine/_extensions/julia-engine/julia-engine.js
+  title: Data Analysis
+  subtitle: In-Class Exercise 3
+  author: Yu-You Liou
+  date: today
+  institute: Shih Chien University
+  smaller: true
+  theme: serif
+  footer: '`ggplot2`: Elegant Graphics for Data Analysis'
+  editor: source
+  slideNumber: true
+  scrollable: false
+  menu:
+    useTextContentForMissingTitles: false
+    hideMissingTitles: true
+    side: left
+    titleSelector: h1
+  
+Output created: ex3.html
+

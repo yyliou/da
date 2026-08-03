@@ -54,7 +54,7 @@ Before submitting, verify that your document satisfies all of the following crit
 
 -   [ ] The `title` field in the YAML header is completed (e.g., `Ex. 1`).
 -   [ ] The `author` field includes your student ID *only*.
--   [ ] The `date` field is present (keep `` `r Sys.Date()` `` from the template).
+-   [ ] The `date` field is present and left exactly as it appears in the template.
 -   [ ] The UUID code chunk (`print(uuid::UUIDgenerate())`) from the template is present and unmodified.
 -   [ ] The final document must be submitted strictly in `.pdf` format.
 -   [ ] The document's name should be `exN-id.pdf` (e.g., `ex1-D10627008.pdf`).

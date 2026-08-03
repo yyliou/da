@@ -4,52 +4,118 @@
 #   2. 課堂練習 da-ps/ex1–ex12
 #   3. 課程網站 web/
 #   4. 把網站輸出同步到 repo 根目錄（GitHub Pages 發佈位置）
-#   5. 課綱 PDF（sylla/syllabus.Rmd，需要 R + rmarkdown）
+#   5. 課綱 PDF（sylla/syllabus.Rmd）
+#   6. 系統指南 PDF（prompt/da-system-guide.Rmd）
 #
 # 用法（在 da 資料夾下）：
 #     sh tools/render-everything.sh            # 全部
 #     sh tools/render-everything.sh 13 17      # 講義只渲染第 13–17 章，其餘照常
+#
+# 失敗不中斷，最後列出失敗清單並以非 0 結束；
+# 每份的詳細訊息都寫到 tools/render-logs/。
 
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-cd "$ROOT"
+cd "$ROOT" || exit 1
+LOGDIR="$ROOT/tools/render-logs"
+mkdir -p "$LOGDIR"
+
+. "$ROOT/tools/find-tools.sh"
+if [ -z "$QUARTO" ]; then
+  echo "找不到 quarto 指令。"
+  echo "  - 若 quarto 裝在 conda 環境中，請先 conda activate <環境名> 再執行"
+  echo "  - 或安裝 Quarto：https://quarto.org/docs/get-started/"
+  exit 1
+fi
+echo "Quarto：$QUARTO"
+[ -n "$RSCRIPT" ] && echo "Rscript：${RSCRIPT}" || echo "Rscript：找不到（第 5、6 步會略過）"
+[ -n "$PANDOC" ] && echo "pandoc：${PANDOC}" || echo "pandoc：找不到（PDF 會失敗）"
+echo ""
 
 FAIL=""
 
-echo "===== 1/5 講義 ch1–ch17（中英文）====="
-sh tools/render-all.sh "$@" || FAIL="$FAIL render-all"
+echo "===== 1/6 講義 ch1–ch17（中英文）====="
+if [ $# -gt 0 ]; then
+  sh tools/render-all.sh "$@" || FAIL="$FAIL render-all"
+else
+  sh tools/render-all.sh || FAIL="$FAIL render-all"
+fi
 
 echo ""
-echo "===== 2/5 課堂練習 da-ps/ex1–ex12 ====="
+echo "===== 2/6 課堂練習 da-ps/ex1–ex12 ====="
 for f in da-ps/ex*.qmd; do
-  echo "--- quarto render $f"
-  quarto render "$f" >/dev/null 2>&1 || { echo "    FAILED: $f"; FAIL="$FAIL $f"; }
+  [ -e "$f" ] || { echo "  找不到 da-ps/ex*.qmd"; break; }
+  b=$(basename "$f" .qmd)
+  printf '  %-8s ' "$b"
+  if "$QUARTO" render "$f" >"$LOGDIR/$b.log" 2>&1; then
+    echo "✓"
+  else
+    echo "✗ 失敗 → tools/render-logs/$b.log"
+    FAIL="$FAIL $b"
+  fi
 done
 
 echo ""
-echo "===== 3/5 課程網站 web/ ====="
-( cd web && quarto render ) || FAIL="$FAIL web"
+echo "===== 3/6 課程網站 web/ ====="
+( cd web && "$QUARTO" render ) >"$LOGDIR/web.log" 2>&1 \
+  && echo "  ✓ 網站渲染完成" \
+  || { echo "  ✗ 失敗 → tools/render-logs/web.log"; FAIL="$FAIL web"; }
 
 echo ""
-echo "===== 4/5 同步網站輸出到根目錄 ====="
-for f in index prob r slide sylla; do
-  cp "web/$f.html" "./$f.html" && echo "  synced $f.html"
+echo "===== 4/6 同步網站輸出到根目錄 ====="
+for f in web/*.html; do
+  [ -e "$f" ] || { echo "  web/ 下沒有 .html，略過"; break; }
+  b=$(basename "$f")
+  if cp "$f" "./$b"; then
+    echo "  ✓ $b"
+  else
+    echo "  ✗ $b 複製失敗"
+    FAIL="$FAIL sync:$b"
+  fi
 done
 [ -f web/search.json ] && cp web/search.json ./search.json
+# 注意：pCloud Drive 的 FUSE 檔案系統不支援 rsync 的 rename 操作
+# （會出現 "Socket is not connected"），因此一律用 cp 合併。
 if [ -d web/site_libs ]; then
-  rsync -a --delete web/site_libs/ site_libs/ && echo "  synced site_libs/"
+  mkdir -p site_libs
+  if cp -R web/site_libs/. site_libs/; then
+    echo "  ✓ site_libs/"
+  else
+    echo "  ✗ site_libs/ 複製失敗"
+    FAIL="$FAIL sync:site_libs"
+  fi
 fi
-mkdir -p hex && cp -f web/hex/da.svg hex/da.svg 2>/dev/null
+if [ -d web/hex ]; then
+  mkdir -p hex
+  cp -f web/hex/*.svg hex/ && echo "  ✓ hex/" || FAIL="$FAIL sync:hex"
+fi
 
 echo ""
-echo "===== 5/5 課綱 PDF ====="
-Rscript -e 'rmarkdown::render("sylla/syllabus.Rmd")' \
-  || { echo "  syllabus PDF 渲染失敗（檢查 R / rmarkdown / tinytex）"; FAIL="$FAIL syllabus"; }
+echo "===== 5/6 課綱 PDF ====="
+if [ -z "$RSCRIPT" ]; then
+  echo "  略過（找不到 Rscript）"
+elif "$RSCRIPT" -e 'rmarkdown::render("sylla/syllabus.Rmd", quiet = TRUE)' >"$LOGDIR/syllabus.log" 2>&1; then
+  echo "  ✓ sylla/syllabus.pdf"
+else
+  echo "  ✗ 失敗 → tools/render-logs/syllabus.log（檢查 rmarkdown / tinytex）"
+  FAIL="$FAIL syllabus"
+fi
+
+echo ""
+echo "===== 6/6 系統指南 PDF ====="
+if [ -z "$RSCRIPT" ]; then
+  echo "  略過（找不到 Rscript）"
+elif "$RSCRIPT" -e 'rmarkdown::render("prompt/da-system-guide.Rmd", quiet = TRUE)' >"$LOGDIR/da-system-guide.log" 2>&1; then
+  echo "  ✓ prompt/da-system-guide.pdf"
+else
+  echo "  ✗ 失敗 → tools/render-logs/da-system-guide.log"
+  FAIL="$FAIL da-system-guide"
+fi
 
 echo ""
 if [ -n "$FAIL" ]; then
   echo "完成，但以下項目失敗：$FAIL"
-  echo "（講義失敗細節見 tools/render-logs/）"
+  echo "（細節見 tools/render-logs/）"
   exit 1
 else
   echo "全部渲染完成。"

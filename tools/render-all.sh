@@ -9,7 +9,7 @@
 # 特性：
 #   - 單一章節失敗不會中斷整批，最後會列出成功／失敗清單
 #   - 每份的完整輸出寫到 tools/render-logs/<檔名>.log，失敗時可回頭查
-#   - Quarto 需已安裝並在 PATH 中
+#   - 會自動尋找 quarto（PATH、Homebrew、官方安裝位置、RStudio 內建、conda 環境）
 
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
@@ -19,12 +19,16 @@ mkdir -p "$LOGDIR"
 LO=${1:-1}
 HI=${2:-${1:-17}}
 
-if ! command -v quarto >/dev/null 2>&1; then
-  echo "找不到 quarto 指令。請先安裝 Quarto，或改用 RStudio 逐章 Render。"
+. "$ROOT/tools/find-tools.sh"
+if [ -z "$QUARTO" ]; then
+  echo "找不到 quarto 指令。"
+  echo "  - 若 quarto 裝在 conda 環境中，請先 conda activate <環境名> 再執行"
+  echo "  - 或安裝 Quarto：https://quarto.org/docs/get-started/"
   exit 1
 fi
 
-echo "Quarto 版本：$(quarto --version)"
+echo "Quarto：${QUARTO}"
+echo "版本：$("${QUARTO}" --version)"
 echo "渲染範圍：第 $LO – $HI 章"
 echo "紀錄位置：$LOGDIR"
 echo ""
@@ -42,7 +46,7 @@ while [ "$i" -le "$HI" ]; do
 
     printf "  %-10s " "$NAME"
     T0=$(date +%s)
-    if (cd "$ROOT/ch${i}" && quarto render "${NAME}.qmd") >"$LOGDIR/${NAME}.log" 2>&1; then
+    if (cd "$ROOT/ch${i}" && "$QUARTO" render "${NAME}.qmd") >"$LOGDIR/${NAME}.log" 2>&1; then
       T1=$(date +%s)
       echo "✓ 完成 ($((T1 - T0)) 秒)"
       OK="$OK $NAME"
@@ -66,7 +70,7 @@ if [ -n "$FAIL" ]; then
   echo "各失敗檔的錯誤摘要："
   for f in $FAIL; do
     echo "  --- $f ---"
-    grep -iE "^error|^!|could not find function|there is no package|cannot open" "$LOGDIR/${f}.log" | head -3 | sed 's/^/      /'
+    grep -aiE "error|^!|could not find function|there is no package|cannot open" "$LOGDIR/${f}.log" | head -3 | sed 's/^/      /'
   done
   exit 1
 fi

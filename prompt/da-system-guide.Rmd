@@ -669,10 +669,10 @@ The course follows the official textbook *ggplot2: Elegant Graphics for Data Ana
 |:---|:---|:------|:---|
 | 1--2 | Part I (Ch. 1--2) | Introduction to R; first steps with `ggplot2` | ex1--ex2 |
 | 3--7 | Part II (Ch. 3--9) | Layers: individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots | ex3--ex7 |
-| 8--9 | --- | Midterm presentations / Midterm Examination | --- |
+| 8--9 | --- | Midterm Examination (online) | --- |
 | 10--11 | Part III (Ch. 10--12) | Scales: position scales, colour scales, other aesthetics | ex8--ex9 |
 | 12--14 | Part IV (Ch. 13--17) | The grammar: building plots layer by layer, scales and guides, coordinate systems, faceting, themes | ex10--ex12 |
-| 15--16 | --- | Final presentations / Final Examination | --- |
+| 15--16 | --- | Final Examination (online) | --- |
 | 17--18 | --- | Flexible Learning Weeks | --- |
 
 : Weekly Schedule and Exercise Mapping

@@ -59,14 +59,14 @@ tinytex::install_tinytex()
 
 Every R Markdown document begins with a YAML front matter block delimited by `---`. This block controls document metadata and output settings:
 
-``` yaml
+````{r,eval=F}
 ---
 title: "Ex. X"
 author: "Student ID"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
-```
+````
 
 > **Important**: For graded submissions, the `author` field must contain your **student ID only** (e.g., `author: "D10627008"`) — do **not** include your name. Always start from the official template on the [Problem sets page](https://yyliou.github.io/da/prob.html), which also includes the required UUID code chunk. Submissions that deviate from the template receive a grade of zero.
 

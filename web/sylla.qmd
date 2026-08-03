@@ -76,14 +76,14 @@ All software is free and open-source: **R** at <https://cran.r-project.org>, **R
 
 2.  Weeks 3–7: Part II — Layers (individual geoms, collective geoms, statistical summaries, maps, networks, annotations, arranging plots).
 
-3.  Weeks 8–9: Mid-term presentations.
+3.  Weeks 8–9: **Mid-Term Examination** (online; the exact date will be announced on the course website).
 
 4.  Weeks 10–11: Part III — Scales (position scales, colour scales, other aesthetics).
 
 5.  Weeks 12–14: Part IV — The grammar; advanced topics.
 
-6.  Weeks 15–16: Final presentations.
+6.  Weeks 15–16: **Final Examination** (online; the exact date will be announced on the course website).
 
-7.  Weeks 17-18: Flexible learning weeks.
+7.  Weeks 17–18: Flexible learning weeks.
 
 *Note: Syllabus is subject to change. Any updates will be announced on the course website.*

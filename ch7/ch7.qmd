@@ -189,7 +189,7 @@ This section provides only a brief orientation to `tidygraph`. A comprehensive o
 
 Instead, node positions are determined by a **layout algorithm** that uses the graph's topology to assign (often mathematically arbitrary) `x` and `y` coordinates. The positions communicate structural relationships — connectivity, hierarchy, clustering — rather than the values of any measured variable.
 
-## Setting up the visualization
+## Setting up the visualisation
 
 A ggraph plot is initialised with `ggraph()` rather than `ggplot()`. The function signature is:
 
