@@ -3,6 +3,7 @@ title: "資料分析"
 subtitle: "第五章：統計摘要"
 author: "劉昱佑"
 institute: "實踐大學"
+lang: zh-TW
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -118,7 +117,7 @@ p4 | p5 | p6
 
 **關於計算的提醒**
 
-ggplot2 不會自動計算標準誤。由於標準誤的公式會依統計模型或假設而異，這項計算必須由分析者在把資料傳給 ggplot2 之前完成。關於計算與運用以模型為基礎的不確定性，請參考 *R for Data Science*（<https://r4ds.had.co.nz>）。
+ggplot2 不會自動計算標準誤。由於標準誤的公式會依統計模型或假設而異，這項計算必須由分析者在把資料傳給 ggplot2 之前完成。關於計算與運用以模型為基礎的不確定性，請參考 *R for Data Science*（<https://r4ds.hadley.nz>）。
 
 # 加權資料
 
@@ -575,7 +574,7 @@ ggplot(small, aes(eruptions, waiting)) +
 | `geom_raster()`  | 填色           | 密集、均勻的格網                 |
 | `geom_point()`   | 點的大小       | 稀疏格網；少於約 200 個點        |
 
-至於**互動式 3D 曲面**（真正的透視視圖、可旋轉的圖），`rgl` 套件（<http://rgl.neoscientists.org>）提供了超出 ggplot2 範疇的必要工具。
+至於**互動式 3D 曲面**（真正的透視視圖、可旋轉的圖），`rgl` 套件（<https://dmurdoch.github.io/rgl/>）提供了超出 ggplot2 範疇的必要工具。
 
 ## 版權聲明
 

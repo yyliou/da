@@ -3,6 +3,7 @@ title: "資料分析"
 subtitle: "第八章：標註"
 author: "劉昱佑"
 institute: "實踐大學"
+lang: zh-TW
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -175,7 +174,7 @@ ggplot(df, aes(x, y)) +
 超出三個保證值之外的系統字型，可能無法在所有繪圖裝置（螢幕 vs. 檔案）上一致地呈現。兩個套件解決這點：
 
 - **showtext**（<https://github.com/yixuan/showtext>）——把文字轉換成多邊形，使字型呈現與裝置無關。
-- **extrafont**（<https://github.com/wch/extrafont>）——註冊已安裝的系統字型，使所有裝置都能使用共同的格式。
+- **extrafont**（<https://github.com/fbertran/extrafont>）——註冊已安裝的系統字型，使所有裝置都能使用共同的格式。
 
 各種方法各有取捨；值得在你的工作流程中把兩者都測試一遍。
 
@@ -458,7 +457,7 @@ p2 <- ggplot(mpg, aes(displ, hwy, colour = class)) +
 p1 | p2
 ```
 
-`"smart.grid"` 對散佈圖是個不錯的預設。對於折線圖與次數多邊形，其他方法（例如 `"last.points"`、`"angled.boxes"`）更為適當。完整目錄請見 directlabels 網站（<http://directlabels.r-forge.r-project.org>）。
+`"smart.grid"` 對散佈圖是個不錯的預設。對於折線圖與次數多邊形，其他方法（例如 `"last.points"`、`"angled.boxes"`）更為適當。完整目錄請見 directlabels 網站（<https://directlabels.netlify.app>）。
 
 ---
 

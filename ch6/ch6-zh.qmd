@@ -3,6 +3,7 @@ title: "資料分析"
 subtitle: "第六章：地圖"
 author: "劉昱佑"
 institute: "實踐大學"
+lang: zh-TW
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -343,7 +342,7 @@ p1 | p2
 
 EPSG 3112 是 GDA94 / 澳洲地球科學蘭伯特投影，它使整個澳洲大陸的面積失真最小化。兩個面板之間輪廓形狀的差異，說明了地圖的視覺印象會隨投影的選擇而有多大的改變。
 
-關於 R 中地圖投影的詳盡論述，請見 *Geocomputation with R*（<https://geocompr.robinlovelace.net/>）。
+關於 R 中地圖投影的詳盡論述，請見 *Geocomputation with R*（<https://r.geocompx.org/>）。
 
 # 處理 sf 資料
 
@@ -561,7 +560,7 @@ geom_sf_text(data = cities, mapping = aes(label = city))
 
 需要做一些標籤位置調整以防止重疊（見第 8 章的標註）。
 
-**關於互動式 3D 地圖的提醒：** 至於超出 ggplot2 範疇的真正透視視圖或可旋轉 3D 曲面視覺化，`rgl` 套件（<http://rgl.neoscientists.org>）是標準工具。
+**關於互動式 3D 地圖的提醒：** 至於超出 ggplot2 範疇的真正透視視圖或可旋轉 3D 曲面視覺化，`rgl` 套件（<https://dmurdoch.github.io/rgl/>）是標準工具。
 
 # 資料來源
 
@@ -583,7 +582,7 @@ geom_sf_text(data = cities, mapping = aes(label = city))
 
 - **rnaturalearth**（<https://CRAN.R-project.org/package=rnaturalearth>）——包裝 Natural Earth 專案（<https://naturalearthdata.com/>），一個免費、維護良好的全球資料集。包含每個國家的國界與第一級行政區劃（州、省、地區、郡）（South 2017）。
 
-- **osmar**（<https://cran.r-project.org/package=osmar>）——與 OpenStreetMap API 介接，以擷取細緻的向量資料：街區層級的個別街道、建築、公園與興趣點（Eugster & Schlesinger 2010）。
+- **osmdata**（<https://docs.ropensci.org/osmdata/>）——與 OpenStreetMap API 介接，以擷取細緻的向量資料：街區層級的個別街道、建築、公園與興趣點（Eugster & Schlesinger 2010）。
 
 ---
 

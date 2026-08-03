@@ -1,8 +1,9 @@
 ---
 title: "Data Analysis"
 subtitle: "Chapter 6: Maps"
-author: "Yu-You Liou (NTU)"
+author: "Yu-You Liou"
 institute: "Shih Chien University"
+lang: en
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -331,7 +330,7 @@ p1 | p2
 
 EPSG 3112 is the GDA94 / Geoscience Australia Lambert projection, which minimises area distortion across the Australian continent. The difference in outline shape between the two panels illustrates how substantially the visual impression of a map can change with the choice of projection.
 
-For a thorough treatment of map projections in R, see *Geocomputation with R* (<https://geocompr.robinlovelace.net/>).
+For a thorough treatment of map projections in R, see *Geocomputation with R* (<https://r.geocompx.org/>).
 
 # Working with sf data
 
@@ -551,7 +550,7 @@ geom_sf_text(data = cities, mapping = aes(label = city))
 
 Some label positioning adjustment would be needed to prevent overlap (see Chapter 8 on annotations).
 
-**Note on interactive 3D maps:** For true perspective-view or rotatable 3D surface visualisations beyond ggplot2's scope, the `rgl` package (<http://rgl.neoscientists.org>) is the standard tool.
+**Note on interactive 3D maps:** For true perspective-view or rotatable 3D surface visualisations beyond ggplot2's scope, the `rgl` package (<https://dmurdoch.github.io/rgl/>) is the standard tool.
 
 # Data sources
 
@@ -573,7 +572,7 @@ A wide variety of R packages provide ready-to-use geospatial datasets for use wi
 
 - **rnaturalearth** (<https://CRAN.R-project.org/package=rnaturalearth>) — wraps the Natural Earth project (<https://naturalearthdata.com/>), a free, well-maintained global dataset. Includes country boundaries and first-level administrative subdivisions (states, provinces, regions, counties) for every country (South 2017).
 
-- **osmar** (<https://cran.r-project.org/package=osmar>) — interfaces with the OpenStreetMap API to retrieve granular vector data: individual streets, buildings, parks, and points of interest at the city block level (Eugster & Schlesinger 2010).
+- **osmdata** (<https://docs.ropensci.org/osmdata/>) — interfaces with the OpenStreetMap API to retrieve granular vector data: individual streets, buildings, parks, and points of interest at the city block level (Eugster & Schlesinger 2010).
 
 ---
 

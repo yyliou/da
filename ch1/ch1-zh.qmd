@@ -3,6 +3,7 @@ title: "資料分析"
 subtitle: "第一章：簡介"
 author: "劉昱佑"
 institute: "實踐大學"
+lang: zh-TW
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -11,7 +12,6 @@ footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
 bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -157,13 +157,13 @@ R 中還有其他幾種繪圖系統：基礎繪圖（base graphics）、grid 繪
 
 - `ggplot2` 始於 2005 年，嘗試擷取基礎繪圖與 lattice 繪圖的優點，並以一個強而有力的底層模型加以改進；該模型基於前述原則，支援產生任何種類的統計圖形。`ggplot2` 紮實的底層模型，使其能以精簡的語法描述各式各樣的圖形，而獨立的元件又使擴充變得容易。與 lattice 一樣，`ggplot2` 使用 grid 來繪圖，這代表你能對圖形外觀進行許多底層的控制。
 
-- [`htmlwidgets`](http://www.htmlwidgets.org) 提供一個共通框架，讓你能從 R 存取網頁視覺化工具。建立在 [`htmlwidgets`](http://www.htmlwidgets.org) 之上的套件包括用於地圖的 [`leaflet`](https://rstudio.github.io/leaflet/)、用於時間序列的 [`dygraph`](http://rstudio.github.io/dygraphs/)，以及用於網路圖的 [`networkD3`](http://christophergandrud.github.io/networkD3/)。
+- [`htmlwidgets`](https://www.htmlwidgets.org) 提供一個共通框架，讓你能從 R 存取網頁視覺化工具。建立在 [`htmlwidgets`](https://www.htmlwidgets.org) 之上的套件包括用於地圖的 [`leaflet`](https://rstudio.github.io/leaflet/)、用於時間序列的 [`dygraph`](https://rstudio.github.io/dygraphs/)，以及用於網路圖的 [`networkD3`](https://christophergandrud.github.io/networkD3/)。
 
 - [`plotly`](https://plotly-r.com) 是一個受歡迎的 JavaScript 視覺化工具組，並具備 R 介面。如果你想為 HTML 文件製作互動式圖形，它是個很棒的工具，甚至附帶一個 `ggplotly()` 函式，能將許多 `ggplot2` 圖形轉換成對應的互動版本。
 
 ---
 
-許多其他的 R 套件，例如 `vcd` [@meyer2007strucplot]、`plotrix` [@lemon2008plotrix] 與 `gplots` [@warnes2005gplots]，都實作了專門的圖形，但沒有任何一個提供產生統計圖形的框架。其他套件所提供的所有繪圖工具，其完整清單可在繪圖任務視圖（graphics task view）中找到：<http://cran.r-project.org/web/views/Graphics.html>。
+許多其他的 R 套件，例如 `vcd` [@meyer2007strucplot]、`plotrix` [@lemon2008plotrix] 與 `gplots` [@warnes2005gplots]，都實作了專門的圖形，但沒有任何一個提供產生統計圖形的框架。其他套件所提供的所有繪圖工具，其完整清單可在 CRAN Task Views 中找到：<https://cran.r-project.org/web/views/>。
 
 # 關於本書
 
@@ -191,13 +191,13 @@ R 中還有其他幾種繪圖系統：基礎繪圖（base graphics）、grid 繪
 
 在我們繼續之前，請確認你已備齊本書所需的所有軟體：
 
-- **R**：如果你還沒安裝 R，那你可能拿錯書了；本書全程假設你對 R 有基本的熟悉。若你想學習如何使用 R，我們推薦 [R for Data Science](https://r4ds.had.co.nz)，它的設計能讓你以最少的麻煩快速上手 R。
+- **R**：本課程不預設你使用過 R——我們從頭開始。請先安裝 R，其餘一切都建立在它之上。若想在課程之外多讀一些，[R for Data Science](https://r4ds.hadley.nz) 是很好的搭配讀物。
 
-- **RStudio**：RStudio 是一套免費且開源的 R 整合開發環境（IDE）。雖然你可以用任何 R 環境（包括 R GUI 與 ESS）撰寫並執行 R 程式碼，但 RStudio 具備一些專為撰寫與除錯程式碼而設計的優良功能。我們建議你試試看，但這對於成功使用 `ggplot2` 或本書並非必要。你可以從 <https://posit.co/download/rstudio-desktop> 下載 RStudio Desktop。
+- **RStudio**：一套免費且開源的 R 開發環境。雖然也有其他編輯器，但**本課程要求使用 RStudio**——作業流程（Knit 按鈕與官方範本）都以它為前提。可從 <https://posit.co/download/rstudio-desktop> 下載 RStudio Desktop。
 
 ---
 
-- **R 套件**：本書使用了一堆 R 套件。你可以執行以下指令一次全部安裝：
+- **R 套件**：作業只需要 `install.packages(c("tidyverse", "patchwork", "uuid", "rmarkdown", "knitr", "tinytex"))`——詳見[課程 R 頁面](https://yyliou.github.io/da/r.html)。下方較長的清單涵蓋十七章全部範例所需，可等有空再裝；其中 `sf` 與 `stars` 編譯時間較長。
 
 ```{r,echo=TRUE,eval=FALSE}
 install.packages(c(
@@ -223,13 +223,13 @@ install.packages(c(
 
 **郵件論壇／stackoverflow**
 
-如果你經常使用 `ggplot2`，建議加入 `ggplot2` 的[郵件論壇](http://groups.google.com/group/ggplot2)。這個論壇流量相對較低，且對新手非常友善。另一個有用的資源是 [stackoverflow](https://stackoverflow.com)。stackoverflow 上有活躍的 `ggplot2` 社群，許多常見問題都已經有人提問並獲得解答。無論在哪裡，如果你提供一個最小可重現範例（minimal reproducible example），會更容易得到協助。Jenny Bryan 開發的 reprex 套件提供了一個方便的方式來做到這點，並附上建立良好範例的建議。你提供的資訊越多，社群就越容易幫助你。
+如果你經常使用 `ggplot2`，建議關注 `ggplot2` 的[問題追蹤區](https://github.com/tidyverse/ggplot2/issues)。這個追蹤區流量相對較低，且對新手非常友善。另一個有用的資源是 [stackoverflow](https://stackoverflow.com)。stackoverflow 上有活躍的 `ggplot2` 社群，許多常見問題都已經有人提問並獲得解答。無論在哪裡，如果你提供一個最小可重現範例（minimal reproducible example），會更容易得到協助。Jenny Bryan 開發的 reprex 套件提供了一個方便的方式來做到這點，並附上建立良好範例的建議。你提供的資訊越多，社群就越容易幫助你。
 
 ---
 
 **RStudio 速查表**
 
-`ggplot2` 的函式數量之多可能令人不知所措，但 RStudio 提供了一些很棒的[速查表](https://posit.co/resources/cheatsheets/)來喚起你的記憶。
+`ggplot2` 的函式數量之多可能令人不知所措，但 RStudio 提供了一些很棒的[速查表](https://github.com/rstudio/cheatsheets)來喚起你的記憶。
 
 **本書**
 
@@ -243,3 +243,7 @@ install.packages(c(
 
 - **適當標註出處。** 任何對本教材的重製、散布或使用，都必須適當標註原始出處。
 
+## 參考文獻 {.scrollable}
+
+::: {#refs}
+:::

@@ -136,6 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./sylla.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
@@ -210,30 +214,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="template" class="level3">
 <h3 class="anchored" data-anchor-id="template">Template</h3>
 <p>Copy the following template as the starting point for every submission. Replace all placeholder values before submitting.</p>
+<p>The template needs the <code>uuid</code> package. If you have not installed it yet, run this once in the RStudio console:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"uuid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Ex. X"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Student ID"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = TRUE)</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r}</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">print(uuid::UUIDgenerate())</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Question 1</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span>(Write your response here.)<span class="sc">*</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Question 2</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="er">*</span>(Write your response here.)<span class="sc">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Ex. X"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Student ID"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r setup, include=FALSE}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::opts_chunk$set(echo = TRUE)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r}</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">print(uuid::UUIDgenerate())</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Question 1</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span>(Write your response here.)<span class="sc">*</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Question 2</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="er">*</span>(Write your response here.)<span class="sc">*</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Question 3</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="er">*</span>(Write your response here.)<span class="sc">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Each exercise has three questions, so the template has three <code>## Question</code> headings. If an exercise ever has a different number, add or remove <code>## Question</code> headings to match — that is the <strong>only</strong> part of the template you are expected to change.</p>
 </section>
 <section id="checklist" class="level3">
 <h3 class="anchored" data-anchor-id="checklist">Checklist</h3>
@@ -244,13 +255,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><label><input type="checkbox">The <code>date</code> field is present and left exactly as it appears in the template.</label></li>
 <li><label><input type="checkbox">The UUID code chunk (<code>print(uuid::UUIDgenerate())</code>) from the template is present and unmodified.</label></li>
 <li><label><input type="checkbox">The final document must be submitted strictly in <code>.pdf</code> format.</label></li>
-<li><label><input type="checkbox">The document’s name should be <code>exN-id.pdf</code> (e.g., <code>ex1-D10627008.pdf</code>).</label></li>
+<li><label><input type="checkbox">The file is named <code>exN-StudentID.pdf</code>, all lower case for the <code>ex</code> part and using your own student ID — for Exercise 1, student D10627008 submits exactly <code>ex1-D10627008.pdf</code>. Do not keep the square brackets, and do not write <code>Ex1-...</code> or <code>ex01-...</code>.</label></li>
 </ul>
+<p><strong>What you may and may not change.</strong> The <code>title</code>, <code>author</code> and <code>date</code> fields, the <code>setup</code> chunk (including <code>echo = TRUE</code>), and the UUID chunk must stay exactly as they are — the UUID must be visible in your submitted PDF, so never set that chunk to <code>include=FALSE</code> or <code>echo=FALSE</code>. You <em>may</em> change the <code>output:</code> field if you need a different LaTeX engine for Chinese characters (see the <a href="./r.html">R page</a>), and you may of course add your own answers and code chunks under each question.</p>
 </section>
 </section>
 <section id="submit-your-assignments" class="level2">
 <h2 class="anchored" data-anchor-id="submit-your-assignments">Submit Your Assignments</h2>
 <p>Upload your PDF <a href="https://u.pcloud.link/publink/show?code=kZaVeI5ZjmzQXBbRlv7XxLzlO1xTDB92w9Kk">here</a> and place it in the corresponding folder (e.g., <code>ex1</code> for Exercise 1).</p>
+<p>After uploading, check that your file appears in the folder with exactly the name you intended. If you upload the same name twice, the newer file replaces the older one, so re-uploading a corrected version is fine — but a file whose name was altered on upload no longer matches the required pattern and will be treated as an incorrect submission.</p>
 </section>
 <section id="check-your-grade" class="level2">
 <h2 class="anchored" data-anchor-id="check-your-grade">Check your grade</h2>

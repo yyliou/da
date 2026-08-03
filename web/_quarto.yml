@@ -8,6 +8,8 @@ website:
   navbar:
     logo: hex/da.svg
     left:
+      - href: index.qmd
+        text: Home
       - href: sylla.qmd
         text: Syllabus
       - href: slide.qmd

@@ -51,9 +51,11 @@ tinytex::install_tinytex()
 
 ### Step 3: Create a New R Markdown File
 
-1.  From the RStudio menu, select: *File* → *New File* → *R Markdown...*
-2.  Specify a title and author in the dialogue box; set the default output format to **PDF**
-3.  Click **OK** to generate the template file
+For graded work, do **not** start from RStudio's own sample file. Instead:
+
+1.  From the RStudio menu, select: *File* → *New File* → *R Markdown...*, set the output format to **PDF**, and click **OK**
+2.  Select everything in the new file and delete it — RStudio's sample text (`## R Markdown`, `summary(cars)`, `plot(pressure)`) must not be left in a submission
+3.  Paste in the official template from the [Problem sets page](prob.qmd) and save the file as `exN-YourStudentID.Rmd`
 
 ### Step 4: Configure the YAML Header
 
@@ -96,7 +98,7 @@ summary(mtcars)
 
 Click the **Knit** button in the RStudio toolbar, or use the keyboard shortcut `Ctrl+Shift+K` (Windows/Linux) or `Cmd+Shift+K` (macOS), and select *Knit to PDF*.
 
-> **Note on CJK character rendering**: If Chinese, Japanese, or Korean characters appear as missing glyphs in the PDF output, specify an alternative LaTeX engine in the YAML header:
+> **Note on CJK character rendering**: You can avoid this entirely by answering in English, which is what the course expects. If you do need Chinese, Japanese, or Korean characters and they appear as missing glyphs, switch the LaTeX engine and name a font your own machine actually has:
 >
 > ``` yaml
 > output:
@@ -104,7 +106,11 @@ Click the **Knit** button in the RStudio toolbar, or use the keyboard shortcut `
 >     latex_engine: xelatex
 > header-includes:
 >   - \usepackage{fontspec}
->   - \setmainfont{Noto Sans CJK TC}
+>   - \setmainfont{PingFang TC}
 > ```
+>
+> Use `PingFang TC` on macOS and `Microsoft JhengHei` on Windows. Do not use `Noto Sans CJK TC` unless you have installed it yourself — it ships with neither operating system, and naming a font you do not have stops the PDF from building at all.
+>
+> Changing `output:` and adding `header-includes:` in this way is permitted and will not count as deviating from the template.
 
 ------------------------------------------------------------------------

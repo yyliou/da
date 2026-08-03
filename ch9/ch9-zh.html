@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch9-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch9-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch9-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -255,7 +255,7 @@
 <span id="cb1-16"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">y =</span> hwy, <span class="at">fill =</span> drv),</span>
 <span id="cb1-17"><a href=""></a>               <span class="at">geom =</span> <span class="st">"col"</span>, <span class="at">fun.data =</span> mean_se) <span class="sc">+</span></span>
 <span id="cb1-18"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">y =</span> hwy),</span>
-<span id="cb1-19"><a href=""></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">fun.data =</span> mean_se, <span class="at">width =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-19"><a href=""></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">fun.data =</span> mean_se, <span class="at">width =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -267,7 +267,7 @@
 <h2>把圖並排排列</h2>
 <p>在其核心，patchwork 多載了 <code>+</code> 運算子來組合 ggplot 物件。把兩張圖放在 <code>+</code> 的兩側，便把它們拼裝成一個聯合的呈現：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -275,7 +275,7 @@
 
 <p>當沒有明確指定布局時，patchwork 套用與 <code>facet_wrap()</code> 相同的啟發式來決定列數與欄數。加入三張圖會產生 1 × 3 的格網；四張圖則產生 2 × 2 的格網：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -295,7 +295,7 @@
 <p><strong><code>plot_layout()</code>——明確的格網規格</strong></p>
 <p>覆寫預設布局最直接的方式，是把 <code>plot_layout()</code> 附加到拼裝好的圖上。它的 <code>ncol</code> 與 <code>nrow</code> 引數分別設定欄數與列數：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -308,14 +308,14 @@
 <li><code>p1 / p2</code>——強制單一<strong>欄</strong>（所有圖垂直堆疊）。</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>p3 <span class="sc">|</span> p4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>p3 <span class="sc">|</span> p4</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>在底層，<code>|</code> 與 <code>/</code> 分別是 <code>plot_layout(nrow = 1)</code> 與 <code>plot_layout(ncol = 1)</code> 的語法糖，但使用它們能讓人在閱讀程式碼時立即看清布局的預期結構。</p>
@@ -325,7 +325,7 @@
 <p><strong>巢狀布局</strong></p>
 <p><code>|</code> 與 <code>/</code> 運算子可巢狀在括號內，以建構複雜、非均勻的布局：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>p3 <span class="sc">|</span> (p2 <span class="sc">/</span> (p1 <span class="sc">|</span> p4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>p3 <span class="sc">|</span> (p2 <span class="sc">/</span> (p1 <span class="sc">|</span> p4))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>由左至右閱讀這個表達式：<code>p3</code> 占據圖的左半；右半在垂直方向被切分為上方的 <code>p2</code> 與下方 <code>p1</code> 與 <code>p4</code> 的並排排列。</p>
@@ -344,7 +344,7 @@
 <span id="cb8-4"><a href=""></a><span class="st">CDD</span></span>
 <span id="cb8-5"><a href=""></a><span class="st">"</span></span>
 <span id="cb8-6"><a href=""></a></span>
-<span id="cb8-7"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> layout)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-7"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> p4 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> layout)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>每個字母依各圖以 <code>+</code> 加入的順序對應到一張圖。在這裡：<code>p1</code> 橫跨左上的兩個儲存格，<code>p2</code> 占據右欄橫跨第 1 與第 2 列，<code>p3</code> 橫跨第 2 與第 3 列的左欄，而 <code>p4</code> 橫跨右下的兩個儲存格。</p>
@@ -354,7 +354,7 @@
 <p><strong>收集圖例——<code>guides = "collect"</code></strong></p>
 <p>當多個面板共享相同的美學映射時，它們的圖例完全相同，全部顯示出來會浪費空間。在 <code>plot_layout()</code> 中設定 <code>guides = "collect"</code>，會把所有指引收集到單一位置，移除完全重複者，並依全域主題定位它們：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -363,7 +363,7 @@
 <p><strong><code>guide_area()</code>——把收集到的指引放進空白處</strong></p>
 <p>如果布局包含一個空白儲存格（design 字串中的 <code>#</code>），那個空間可被用來容納收集到的指引，而非把它們放在圖的邊界之外。<code>guide_area()</code> 專為此保留一個圖大小的位置：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">guide_area</span>() <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> <span class="fu">guide_area</span>() <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>2 × 2 格網中的第四個位置如今被收集到的圖例占據，而非空白的留白。</p>
@@ -375,7 +375,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>p12 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> p2</span>
 <span id="cb11-2"><a href=""></a>p12[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> p12[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">theme_light</span>()</span>
-<span id="cb11-3"><a href=""></a>p12</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-3"><a href=""></a>p12</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p><code>p12[[2]]</code> 取得第二張圖（<code>p2</code>），套用 <code>theme_light()</code>，並把修改後的版本存回位置 2。</p>
@@ -385,7 +385,7 @@
 <p><strong><code>&amp;</code> 運算子——把修改套用到所有子圖</strong></p>
 <p>逐一修改每個子圖很冗長。<code>&amp;</code> 運算子把任何 ggplot2 的添加——主題、尺度、座標系統——同時廣播到拼裝中的<strong>每一個子圖</strong>：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -394,7 +394,7 @@
 <p><strong>用 <code>&amp;</code> 同步座標軸</strong></p>
 <p><code>&amp;</code> 在強制讓顯示相同變數的面板共享同一軸範圍時特別有用。把相同的 <code>scale_y_continuous()</code> 套用到所有圖，可確保 y 軸能直接比較：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">45</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>p1 <span class="sc">+</span> p4 <span class="sc">&amp;</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">45</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -407,7 +407,7 @@
 <span id="cb14-2"><a href=""></a>  <span class="at">title   =</span> <span class="st">"細看驅動系統對車輛的影響"</span>,</span>
 <span id="cb14-3"><a href=""></a>  <span class="at">caption =</span> <span class="st">"來源：ggplot2 中的 mpg 資料集"</span></span>
 <span id="cb14-4"><a href=""></a>)</span>
-<span id="cb14-5"><a href=""></a>p34</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-5"><a href=""></a>p34</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -416,7 +416,7 @@
 <p><strong>為標註文字套用主題</strong></p>
 <p><code>plot_annotation()</code> 的 <code>theme</code> 引數控制複合層級之標題、副標題與圖說的字體樣式，獨立於子圖的主題之外：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p34 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">theme =</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p34 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">theme =</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -424,7 +424,7 @@
 
 <p>要一步把相同的主題同時套用到標註文字與所有子圖面板，請用 <code>&amp;</code> 搭配一個主題物件。這會同時修改全域主題（它支配標註的字體）與每個子圖的主題：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>p34 <span class="sc">&amp;</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>p34 <span class="sc">&amp;</span> <span class="fu">theme_gray</span>(<span class="at">base_family =</span> <span class="st">"mono"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -434,7 +434,7 @@
 <p>在科學出版品中，多面板圖慣以字母或數字（A、B、C…… 或 I、II、III……）標示，使圖說能指涉特定面板。patchwork 用 <code>plot_annotation()</code> 的 <code>tag_levels</code> 引數把這自動化：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>p123 <span class="ot">&lt;-</span> p1 <span class="sc">|</span> (p2 <span class="sc">/</span> p3)</span>
-<span id="cb17-2"><a href=""></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>)   <span class="co"># 大寫羅馬數字</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-2"><a href=""></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>)   <span class="co"># 大寫羅馬數字</span></span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>其他可接受的值有 <code>"A"</code>（大寫拉丁字母）、<code>"a"</code>（小寫拉丁字母）與 <code>"1"</code>（阿拉伯數字）。</p>
@@ -445,7 +445,7 @@
 <p>對於包含巢狀 patchwork 的拼裝，可用 <code>plot_layout(tag_level = "new")</code> 在內層拼裝上啟用第二個標示層級。<code>plot_annotation()</code> 的 <code>tag_levels</code> 引數於是接受一個向量，指定每一層級的標示方案：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>p123[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> p123[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">tag_level =</span> <span class="st">"new"</span>)</span>
-<span id="cb18-2"><a href=""></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"a"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-2"><a href=""></a>p123 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"a"</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>外層使用大寫羅馬數字（I、II、……），內層使用小寫拉丁字母（a、b、……），為兩個巢狀面板產生諸如「IIa」與「IIb」的標籤。</p>
@@ -463,7 +463,7 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p2, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.4</span>, <span class="at">right =</span> <span class="fl">0.9</span>, <span class="at">top =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p2, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.4</span>, <span class="at">right =</span> <span class="fl">0.9</span>, <span class="at">top =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -484,7 +484,7 @@
 <span id="cb20-6"><a href=""></a>    <span class="at">right  =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>) <span class="sc">-</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="st">"mm"</span>),</span>
 <span id="cb20-7"><a href=""></a>    <span class="at">top    =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>) <span class="sc">-</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="st">"mm"</span>),</span>
 <span id="cb20-8"><a href=""></a>    <span class="at">align_to =</span> <span class="st">"full"</span></span>
-<span id="cb20-9"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-9"><a href=""></a>  )</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -494,7 +494,7 @@
 <p>任何 <code>wrap_elements()</code> 能處理的圖形物件——包括一個巢狀的 patchwork 拼裝——都可作為嵌入圖。下面的例子把一個堆疊的雙面板 patchwork（<code>p2 / p4</code>）嵌入到 <code>p1</code> 上：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>p24 <span class="ot">&lt;-</span> p2 <span class="sc">/</span> p4 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span>
-<span id="cb21-2"><a href=""></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p24, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.05</span>, <span class="at">right =</span> <span class="fl">0.95</span>, <span class="at">top =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-2"><a href=""></a>p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p24, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.05</span>, <span class="at">right =</span> <span class="fl">0.95</span>, <span class="at">top =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -504,7 +504,7 @@
 <p>嵌入圖在呈現之前都仍是活的 patchwork 子圖，因此 <code>&amp;</code> 運算子會同時把修改套用到背景圖與嵌入圖：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p12 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">inset_element</span>(p2, <span class="at">left =</span> <span class="fl">0.5</span>, <span class="at">bottom =</span> <span class="fl">0.5</span>, <span class="at">right =</span> <span class="fl">0.9</span>, <span class="at">top =</span> <span class="fl">0.95</span>)</span>
-<span id="cb22-2"><a href=""></a>p12 <span class="sc">&amp;</span> <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-2"><a href=""></a>p12 <span class="sc">&amp;</span> <span class="fu">theme_bw</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -513,7 +513,7 @@
 <p><strong>自動標示也適用於嵌入圖</strong></p>
 <p>透過 <code>plot_annotation(tag_levels = ...)</code> 指派的子圖標籤，套用到嵌入圖的方式與套用到一般並排面板的方式相同：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p12 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"A"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p12 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"A"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch9-zh_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>背景圖與嵌入圖都得到一個標籤，使它們能在圖說中被個別指涉。</p>
@@ -862,12 +862,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

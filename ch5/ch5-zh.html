@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch5-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch5-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch5-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -268,7 +268,7 @@
 <span id="cb1-4"><a href=""></a>y  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">11</span>, <span class="dv">16</span>)</span>
 <span id="cb1-5"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> y, <span class="at">se =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>))</span>
 <span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">ymin =</span> y <span class="sc">-</span> se, <span class="at">ymax =</span> y <span class="sc">+</span> se))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">ymin =</span> y <span class="sc">-</span> se, <span class="at">ymax =</span> y <span class="sc">+</span> se))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>ymin</code> 與 <code>ymax</code> 美學定義每個區間的下界與上界。這裡它們是用點估計 <code>y</code> 減去與加上標準誤 <code>se</code> 所構成。</p>
 </section>
@@ -279,7 +279,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>p1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_crossbar</span>()</span>
 <span id="cb2-2"><a href=""></a>p2 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_pointrange</span>()</span>
 <span id="cb2-3"><a href=""></a>p3 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
-<span id="cb2-4"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><ul>
@@ -295,7 +295,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>p4 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_errorbar</span>()</span>
 <span id="cb3-2"><a href=""></a>p5 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_linerange</span>()</span>
 <span id="cb3-3"><a href=""></a>p6 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">geom_ribbon</span>()</span>
-<span id="cb3-4"><a href=""></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-4"><a href=""></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><ul>
@@ -307,7 +307,7 @@
 <section class="slide level2">
 
 <p><strong>關於計算的提醒</strong></p>
-<p>ggplot2 不會自動計算標準誤。由於標準誤的公式會依統計模型或假設而異，這項計算必須由分析者在把資料傳給 ggplot2 之前完成。關於計算與運用以模型為基礎的不確定性，請參考 <em>R for Data Science</em>（<a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a>）。</p>
+<p>ggplot2 不會自動計算標準誤。由於標準誤的公式會依統計模型或假設而異，這項計算必須由分析者在把資料傳給 ggplot2 之前完成。關於計算與運用以模型為基礎的不確定性，請參考 <em>R for Data Science</em>（<a href="https://r4ds.hadley.nz" class="uri">https://r4ds.hadley.nz</a>）。</p>
 </section></section>
 <section>
 <section id="加權資料" class="title-slide slide level1 center">
@@ -342,7 +342,7 @@
 <span id="cb4-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> poptotal <span class="sc">/</span> <span class="fl">1e6</span>)) <span class="sc">+</span></span>
 <span id="cb4-6"><a href=""></a>  <span class="fu">scale_size_area</span>(<span class="st">"人口</span><span class="sc">\n</span><span class="st">（百萬）"</span>, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span>
 <span id="cb4-7"><a href=""></a></span>
-<span id="cb4-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>右圖揭示，人口眾多的郡傾向聚集在圖中與人口稀少的郡不同的區域——這個型態在未加權的版本中是看不見的。</p>
@@ -365,7 +365,7 @@
 <span id="cb5-7"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">weight =</span> poptotal), <span class="at">method =</span> lm, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb5-8"><a href=""></a>  <span class="fu">scale_size_area</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span>
 <span id="cb5-9"><a href=""></a></span>
-<span id="cb5-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -382,7 +382,7 @@
 <span id="cb6-6"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">weight =</span> poptotal), <span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb6-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"人口"</span>)</span>
 <span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -399,7 +399,7 @@
 <h2>鑽石資料</h2>
 <p>本章其餘各節都取材自 <code>diamonds</code> 資料集，它與 ggplot2 一起附帶。它包含約 54,000 顆鑽石的價格與品質資訊，是練習適用於大型資料集之技巧的有用試驗場。</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">head</span>(diamonds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">head</span>(diamonds)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
   carat cut       color clarity depth table price     x     y     z
@@ -452,7 +452,7 @@
 <span id="cb9-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
 <span id="cb9-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">55</span>, <span class="dv">70</span>)</span>
 <span id="cb9-7"><a href=""></a></span>
-<span id="cb9-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -485,7 +485,7 @@
 <span id="cb10-9"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
 <span id="cb10-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
 <span id="cb10-11"><a href=""></a></span>
-<span id="cb10-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -516,7 +516,7 @@
 <span id="cb11-7"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">58</span>, <span class="dv">68</span>) <span class="sc">+</span></span>
 <span id="cb11-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
 <span id="cb11-9"><a href=""></a></span>
-<span id="cb11-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>請注意，每個 KDE 都經過標準化，使其總面積等於一。其後果是，關於各群組<em>相對大小</em>的資訊會喪失。</p>
@@ -538,7 +538,7 @@
 <span id="cb12-5"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
 <span id="cb12-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="fl">2.05</span>)</span>
 <span id="cb12-7"><a href=""></a></span>
-<span id="cb12-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -553,7 +553,7 @@
 <span id="cb13-5"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
 <span id="cb13-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="fl">2.05</span>)</span>
 <span id="cb13-7"><a href=""></a></span>
-<span id="cb13-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-8"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -592,7 +592,7 @@
 <span id="cb14-5"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
 <span id="cb14-6"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)    <span class="co"># 空心圓</span></span>
 <span id="cb14-7"><a href=""></a>p3 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="st">"."</span>)  <span class="co"># 像素大小的點</span></span>
-<span id="cb14-8"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-8"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>空心字符（<code>shape = 1</code>）與像素大小的點（<code>shape = "."</code>）讓視覺能在某種程度上穿透實心填色圓會遮蔽的密集區域。</p>
@@ -605,7 +605,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
 <span id="cb15-2"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">5</span>)</span>
 <span id="cb15-3"><a href=""></a>p3 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">10</span>)</span>
-<span id="cb15-4"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-4"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>小於約 1/500 的 <code>alpha</code> 值會被向下取整為零，產生完全透明（不可見）的點。Alpha 混合與空心字符結合時最為有效。</p>
@@ -624,7 +624,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_bin2d</span>()</span>
 <span id="cb16-2"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
-<span id="cb16-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -635,7 +635,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>p1 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_hex</span>()</span>
 <span id="cb17-2"><a href=""></a>p2 <span class="ot">&lt;-</span> norm <span class="sc">+</span> <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
-<span id="cb17-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p><code>geom_bin2d()</code> 與 <code>geom_hex()</code> 都接受 <code>bins</code>（每軸的箱數）與 <code>binwidth</code>（每個箱的實際寬度）引數來控制粒度。</p>
@@ -668,7 +668,7 @@
 <span id="cb18-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(color, price)) <span class="sc">+</span></span>
 <span id="cb18-5"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary_bin"</span>, <span class="at">fun =</span> mean)</span>
 <span id="cb18-6"><a href=""></a></span>
-<span id="cb18-7"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-7"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -686,7 +686,7 @@
 <span id="cb19-7"><a href=""></a>              <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb19-8"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">50</span>, <span class="dv">70</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">50</span>, <span class="dv">70</span>)</span>
 <span id="cb19-9"><a href=""></a></span>
-<span id="cb19-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-10"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -716,7 +716,7 @@
 <p><code>geom_contour()</code> 畫出連接相等 <code>z</code> 值之點的等值線。<code>faithfuld</code> 資料集（內建於 ggplot2）包含老忠實間歇泉資料的二元密度估計：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href=""></a>  <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> density, <span class="at">colour =</span> <span class="fu">after_stat</span>(level)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-2"><a href=""></a>  <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> density, <span class="at">colour =</span> <span class="fu">after_stat</span>(level)))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p><code>after_stat(level)</code> 變數指的是由 stat 內部計算出的等高線水準——它不存在於原始的 <code>faithfuld</code> 資料中。這是已被棄用的 <code>..level..</code> 表示法的現代替代。把它映射到 <code>colour</code>，能讓等高線本身傳達密度的大小。</p>
@@ -727,7 +727,7 @@
 <p>當一個以格網為基礎的曲面要以顏色編碼的方塊地圖呈現時，<code>geom_raster()</code> 提供有效率的呈現。它針對所有方塊共用相同尺寸的均勻格網做了最佳化：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-2"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>顏色編碼每個格網點的密度值，給出曲面的熱圖視圖。請使用循序或發散的顏色尺度，使大小的排序在知覺上易於辨認。</p>
@@ -740,7 +740,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>small <span class="ot">&lt;-</span> faithfuld[<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(faithfuld), <span class="at">by =</span> <span class="dv">10</span>), ]</span>
 <span id="cb22-2"><a href=""></a><span class="fu">ggplot</span>(small, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span></span>
 <span id="cb22-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> density), <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a href=""></a>  <span class="fu">scale_size_area</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-4"><a href=""></a>  <span class="fu">scale_size_area</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch5-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p><code>scale_size_area()</code> 確保每個泡泡的面積與底層的值成正比，這在知覺上比讓半徑成正比更為準確。</p>
@@ -774,7 +774,7 @@
 </tr>
 </tbody>
 </table>
-<p>至於<strong>互動式 3D 曲面</strong>（真正的透視視圖、可旋轉的圖），<code>rgl</code> 套件（<a href="http://rgl.neoscientists.org" class="uri">http://rgl.neoscientists.org</a>）提供了超出 ggplot2 範疇的必要工具。</p>
+<p>至於<strong>互動式 3D 曲面</strong>（真正的透視視圖、可旋轉的圖），<code>rgl</code> 套件（<a href="https://dmurdoch.github.io/rgl/" class="uri">https://dmurdoch.github.io/rgl/</a>）提供了超出 ggplot2 範疇的必要工具。</p>
 </section>
 <section id="版權聲明" class="slide level2">
 <h2>版權聲明</h2>
@@ -1061,12 +1061,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

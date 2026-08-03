@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch6-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch6-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch6-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -250,7 +250,7 @@
 <span id="cb1-4"><a href=""></a></span>
 <span id="cb1-5"><a href=""></a>mi_counties <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"county"</span>, <span class="st">"michigan"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb1-6"><a href=""></a>  <span class="fu">select</span>(<span class="at">lon =</span> long, lat, group, <span class="at">id =</span> subregion)</span>
-<span id="cb1-7"><a href=""></a><span class="fu">head</span>(mi_counties)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href=""></a><span class="fu">head</span>(mi_counties)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        lon      lat group     id
 1 -83.88675 44.85686     1 alcona
@@ -285,7 +285,7 @@
 <span id="cb3-6"><a href=""></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
 <span id="cb3-7"><a href=""></a>  <span class="fu">coord_quickmap</span>()</span>
 <span id="cb3-8"><a href=""></a></span>
-<span id="cb3-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-9"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -318,7 +318,7 @@
 <span id="cb4-2"><a href=""></a><span class="fu">library</span>(sf)</span>
 <span id="cb4-3"><a href=""></a></span>
 <span id="cb4-4"><a href=""></a>oz_states <span class="ot">&lt;-</span> ozmaps<span class="sc">::</span>ozmap_states</span>
-<span id="cb4-5"><a href=""></a>oz_states</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-5"><a href=""></a>oz_states</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 9 features and 1 field
 Geometry type: MULTIPOLYGON
@@ -353,7 +353,7 @@ Geodetic CRS:  GDA94
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(oz_states) <span class="sc">+</span></span>
 <span id="cb6-2"><a href=""></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
-<span id="cb6-3"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-3"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -388,7 +388,7 @@ Geodetic CRS:  GDA94
 <span id="cb7-6"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb7-7"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb7-8"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb7-9"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-9"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -419,7 +419,7 @@ Geodetic CRS:  GDA94
 <span id="cb8-8"><a href=""></a><span class="fu">ggplot</span>(sydney_map) <span class="sc">+</span></span>
 <span id="cb8-9"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> NAME), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb8-10"><a href=""></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">150.97</span>, <span class="fl">151.3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">33.98</span>, <span class="sc">-</span><span class="fl">33.79</span>)) <span class="sc">+</span></span>
-<span id="cb8-11"><a href=""></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> NAME), <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-11"><a href=""></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> NAME), <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -452,7 +452,7 @@ Geodetic CRS:  GDA94
 <span id="cb9-14"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_votes) <span class="sc">+</span></span>
 <span id="cb9-15"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
 <span id="cb9-16"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oz_capitals, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat), <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb9-17"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-17"><a href=""></a>  <span class="fu">coord_sf</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -505,7 +505,7 @@ Geodetic CRS:  GDA94
 
 <p>sf 物件把它的 CRS 儲存為內嵌的詮釋資料，可透過 <code>sf::st_crs()</code> 存取：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coordinate Reference System:
   User input: EPSG:4283 
@@ -535,7 +535,7 @@ GEOGCRS["GDA94",
 
 <p>印在上面的冗長<strong>眾所周知文字（well-known text, WKT）</strong>字串明確地描述了 CRS。一個遠為精簡的表示是 <strong>EPSG 代碼</strong>——由 EPSG 大地測量參數資料集（<a href="https://epsg.org" class="uri">https://epsg.org</a>）所指派的唯一整數。<code>oz_votes</code> 的預設 CRS 對應到 EPSG 4283（GDA94）：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes) <span class="sc">==</span> <span class="fu">st_crs</span>(<span class="dv">4283</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">st_crs</span>(oz_votes) <span class="sc">==</span> <span class="fu">st_crs</span>(<span class="dv">4283</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -548,14 +548,14 @@ GEOGCRS["GDA94",
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
 <span id="cb14-2"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oz_votes) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="fu">st_crs</span>(<span class="dv">3112</span>))</span>
-<span id="cb14-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-3"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p>EPSG 3112 是 GDA94 / 澳洲地球科學蘭伯特投影，它使整個澳洲大陸的面積失真最小化。兩個面板之間輪廓形狀的差異，說明了地圖的視覺印象會隨投影的選擇而有多大的改變。</p>
-<p>關於 R 中地圖投影的詳盡論述，請見 <em>Geocomputation with R</em>（<a href="https://geocompr.robinlovelace.net/" class="uri">https://geocompr.robinlovelace.net/</a>）。</p>
+<p>關於 R 中地圖投影的詳盡論述，請見 <em>Geocomputation with R</em>（<a href="https://r.geocompx.org/" class="uri">https://r.geocompx.org/</a>）。</p>
 </section></section>
 <section>
 <section id="處理-sf-資料" class="title-slide slide level1 center">
@@ -580,7 +580,7 @@ GEOGCRS["GDA94",
 <span id="cb15-3"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(edenmonaro) <span class="sc">+</span> <span class="fu">geom_sf</span>()</span>
 <span id="cb15-4"><a href=""></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">147.75</span>, <span class="fl">150.25</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">37.5</span>, <span class="sc">-</span><span class="fl">34.5</span>))</span>
 <span id="cb15-5"><a href=""></a>p2 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="fl">150.25</span>),    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">36.3</span>, <span class="sc">-</span><span class="dv">36</span>))</span>
-<span id="cb15-6"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-6"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -590,7 +590,7 @@ GEOGCRS["GDA94",
 <p>geometry 欄位可用 <code>dplyr::pull()</code> 分離成一個獨立的 <code>sfc</code>（simple feature column，簡單要素欄）物件：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>edenmonaro <span class="ot">&lt;-</span> edenmonaro <span class="sc">|&gt;</span> <span class="fu">pull</span>(geometry)</span>
-<span id="cb16-2"><a href=""></a>edenmonaro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-2"><a href=""></a>edenmonaro</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Geometry set for 1 feature 
 Geometry type: MULTIPOLYGON
@@ -611,7 +611,7 @@ Geodetic CRS:  GDA94</code></pre>
 <li><code>st_crs()</code>——以一個包含 EPSG 代碼與 WKT 字串的清單回傳座標參考系統。</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">st_bbox</span>(edenmonaro)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">st_bbox</span>(edenmonaro)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     xmin      ymin      xmax      ymax 
 147.68741 -37.50503 150.23068 -34.53558 </code></pre>
@@ -623,7 +623,7 @@ Geodetic CRS:  GDA94</code></pre>
 <p><strong>用 <code>st_cast()</code> 在幾何類型之間轉換</strong></p>
 <p><code>MULTIPOLYGON</code> 可用 <code>st_cast()</code> 分解成它構成的 <code>POLYGON</code> 物件。對 Eden-Monaro 而言，這揭示出組成該選區的兩個不同多邊形：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">st_cast</span>(edenmonaro, <span class="st">"POLYGON"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">st_cast</span>(edenmonaro, <span class="st">"POLYGON"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Geometry set for 2 features 
 Geometry type: POLYGON
@@ -642,7 +642,7 @@ Geodetic CRS:  GDA94</code></pre>
 <span id="cb22-2"><a href=""></a>  <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Dawson"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb22-3"><a href=""></a>  <span class="fu">pull</span>(geometry)</span>
 <span id="cb22-4"><a href=""></a></span>
-<span id="cb22-5"><a href=""></a><span class="fu">ggplot</span>(dawson) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-5"><a href=""></a><span class="fu">ggplot</span>(dawson) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -651,11 +651,11 @@ Geodetic CRS:  GDA94</code></pre>
 <p>要只繪製島嶼，可轉換成個別多邊形，用 <code>st_area()</code> 計算每個多邊形的面積，用 <code>which.max()</code> 找出最大的多邊形（大陸），並以負索引把它排除：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>dawson <span class="ot">&lt;-</span> <span class="fu">st_cast</span>(dawson, <span class="st">"POLYGON"</span>)</span>
-<span id="cb23-2"><a href=""></a><span class="fu">which.max</span>(<span class="fu">st_area</span>(dawson))  <span class="co"># 大陸是第 69 個多邊形</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-2"><a href=""></a><span class="fu">which.max</span>(<span class="fu">st_area</span>(dawson))  <span class="co"># 大陸是第 69 個多邊形</span></span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 69</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(dawson[<span class="sc">-</span><span class="dv">69</span>]) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(dawson[<span class="sc">-</span><span class="dv">69</span>]) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="fu">coord_sf</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>這個「轉換 → 量測 → 取子集」的工作流程，可推廣到任何必須獨立處理一個區域之地理構件的情境——例如把大陸與島嶼領地分開，或在一個複雜的多重多邊形中找出最大的相連區域。</p>
@@ -683,7 +683,7 @@ Geodetic CRS:  GDA94</code></pre>
 <span id="cb26-5"><a href=""></a>  <span class="st">"ggplot2-book/main/IDE00422.202001072100.tif"</span>),</span>
 <span id="cb26-6"><a href=""></a>  <span class="at">RasterIO =</span> <span class="fu">list</span>(<span class="at">nBufXSize =</span> <span class="dv">600</span>, <span class="at">nBufYSize =</span> <span class="dv">600</span>)</span>
 <span id="cb26-7"><a href=""></a>)</span>
-<span id="cb26-8"><a href=""></a>sat_vis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-8"><a href=""></a>sat_vis</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>stars object with 3 dimensions and 1 attribute
 attribute(s), summary of first 1e+05 cells:
@@ -734,7 +734,7 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <span id="cb28-2"><a href=""></a></span>
 <span id="cb28-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb28-4"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis) <span class="sc">+</span></span>
-<span id="cb28-5"><a href=""></a>  <span class="fu">coord_equal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-5"><a href=""></a>  <span class="fu">coord_equal</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>藍色反映的是 ggplot2 的尺度選擇，而非原始影像的外觀。要以灰階顯示影像——對可見光衛星影像而言是更忠實的呈現——請套用 <code>scale_fill_gradient(low = "black", high = "white")</code>。</p>
@@ -748,7 +748,7 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <span id="cb29-2"><a href=""></a>  <span class="fu">geom_stars</span>(<span class="at">data =</span> sat_vis, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb29-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(band)) <span class="sc">+</span></span>
 <span id="cb29-4"><a href=""></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb29-5"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-5"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -764,7 +764,7 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <span id="cb30-5"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> oz_states, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
 <span id="cb30-6"><a href=""></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
 <span id="cb30-7"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb30-8"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-8"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>有了正確重新投影的州界，白色輪廓就會精確地與衛星影像中可見的海岸線對齊。</p>
@@ -792,7 +792,7 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <span id="cb31-9"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> cities, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
 <span id="cb31-10"><a href=""></a>  <span class="fu">coord_sf</span>() <span class="sc">+</span></span>
 <span id="cb31-11"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb31-12"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb31-12"><a href=""></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch6-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -801,10 +801,10 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <p><strong>詮釋這張合成地圖</strong></p>
 <p>把各首府位置正確地投影到衛星影像上後，便顯而易見這張影像大約是在達爾文日出時拍攝的：東部的首府（雪梨、墨爾本、布里斯本、坎培拉）位於受光照的區域，而西部的伯斯仍處於黑暗中。城市名稱可用以下方式加上：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">geom_sf_text</span>(<span class="at">data =</span> cities, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> city))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">geom_sf_text</span>(<span class="at">data =</span> cities, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> city))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>需要做一些標籤位置調整以防止重疊（見第 8 章的標註）。</p>
-<p><strong>關於互動式 3D 地圖的提醒：</strong> 至於超出 ggplot2 範疇的真正透視視圖或可旋轉 3D 曲面視覺化，<code>rgl</code> 套件（<a href="http://rgl.neoscientists.org" class="uri">http://rgl.neoscientists.org</a>）是標準工具。</p>
+<p><strong>關於互動式 3D 地圖的提醒：</strong> 至於超出 ggplot2 範疇的真正透視視圖或可旋轉 3D 曲面視覺化，<code>rgl</code> 套件（<a href="https://dmurdoch.github.io/rgl/" class="uri">https://dmurdoch.github.io/rgl/</a>）是標準工具。</p>
 </section></section>
 <section>
 <section id="資料來源" class="title-slide slide level1 center">
@@ -828,7 +828,7 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <p><strong>全球資料</strong></p>
 <ul>
 <li><p><strong>rnaturalearth</strong>（<a href="https://CRAN.R-project.org/package=rnaturalearth" class="uri">https://CRAN.R-project.org/package=rnaturalearth</a>）——包裝 Natural Earth 專案（<a href="https://naturalearthdata.com/" class="uri">https://naturalearthdata.com/</a>），一個免費、維護良好的全球資料集。包含每個國家的國界與第一級行政區劃（州、省、地區、郡）（South 2017）。</p></li>
-<li><p><strong>osmar</strong>（<a href="https://cran.r-project.org/package=osmar" class="uri">https://cran.r-project.org/package=osmar</a>）——與 OpenStreetMap API 介接，以擷取細緻的向量資料：街區層級的個別街道、建築、公園與興趣點（Eugster &amp; Schlesinger 2010）。</p></li>
+<li><p><strong>osmdata</strong>（<a href="https://docs.ropensci.org/osmdata/" class="uri">https://docs.ropensci.org/osmdata/</a>）——與 OpenStreetMap API 介接，以擷取細緻的向量資料：街區層級的個別街道、建築、公園與興趣點（Eugster &amp; Schlesinger 2010）。</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -836,7 +836,7 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
 <p><strong>處理你自己的 shapefile</strong></p>
 <p>如果地理空間資料已以 ESRI Shapefile 格式（<code>.shp</code>）在本機可用，可用以下方式直接把它們匯入 R 成為 sf 物件：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>my_map <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">read_sf</span>(<span class="st">"path/to/my_shapefile.shp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>my_map <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">read_sf</span>(<span class="st">"path/to/my_shapefile.shp"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>一旦載入，這個物件就與 <code>geom_sf()</code>、<code>coord_sf()</code> 以及本章涵蓋的所有其他 sf 感知函式完全相容。</p>
 </section>
@@ -1125,12 +1125,12 @@ band    1   3       NA     NA                      NA    NA    </code></pre>
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

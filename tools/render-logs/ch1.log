@@ -64,7 +64,4 @@ processing file: ch1.qmd
     side: left
     titleSelector: h1
   title-slide-attributes:
-    data-notes: ''
-  
-Output created: ch1.html
-
+    data-not

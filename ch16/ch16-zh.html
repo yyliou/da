@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch16-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch16-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch16-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -229,7 +229,7 @@
 </ul>
 <p>全章我們使用一個水準數可控的 <code>mpg</code> 子集：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>mpg2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(mpg, cyl <span class="sc">!=</span> <span class="dv">5</span> <span class="sc">&amp;</span> drv <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"4"</span>, <span class="st">"f"</span>) <span class="sc">&amp;</span> class <span class="sc">!=</span> <span class="st">"2seater"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>mpg2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(mpg, cyl <span class="sc">!=</span> <span class="dv">5</span> <span class="sc">&amp;</span> drv <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"4"</span>, <span class="st">"f"</span>) <span class="sc">&amp;</span> class <span class="sc">!=</span> <span class="st">"2seater"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -248,14 +248,14 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_blank</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span>
 <span id="cb2-2"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb2-3"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">as.table =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-3"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">as.table =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb3-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section>
@@ -266,7 +266,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb4-2"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
 <span id="cb4-3"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>class, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">dir =</span> <span class="st">"v"</span>)</span>
-<span id="cb4-4"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-4"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"></section></section>
@@ -291,7 +291,7 @@
 <span id="cb5-2"><a href=""></a>a <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span> cyl)</span>
 <span id="cb5-3"><a href=""></a>b <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .)</span>
 <span id="cb5-4"><a href=""></a>c <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl)</span>
-<span id="cb5-5"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-5"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"><p>把水準數最多的變數放在欄，以善用寬螢幕。</p>
@@ -341,7 +341,7 @@
 <span id="cb6-3"><a href=""></a>  <span class="fu">geom_abline</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>)</span>
 <span id="cb6-4"><a href=""></a>a <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl)</span>
 <span id="cb6-5"><a href=""></a>b <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl, <span class="at">scales =</span> <span class="st">"free"</span>)</span>
-<span id="cb6-6"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-6"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:42.0%"><p>自由尺度也適合疊放量測尺度不同的時間序列——轉成長格式後，用 <code>facet_wrap(~variable, scales = "free_y", ncol = 1)</code>。</p>
@@ -356,7 +356,7 @@
 <span id="cb7-3"><a href=""></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, model)) <span class="sc">+</span></span>
 <span id="cb7-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb7-5"><a href=""></a>  <span class="fu">facet_grid</span>(manufacturer <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">space =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb7-6"><a href=""></a>  <span class="fu">theme</span>(<span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-6"><a href=""></a>  <span class="fu">theme</span>(<span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:45.0%"></section></section>
@@ -374,7 +374,7 @@
 <span id="cb8-3"><a href=""></a><span class="fu">ggplot</span>(df1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
 <span id="cb8-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df2, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb8-5"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb8-6"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-6"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:48.0%"><p>來自 <code>df2</code> 的單一紅點出現在兩個面板中。</p>
@@ -391,14 +391,14 @@
 <span id="cb9-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>)), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)),</span>
 <span id="cb9-3"><a href=""></a>                 <span class="at">z =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
 <span id="cb9-4"><a href=""></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z))      <span class="co"># 分組</span></span>
-<span id="cb9-5"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)    <span class="co"># 分面</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-5"><a href=""></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)    <span class="co"># 分面</span></span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb10-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-2"><a href=""></a>(a<span class="sc">|</span>b)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
@@ -410,7 +410,7 @@
 <span id="cb11-2"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
 <span id="cb11-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df2, <span class="at">colour =</span> <span class="st">"grey70"</span>) <span class="sc">+</span></span>
 <span id="cb11-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> z)) <span class="sc">+</span></span>
-<span id="cb11-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>z)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section></section>
@@ -451,7 +451,7 @@
 <span id="cb12-4"><a href=""></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
 <span id="cb12-5"><a href=""></a>a <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_w, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
 <span id="cb12-6"><a href=""></a>b <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_i, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
-<span id="cb12-7"><a href=""></a>c <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_n, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-7"><a href=""></a>c <span class="ot">&lt;-</span> plot <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>disp_n, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>注意：分面公式可以即時計算變數，例如 <code>facet_wrap(~cut_width(displ, 1))</code>；不過先建立離散化後的變數，往往能讓標籤更整潔。</p>
 </section>
@@ -459,7 +459,7 @@
 
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb13-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-2"><a href=""></a>(a<span class="sc">|</span>b<span class="sc">|</span>c)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch16-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:32.0%"></section>
@@ -765,12 +765,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch3-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch3-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch3-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -253,7 +253,7 @@
 <span id="cb1-7"><a href=""></a>)</span>
 <span id="cb1-8"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y, <span class="at">label =</span> label)) <span class="sc">+</span></span>
 <span id="cb1-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span> <span class="co"># 隱藏座標軸標籤</span></span>
-<span id="cb1-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)) <span class="co"># 縮小圖標題</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)) <span class="co"># 縮小圖標題</span></span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -263,7 +263,7 @@
 <span id="cb2-2"><a href=""></a>p2 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"text"</span>)</span>
 <span id="cb2-3"><a href=""></a>p3 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"bar"</span>)</span>
 <span id="cb2-4"><a href=""></a>p4 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">height =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"tile"</span>)</span>
-<span id="cb2-5"><a href=""></a>(p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3 <span class="sc">|</span> p4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-5"><a href=""></a>(p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3 <span class="sc">|</span> p4)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch3-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -274,7 +274,7 @@
 <span id="cb3-2"><a href=""></a>p6 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_area</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"area"</span>)</span>
 <span id="cb3-3"><a href=""></a>p7 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_path</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"path"</span>)</span>
 <span id="cb3-4"><a href=""></a>p8 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_polygon</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"polygon"</span>)</span>
-<span id="cb3-5"><a href=""></a>(p5 <span class="sc">|</span> p6 <span class="sc">|</span> p7 <span class="sc">|</span> p8)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-5"><a href=""></a>(p5 <span class="sc">|</span> p6 <span class="sc">|</span> p7 <span class="sc">|</span> p8)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch3-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -580,12 +580,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

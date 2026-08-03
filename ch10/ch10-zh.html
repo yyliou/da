@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch10-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch10-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch10-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -223,11 +223,11 @@
 <p><code>ggplot2</code> 產生的每一張圖都仰賴<strong>位置尺度（position scales）</strong>，把資料值映射到繪圖表面上的實際位置。x 與 y 美學各自都有一個相關聯的位置尺度，即使使用者沒有明確宣告它們。</p>
 <p>考慮這個最簡的直方圖規格：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>y 美學從未被提及，但圖仍正確呈現，因為 <code>geom_histogram()</code> 在內部計算了一個 <code>count</code> 變數並把它映射到 y。完全明確的等價寫法是：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> <span class="fu">after_stat</span>(count))) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> <span class="fu">after_stat</span>(count))) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -302,7 +302,7 @@
 <span id="cb3-6"><a href=""></a>mpg_08 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2008</span>)</span>
 <span id="cb3-7"><a href=""></a></span>
 <span id="cb3-8"><a href=""></a>base_99 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_99, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb3-9"><a href=""></a>base_08 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_08, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-9"><a href=""></a>base_08 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_08, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>沒有明確的界限，每張圖都使用自己的自然資料範圍，使並排比較不可靠。</p>
 </section>
@@ -317,7 +317,7 @@
 <span id="cb4-5"><a href=""></a>p08 <span class="ot">&lt;-</span> base_08 <span class="sc">+</span></span>
 <span id="cb4-6"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)) <span class="sc">+</span></span>
 <span id="cb4-7"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>))</span>
-<span id="cb4-8"><a href=""></a>p99 <span class="sc">|</span> p08</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-8"><a href=""></a>p99 <span class="sc">|</span> p08</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -327,7 +327,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p99b <span class="ot">&lt;-</span> base_99 <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>))</span>
 <span id="cb5-2"><a href=""></a>p08b <span class="ot">&lt;-</span> base_08 <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">45</span>))</span>
-<span id="cb5-3"><a href=""></a>p99b <span class="sc">|</span> p08b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href=""></a>p99b <span class="sc">|</span> p08b</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p><code>lims()</code> 遵循與 <code>labs()</code> 相同的名稱–值語法：引數名稱指定美學，而值指定其界限。單軸的輔助函式 <code>xlim()</code> 與 <code>ylim()</code> 也可用於快速調整。</p>
@@ -340,7 +340,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
 <span id="cb6-2"><a href=""></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">28</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
 <span id="cb6-3"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb6-4"><a href=""></a>base</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-4"><a href=""></a>base</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -354,7 +354,7 @@
 <span id="cb7-4"><a href=""></a><span class="co"># 錯誤：在計算 stat 之前捨棄了資料</span></span>
 <span id="cb7-5"><a href=""></a>p_lim  <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">10</span>, <span class="dv">35</span>)   <span class="co"># 警告：列被移除</span></span>
 <span id="cb7-6"><a href=""></a></span>
-<span id="cb7-7"><a href=""></a>p_zoom <span class="sc">|</span> p_lim</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-7"><a href=""></a>p_zoom <span class="sc">|</span> p_lim</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>左圖安全地放大。右圖則在被截斷的樣本上無聲地重新計算了盒鬚圖，把中位數往下移。<strong>當意圖純粹是視覺上的放大時，務必使用 <code>coord_cartesian()</code>。</strong></p>
@@ -372,7 +372,7 @@
 <span id="cb8-6"><a href=""></a><span class="co"># 移除所有填補（對光柵／影像圖很有用）</span></span>
 <span id="cb8-7"><a href=""></a>base_raster <span class="sc">+</span></span>
 <span id="cb8-8"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb8-9"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-9"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -387,7 +387,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>base_raster <span class="sc">+</span></span>
 <span id="cb9-2"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">3</span>)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-3"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">3</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -397,7 +397,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># 四邊各 20% 的乘法填補</span></span>
 <span id="cb10-2"><a href=""></a>base_raster <span class="sc">+</span></span>
 <span id="cb10-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> .<span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> .<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> .<span class="dv">2</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -407,7 +407,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># 不對稱：低端 5%，高端 20%</span></span>
 <span id="cb11-2"><a href=""></a>base_raster <span class="sc">+</span></span>
 <span id="cb11-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(.<span class="dv">05</span>, .<span class="dv">2</span>))) <span class="sc">+</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">05</span>, <span class="dv">0</span>, .<span class="dv">2</span>, <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">05</span>, <span class="dv">0</span>, .<span class="dv">2</span>, <span class="dv">0</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -432,7 +432,7 @@
 <span id="cb12-11"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb12-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb12-13"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)   <span class="co"># 抑制 y 軸刻度</span></span>
-<span id="cb12-14"><a href=""></a>base</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-14"><a href=""></a>base</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>設定 <code>breaks = NULL</code> 會移除刻度標記<strong>以及</strong>相關的主格線。</p>
@@ -443,7 +443,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>p1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">4000</span>))</span>
 <span id="cb13-2"><a href=""></a>p2 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1500</span>, <span class="dv">2000</span>, <span class="dv">4000</span>))</span>
-<span id="cb13-3"><a href=""></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-3"><a href=""></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -483,7 +483,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p_def <span class="ot">&lt;-</span> base</span>
 <span id="cb14-2"><a href=""></a>p_ext <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_extended</span>())</span>
 <span id="cb14-3"><a href=""></a>p_few <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_extended</span>(<span class="at">n =</span> <span class="dv">2</span>))</span>
-<span id="cb14-4"><a href=""></a>p_def <span class="sc">|</span> p_ext <span class="sc">|</span> p_few</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-4"><a href=""></a>p_def <span class="sc">|</span> p_ext <span class="sc">|</span> p_few</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -494,7 +494,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p_w1 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="dv">800</span>))</span>
 <span id="cb15-2"><a href=""></a>p_w2 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="dv">800</span>, <span class="at">offset =</span>  <span class="dv">200</span>))</span>
 <span id="cb15-3"><a href=""></a>p_w3 <span class="ot">&lt;-</span> base <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="dv">800</span>, <span class="at">offset =</span> <span class="sc">-</span><span class="dv">200</span>))</span>
-<span id="cb15-4"><a href=""></a>p_w1 <span class="sc">|</span> p_w2 <span class="sc">|</span> p_w3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-4"><a href=""></a>p_w1 <span class="sc">|</span> p_w2 <span class="sc">|</span> p_w3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>請注意，正的 offset 把所有刻度位置往上移，而負的 offset 把它們往下移。</p>
@@ -518,7 +518,7 @@
 <span id="cb16-8"><a href=""></a></span>
 <span id="cb16-9"><a href=""></a>p_no_mb <span class="ot">&lt;-</span> base_log <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span>
 <span id="cb16-10"><a href=""></a>p_mb    <span class="ot">&lt;-</span> base_log <span class="sc">+</span> <span class="fu">scale_x_log10</span>(<span class="at">minor_breaks =</span> mb)</span>
-<span id="cb16-11"><a href=""></a>p_no_mb <span class="sc">|</span> p_mb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-11"><a href=""></a>p_no_mb <span class="sc">|</span> p_mb</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p><code>scales</code> 套件也提供 <code>scales::minor_breaks_n()</code> 與 <code>scales::minor_breaks_width()</code> 作為以函式為基礎的替代。</p>
@@ -536,7 +536,7 @@
 <span id="cb17-6"><a href=""></a>p_default <span class="ot">&lt;-</span> base_lbl</span>
 <span id="cb17-7"><a href=""></a>p_custom  <span class="ot">&lt;-</span> base_lbl <span class="sc">+</span></span>
 <span id="cb17-8"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">4000</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"2k"</span>, <span class="st">"4k"</span>))</span>
-<span id="cb17-9"><a href=""></a>p_default <span class="sc">|</span> p_custom</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-9"><a href=""></a>p_default <span class="sc">|</span> p_custom</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -590,7 +590,7 @@
 <span id="cb18-7"><a href=""></a>p_eur <span class="ot">&lt;-</span> base_lbl2 <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(</span>
 <span id="cb18-8"><a href=""></a>  <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>(<span class="at">prefix =</span> <span class="st">""</span>, <span class="at">suffix =</span> <span class="st">"€"</span>)</span>
 <span id="cb18-9"><a href=""></a>)</span>
-<span id="cb18-10"><a href=""></a>p_pct <span class="sc">|</span> p_eur</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-10"><a href=""></a>p_pct <span class="sc">|</span> p_eur</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -600,7 +600,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p_brk_null <span class="ot">&lt;-</span> base_lbl2 <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)</span>
 <span id="cb19-2"><a href=""></a>p_lbl_null <span class="ot">&lt;-</span> base_lbl2 <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cn">NULL</span>)</span>
-<span id="cb19-3"><a href=""></a>p_brk_null <span class="sc">|</span> p_lbl_null</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-3"><a href=""></a>p_brk_null <span class="sc">|</span> p_lbl_null</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><ul>
@@ -617,7 +617,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>base_trans <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
 <span id="cb20-2"><a href=""></a>p_rev_x <span class="ot">&lt;-</span> base_trans <span class="sc">+</span> <span class="fu">scale_x_reverse</span>()</span>
 <span id="cb20-3"><a href=""></a>p_rev_y <span class="ot">&lt;-</span> base_trans <span class="sc">+</span> <span class="fu">scale_y_reverse</span>()</span>
-<span id="cb20-4"><a href=""></a>base_trans <span class="sc">|</span> p_rev_x <span class="sc">|</span> p_rev_y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-4"><a href=""></a>base_trans <span class="sc">|</span> p_rev_x <span class="sc">|</span> p_rev_y</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -634,7 +634,7 @@
 <span id="cb21-7"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
 <span id="cb21-8"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>)</span>
 <span id="cb21-9"><a href=""></a></span>
-<span id="cb21-10"><a href=""></a>p_recip <span class="sc">|</span> p_log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-10"><a href=""></a>p_recip <span class="sc">|</span> p_log</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -727,7 +727,7 @@
 <span id="cb22-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb22-9"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> scales<span class="sc">::</span><span class="fu">reciprocal_trans</span>())</span>
 <span id="cb22-10"><a href=""></a></span>
-<span id="cb22-11"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-11"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -747,7 +747,7 @@
 <span id="cb23-10"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
 <span id="cb23-11"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>)</span>
 <span id="cb23-12"><a href=""></a></span>
-<span id="cb23-13"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-13"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -765,7 +765,7 @@
 <span id="cb24-7"><a href=""></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
 <span id="cb24-8"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"scale_x_log10()"</span>)</span>
 <span id="cb24-9"><a href=""></a></span>
-<span id="cb24-10"><a href=""></a>p_data <span class="sc">|</span> p_scale</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-10"><a href=""></a>p_data <span class="sc">|</span> p_scale</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -800,7 +800,7 @@
 <span id="cb25-4"><a href=""></a></span>
 <span id="cb25-5"><a href=""></a>p_auto <span class="ot">&lt;-</span> date_base</span>
 <span id="cb25-6"><a href=""></a>p_15yr <span class="ot">&lt;-</span> date_base <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"15 years"</span>)</span>
-<span id="cb25-7"><a href=""></a>p_auto <span class="sc">/</span> p_15yr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-7"><a href=""></a>p_auto <span class="sc">/</span> p_15yr</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -812,7 +812,7 @@
 <span id="cb26-2"><a href=""></a>the_year  <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2021-01-01"</span>, <span class="st">"2021-12-31"</span>))</span>
 <span id="cb26-3"><a href=""></a>set_breaks <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="st">"1 month"</span>, <span class="at">offset =</span> <span class="dv">8</span>)</span>
 <span id="cb26-4"><a href=""></a><span class="fu">set_breaks</span>(the_year)</span>
-<span id="cb26-5"><a href=""></a><span class="co">#&gt;  [1] "2021-01-09" "2021-02-09" ... "2021-12-09" "2022-01-09"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-5"><a href=""></a><span class="co">#&gt;  [1] "2021-01-09" "2021-02-09" ... "2021-12-09" "2022-01-09"</span></span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -837,7 +837,7 @@
 <span id="cb27-12"><a href=""></a>  <span class="at">date_breaks =</span> <span class="st">"1 month"</span>,</span>
 <span id="cb27-13"><a href=""></a>  <span class="at">date_minor_breaks =</span> <span class="st">"1 week"</span></span>
 <span id="cb27-14"><a href=""></a>)</span>
-<span id="cb27-15"><a href=""></a>p_maj <span class="sc">|</span> p_min</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-15"><a href=""></a>p_maj <span class="sc">|</span> p_min</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>由於月份長度不一，次刻度（恰好相隔 7 天）會在每個月內產生略微不均的間距。</p>
@@ -898,7 +898,7 @@
 <span id="cb28-4"><a href=""></a></span>
 <span id="cb28-5"><a href=""></a>p_4digit <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"5 years"</span>)</span>
 <span id="cb28-6"><a href=""></a>p_2digit <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"5 years"</span>, <span class="at">date_labels =</span> <span class="st">"%y"</span>)</span>
-<span id="cb28-7"><a href=""></a>p_4digit <span class="sc">/</span> p_2digit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-7"><a href=""></a>p_4digit <span class="sc">/</span> p_2digit</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -910,7 +910,7 @@
 <span id="cb29-2"><a href=""></a></span>
 <span id="cb29-3"><a href=""></a>p_compact  <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">limits =</span> lim, <span class="at">date_labels =</span> <span class="st">"%b %y"</span>)</span>
 <span id="cb29-4"><a href=""></a>p_stacked  <span class="ot">&lt;-</span> base_econ <span class="sc">+</span> <span class="fu">scale_x_date</span>(<span class="at">limits =</span> lim, <span class="at">date_labels =</span> <span class="st">"%B</span><span class="sc">\n</span><span class="st">%Y"</span>)</span>
-<span id="cb29-5"><a href=""></a>p_compact <span class="sc">|</span> p_stacked</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-5"><a href=""></a>p_compact <span class="sc">|</span> p_stacked</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -923,7 +923,7 @@
 <span id="cb30-3"><a href=""></a>  <span class="fu">scale_x_date</span>(</span>
 <span id="cb30-4"><a href=""></a>    <span class="at">limits =</span> lim,</span>
 <span id="cb30-5"><a href=""></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_date_short</span>()</span>
-<span id="cb30-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-6"><a href=""></a>  )</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section></section>
@@ -939,7 +939,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># 透過標註揭露明確的整數映射</span></span>
 <span id="cb31-2"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">y =</span> class)) <span class="sc">+</span></span>
 <span id="cb31-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb31-4"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">label =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb31-4"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">label =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -949,7 +949,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">y =</span> class)) <span class="sc">+</span></span>
 <span id="cb32-2"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="dv">0</span>, <span class="at">height =</span> .<span class="dv">25</span>) <span class="sc">+</span></span>
-<span id="cb32-3"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">label =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-3"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">label =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>相同的邏輯支配 <code>geom_boxplot()</code> 中的盒寬：<code>width = .4</code> 為盒子保留類別槽位的 40%。</p>
@@ -966,7 +966,7 @@
 <span id="cb33-5"><a href=""></a></span>
 <span id="cb33-6"><a href=""></a>p_extra  <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>))</span>
 <span id="cb33-7"><a href=""></a>p_reord  <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"d"</span>, <span class="st">"c"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>))</span>
-<span id="cb33-8"><a href=""></a>base_disc <span class="sc">|</span> p_extra <span class="sc">|</span> p_reord</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb33-8"><a href=""></a>base_disc <span class="sc">|</span> p_extra <span class="sc">|</span> p_reord</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -976,7 +976,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>p_sel_brk <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"b"</span>, <span class="st">"c"</span>))</span>
 <span id="cb34-2"><a href=""></a>p_ren_lbl <span class="ot">&lt;-</span> base_disc <span class="sc">+</span> <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="at">c =</span> <span class="st">"carrot"</span>, <span class="at">b =</span> <span class="st">"banana"</span>))</span>
-<span id="cb34-3"><a href=""></a>p_sel_brk <span class="sc">|</span> p_ren_lbl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb34-3"><a href=""></a>p_sel_brk <span class="sc">|</span> p_ren_lbl</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p><code>scales::label_wrap()</code> 函式對長類別名稱很有用——它會自動把文字在指定的字元寬度內折成多行。</p>
@@ -987,7 +987,7 @@
 <p>軸標籤重疊是類別資料的一個常見問題。<code>guides()</code> 函式與 <code>guide_axis()</code> 對標籤放置給予精確的控制：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>base_cat <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(manufacturer, hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb35-2"><a href=""></a>base_cat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb35-2"><a href=""></a>base_cat</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -997,7 +997,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>p_dodge  <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">x =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">3</span>))</span>
 <span id="cb36-2"><a href=""></a>p_rotate <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">x =</span> <span class="fu">guide_axis</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span>
-<span id="cb36-3"><a href=""></a>p_dodge <span class="sc">/</span> p_rotate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb36-3"><a href=""></a>p_dodge <span class="sc">/</span> p_rotate</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -1008,7 +1008,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="co"># 等價的長形式</span></span>
 <span id="cb37-2"><a href=""></a>a <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">3</span>))</span>
 <span id="cb37-3"><a href=""></a>b <span class="ot">&lt;-</span> base_cat <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span>
-<span id="cb37-4"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb37-4"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-37-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section></section>
@@ -1027,7 +1027,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>p_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>)</span>
 <span id="cb38-2"><a href=""></a>p_bin  <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> <span class="fu">geom_bar</span>()  <span class="sc">+</span> <span class="fu">scale_x_binned</span>()</span>
-<span id="cb38-3"><a href=""></a>p_hist <span class="sc">|</span> p_bin</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb38-3"><a href=""></a>p_hist <span class="sc">|</span> p_bin</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-38-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -1035,7 +1035,7 @@
 
 <p>一個更實用的應用是把 <code>scale_x_binned()</code> 與 <code>geom_count()</code> 搭配。沒有分箱，對連續資料用 <code>geom_count()</code> 會產生過度擁擠的圖，因為每一對相異的座標都會得到自己的點：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_count</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_count</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-39-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -1046,7 +1046,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
 <span id="cb40-2"><a href=""></a>  <span class="fu">geom_count</span>() <span class="sc">+</span></span>
 <span id="cb40-3"><a href=""></a>  <span class="fu">scale_x_binned</span>(<span class="at">n.breaks =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a href=""></a>  <span class="fu">scale_y_binned</span>(<span class="at">n.breaks =</span> <span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb40-4"><a href=""></a>  <span class="fu">scale_y_binned</span>(<span class="at">n.breaks =</span> <span class="dv">15</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch10-zh_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p><code>n.breaks</code> 引數控制切點的數目。非位置美學（顏色、大小等）的分箱尺度在 §11.4 與 §12.1.2 討論。</p>
@@ -1346,12 +1346,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

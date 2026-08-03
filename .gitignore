@@ -7,3 +7,26 @@
 **/*.quarto_ipynb
 
 .DS_Store
+
+# ── 學生個資與成績：絕對不可進入公開 repo ──────────────────
+# 這些資料夾依 prompt/da-system-guide.Rmd 的設計會存放點名冊、
+# 學生繳交的 PDF（檔名含學號）與成績檔。remote 是公開的
+# github.com/yyliou/da，一次 `git add -A` 就會全部上傳。
+# 保留資料夾結構請在各資料夾放一個 .gitkeep（已在下方放行）。
+/stu/**
+!/stu/.gitkeep
+/da-ex/**
+!/da-ex/.gitkeep
+!/da-ex/*/.gitkeep
+/da-mid/**
+!/da-mid/.gitkeep
+/da-fin/**
+!/da-fin/.gitkeep
+/!-Archive/**
+!/!-Archive/.gitkeep
+
+# ── 建置產物與中間檔 ──────────────────────────────────────
+tools/render-logs/
+*.aux
+*.log
+!tools/render-logs/.gitkeep

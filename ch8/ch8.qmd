@@ -1,8 +1,9 @@
 ---
 title: "Data Analysis"
 subtitle: "Chapter 8: Annotations"
-author: "Yu-You Liou (NTU)"
+author: "Yu-You Liou"
 institute: "Shih Chien University"
+lang: en
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -164,7 +163,7 @@ ggplot(df, aes(x, y)) +
 System fonts beyond the three guaranteed values may not render consistently across all graphics devices (screen vs. file). Two packages address this:
 
 - **showtext** (<https://github.com/yixuan/showtext>) — converts text to polygons, making font rendering device-independent.
-- **extrafont** (<https://github.com/wch/extrafont>) — registers installed system fonts so all devices can use a common format.
+- **extrafont** (<https://github.com/fbertran/extrafont>) — registers installed system fonts so all devices can use a common format.
 
 Each approach has trade-offs; it is worth testing both in your workflow.
 
@@ -447,7 +446,7 @@ p2 <- ggplot(mpg, aes(displ, hwy, colour = class)) +
 p1 | p2
 ```
 
-`"smart.grid"` is a good default for scatterplots. For line plots and frequency polygons, other methods (e.g., `"last.points"`, `"angled.boxes"`) are more appropriate. See the directlabels website (<http://directlabels.r-forge.r-project.org>) for a complete catalogue.
+`"smart.grid"` is a good default for scatterplots. For line plots and frequency polygons, other methods (e.g., `"last.points"`, `"angled.boxes"`) are more appropriate. See the directlabels website (<https://directlabels.netlify.app>) for a complete catalogue.
 
 ---
 

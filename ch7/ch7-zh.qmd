@@ -3,6 +3,7 @@ title: "資料分析"
 subtitle: "第七章：網路"
 author: "劉昱佑"
 institute: "實踐大學"
+lang: zh-TW
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -108,7 +107,11 @@ graph <- play_gnp(n = 10, p = 0.2) |>
   mutate(class = sample(letters[1:4], n(), replace = TRUE)) |>
   activate(edges) |>
   arrange(.N()$class[from])
+```
 
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE,out.width="80%",fig.align='center'}
 graph
 ```
 
@@ -141,6 +144,11 @@ head(highschool)
 
 ```{r,echo=T,warning=FALSE,message=FALSE}
 hs_graph <- as_tbl_graph(highschool, directed = FALSE)
+```
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE}
 hs_graph
 ```
 
@@ -153,6 +161,11 @@ hs_graph
 ```{r,echo=T,warning=FALSE,message=FALSE}
 luv_clust <- hclust(dist(luv_colours[, 1:3]))
 luv_graph <- as_tbl_graph(luv_clust)
+```
+
+---
+
+```{r,echo=T,warning=FALSE,message=FALSE}
 luv_graph
 ```
 

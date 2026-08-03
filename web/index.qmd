@@ -11,7 +11,17 @@ This course is a required offering in the English Taught Program in Internationa
 
 The primary objective of the course is to develop students' ability to explore, analyze, and present data effectively. A central focus is placed on data visualization using `ggplot2`, with an emphasis on understanding the grammar of graphics as a principled framework for building clear and informative figures. Students will learn to translate analytical findings into compelling visual narratives suitable for academic and professional audiences.
 
-The required textbook is *ggplot2: Elegant Graphics for Data Analysis* by Hadley Wickham, freely available at [ggplot2-book.org](https://ggplot2-book.org){target="_blank"}.
+The required textbook is *ggplot2: Elegant Graphics for Data Analysis* (3rd ed.) by Hadley Wickham, Danielle Navarro and Thomas Lin Pedersen, freely available at [ggplot2-book.org](https://ggplot2-book.org){target="_blank"}. Adler's *R in a Nutshell* (2nd ed.) is optional background reading only.
+
+## Start Here
+
+Before the first class, work through these five steps — each one is needed to submit your very first assignment:
+
+1.  Install **R**, then **RStudio**, following the [course R page](r.qmd).
+2.  In the RStudio console run `install.packages(c("tidyverse", "patchwork", "uuid", "rmarkdown", "knitr", "tinytex"))`, then `tinytex::install_tinytex()`.
+3.  Copy the official assignment template from the [Problem sets page](prob.qmd).
+4.  Knit it to PDF once, to confirm your setup works before anything is graded.
+5.  Upload that test PDF to the course pCloud folder so you know the submission route works.
 
 ## Assessment
 
@@ -23,13 +33,13 @@ The required textbook is *ggplot2: Elegant Graphics for Data Analysis* by Hadley
 
 ## Exam Regulations
 
-In alignment with the course’s paperless policy, this examination will be conducted online under the following strict regulations:
+In alignment with the course’s paperless policy, **both the mid-term and the final examination** are answered online, on your own laptop, **in the classroom**. The following regulations apply to both:
 
 1.  **Mandatory Attendance** Students must take the exam in person. Roll call will be taken five minutes before the exam begins. Late arrival or absence will result in a score of zero.
 
 2.  **Network Restriction** The exam system tracks IP addresses. You must use the campus Wi-Fi; access from a non-campus IP address will result in a score of zero.
 
-3.  **Authorized Resources** This is an open-book exam. Any reference materials and AI tools are permitted as auxiliary aids.
+3.  **Authorized Resources** This is an open-book exam. Any reference materials and AI tools are permitted as auxiliary aids. Note that the answer box disables pasting (see item 6), so anything you take from a reference or an AI assistant must be typed in by hand.
 
 4.  **Media Prohibition** Electronic devices are allowed, but any photography, video/audio recording, or screenshotting will result in a score of zero.
 
@@ -37,7 +47,7 @@ In alignment with the course’s paperless policy, this examination will be cond
 
 6.  **Copy-Paste Disabled** The exam system prohibits copying and pasting. Do not attempt to bypass this feature.
 
-[Sample Link](https://yyliou.github.io/exam/index.html)
+*The link to the examination system will be published on this page one week before each exam. Until then, [this demonstration page](https://yyliou.github.io/exam/index.html) shows what the interface looks like.*
 
 ## Contact Me
 

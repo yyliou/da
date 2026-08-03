@@ -3,6 +3,7 @@ title: "資料分析"
 subtitle: "第二章：第一步"
 author: "劉昱佑"
 institute: "實踐大學"
+lang: zh-TW
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -463,7 +462,7 @@ ggplot(mpg, aes(manufacturer)) +
 
 長條圖可能令人困惑，因為有兩種頗為不同的圖都常被稱作長條圖。上面這種形式預期你擁有未經摘要的資料，每筆觀測值都對各長條的高度貢獻一個單位。另一種形式的長條圖則用於已預先摘要的資料。例如，你可能有三種藥物及其平均療效：
 
-```{r}
+```{r,echo=T}
 drugs <- data.frame(
   drug = c("a", "b", "c"),
   effect = c(4.2, 9.7, 6.1)

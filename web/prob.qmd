@@ -23,6 +23,12 @@
 
 Copy the following template as the starting point for every submission. Replace all placeholder values before submitting.
 
+The template needs the `uuid` package. If you have not installed it yet, run this once in the RStudio console:
+
+``` r
+install.packages("uuid")
+```
+
 ````{r,eval=F}
 ---
 title: "Ex. X"
@@ -46,7 +52,13 @@ print(uuid::UUIDgenerate())
 ## Question 2
 
 *(Write your response here.)*
+
+## Question 3
+
+*(Write your response here.)*
 ````
+
+Each exercise has three questions, so the template has three `## Question` headings. If an exercise ever has a different number, add or remove `## Question` headings to match — that is the **only** part of the template you are expected to change.
 
 ### Checklist
 
@@ -57,11 +69,15 @@ Before submitting, verify that your document satisfies all of the following crit
 -   [ ] The `date` field is present and left exactly as it appears in the template.
 -   [ ] The UUID code chunk (`print(uuid::UUIDgenerate())`) from the template is present and unmodified.
 -   [ ] The final document must be submitted strictly in `.pdf` format.
--   [ ] The document's name should be `exN-id.pdf` (e.g., `ex1-D10627008.pdf`).
+-   [ ] The file is named `exN-StudentID.pdf`, all lower case for the `ex` part and using your own student ID — for Exercise 1, student D10627008 submits exactly `ex1-D10627008.pdf`. Do not keep the square brackets, and do not write `Ex1-...` or `ex01-...`.
+
+**What you may and may not change.** The `title`, `author` and `date` fields, the `setup` chunk (including `echo = TRUE`), and the UUID chunk must stay exactly as they are — the UUID must be visible in your submitted PDF, so never set that chunk to `include=FALSE` or `echo=FALSE`. You *may* change the `output:` field if you need a different LaTeX engine for Chinese characters (see the [R page](r.qmd)), and you may of course add your own answers and code chunks under each question.
 
 ## Submit Your Assignments
 
 Upload your PDF [here](https://u.pcloud.link/publink/show?code=kZaVeI5ZjmzQXBbRlv7XxLzlO1xTDB92w9Kk) and place it in the corresponding folder (e.g., `ex1` for Exercise 1).
+
+After uploading, check that your file appears in the folder with exactly the name you intended. If you upload the same name twice, the newer file replaces the older one, so re-uploading a corrected version is fine — but a file whose name was altered on upload no longer matches the required pattern and will be treated as an incorrect submission.
 
 ## Check your grade
 

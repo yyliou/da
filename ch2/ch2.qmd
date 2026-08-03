@@ -1,8 +1,9 @@
 ---
 title: "Data Analysis"
 subtitle: "Chapter 2: First Steps"
-author: "Yu-You Liou (NTU)"
+author: "Yu-You Liou"
 institute: "Shih Chien University"
+lang: en
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -451,7 +450,7 @@ ggplot(mpg, aes(manufacturer)) +
 
 Bar charts can be confusing because there are two rather different plots that are both commonly called bar charts. The above form expects you to have unsummarised data, and each observation contributes one unit to the height of each bar. The other form of bar chart is used for presummarised data. For example, you might have three drugs with their average effect:
 
-```{r}
+```{r,echo=T}
 drugs <- data.frame(
   drug = c("a", "b", "c"),
   effect = c(4.2, 9.7, 6.1)

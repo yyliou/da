@@ -9,7 +9,7 @@
 <link href="ch2_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.38">
 
-  <meta name="author" content="Yu-You Liou (NTU)">
+  <meta name="author" content="Yu-You Liou">
   <meta name="dcterms.date" content="2026-08-03">
   <title>Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -203,7 +203,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Yu-You Liou (NTU) 
+Yu-You Liou 
 </div>
         <p class="quarto-title-affiliation">
             Shih Chien University
@@ -583,13 +583,19 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <p>Bar charts can be confusing because there are two rather different plots that are both commonly called bar charts. The above form expects you to have unsummarised data, and each observation contributes one unit to the height of each bar. The other form of bar chart is used for presummarised data. For example, you might have three drugs with their average effect:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>drugs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb17-2"><a href=""></a>  <span class="at">drug =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>),</span>
+<span id="cb17-3"><a href=""></a>  <span class="at">effect =</span> <span class="fu">c</span>(<span class="fl">4.2</span>, <span class="fl">9.7</span>, <span class="fl">6.1</span>)</span>
+<span id="cb17-4"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section class="slide level2">
 
 <p>To display this sort of data, you need to tell <code>geom_bar()</code> to not run the default stat which bins and counts the data. However, we think it’s even better to use <code>geom_point()</code> because points take up less space than bars, and don’t require that the y axis includes 0.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(drugs, <span class="fu">aes</span>(drug, effect)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
-<span id="cb17-2"><a href=""></a><span class="fu">ggplot</span>(drugs, <span class="fu">aes</span>(drug, effect)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(drugs, <span class="fu">aes</span>(drug, effect)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
+<span id="cb18-2"><a href=""></a><span class="fu">ggplot</span>(drugs, <span class="fu">aes</span>(drug, effect)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="ch2_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -605,10 +611,10 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy <span class="sc">/</span> pop)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href=""></a>  <span class="fu">geom_line</span>()</span>
-<span id="cb18-3"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, uempmed)) <span class="sc">+</span></span>
-<span id="cb18-4"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy <span class="sc">/</span> pop)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb19-3"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, uempmed)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="ch2_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -621,14 +627,14 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy <span class="sc">/</span> pop, uempmed)) <span class="sc">+</span> </span>
-<span id="cb19-2"><a href=""></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
-<span id="cb19-3"><a href=""></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb19-4"><a href=""></a></span>
-<span id="cb19-5"><a href=""></a>year <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">as.POSIXlt</span>(x)<span class="sc">$</span>year <span class="sc">+</span> <span class="dv">1900</span></span>
-<span id="cb19-6"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy <span class="sc">/</span> pop, uempmed)) <span class="sc">+</span> </span>
-<span id="cb19-7"><a href=""></a>  <span class="fu">geom_path</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb19-8"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">year</span>(date)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy <span class="sc">/</span> pop, uempmed)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href=""></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb20-4"><a href=""></a></span>
+<span id="cb20-5"><a href=""></a>year <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">as.POSIXlt</span>(x)<span class="sc">$</span>year <span class="sc">+</span> <span class="dv">1900</span></span>
+<span id="cb20-6"><a href=""></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy <span class="sc">/</span> pop, uempmed)) <span class="sc">+</span> </span>
+<span id="cb20-7"><a href=""></a>  <span class="fu">geom_path</span>(<span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb20-8"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">year</span>(date)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="ch2_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -671,19 +677,19 @@ Yu-You Liou (NTU)
 <section class="slide level2">
 
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
-<span id="cb20-3"><a href=""></a></span>
-<span id="cb20-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb20-6"><a href=""></a>  <span class="fu">xlab</span>(<span class="st">"city driving (mpg)"</span>) <span class="sc">+</span> </span>
-<span id="cb20-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"highway driving (mpg)"</span>)</span>
-<span id="cb20-8"><a href=""></a></span>
-<span id="cb20-9"><a href=""></a><span class="co"># Remove the axis labels with NULL</span></span>
-<span id="cb20-10"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
-<span id="cb20-11"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb20-12"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> </span>
-<span id="cb20-13"><a href=""></a>  <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
+<span id="cb21-3"><a href=""></a></span>
+<span id="cb21-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb21-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb21-6"><a href=""></a>  <span class="fu">xlab</span>(<span class="st">"city driving (mpg)"</span>) <span class="sc">+</span> </span>
+<span id="cb21-7"><a href=""></a>  <span class="fu">ylab</span>(<span class="st">"highway driving (mpg)"</span>)</span>
+<span id="cb21-8"><a href=""></a></span>
+<span id="cb21-9"><a href=""></a><span class="co"># Remove the axis labels with NULL</span></span>
+<span id="cb21-10"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb21-11"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb21-12"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span> </span>
+<span id="cb21-13"><a href=""></a>  <span class="fu">ylab</span>(<span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="ch2_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -691,20 +697,20 @@ Yu-You Liou (NTU)
 
 <p><code>xlim()</code> and <code>ylim()</code> modify the limits of axes:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>)</span>
-<span id="cb21-3"><a href=""></a></span>
-<span id="cb21-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
-<span id="cb21-5"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span> </span>
-<span id="cb21-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="st">"f"</span>, <span class="st">"r"</span>) <span class="sc">+</span> </span>
-<span id="cb21-7"><a href=""></a>  <span class="fu">ylim</span>(<span class="dv">20</span>, <span class="dv">30</span>)</span>
-<span id="cb21-8"><a href=""></a><span class="co">#&gt; Warning: Removed 138 rows containing missing values or values outside the scale range</span></span>
-<span id="cb21-9"><a href=""></a><span class="co">#&gt; (`geom_point()`).</span></span>
-<span id="cb21-10"><a href=""></a>  </span>
-<span id="cb21-11"><a href=""></a><span class="co"># For continuous scales, use NA to set only one limit</span></span>
-<span id="cb21-12"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
-<span id="cb21-13"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb21-14"><a href=""></a>  <span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>)</span>
+<span id="cb22-3"><a href=""></a></span>
+<span id="cb22-4"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
+<span id="cb22-5"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span> </span>
+<span id="cb22-6"><a href=""></a>  <span class="fu">xlim</span>(<span class="st">"f"</span>, <span class="st">"r"</span>) <span class="sc">+</span> </span>
+<span id="cb22-7"><a href=""></a>  <span class="fu">ylim</span>(<span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb22-8"><a href=""></a><span class="co">#&gt; Warning: Removed 138 rows containing missing values or values outside the scale range</span></span>
+<span id="cb22-9"><a href=""></a><span class="co">#&gt; (`geom_point()`).</span></span>
+<span id="cb22-10"><a href=""></a>  </span>
+<span id="cb22-11"><a href=""></a><span class="co"># For continuous scales, use NA to set only one limit</span></span>
+<span id="cb22-12"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(drv, hwy)) <span class="sc">+</span></span>
+<span id="cb22-13"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb22-14"><a href=""></a>  <span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="ch2_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -721,8 +727,8 @@ Yu-You Liou (NTU)
 <h2>Output</h2>
 <p>Most of the time you create a plot object and immediately plot it, but you can also save a plot to a variable and manipulate it:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb22-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb23-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -733,7 +739,7 @@ Yu-You Liou (NTU)
 <li>Render it on screen with <code>print()</code>. This happens automatically when running interactively, but inside a loop or function, you’ll need to <code>print()</code> it yourself.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">print</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">print</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch2_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
@@ -744,8 +750,8 @@ Yu-You Liou (NTU)
 <li>Save it to disk with <code>ggsave()</code>, described in §17.5.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Save png to disk</span></span>
-<span id="cb24-2"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"plot.png"</span>, p, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="co"># Save png to disk</span></span>
+<span id="cb25-2"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"plot.png"</span>, p, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -755,7 +761,7 @@ Yu-You Liou (NTU)
 <li>Briefly describe its structure with <code>summary()</code>.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">summary</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">summary</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>data: manufacturer, model, displ, year, cyl, trans, drv, cty, hwy, fl,
   class [234x11]

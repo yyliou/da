@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch7-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch7-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch7-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -277,9 +277,13 @@
 <span id="cb1-8"><a href=""></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
 <span id="cb1-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">class =</span> <span class="fu">sample</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="fu">n</span>(), <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb1-10"><a href=""></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">.N</span>()<span class="sc">$</span>class[from])</span>
-<span id="cb1-12"><a href=""></a></span>
-<span id="cb1-13"><a href=""></a>graph</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-11"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">.N</span>()<span class="sc">$</span>class[from])</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>graph</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tbl_graph: 10 nodes and 26 edges
 #
@@ -326,8 +330,8 @@
 <p><strong>轉換一個邊清單資料框：</strong></p>
 <p>來自 <code>ggraph</code> 的 <code>highschool</code> 資料集記錄了某高中男孩在兩個學年（1957 與 1958）間的友誼提名，儲存為一個三欄的邊清單：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">data</span>(highschool, <span class="at">package =</span> <span class="st">"ggraph"</span>)</span>
-<span id="cb3-2"><a href=""></a><span class="fu">head</span>(highschool)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">data</span>(highschool, <span class="at">package =</span> <span class="st">"ggraph"</span>)</span>
+<span id="cb4-2"><a href=""></a><span class="fu">head</span>(highschool)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  from to year
 1    1 14 1957
@@ -342,8 +346,13 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>hs_graph <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(highschool, <span class="at">directed =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-2"><a href=""></a>hs_graph</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>hs_graph <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(highschool, <span class="at">directed =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>hs_graph</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tbl_graph: 70 nodes and 506 edges
 #
@@ -366,9 +375,14 @@
 <p><strong>轉換一個階層式分群的結果：</strong></p>
 <p><code>as_tbl_graph()</code> 也處理 <code>hclust()</code> 的輸出，自動擷取節點層級的屬性，例如 <code>label</code>、<code>leaf</code>（葉節點）狀態與連結 <code>height</code>（高度）：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>luv_clust <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(luv_colours[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]))</span>
-<span id="cb7-2"><a href=""></a>luv_graph <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(luv_clust)</span>
-<span id="cb7-3"><a href=""></a>luv_graph</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>luv_clust <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(luv_colours[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]))</span>
+<span id="cb9-2"><a href=""></a>luv_graph <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(luv_clust)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>luv_graph</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tbl_graph: 1313 nodes and 1312 edges
 #
@@ -418,10 +432,10 @@
 <p><strong>範例：PageRank 中心性</strong></p>
 <p>下面的程式碼為 <code>graph</code> 的節點表加上一個用 PageRank 演算法計算的 <code>centrality</code> 欄，並依中心性遞減把節點排序：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>graph <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">centrality =</span> <span class="fu">centrality_pagerank</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(centrality))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>graph <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">centrality =</span> <span class="fu">centrality_pagerank</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(centrality))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tbl_graph: 10 nodes and 26 edges
 #
@@ -474,7 +488,7 @@
 <h2>設定視覺化</h2>
 <p>ggraph 圖以 <code>ggraph()</code> 而非 <code>ggplot()</code> 初始化。其函式簽章為：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"..."</span>, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"..."</span>, ...)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><strong><code>graph</code></strong>——一個 <code>tbl_graph</code>，或任何 <code>as_tbl_graph()</code> 能轉換的物件。</li>
@@ -488,38 +502,38 @@
 <p><strong>指定一個布局</strong></p>
 <p>下面三個例子分別示範：(1) 使用預設布局，(2) 明確指定一個命名的布局，以及 (3) 把邊的權重當作布局引數傳入：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># 預設布局（stress）</span></span>
-<span id="cb12-2"><a href=""></a><span class="fu">ggraph</span>(hs_graph) <span class="sc">+</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">geom_node_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># 預設布局（stress）</span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">ggraph</span>(hs_graph) <span class="sc">+</span></span>
+<span id="cb15-3"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
+<span id="cb15-4"><a href=""></a>  <span class="fu">geom_node_point</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># 明確的布局：DrL 力導向</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"drl"</span>) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
-<span id="cb13-4"><a href=""></a>  <span class="fu">geom_node_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># 明確的布局：DrL 力導向</span></span>
+<span id="cb16-2"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"drl"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href=""></a>  <span class="fu">geom_node_point</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># 帶邊權重的布局；邊的 alpha 編碼權重</span></span>
-<span id="cb14-2"><a href=""></a>hs_graph <span class="ot">&lt;-</span> hs_graph <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
-<span id="cb14-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">edge_weights =</span> <span class="fu">runif</span>(<span class="fu">n</span>()))</span>
-<span id="cb14-5"><a href=""></a></span>
-<span id="cb14-6"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>, <span class="at">weights =</span> edge_weights) <span class="sc">+</span></span>
-<span id="cb14-7"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> edge_weights)) <span class="sc">+</span></span>
-<span id="cb14-8"><a href=""></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span></span>
-<span id="cb14-9"><a href=""></a>  <span class="fu">scale_edge_alpha_identity</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># 帶邊權重的布局；邊的 alpha 編碼權重</span></span>
+<span id="cb17-2"><a href=""></a>hs_graph <span class="ot">&lt;-</span> hs_graph <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href=""></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">edge_weights =</span> <span class="fu">runif</span>(<span class="fu">n</span>()))</span>
+<span id="cb17-5"><a href=""></a></span>
+<span id="cb17-6"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>, <span class="at">weights =</span> edge_weights) <span class="sc">+</span></span>
+<span id="cb17-7"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> edge_weights)) <span class="sc">+</span></span>
+<span id="cb17-8"><a href=""></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span></span>
+<span id="cb17-9"><a href=""></a>  <span class="fu">scale_edge_alpha_identity</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong>關於布局選擇的告誡</strong></p>
@@ -533,23 +547,23 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb15-2"><a href=""></a></span>
-<span id="cb15-3"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"dendrogram"</span>, <span class="at">circular =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb15-4"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
-<span id="cb15-5"><a href=""></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
-<span id="cb15-6"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"circular = TRUE（正確）"</span>)</span>
-<span id="cb15-7"><a href=""></a></span>
-<span id="cb15-8"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span></span>
-<span id="cb15-9"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
-<span id="cb15-10"><a href=""></a>  <span class="fu">coord_polar</span>() <span class="sc">+</span></span>
-<span id="cb15-11"><a href=""></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
-<span id="cb15-12"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"coord_polar()（邊被彎曲——應避免）"</span>)</span>
-<span id="cb15-13"><a href=""></a></span>
-<span id="cb15-14"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb18-2"><a href=""></a></span>
+<span id="cb18-3"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"dendrogram"</span>, <span class="at">circular =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
+<span id="cb18-5"><a href=""></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"circular = TRUE（正確）"</span>)</span>
+<span id="cb18-7"><a href=""></a></span>
+<span id="cb18-8"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
+<span id="cb18-10"><a href=""></a>  <span class="fu">coord_polar</span>() <span class="sc">+</span></span>
+<span id="cb18-11"><a href=""></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
+<span id="cb18-12"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"coord_polar()（邊被彎曲——應避免）"</span>)</span>
+<span id="cb18-13"><a href=""></a></span>
+<span id="cb18-14"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section id="繪製節點" class="slide level2">
 <h2>繪製節點</h2>
 <p>ggraph 中所有繪製節點的 geoms 都共用 <code>geom_node_</code> 前綴。主力是 <code>geom_node_point()</code>，它把每個節點呈現為一個點——概念上類似 <code>geom_point()</code>，但有三個所有節點與邊 geoms 都共有的重要差異：</p>
@@ -564,26 +578,26 @@
 <p><strong>範例：依中心性篩選並為節點上色</strong></p>
 <p>下面的圖呈現 <code>hs_graph</code>，只顯示連結多於 2 個的節點（用 <code>centrality_degree()</code> 篩選），並依可見節點的權力中心性為它們上色：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a href=""></a>  <span class="fu">geom_node_point</span>(</span>
-<span id="cb16-4"><a href=""></a>    <span class="fu">aes</span>(<span class="at">filter =</span> <span class="fu">centrality_degree</span>() <span class="sc">&gt;</span> <span class="dv">2</span>,</span>
-<span id="cb16-5"><a href=""></a>        <span class="at">colour =</span> <span class="fu">centrality_power</span>()),</span>
-<span id="cb16-6"><a href=""></a>    <span class="at">size =</span> <span class="dv">4</span></span>
-<span id="cb16-7"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">geom_node_point</span>(</span>
+<span id="cb19-4"><a href=""></a>    <span class="fu">aes</span>(<span class="at">filter =</span> <span class="fu">centrality_degree</span>() <span class="sc">&gt;</span> <span class="dv">2</span>,</span>
+<span id="cb19-5"><a href=""></a>        <span class="at">colour =</span> <span class="fu">centrality_power</span>()),</span>
+<span id="cb19-6"><a href=""></a>    <span class="at">size =</span> <span class="dv">4</span></span>
+<span id="cb19-7"><a href=""></a>  )</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong>專門的節點 geoms</strong></p>
 <p>除了 <code>geom_node_point()</code>，ggraph 還提供布局專屬的節點 geoms。例如，當所選布局是 <code>"treemap"</code> 時使用 <code>geom_node_tile()</code>——在此脈絡下，每個節點被呈現為一個矩形方塊，其面積與它在階層中的權重成正比：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"treemap"</span>) <span class="sc">+</span></span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">geom_node_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> depth))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"treemap"</span>) <span class="sc">+</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">geom_node_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> depth))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section id="繪製邊" class="slide level2">
 <h2>繪製邊</h2>
 <p>邊 geoms 共用 <code>geom_edge_</code> 前綴，並提供比節點 geoms 多得多的變化，反映了把兩個實體之間的連結加以呈現的眾多方式。</p>
@@ -629,25 +643,25 @@
 <p><strong><code>geom_edge_link()</code>——直線邊</strong></p>
 <p><code>geom_edge_link()</code> 是最常用的邊 geom。在其標準形式中，邊被內部細分，使其能沿長度有漸層。把 <code>after_stat(index)</code> 映射到 <code>alpha</code>，會產生從來源（透明）到目標（不透明）的方向性淡出：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb18-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fu">after_stat</span>(index)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fu">after_stat</span>(index)))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section class="slide level2">
 
 <p><strong><code>geom_edge_link2()</code>——內插節點屬性</strong></p>
 <p><code>2</code> 變體讓邊的顏色（或其他美學）能在兩端節點上某個屬性的值之間內插。節點屬性在 <code>aes()</code> 內以 <code>node.</code> 前綴存取：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb19-2"><a href=""></a>  <span class="fu">geom_edge_link2</span>(</span>
-<span id="cb19-3"><a href=""></a>    <span class="fu">aes</span>(<span class="at">colour =</span> node.class),</span>
-<span id="cb19-4"><a href=""></a>    <span class="at">width =</span> <span class="dv">3</span>,</span>
-<span id="cb19-5"><a href=""></a>    <span class="at">lineend =</span> <span class="st">"round"</span></span>
-<span id="cb19-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">geom_edge_link2</span>(</span>
+<span id="cb22-3"><a href=""></a>    <span class="fu">aes</span>(<span class="at">colour =</span> node.class),</span>
+<span id="cb22-4"><a href=""></a>    <span class="at">width =</span> <span class="dv">3</span>,</span>
+<span id="cb22-5"><a href=""></a>    <span class="at">lineend =</span> <span class="st">"round"</span></span>
+<span id="cb22-6"><a href=""></a>  )</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p><code>node1.</code> 與 <code>node2.</code> 前綴（在標準與 <code>0</code> 變體中可用）分別提供對來源與目標節點屬性的存取，而 <code>node.</code>（用於 <code>2</code> 變體）則泛指當前正被內插的端點。</p>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p><code>node1.</code> 與 <code>node2.</code> 前綴（在標準與 <code>0</code> 變體中可用）分別提供對來源與目標節點屬性的存取，而 <code>node.</code>（用於 <code>2</code> 變體）則泛指當前正被內插的端點。</p>
 </section>
 <section class="slide level2">
 
@@ -661,27 +675,27 @@
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb20-2"><a href=""></a>  <span class="fu">geom_edge_fan</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"geom_edge_fan()"</span>)</span>
-<span id="cb20-3"><a href=""></a></span>
-<span id="cb20-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">geom_edge_parallel</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"geom_edge_parallel()"</span>)</span>
-<span id="cb20-6"><a href=""></a></span>
-<span id="cb20-7"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb23-2"><a href=""></a>  <span class="fu">geom_edge_fan</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"geom_edge_fan()"</span>)</span>
+<span id="cb23-3"><a href=""></a></span>
+<span id="cb23-4"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href=""></a>  <span class="fu">geom_edge_parallel</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"geom_edge_parallel()"</span>)</span>
+<span id="cb23-6"><a href=""></a></span>
+<span id="cb23-7"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>兩個 geoms 都會增加視覺雜亂，最好保留給相對小型的圖。</p>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>兩個 geoms 都會增加視覺雜亂，最好保留給相對小型的圖。</p>
 </section>
 <section class="slide level2">
 
 <p><strong>樹與樹狀圖的邊</strong></p>
 <p>對於像樹狀圖這樣的階層式布局，傳統的視覺風格使用直角連接器，而非直的對角線。<code>geom_edge_elbow()</code> 提供這點：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"dendrogram"</span>, <span class="at">height =</span> height) <span class="sc">+</span></span>
-<span id="cb21-2"><a href=""></a>  <span class="fu">geom_edge_elbow</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggraph</span>(luv_graph, <span class="at">layout =</span> <span class="st">"dendrogram"</span>, <span class="at">height =</span> height) <span class="sc">+</span></span>
+<span id="cb24-2"><a href=""></a>  <span class="fu">geom_edge_elbow</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>產生曲線連接器的較平滑替代是 <code>geom_edge_bend()</code> 與 <code>geom_edge_diagonal()</code>。</p>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>產生曲線連接器的較平滑替代是 <code>geom_edge_bend()</code> 與 <code>geom_edge_diagonal()</code>。</p>
 </section>
 <section class="slide level2">
 
@@ -689,37 +703,37 @@
 <p>當為邊加上方向性箭頭時，一個常見的問題出現了：箭頭被藏在節點點之下，因為邊一直被畫到節點的幾何中心。<code>start_cap</code> 與 <code>end_cap</code> 美學藉由在每個端點節點周圍定義一個<strong>裁剪區域</strong>來解決這點——邊在進入裁剪區之前就被終止。</p>
 <p><em>沒有裁剪（箭頭被遮蔽）：</em></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb22-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>()) <span class="sc">+</span></span>
-<span id="cb22-3"><a href=""></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class), <span class="at">size =</span> <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb25-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>()) <span class="sc">+</span></span>
+<span id="cb25-3"><a href=""></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class), <span class="at">size =</span> <span class="dv">8</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
 <section class="slide level2">
 
 <p><em>有裁剪（箭頭可見）：</em></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb23-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(</span>
-<span id="cb23-3"><a href=""></a>    <span class="at">arrow     =</span> <span class="fu">arrow</span>(),</span>
-<span id="cb23-4"><a href=""></a>    <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">5</span>, <span class="st">"mm"</span>),</span>
-<span id="cb23-5"><a href=""></a>    <span class="at">end_cap   =</span> <span class="fu">circle</span>(<span class="dv">5</span>, <span class="st">"mm"</span>)</span>
-<span id="cb23-6"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb23-7"><a href=""></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class), <span class="at">size =</span> <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb26-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(</span>
+<span id="cb26-3"><a href=""></a>    <span class="at">arrow     =</span> <span class="fu">arrow</span>(),</span>
+<span id="cb26-4"><a href=""></a>    <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">5</span>, <span class="st">"mm"</span>),</span>
+<span id="cb26-5"><a href=""></a>    <span class="at">end_cap   =</span> <span class="fu">circle</span>(<span class="dv">5</span>, <span class="st">"mm"</span>)</span>
+<span id="cb26-6"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb26-7"><a href=""></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class), <span class="at">size =</span> <span class="dv">8</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p><code>circle(5, "mm")</code> 定義一個以每個端點節點為中心、半徑 5 公釐的圓形裁剪區域。<code>circle()</code> 輔助函式由 ggraph 提供；其他幾何輔助函式（例如 <code>square()</code>、<code>ellipsis()</code>）也可用。</p>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p><code>circle(5, "mm")</code> 定義一個以每個端點節點為中心、半徑 5 公釐的圓形裁剪區域。<code>circle()</code> 輔助函式由 ggraph 提供；其他幾何輔助函式（例如 <code>square()</code>、<code>ellipsis()</code>）也可用。</p>
 </section>
 <section class="slide level2">
 
 <p><strong>邊作為非線物件</strong></p>
 <p>邊不一定要被呈現為線。在一張<strong>矩陣圖</strong>（也稱為鄰接矩陣圖）中，節點被隱含地沿兩軸放置，而邊則在其列–欄交點處顯示為方塊或點。<code>geom_edge_point()</code> 為矩陣布局實作這點：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"matrix"</span>, <span class="at">sort.by =</span> <span class="fu">node_rank_traveller</span>()) <span class="sc">+</span></span>
-<span id="cb24-2"><a href=""></a>  <span class="fu">geom_edge_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"matrix"</span>, <span class="at">sort.by =</span> <span class="fu">node_rank_traveller</span>()) <span class="sc">+</span></span>
+<span id="cb27-2"><a href=""></a>  <span class="fu">geom_edge_point</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>矩陣圖能擴展到比節點–連結圖大得多的圖，並且在揭示有序鄰接矩陣中的塊對角結構時特別有效。</p>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>矩陣圖能擴展到比節點–連結圖大得多的圖，並且在揭示有序鄰接矩陣中的塊對角結構時特別有效。</p>
 </section>
 <section id="分面" class="slide level2">
 <h2>分面</h2>
@@ -736,26 +750,26 @@
 <p><strong><code>facet_edges()</code> 範例：友誼隨時間的演變</strong></p>
 <p><code>highschool</code> 資料記錄了兩個不同年份的友誼。用 <code>facet_edges(~year)</code> 把邊表依年份切分，同時在每個面板中重複全部 70 個節點，使結構上的演變得以直接比較：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb25-2"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
-<span id="cb25-3"><a href=""></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span></span>
-<span id="cb25-4"><a href=""></a>  <span class="fu">facet_edges</span>(<span class="sc">~</span>year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb28-2"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
+<span id="cb28-3"><a href=""></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a href=""></a>  <span class="fu">facet_edges</span>(<span class="sc">~</span>year)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>分面後的視圖讓人立即看出，這個網路從 1957 年兩個近乎完全不相連的群組，過渡到 1958 年更為整合的單一連通結構。</p>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>分面後的視圖讓人立即看出，這個網路從 1957 年兩個近乎完全不相連的群組，過渡到 1958 年更為整合的單一連通結構。</p>
 </section>
 <section class="slide level2">
 
 <p><strong><code>facet_nodes()</code> 範例：社群偵測</strong></p>
 <p>由於分面直接接受 <code>tidygraph</code> 的演算法呼叫，因此要把社群偵測演算法的結果視覺化十分直接，而不必預先計算並儲存劃分結果：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
-<span id="cb26-2"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
-<span id="cb26-3"><a href=""></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span></span>
-<span id="cb26-4"><a href=""></a>  <span class="fu">facet_nodes</span>(<span class="sc">~</span> <span class="fu">group_spinglass</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggraph</span>(hs_graph, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span></span>
+<span id="cb29-2"><a href=""></a>  <span class="fu">geom_edge_link</span>() <span class="sc">+</span></span>
+<span id="cb29-3"><a href=""></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span></span>
+<span id="cb29-4"><a href=""></a>  <span class="fu">facet_nodes</span>(<span class="sc">~</span> <span class="fu">group_spinglass</span>())</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p><code>group_spinglass()</code> 用自旋玻璃社群偵測演算法把節點劃分。每個面板顯示由一個偵測到的社群所誘導的子圖；社群之間的邊被捨棄。其結果讓我們能立即評估偵測到的社群是否真的良好分離。</p>
+<img data-src="ch7-zh_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p><code>group_spinglass()</code> 用自旋玻璃社群偵測演算法把節點劃分。每個面板顯示由一個偵測到的社群所誘導的子圖；社群之間的邊被捨棄。其結果讓我們能立即評估偵測到的社群是否真的良好分離。</p>
 </section></section>
 <section>
 <section id="想要更多" class="title-slide slide level1 center">
@@ -1061,12 +1075,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

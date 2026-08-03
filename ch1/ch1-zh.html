@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch1-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch1-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch1-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -98,7 +98,26 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="ch1-zh_files/libs/revealjs/dist/theme/quarto-2abc1c5b7b5c7eecd6137558e106e4c3.css">
   <link href="ch1-zh_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="ch1-zh_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -223,11 +242,11 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href=""></a><span class="fu">data</span>(diamonds)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">dim</span>(diamonds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href=""></a><span class="fu">dim</span>(diamonds)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 53940    10</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>diamonds[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>diamonds[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,]</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 10
    carat cut       color clarity depth table price     x     y     z
@@ -258,13 +277,13 @@
 <span id="cb5-3"><a href=""></a>    <span class="at">title =</span> <span class="st">"鑽石價格與克拉數"</span>,</span>
 <span id="cb5-4"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"依切工等級著色"</span>,</span>
 <span id="cb5-5"><a href=""></a>    <span class="at">x =</span> <span class="st">"克拉數"</span>, <span class="at">y =</span> <span class="st">"價格（美元）"</span>, <span class="at">color =</span> <span class="st">"切工"</span></span>
-<span id="cb5-6"><a href=""></a>  ) <span class="sc">+</span> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-6"><a href=""></a>  ) <span class="sc">+</span> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch1-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="歷史" class="slide level2">
 <h2>歷史</h2>
-<p><code>ggplot2</code> 是一個用來產生統計圖（或資料圖）的 R 套件。與大多數其他繪圖套件不同，<code>ggplot2</code> 背後有一套文法，建立在圖形文法（Grammar of Graphics）<span class="citation" data-cites="wilkinson2011grammar">(Wilkinson 2011)</span> 之上，讓你能夠藉由組合各個獨立的元件來建構圖形。這正是 <code>ggplot2</code> 強大之處。</p>
+<p><code>ggplot2</code> 是一個用來產生統計圖（或資料圖）的 R 套件。與大多數其他繪圖套件不同，<code>ggplot2</code> 背後有一套文法，建立在圖形文法（Grammar of Graphics）<span class="citation" data-cites="wilkinson2011grammar">(<a href="#/參考文獻" role="doc-biblioref" onclick="">Wilkinson 2011年</a>)</span> 之上，讓你能夠藉由組合各個獨立的元件來建構圖形。這正是 <code>ggplot2</code> 強大之處。</p>
 <p>你不再受限於一組預先定義好的圖形，而能夠創造出為你的特定問題量身打造的全新圖形。雖然「必須學一套文法」聽起來令人卻步，但 <code>ggplot2</code> 其實很容易上手：它只有一組簡單的核心原則，特例也非常少。比較困難的部分，反而是你得花點時間去忘掉過去使用其他繪圖工具時帶來的種種既有觀念。</p>
 </section>
 <section id="優點" class="slide level2">
@@ -292,7 +311,7 @@
 </section>
 <section id="圖形文法" class="slide level2">
 <h2>圖形文法</h2>
-<p><span class="citation" data-cites="wilkinson2011grammar">Wilkinson (2011)</span> 提出圖形文法（grammar of graphics），用以描述所有統計圖形背後的基本特徵。圖形文法是對「什麼是統計圖形？」這個問題的回答。<code>ggplot2</code> <span class="citation" data-cites="wickham2010layered">(Wickham 2010)</span> 在 Wilkinson 的文法基礎上，著重於圖層（layer）的核心地位，並將其調整為適合在 R 中使用。</p>
+<p><span class="citation" data-cites="wilkinson2011grammar">Wilkinson (<a href="#/參考文獻" role="doc-biblioref" onclick="">2011年</a>)</span> 提出圖形文法（grammar of graphics），用以描述所有統計圖形背後的基本特徵。圖形文法是對「什麼是統計圖形？」這個問題的回答。<code>ggplot2</code> <span class="citation" data-cites="wickham2010layered">(<a href="#/參考文獻" role="doc-biblioref" onclick="">Wickham 2010年</a>)</span> 在 Wilkinson 的文法基礎上，著重於圖層（layer）的核心地位，並將其調整為適合在 R 中使用。</p>
 <p>簡而言之，這套文法告訴我們：一張圖形是把資料映射（map）到幾何物件（點、線、長條）的美學屬性（aesthetic attributes，如顏色、形狀、大小）上。圖中也可能包含資料的統計轉換，以及關於座標系統的資訊。分面（facetting）則可用來為資料的不同子集繪圖。將這些獨立元件加以組合，便構成了一張圖形。</p>
 </section>
 <section id="元件" class="slide level2">
@@ -309,14 +328,14 @@
 <li><p><strong>尺度</strong>（scales）將資料空間中的值映射到美學空間中的值，包括顏色、形狀或大小的運用。尺度也會繪製圖例與座標軸，使我們能從圖中讀回原始的資料值（即一種反向映射）。</p></li>
 <li><p><strong>座標</strong>（coord，即座標系統）描述資料座標如何映射到圖形的平面上。它也提供座標軸與格線以協助判讀。我們通常使用笛卡兒座標系統，但也有許多其他選擇，包括極座標與地圖投影。</p></li>
 <li><p><strong>分面</strong>（facet）指定如何把資料子集拆開，並以小倍數圖（small multiples）的方式呈現。這也被稱為條件化（conditioning）或格狀化（latticing/trellising）。</p></li>
-<li><p><strong>主題</strong>（theme）控制顯示的細節，例如字體大小與背景顏色。雖然 <code>ggplot2</code> 的預設值都經過細心挑選，你仍可能需要參考其他資料才能做出美觀的圖。一個好的起點是 Tufte 的早期著作 <span class="citation" data-cites="tufte1991envisioning tufte1997visual tufte1983visual">(Tufte 1991, 1997, 2001)</span>。</p></li>
+<li><p><strong>主題</strong>（theme）控制顯示的細節，例如字體大小與背景顏色。雖然 <code>ggplot2</code> 的預設值都經過細心挑選，你仍可能需要參考其他資料才能做出美觀的圖。一個好的起點是 Tufte 的早期著作 <span class="citation" data-cites="tufte1991envisioning tufte1997visual tufte1983visual">(<a href="#/參考文獻" role="doc-biblioref" onclick="">Tufte 1990年</a>, <a href="#/參考文獻" role="doc-biblioref" onclick="">1997年</a>, <a href="#/參考文獻" role="doc-biblioref" onclick="">1983年</a>)</span>。</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <p>同樣重要的是要注意這套文法<strong>不做</strong>什麼：</p>
 <p><strong>建議</strong></p>
-<p>它不會建議你該用哪種圖形。雖然本書致力於推廣一套合理的繪圖流程，但重點在於「如何做出你想要的圖」，而非「該做哪一種圖」。關於如何選擇或創造圖形以回答你感興趣的問題，你可以參考 <span class="citation" data-cites="robbins2005creating">Robbins (2005)</span>、<span class="citation" data-cites="cleveland1993visualizing">Cleveland (1993)</span>、<span class="citation" data-cites="chambers2018graphical">Chambers (1983)</span> 與 <span class="citation" data-cites="tukey1977exploratory"><span class="nocase">Tukey et al.</span> (1977)</span>。</p>
+<p>它不會建議你該用哪種圖形。雖然本書致力於推廣一套合理的繪圖流程，但重點在於「如何做出你想要的圖」，而非「該做哪一種圖」。關於如何選擇或創造圖形以回答你感興趣的問題，你可以參考 <span class="citation" data-cites="robbins2005creating">Robbins (<a href="#/參考文獻" role="doc-biblioref" onclick="">2005年</a>)</span>、<span class="citation" data-cites="cleveland1993visualizing">Cleveland (<a href="#/參考文獻" role="doc-biblioref" onclick="">1993年</a>)</span>、<span class="citation" data-cites="chambers2018graphical">Chambers 等 (<a href="#/參考文獻" role="doc-biblioref" onclick="">1983年</a>)</span> 與 <span class="citation" data-cites="tukey1977exploratory">Tukey (<a href="#/參考文獻" role="doc-biblioref" onclick="">1977年</a>)</span>。</p>
 <p><strong>互動式圖形</strong></p>
 <p>它不描述互動式圖形，只描述靜態圖形。在電腦螢幕上顯示 ggplot2 圖形，與把它們印在紙上，本質上並無差別。</p>
 </section></section>
@@ -329,27 +348,27 @@
 <h2>討論</h2>
 <p>R 中還有其他幾種繪圖系統：基礎繪圖（base graphics）、grid 繪圖與 trellis/lattice 繪圖。<code>ggplot2</code> 與它們有何不同？</p>
 <ul>
-<li>基礎繪圖由 Ross Ihaka 撰寫，部分根據實作 S 繪圖驅動程式的經驗，部分參考 <span class="citation" data-cites="chambers2018graphical">Chambers (1983)</span>。基礎繪圖採用「筆在紙上」的模型：你只能在圖上往上疊加繪製，無法修改或刪除既有內容。除了它們在螢幕上的外觀外，並沒有（使用者可存取的）圖形表示。基礎繪圖同時包含繪製基本元素與整張圖的工具。基礎繪圖函式通常很快，但適用範圍有限。如果你過去曾畫過單張散佈圖、直方圖，或一組盒鬚圖，那你大概就用過基礎繪圖。</li>
+<li>基礎繪圖由 Ross Ihaka 撰寫，部分根據實作 S 繪圖驅動程式的經驗，部分參考 <span class="citation" data-cites="chambers2018graphical">Chambers 等 (<a href="#/參考文獻" role="doc-biblioref" onclick="">1983年</a>)</span>。基礎繪圖採用「筆在紙上」的模型：你只能在圖上往上疊加繪製，無法修改或刪除既有內容。除了它們在螢幕上的外觀外，並沒有（使用者可存取的）圖形表示。基礎繪圖同時包含繪製基本元素與整張圖的工具。基礎繪圖函式通常很快，但適用範圍有限。如果你過去曾畫過單張散佈圖、直方圖，或一組盒鬚圖，那你大概就用過基礎繪圖。</li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
-<li><p>「grid」繪圖是一套更豐富的繪圖基本元素系統，其開發始於 2000 年。grid 由 Paul Murrell 開發，源自他的博士研究 <span class="citation" data-cites="murrell1998investigations">(Murrell 1998)</span>。grid 的 grob（graphical objects，圖形物件）可以獨立於圖形之外表示，並於日後修改。一套視埠（viewport，各自帶有自己的座標系統）系統，使得安排複雜圖形的版面更為容易。grid 提供繪圖基本元素，但沒有產生統計圖形的工具。</p></li>
-<li><p><code>lattice</code> 套件由 Deepayan Sarkar 開發，運用 grid 繪圖實作了 <span class="citation" data-cites="cleveland1993visualizing">Cleveland (1993)</span> 的 trellis 繪圖系統，相較於基礎繪圖是相當大的改進。你可以輕鬆產生條件化的圖，而某些繪圖細節（例如圖例）也會被自動處理。然而 lattice 繪圖缺乏形式化的模型，這使得它難以擴充。lattice 繪圖在 <span class="citation" data-cites="sarkar2008multivariate">Sarkar (2008)</span> 中有深入說明。</p></li>
+<li><p>「grid」繪圖是一套更豐富的繪圖基本元素系統，其開發始於 2000 年。grid 由 Paul Murrell 開發，源自他的博士研究 <span class="citation" data-cites="murrell1998investigations">(<a href="#/參考文獻" role="doc-biblioref" onclick="">Murrell 1998年</a>)</span>。grid 的 grob（graphical objects，圖形物件）可以獨立於圖形之外表示，並於日後修改。一套視埠（viewport，各自帶有自己的座標系統）系統，使得安排複雜圖形的版面更為容易。grid 提供繪圖基本元素，但沒有產生統計圖形的工具。</p></li>
+<li><p><code>lattice</code> 套件由 Deepayan Sarkar 開發，運用 grid 繪圖實作了 <span class="citation" data-cites="cleveland1993visualizing">Cleveland (<a href="#/參考文獻" role="doc-biblioref" onclick="">1993年</a>)</span> 的 trellis 繪圖系統，相較於基礎繪圖是相當大的改進。你可以輕鬆產生條件化的圖，而某些繪圖細節（例如圖例）也會被自動處理。然而 lattice 繪圖缺乏形式化的模型，這使得它難以擴充。lattice 繪圖在 <span class="citation" data-cites="sarkar2008multivariate">Sarkar (<a href="#/參考文獻" role="doc-biblioref" onclick="">2008年</a>)</span> 中有深入說明。</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
 <li><p><code>ggplot2</code> 始於 2005 年，嘗試擷取基礎繪圖與 lattice 繪圖的優點，並以一個強而有力的底層模型加以改進；該模型基於前述原則，支援產生任何種類的統計圖形。<code>ggplot2</code> 紮實的底層模型，使其能以精簡的語法描述各式各樣的圖形，而獨立的元件又使擴充變得容易。與 lattice 一樣，<code>ggplot2</code> 使用 grid 來繪圖，這代表你能對圖形外觀進行許多底層的控制。</p></li>
-<li><p><a href="http://www.htmlwidgets.org"><code>htmlwidgets</code></a> 提供一個共通框架，讓你能從 R 存取網頁視覺化工具。建立在 <a href="http://www.htmlwidgets.org"><code>htmlwidgets</code></a> 之上的套件包括用於地圖的 <a href="https://rstudio.github.io/leaflet/"><code>leaflet</code></a>、用於時間序列的 <a href="http://rstudio.github.io/dygraphs/"><code>dygraph</code></a>，以及用於網路圖的 <a href="http://christophergandrud.github.io/networkD3/"><code>networkD3</code></a>。</p></li>
+<li><p><a href="https://www.htmlwidgets.org"><code>htmlwidgets</code></a> 提供一個共通框架，讓你能從 R 存取網頁視覺化工具。建立在 <a href="https://www.htmlwidgets.org"><code>htmlwidgets</code></a> 之上的套件包括用於地圖的 <a href="https://rstudio.github.io/leaflet/"><code>leaflet</code></a>、用於時間序列的 <a href="https://rstudio.github.io/dygraphs/"><code>dygraph</code></a>，以及用於網路圖的 <a href="https://christophergandrud.github.io/networkD3/"><code>networkD3</code></a>。</p></li>
 <li><p><a href="https://plotly-r.com"><code>plotly</code></a> 是一個受歡迎的 JavaScript 視覺化工具組，並具備 R 介面。如果你想為 HTML 文件製作互動式圖形，它是個很棒的工具，甚至附帶一個 <code>ggplotly()</code> 函式，能將許多 <code>ggplot2</code> 圖形轉換成對應的互動版本。</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<p>許多其他的 R 套件，例如 <code>vcd</code> <span class="citation" data-cites="meyer2007strucplot">(Meyer et al. 2007)</span>、<code>plotrix</code> <span class="citation" data-cites="lemon2008plotrix">(<span class="nocase">Lemon et al.</span> 2008)</span> 與 <code>gplots</code> <span class="citation" data-cites="warnes2005gplots">(<span class="nocase">Warnes et al.</span> 2005)</span>，都實作了專門的圖形，但沒有任何一個提供產生統計圖形的框架。其他套件所提供的所有繪圖工具，其完整清單可在繪圖任務視圖（graphics task view）中找到：<a href="http://cran.r-project.org/web/views/Graphics.html" class="uri">http://cran.r-project.org/web/views/Graphics.html</a>。</p>
+<p>許多其他的 R 套件，例如 <code>vcd</code> <span class="citation" data-cites="meyer2007strucplot">(<a href="#/參考文獻" role="doc-biblioref" onclick="">Meyer 等 2007年</a>)</span>、<code>plotrix</code> <span class="citation" data-cites="lemon2008plotrix">(<a href="#/參考文獻" role="doc-biblioref" onclick="">Lemon 等 2008年</a>)</span> 與 <code>gplots</code> <span class="citation" data-cites="warnes2005gplots">(<a href="#/參考文獻" role="doc-biblioref" onclick="">Warnes 等 2005年</a>)</span>，都實作了專門的圖形，但沒有任何一個提供產生統計圖形的框架。其他套件所提供的所有繪圖工具，其完整清單可在 CRAN Task Views 中找到：<a href="https://cran.r-project.org/web/views/" class="uri">https://cran.r-project.org/web/views/</a>。</p>
 </section></section>
 <section>
 <section id="關於本書-1" class="title-slide slide level1 center">
@@ -382,14 +401,14 @@
 <h2>先備需求</h2>
 <p>在我們繼續之前，請確認你已備齊本書所需的所有軟體：</p>
 <ul>
-<li><p><strong>R</strong>：如果你還沒安裝 R，那你可能拿錯書了；本書全程假設你對 R 有基本的熟悉。若你想學習如何使用 R，我們推薦 <a href="https://r4ds.had.co.nz">R for Data Science</a>，它的設計能讓你以最少的麻煩快速上手 R。</p></li>
-<li><p><strong>RStudio</strong>：RStudio 是一套免費且開源的 R 整合開發環境（IDE）。雖然你可以用任何 R 環境（包括 R GUI 與 ESS）撰寫並執行 R 程式碼，但 RStudio 具備一些專為撰寫與除錯程式碼而設計的優良功能。我們建議你試試看，但這對於成功使用 <code>ggplot2</code> 或本書並非必要。你可以從 <a href="https://posit.co/download/rstudio-desktop" class="uri">https://posit.co/download/rstudio-desktop</a> 下載 RStudio Desktop。</p></li>
+<li><p><strong>R</strong>：本課程不預設你使用過 R——我們從頭開始。請先安裝 R，其餘一切都建立在它之上。若想在課程之外多讀一些，<a href="https://r4ds.hadley.nz">R for Data Science</a> 是很好的搭配讀物。</p></li>
+<li><p><strong>RStudio</strong>：一套免費且開源的 R 開發環境。雖然也有其他編輯器，但<strong>本課程要求使用 RStudio</strong>——作業流程（Knit 按鈕與官方範本）都以它為前提。可從 <a href="https://posit.co/download/rstudio-desktop" class="uri">https://posit.co/download/rstudio-desktop</a> 下載 RStudio Desktop。</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
-<li><strong>R 套件</strong>：本書使用了一堆 R 套件。你可以執行以下指令一次全部安裝：</li>
+<li><strong>R 套件</strong>：作業只需要 <code>install.packages(c("tidyverse", "patchwork", "uuid", "rmarkdown", "knitr", "tinytex"))</code>——詳見<a href="https://yyliou.github.io/da/r.html">課程 R 頁面</a>。下方較長的清單涵蓋十七章全部範例所需，可等有空再裝；其中 <code>sf</code> 與 <code>stars</code> 編譯時間較長。</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
@@ -398,7 +417,7 @@
 <span id="cb6-4"><a href=""></a>  <span class="st">"gridExtra"</span>, <span class="st">"hexbin"</span>, <span class="st">"Hmisc"</span>, <span class="st">"mapproj"</span>, <span class="st">"maps"</span>, <span class="st">"munsell"</span>, <span class="st">"ozmaps"</span>,</span>
 <span id="cb6-5"><a href=""></a>  <span class="st">"paletteer"</span>, <span class="st">"patchwork"</span>, <span class="st">"rmapshaper"</span>, <span class="st">"scico"</span>, <span class="st">"seriation"</span>, <span class="st">"sf"</span>,</span>
 <span id="cb6-6"><a href=""></a>  <span class="st">"showtext"</span>, <span class="st">"stars"</span>, <span class="st">"tidygraph"</span>, <span class="st">"tidyr"</span>, <span class="st">"wesanderson"</span></span>
-<span id="cb6-7"><a href=""></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-7"><a href=""></a>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -415,12 +434,12 @@
 <section class="slide level2">
 
 <p><strong>郵件論壇／stackoverflow</strong></p>
-<p>如果你經常使用 <code>ggplot2</code>，建議加入 <code>ggplot2</code> 的<a href="http://groups.google.com/group/ggplot2">郵件論壇</a>。這個論壇流量相對較低，且對新手非常友善。另一個有用的資源是 <a href="https://stackoverflow.com">stackoverflow</a>。stackoverflow 上有活躍的 <code>ggplot2</code> 社群，許多常見問題都已經有人提問並獲得解答。無論在哪裡，如果你提供一個最小可重現範例（minimal reproducible example），會更容易得到協助。Jenny Bryan 開發的 reprex 套件提供了一個方便的方式來做到這點，並附上建立良好範例的建議。你提供的資訊越多，社群就越容易幫助你。</p>
+<p>如果你經常使用 <code>ggplot2</code>，建議關注 <code>ggplot2</code> 的<a href="https://github.com/tidyverse/ggplot2/issues">問題追蹤區</a>。這個追蹤區流量相對較低，且對新手非常友善。另一個有用的資源是 <a href="https://stackoverflow.com">stackoverflow</a>。stackoverflow 上有活躍的 <code>ggplot2</code> 社群，許多常見問題都已經有人提問並獲得解答。無論在哪裡，如果你提供一個最小可重現範例（minimal reproducible example），會更容易得到協助。Jenny Bryan 開發的 reprex 套件提供了一個方便的方式來做到這點，並附上建立良好範例的建議。你提供的資訊越多，社群就越容易幫助你。</p>
 </section>
 <section class="slide level2">
 
 <p><strong>RStudio 速查表</strong></p>
-<p><code>ggplot2</code> 的函式數量之多可能令人不知所措，但 RStudio 提供了一些很棒的<a href="https://posit.co/resources/cheatsheets/">速查表</a>來喚起你的記憶。</p>
+<p><code>ggplot2</code> 的函式數量之多可能令人不知所措，但 RStudio 提供了一些很棒的<a href="https://github.com/rstudio/cheatsheets">速查表</a>來喚起你的記憶。</p>
 <p><strong>本書</strong></p>
 <p>最後，本書的完整原始碼可在線上取得：<a href="https://github.com/hadley/ggplot2-book" class="uri">https://github.com/hadley/ggplot2-book</a>。其中包含本書的完整內文，以及重現所有圖形所需的全部程式碼與資料。</p>
 </section>
@@ -431,6 +450,53 @@
 <li><p><strong>僅供非商業用途。</strong> 本教材嚴格限定用於教育目的，不得用於商業獲利。</p></li>
 <li><p><strong>適當標註出處。</strong> 任何對本教材的重製、散布或使用，都必須適當標註原始出處。</p></li>
 </ul>
+</section>
+<section id="參考文獻" class="slide level2 scrollable smaller">
+<h2>參考文獻</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-chambers2018graphical" class="csl-entry" role="listitem">
+Chambers, John M, William S Cleveland, Beat Kleiner, 及 Paul A Tukey. 1983年. <em>Graphical methods for data analysis</em>. Wadsworth.
+</div>
+<div id="ref-cleveland1993visualizing" class="csl-entry" role="listitem">
+Cleveland, William S. 1993年. <em>Visualizing data</em>. Hobart Press.
+</div>
+<div id="ref-lemon2008plotrix" class="csl-entry" role="listitem">
+Lemon, Jim, Ben Bolker, Sander Oom, 等. 2008年. <em>plotrix: Various plotting functions</em>. <a href="https://CRAN.R-project.org/package=plotrix">https://CRAN.R-project.org/package=plotrix</a>.
+</div>
+<div id="ref-meyer2007strucplot" class="csl-entry" role="listitem">
+Meyer, David, Achim Zeileis, 及 Kurt Hornik. 2007年. <span>「The strucplot framework: Visualizing multi-way contingency tables with vcd」</span>. <em>Journal of Statistical Software</em> 17 (3): 1–48.
+</div>
+<div id="ref-murrell1998investigations" class="csl-entry" role="listitem">
+Murrell, Paul R. 1998年. <span>「Investigations in graphical statistics」</span>. Phdthesis, University of Auckland.
+</div>
+<div id="ref-robbins2005creating" class="csl-entry" role="listitem">
+Robbins, Naomi B. 2005年. <em>Creating more effective graphs</em>. Wiley.
+</div>
+<div id="ref-sarkar2008multivariate" class="csl-entry" role="listitem">
+Sarkar, Deepayan. 2008年. <em>Lattice: Multivariate data visualization with R</em>. Springer.
+</div>
+<div id="ref-tufte1983visual" class="csl-entry" role="listitem">
+Tufte, Edward R. 1983年. <em>The visual display of quantitative information</em>. Graphics Press.
+</div>
+<div id="ref-tufte1991envisioning" class="csl-entry" role="listitem">
+Tufte, Edward R. 1990年. <em>Envisioning information</em>. Graphics Press.
+</div>
+<div id="ref-tufte1997visual" class="csl-entry" role="listitem">
+Tufte, Edward R. 1997年. <em>Visual explanations: Images and quantities, evidence and narrative</em>. Graphics Press.
+</div>
+<div id="ref-tukey1977exploratory" class="csl-entry" role="listitem">
+Tukey, John W. 1977年. <em>Exploratory data analysis</em>. Addison-Wesley.
+</div>
+<div id="ref-warnes2005gplots" class="csl-entry" role="listitem">
+Warnes, Gregory R, Ben Bolker, Lodewijk Bonebakker, 等. 2005年. <em>gplots: Various R programming tools for plotting data</em>. <a href="https://CRAN.R-project.org/package=gplots">https://CRAN.R-project.org/package=gplots</a>.
+</div>
+<div id="ref-wickham2010layered" class="csl-entry" role="listitem">
+Wickham, Hadley. 2010年. <span>「A layered grammar of graphics」</span>. <em>Journal of Computational and Graphical Statistics</em> 19 (1): 3–28.
+</div>
+<div id="ref-wilkinson2011grammar" class="csl-entry" role="listitem">
+Wilkinson, Leland. 2011年. <span>「The grammar of graphics」</span>. 收入 <em>Handbook of computational statistics: Concepts and methods</em>. Springer.
+</div>
+</div>
 
 </section></section>
     </div>
@@ -709,12 +775,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

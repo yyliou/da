@@ -1,8 +1,9 @@
 ---
 title: "Data Analysis"
 subtitle: "Chapter 5: Statistical summaries"
-author: "Yu-You Liou (NTU)"
+author: "Yu-You Liou"
 institute: "Shih Chien University"
+lang: en
 date: "`r Sys.Date()`"
 format: revealjs
 smaller: true
@@ -10,8 +11,6 @@ theme: serif
 footer: "`ggplot2`: Elegant Graphics for Data Analysis"
 logo: "logo.svg"
 editor: source
-bibliography: bib.bib
-suppress-bibliography: true
 slide-number: true
 scrollable: false
 transition: "none"
@@ -106,7 +105,7 @@ p4 | p5 | p6
 
 **A note on computation**
 
-ggplot2 does not compute standard errors automatically. Because the formula for standard errors differs depending on the statistical model or assumption, the calculation must be performed by the analyst before passing the data to ggplot2. For guidance on computing and working with model-based uncertainty, refer to *R for Data Science* (<https://r4ds.had.co.nz>).
+ggplot2 does not compute standard errors automatically. Because the formula for standard errors differs depending on the statistical model or assumption, the calculation must be performed by the analyst before passing the data to ggplot2. For guidance on computing and working with model-based uncertainty, refer to *R for Data Science* (<https://r4ds.hadley.nz>).
 
 # Weighted data
 
@@ -563,7 +562,7 @@ ggplot(small, aes(eruptions, waiting)) +
 | `geom_raster()`  | Fill colour   | Dense, uniform grids                   |
 | `geom_point()`   | Point size    | Sparse grids; fewer than ~200 points   |
 
-For **interactive 3D surfaces** (true perspective views, rotatable plots), the `rgl` package (<http://rgl.neoscientists.org>) provides the necessary tools beyond ggplot2's scope.
+For **interactive 3D surfaces** (true perspective views, rotatable plots), the `rgl` package (<https://dmurdoch.github.io/rgl/>) provides the necessary tools beyond ggplot2's scope.
 
 ## Acknowledgement
 

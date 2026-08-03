@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch4-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch4-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch4-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -237,7 +237,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href=""></a><span class="fu">library</span>(nlme)</span>
 <span id="cb1-3"><a href=""></a><span class="fu">data</span>(Oxboys, <span class="at">package =</span> <span class="st">"nlme"</span>)</span>
-<span id="cb1-4"><a href=""></a><span class="fu">head</span>(Oxboys)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href=""></a><span class="fu">head</span>(Oxboys)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Grouped Data: height ~ age | Subject
   Subject     age height Occasion
@@ -265,7 +265,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height, <span class="at">group =</span> Subject)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb3-3"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
@@ -276,7 +276,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb4-3"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -286,7 +286,7 @@
 <p>當一個群組是由多於一個變數的組合、而非單一欄位所定義時，使用 <code>interaction()</code> 建構一個複合的分組鍵：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># 範例：同時依學校與學生分組</span></span>
-<span id="cb5-2"><a href=""></a><span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">interaction</span>(school_id, student_id))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a href=""></a><span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">interaction</span>(school_id, student_id))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>這確保了共享相同學校<em>且</em>相同學生識別碼的觀測值，會被視為屬於同一個群組。</p>
 </section>
@@ -298,7 +298,7 @@
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, cty)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -316,7 +316,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height, <span class="at">group =</span> Subject)) <span class="sc">+</span></span>
 <span id="cb7-2"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb7-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>這會為每位受試者各產生一條線性配適，而非一條摘要所有男孩的單一趨勢線。請記得：分組不僅控制幾何，也控制統計轉換——每個 stat 都會針對每個群組獨立執行。</p>
@@ -328,7 +328,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(age, height)) <span class="sc">+</span></span>
 <span id="cb8-2"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -348,7 +348,7 @@
 <p>考慮在每個量測時點 <code>Occasion</code> 畫出 <code>height</code> 的盒鬚圖。由於 <code>Occasion</code> 是離散變數，ggplot2 自動為每個時點畫一個盒鬚圖：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(Occasion, height)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -359,7 +359,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(Occasion, height)) <span class="sc">+</span></span>
 <span id="cb10-2"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#3366FF"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#3366FF"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -370,7 +370,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggplot</span>(Oxboys, <span class="fu">aes</span>(Occasion, height)) <span class="sc">+</span></span>
 <span id="cb11-2"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> Subject), <span class="at">colour =</span> <span class="st">"#3366FF"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> Subject), <span class="at">colour =</span> <span class="st">"#3366FF"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>如今每一條藍線都描繪出一個男孩在全部九個時點的成長，正如我們所期望的。</p>
@@ -407,7 +407,7 @@
 <span id="cb12-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb12-10"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>)</span>
 <span id="cb12-11"><a href=""></a></span>
-<span id="cb12-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-12"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -428,7 +428,7 @@
 <span id="cb13-6"><a href=""></a>)</span>
 <span id="cb13-7"><a href=""></a><span class="fu">ggplot</span>(interp, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> colour)) <span class="sc">+</span></span>
 <span id="cb13-8"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb13-9"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-9"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p><code>approx()</code> 函式在 50 個等距的位置上，對 <code>y</code> 座標與 <code>colour</code> 值都進行線性內插，沿著路徑產生平滑的漸層。</p>
@@ -453,7 +453,7 @@
 <span id="cb14-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
 <span id="cb14-3"><a href=""></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class, <span class="at">fill =</span> drv)) <span class="sc">+</span></span>
 <span id="cb14-4"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb14-5"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-5"><a href=""></a>p1 <span class="sc">|</span> p2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
@@ -463,7 +463,7 @@
 <p>在 <code>geom_bar()</code> 中把<strong>連續</strong>變數映射到 <code>fill</code> 並不會以相同方式運作。由於每根長條橫跨多筆有不同 <code>hwy</code> 值的觀測值，沒有單一顏色能摘要它們，於是 ggplot2 退回到預設的灰色：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class, <span class="at">fill =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -473,7 +473,7 @@
 <p>要在每根長條內顯示多種填色，我們必須覆寫分組，使每個獨特的 <code>hwy</code> 值各自形成一段子長條。堆疊後的結果揭示了每個車輛 class 內高速公路燃油經濟性的分布：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class, <span class="at">fill =</span> hwy, <span class="at">group =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch4-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p>使用這個技巧時，長條會依分組變數（此處為 <code>hwy</code>）所定義的順序堆疊。如果需要精確控制堆疊順序，請把 <code>hwy</code> 轉換成因子，並依需求排列其水準。</p>
@@ -493,7 +493,7 @@
 <span id="cb17-7"><a href=""></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb17-8"><a href=""></a>mpg2 <span class="ot">&lt;-</span> mpg <span class="sc">|&gt;</span> <span class="fu">arrange</span>(hwy) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">seq_along</span>(hwy))</span>
 <span id="cb17-9"><a href=""></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(drv, <span class="at">fill =</span> hwy, <span class="at">group =</span> id)) <span class="sc">+</span></span>
-<span id="cb17-10"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-10"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><em>（提示：加上 <code>colour = "white"</code> 來描出個別子長條的外框。）</em></p>
 <ol start="5" type="1">
@@ -503,7 +503,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(babynames)</span>
 <span id="cb18-2"><a href=""></a>hadley <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(babynames, name <span class="sc">==</span> <span class="st">"Hadley"</span>)</span>
 <span id="cb18-3"><a href=""></a><span class="fu">ggplot</span>(hadley, <span class="fu">aes</span>(year, n)) <span class="sc">+</span></span>
-<span id="cb18-4"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-4"><a href=""></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="版權聲明" class="slide level2">
@@ -791,12 +791,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

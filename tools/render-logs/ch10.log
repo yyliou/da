@@ -137,8 +137,4 @@ processing file: ch10.qmd
     hideMissingTitles: true
     side: left
     titleSelector: h1
-  title-slide-attributes:
-    data-notes: ''
-  
-Output created: ch10.html
-
+  title-s
