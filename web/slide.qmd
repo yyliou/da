@@ -1,43 +1,41 @@
-每章提供英文與中文兩個版本。
-
 ## Part I: Introduction
 
-- [**Chapter 1**: Introduction](https://yyliou.github.io/da/ch1/ch1.html) · [中文](https://yyliou.github.io/da/ch1/ch1-zh.html)
+- [**Chapter 1**: Introduction](https://yyliou.github.io/da/ch1/ch1.html)
 
-- [**Chapter 2**: First Steps](https://yyliou.github.io/da/ch2/ch2.html) · [中文](https://yyliou.github.io/da/ch2/ch2-zh.html)
+- [**Chapter 2**: First Steps](https://yyliou.github.io/da/ch2/ch2.html)
 
 ## Part II: Layers
 
-- [**Chapter 3**: Individual geoms](https://yyliou.github.io/da/ch3/ch3.html) · [中文](https://yyliou.github.io/da/ch3/ch3-zh.html)
+- [**Chapter 3**: Individual geoms](https://yyliou.github.io/da/ch3/ch3.html)
 
-- [**Chapter 4**: Collective geoms](https://yyliou.github.io/da/ch4/ch4.html) · [中文](https://yyliou.github.io/da/ch4/ch4-zh.html)
+- [**Chapter 4**: Collective geoms](https://yyliou.github.io/da/ch4/ch4.html)
 
-- [**Chapter 5**: Statistical summaries](https://yyliou.github.io/da/ch5/ch5.html) · [中文](https://yyliou.github.io/da/ch5/ch5-zh.html)
+- [**Chapter 5**: Statistical summaries](https://yyliou.github.io/da/ch5/ch5.html)
 
-- [**Chapter 6**: Maps](https://yyliou.github.io/da/ch6/ch6.html) · [中文](https://yyliou.github.io/da/ch6/ch6-zh.html)
+- [**Chapter 6**: Maps](https://yyliou.github.io/da/ch6/ch6.html)
 
-- [**Chapter 7**: Networks](https://yyliou.github.io/da/ch7/ch7.html) · [中文](https://yyliou.github.io/da/ch7/ch7-zh.html)
+- [**Chapter 7**: Networks](https://yyliou.github.io/da/ch7/ch7.html)
 
-- [**Chapter 8**: Annotations](https://yyliou.github.io/da/ch8/ch8.html) · [中文](https://yyliou.github.io/da/ch8/ch8-zh.html)
+- [**Chapter 8**: Annotations](https://yyliou.github.io/da/ch8/ch8.html)
 
-- [**Chapter 9**: Arranging plots](https://yyliou.github.io/da/ch9/ch9.html) · [中文](https://yyliou.github.io/da/ch9/ch9-zh.html)
+- [**Chapter 9**: Arranging plots](https://yyliou.github.io/da/ch9/ch9.html)
 
 ## Part III: Scales
 
-- [**Chapter 10**: Position scales and axes](https://yyliou.github.io/da/ch10/ch10.html) · [中文](https://yyliou.github.io/da/ch10/ch10-zh.html)
+- [**Chapter 10**: Position scales and axes](https://yyliou.github.io/da/ch10/ch10.html)
 
-- [**Chapter 11**: Colour scales and legends](https://yyliou.github.io/da/ch11/ch11.html) · [中文](https://yyliou.github.io/da/ch11/ch11-zh.html)
+- [**Chapter 11**: Colour scales and legends](https://yyliou.github.io/da/ch11/ch11.html)
 
-- [**Chapter 12**: Other aesthetics](https://yyliou.github.io/da/ch12/ch12.html) · [中文](https://yyliou.github.io/da/ch12/ch12-zh.html)
+- [**Chapter 12**: Other aesthetics](https://yyliou.github.io/da/ch12/ch12.html)
 
 ## Part IV: The Grammar
 
-- [**Chapter 13**: Build a plot layer by layer](https://yyliou.github.io/da/ch13/ch13.html) · [中文](https://yyliou.github.io/da/ch13/ch13-zh.html)
+- [**Chapter 13**: Build a plot layer by layer](https://yyliou.github.io/da/ch13/ch13.html)
 
-- [**Chapter 14**: Scales and guides](https://yyliou.github.io/da/ch14/ch14.html) · [中文](https://yyliou.github.io/da/ch14/ch14-zh.html)
+- [**Chapter 14**: Scales and guides](https://yyliou.github.io/da/ch14/ch14.html)
 
-- [**Chapter 15**: Coordinate systems](https://yyliou.github.io/da/ch15/ch15.html) · [中文](https://yyliou.github.io/da/ch15/ch15-zh.html)
+- [**Chapter 15**: Coordinate systems](https://yyliou.github.io/da/ch15/ch15.html)
 
-- [**Chapter 16**: Faceting](https://yyliou.github.io/da/ch16/ch16.html) · [中文](https://yyliou.github.io/da/ch16/ch16-zh.html)
+- [**Chapter 16**: Faceting](https://yyliou.github.io/da/ch16/ch16.html)
 
-- [**Chapter 17**: Themes](https://yyliou.github.io/da/ch17/ch17.html) · [中文](https://yyliou.github.io/da/ch17/ch17-zh.html)
+- [**Chapter 17**: Themes](https://yyliou.github.io/da/ch17/ch17.html)
