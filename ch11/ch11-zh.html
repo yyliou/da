@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="zh-TW"><head>
 <script src="ch11-zh_files/libs/clipboard/clipboard.min.js"></script>
 <script src="ch11-zh_files/libs/quarto-html/tabby.min.js"></script>
 <script src="ch11-zh_files/libs/quarto-html/popper.min.js"></script>
@@ -301,11 +301,11 @@
 
 <p><code>colorBlindness::displayAllColors()</code> 函式近似一個調色盤在不同形式色盲下的呈現。例如，<code>rainbow()</code> 的顏色就有問題：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(<span class="fu">rainbow</span>(<span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(<span class="fu">rainbow</span>(<span class="dv">6</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>相對地，<code>viridis</code> 調色盤的設計，使其在最普遍的色盲形式下可被辨別，<strong>並</strong>能在灰階中良好重現：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>colorBlindness<span class="sc">::</span><span class="fu">displayAllColors</span>(viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">6</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>在可能的情況下，用一個<strong>冗餘的美學</strong>（形狀、線型或大小）來輔助顏色，以協助色盲讀者。</p>
 </section></section>
@@ -326,7 +326,7 @@
 <span id="cb3-6"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
 <span id="cb3-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
 <span id="cb3-8"><a href=""></a></span>
-<span id="cb3-9"><a href=""></a>erupt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-9"><a href=""></a>erupt</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -340,7 +340,7 @@
 <span id="cb4-2"><a href=""></a>p1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>()</span>
 <span id="cb4-3"><a href=""></a>p2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"magma"</span>)</span>
 <span id="cb4-4"><a href=""></a>p3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>)</span>
-<span id="cb4-5"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-5"><a href=""></a>p1 <span class="sc">|</span> p2 <span class="sc">|</span> p3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -351,7 +351,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>p4 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>()</span>
 <span id="cb5-2"><a href=""></a>p5 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"RdPu"</span>)</span>
 <span id="cb5-3"><a href=""></a>p6 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"YlOrBr"</span>)</span>
-<span id="cb5-4"><a href=""></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href=""></a>p4 <span class="sc">|</span> p5 <span class="sc">|</span> p6</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -361,13 +361,13 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(paletteer)</span>
 <span id="cb6-2"><a href=""></a>erupt <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_c</span>(<span class="st">"viridis::plasma"</span>)</span>
-<span id="cb6-3"><a href=""></a>erupt <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_c</span>(<span class="st">"scico::tokyo"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-3"><a href=""></a>erupt <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_c</span>(<span class="st">"scico::tokyo"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>scico</code> 套件提供額外的、知覺均勻的科學調色盤：</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"bilbao"</span>)</span>
 <span id="cb7-2"><a href=""></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"vik"</span>)</span>
-<span id="cb7-3"><a href=""></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"lajolla"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-3"><a href=""></a>erupt <span class="sc">+</span> scico<span class="sc">::</span><span class="fu">scale_fill_scico</span>(<span class="at">palette =</span> <span class="st">"lajolla"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -377,7 +377,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>erupt</span>
 <span id="cb8-2"><a href=""></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>()</span>
-<span id="cb8-3"><a href=""></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-3"><a href=""></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>漸層尺度在兩個或更多個參考顏色之間線性內插。三個函式涵蓋不同的使用情境：</p>
 <table class="caption-top">
@@ -413,7 +413,7 @@
 <span id="cb9-5"><a href=""></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
 <span id="cb9-6"><a href=""></a>  )</span>
 <span id="cb9-7"><a href=""></a>p_nc <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">terrain.colors</span>(<span class="dv">7</span>))</span>
-<span id="cb9-8"><a href=""></a>p_2c <span class="sc">|</span> p_3c <span class="sc">|</span> p_nc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-8"><a href=""></a>p_2c <span class="sc">|</span> p_3c <span class="sc">|</span> p_nc</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -429,7 +429,7 @@
 <span id="cb10-5"><a href=""></a>erupt <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(</span>
 <span id="cb10-6"><a href=""></a>  <span class="at">low  =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5P 2/12"</span>),</span>
 <span id="cb10-7"><a href=""></a>  <span class="at">high =</span> munsell<span class="sc">::</span><span class="fu">mnsl</span>(<span class="st">"5P 7/12"</span>)</span>
-<span id="cb10-8"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-8"><a href=""></a>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Munsell 記號 <code>"5P 2/12"</code> 意指：色相 5P、明值（luminance）2、彩度 12。保持色相與彩度固定、僅變化明值，會產生乾淨的循序漸層。</p>
 </section>
@@ -449,7 +449,7 @@
 <span id="cb11-9"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> colorspace<span class="sc">::</span><span class="fu">heat_hcl</span>(<span class="dv">7</span>))</span>
 <span id="cb11-10"><a href=""></a>p_div2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span></span>
 <span id="cb11-11"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> colorspace<span class="sc">::</span><span class="fu">diverge_hcl</span>(<span class="dv">7</span>))</span>
-<span id="cb11-12"><a href=""></a>p_div <span class="sc">|</span> p_heat <span class="sc">|</span> p_div2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-12"><a href=""></a>p_div <span class="sc">|</span> p_heat <span class="sc">|</span> p_div2</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -470,7 +470,7 @@
 <span id="cb12-7"><a href=""></a>p_def <span class="ot">&lt;-</span> base_na</span>
 <span id="cb12-8"><a href=""></a>p_inv <span class="ot">&lt;-</span> base_na <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">na.value =</span> <span class="cn">NA</span>)</span>
 <span id="cb12-9"><a href=""></a>p_yel <span class="ot">&lt;-</span> base_na <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">na.value =</span> <span class="st">"yellow"</span>)</span>
-<span id="cb12-10"><a href=""></a>p_def <span class="sc">|</span> p_inv <span class="sc">|</span> p_yel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-10"><a href=""></a>p_def <span class="sc">|</span> p_inv <span class="sc">|</span> p_yel</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -494,7 +494,7 @@
 <span id="cb13-10"><a href=""></a>p_lim   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10000</span>))</span>
 <span id="cb13-11"><a href=""></a>p_brk   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">4000</span>))</span>
 <span id="cb13-12"><a href=""></a>p_lbl   <span class="ot">&lt;-</span> base_c <span class="sc">+</span> <span class="fu">scale_fill_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>())</span>
-<span id="cb13-13"><a href=""></a>(p_def <span class="sc">|</span> p_lim) <span class="sc">/</span> (p_brk <span class="sc">|</span> p_lbl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-13"><a href=""></a>(p_def <span class="sc">|</span> p_lim) <span class="sc">/</span> (p_brk <span class="sc">|</span> p_lbl)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>設定 <code>breaks = NULL</code> 會完全移除圖例的鍵與標籤。</p>
@@ -506,7 +506,7 @@
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>base_pt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cyl, displ, <span class="at">colour =</span> hwy)) <span class="sc">+</span></span>
 <span id="cb14-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span>
-<span id="cb14-3"><a href=""></a>base_pt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-3"><a href=""></a>base_pt</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
@@ -542,7 +542,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p_rev  <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb15-2"><a href=""></a>p_ht   <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">barheight =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">"cm"</span>)))</span>
 <span id="cb15-3"><a href=""></a>p_horiz <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">direction =</span> <span class="st">"horizontal"</span>))</span>
-<span id="cb15-4"><a href=""></a>p_rev <span class="sc">|</span> p_ht <span class="sc">|</span> p_horiz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-4"><a href=""></a>p_rev <span class="sc">|</span> p_ht <span class="sc">|</span> p_horiz</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -553,7 +553,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># 以下兩者相同</span></span>
 <span id="cb16-2"><a href=""></a>a <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb16-3"><a href=""></a>b <span class="ot">&lt;-</span> base_pt <span class="sc">+</span> <span class="fu">scale_colour_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_colourbar</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb16-4"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-4"><a href=""></a>a <span class="sc">|</span> b</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section></section>
@@ -571,7 +571,7 @@
 <span id="cb17-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
 <span id="cb17-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb17-5"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb17-6"><a href=""></a>bars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-6"><a href=""></a>bars</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>預設的尺度是 <code>scale_fill_discrete()</code>，它委派給 <code>scale_fill_hue()</code>。這三個呼叫產生相同的輸出。</p>
@@ -581,7 +581,7 @@
 <h3 id="brewer-尺度">Brewer 尺度</h3>
 <p><code>scale_fill_brewer()</code> 存取來自 <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a> 的 <strong>ColorBrewer</strong> 調色盤——一個為地圖設計、但在其他脈絡中也廣泛適用的手工製作調色盤集合。完整的調色盤目錄可用以下方式檢視：</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>有三個調色盤族可用：</p>
 <ul>
@@ -596,7 +596,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p_s1 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span>
 <span id="cb19-2"><a href=""></a>p_s2 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span>
 <span id="cb19-3"><a href=""></a>p_ac <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Accent"</span>)</span>
-<span id="cb19-4"><a href=""></a>p_s1 <span class="sc">|</span> p_s2 <span class="sc">|</span> p_ac</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-4"><a href=""></a>p_s1 <span class="sc">|</span> p_s2 <span class="sc">|</span> p_ac</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -613,7 +613,7 @@
 <span id="cb20-7"><a href=""></a></span>
 <span id="cb20-8"><a href=""></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">|</span></span>
 <span id="cb20-9"><a href=""></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">|</span></span>
-<span id="cb20-10"><a href=""></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-10"><a href=""></a>point <span class="sc">+</span> <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -628,7 +628,7 @@
 <span id="cb21-5"><a href=""></a></span>
 <span id="cb21-6"><a href=""></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">|</span></span>
 <span id="cb21-7"><a href=""></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">|</span></span>
-<span id="cb21-8"><a href=""></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-8"><a href=""></a>area <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -648,7 +648,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p_def <span class="ot">&lt;-</span> bars</span>
 <span id="cb22-2"><a href=""></a>p_lc  <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_hue</span>(<span class="at">c =</span> <span class="dv">40</span>)</span>
 <span id="cb22-3"><a href=""></a>p_rng <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_hue</span>(<span class="at">h =</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">300</span>))</span>
-<span id="cb22-4"><a href=""></a>p_def <span class="sc">|</span> p_lc <span class="sc">|</span> p_rng</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-4"><a href=""></a>p_def <span class="sc">|</span> p_lc <span class="sc">|</span> p_rng</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -667,7 +667,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p_g1 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>()</span>
 <span id="cb23-2"><a href=""></a>p_g2 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="fl">0.5</span>, <span class="at">end =</span> <span class="dv">1</span>)</span>
 <span id="cb23-3"><a href=""></a>p_g3 <span class="ot">&lt;-</span> bars <span class="sc">+</span> <span class="fu">scale_fill_grey</span>(<span class="at">start =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="fl">0.5</span>)</span>
-<span id="cb23-4"><a href=""></a>p_g1 <span class="sc">|</span> p_g2 <span class="sc">|</span> p_g3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-4"><a href=""></a>p_g1 <span class="sc">|</span> p_g2 <span class="sc">|</span> p_g3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p><code>start</code> 與 <code>end</code> 引數（範圍 0–1）定義灰的範圍，其中 0 是黑、1 是白。</p>
@@ -680,7 +680,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">library</span>(paletteer)</span>
 <span id="cb24-2"><a href=""></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"rtist::vangogh"</span>)</span>
 <span id="cb24-3"><a href=""></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"colorBlindness::paletteMartin"</span>)</span>
-<span id="cb24-4"><a href=""></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"wesanderson::FantasticFox1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-4"><a href=""></a>bars <span class="sc">+</span> paletteer<span class="sc">::</span><span class="fu">scale_fill_paletteer_d</span>(<span class="st">"wesanderson::FantasticFox1"</span>)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>調色盤識別碼遵循 <code>"package::palette_name"</code> 慣例。完整目錄可在 <a href="https://pmassicotte.github.io/paletteer_gallery/" class="uri">https://pmassicotte.github.io/paletteer_gallery/</a> 搜尋。</p>
 </section>
@@ -695,7 +695,7 @@
 <span id="cb25-4"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"tomato1"</span>, <span class="st">"tomato2"</span>, <span class="st">"tomato3"</span>, <span class="st">"tomato4"</span>))</span>
 <span id="cb25-5"><a href=""></a>p_m3 <span class="ot">&lt;-</span> bars <span class="sc">+</span></span>
 <span id="cb25-6"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey"</span>, <span class="st">"black"</span>, <span class="st">"grey"</span>, <span class="st">"grey"</span>))</span>
-<span id="cb25-7"><a href=""></a>p_m1 <span class="sc">|</span> p_m2 <span class="sc">|</span> p_m3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-7"><a href=""></a>p_m1 <span class="sc">|</span> p_m2 <span class="sc">|</span> p_m3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -706,7 +706,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>bars <span class="sc">+</span></span>
 <span id="cb26-2"><a href=""></a>  <span class="fu">scale_fill_manual</span>(</span>
 <span id="cb26-3"><a href=""></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="at">d =</span> <span class="st">"grey"</span>, <span class="at">c =</span> <span class="st">"grey"</span>, <span class="at">b =</span> <span class="st">"black"</span>, <span class="at">a =</span> <span class="st">"grey"</span>)</span>
-<span id="cb26-4"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-4"><a href=""></a>  )</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>當需要凸顯特定群組，或當顏色必須在顯示不同資料子集的各圖之間保持穩定時，具名向量特別有用。</p>
@@ -727,7 +727,7 @@
 <span id="cb27-6"><a href=""></a>base_08c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg_08, <span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> fl)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
 <span id="cb27-7"><a href=""></a></span>
 <span id="cb27-8"><a href=""></a>base_99c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>)) <span class="sc">|</span></span>
-<span id="cb27-9"><a href=""></a>base_08c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-9"><a href=""></a>base_08c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -742,7 +742,7 @@
 <span id="cb28-5"><a href=""></a>                            <span class="at">colour =</span> shared_lims<span class="sc">$</span>colour)</span>
 <span id="cb28-6"><a href=""></a>p08_all <span class="ot">&lt;-</span> base_08c <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x =</span> shared_lims<span class="sc">$</span>x, <span class="at">y =</span> shared_lims<span class="sc">$</span>y,</span>
 <span id="cb28-7"><a href=""></a>                            <span class="at">colour =</span> shared_lims<span class="sc">$</span>colour)</span>
-<span id="cb28-8"><a href=""></a>p99_all <span class="sc">|</span> p08_all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-8"><a href=""></a>p99_all <span class="sc">|</span> p08_all</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -756,7 +756,7 @@
 <span id="cb29-4"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
 <span id="cb29-5"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"d"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
 <span id="cb29-6"><a href=""></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"diesel"</span>, <span class="st">"premium"</span>, <span class="st">"regular"</span>)</span>
-<span id="cb29-7"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-7"><a href=""></a>  )</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p><code>limits</code> 引數控制哪些值得到顏色映射；<code>breaks</code> 控制哪些值出現在圖例中；<code>labels</code> 為每個刻度自訂顯示文字。</p>
@@ -769,7 +769,7 @@
 <span id="cb30-3"><a href=""></a>  <span class="fu">scale_color_discrete</span>(</span>
 <span id="cb30-4"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"p"</span>, <span class="st">"r"</span>),</span>
 <span id="cb30-5"><a href=""></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"compressed"</span>, <span class="st">"diesel"</span>, <span class="st">"ethanol"</span>, <span class="st">"premium"</span>, <span class="st">"regular"</span>)</span>
-<span id="cb30-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-6"><a href=""></a>  )</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
@@ -815,7 +815,7 @@
 <span id="cb31-2"><a href=""></a>p_ncol <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">ncol =</span> <span class="dv">2</span>))</span>
 <span id="cb31-3"><a href=""></a>p_byrow <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb31-4"><a href=""></a>p_rev   <span class="ot">&lt;-</span> base_bar <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb31-5"><a href=""></a>(p_ncol <span class="sc">|</span> p_byrow) <span class="sc">/</span> p_rev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb31-5"><a href=""></a>(p_ncol <span class="sc">|</span> p_byrow) <span class="sc">/</span> p_rev</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -828,7 +828,7 @@
 <span id="cb32-3"><a href=""></a></span>
 <span id="cb32-4"><a href=""></a>p_noo <span class="ot">&lt;-</span> base_alpha <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>())</span>
 <span id="cb32-5"><a href=""></a>p_oo  <span class="ot">&lt;-</span> base_alpha <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span>
-<span id="cb32-6"><a href=""></a>p_noo <span class="sc">|</span> p_oo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-6"><a href=""></a>p_noo <span class="sc">|</span> p_oo</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>右圖只在圖例鍵中設定 <code>alpha = 1</code>，使它們完全不透明且清楚可讀，即使圖中的點是半透明的。</p>
@@ -846,7 +846,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>p_b1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_binned</span>()</span>
 <span id="cb33-2"><a href=""></a>p_b2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>()</span>
 <span id="cb33-3"><a href=""></a>p_b3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_steps</span>(<span class="at">n.breaks =</span> <span class="dv">8</span>)</span>
-<span id="cb33-4"><a href=""></a>p_b1 <span class="sc">|</span> p_b2 <span class="sc">|</span> p_b3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb33-4"><a href=""></a>p_b1 <span class="sc">|</span> p_b2 <span class="sc">|</span> p_b3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -861,7 +861,7 @@
 <span id="cb34-5"><a href=""></a>    <span class="at">midpoint =</span> .<span class="dv">02</span></span>
 <span id="cb34-6"><a href=""></a>  )</span>
 <span id="cb34-7"><a href=""></a>p_ns <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">12</span>, <span class="at">colours =</span> <span class="fu">terrain.colors</span>(<span class="dv">12</span>))</span>
-<span id="cb34-8"><a href=""></a>p_2s <span class="sc">|</span> p_3s <span class="sc">|</span> p_ns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb34-8"><a href=""></a>p_2s <span class="sc">|</span> p_3s <span class="sc">|</span> p_ns</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -872,7 +872,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>p_v1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">9</span>))</span>
 <span id="cb35-2"><a href=""></a>p_v2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">magma</span>(<span class="dv">9</span>))</span>
 <span id="cb35-3"><a href=""></a>p_v3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_stepsn</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">colours =</span> viridis<span class="sc">::</span><span class="fu">inferno</span>(<span class="dv">9</span>))</span>
-<span id="cb35-4"><a href=""></a>p_v1 <span class="sc">|</span> p_v2 <span class="sc">|</span> p_v3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb35-4"><a href=""></a>p_v1 <span class="sc">|</span> p_v2 <span class="sc">|</span> p_v3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -883,7 +883,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>p_f1 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>)</span>
 <span id="cb36-2"><a href=""></a>p_f2 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">palette =</span> <span class="st">"Oranges"</span>)</span>
 <span id="cb36-3"><a href=""></a>p_f3 <span class="ot">&lt;-</span> erupt <span class="sc">+</span> <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">9</span>, <span class="at">palette =</span> <span class="st">"PuOr"</span>)</span>
-<span id="cb36-4"><a href=""></a>p_f1 <span class="sc">|</span> p_f2 <span class="sc">|</span> p_f3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb36-4"><a href=""></a>p_f1 <span class="sc">|</span> p_f2 <span class="sc">|</span> p_f3</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p><strong>注意：</strong> 與 <code>scale_fill_distiller()</code> 不同，<code>scale_fill_fermenter()</code> 不在 Brewer 顏色之間內插。如果 <code>n.breaks</code> 超過調色盤中的顏色數，會發出警告，且某些階梯會被抑制。</p>
@@ -932,7 +932,7 @@
 <span id="cb37-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">scale_color_binned</span>()</span>
 <span id="cb37-3"><a href=""></a></span>
 <span id="cb37-4"><a href=""></a>base_bin <span class="sc">|</span></span>
-<span id="cb37-5"><a href=""></a>base_bin <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_coloursteps</span>(<span class="at">show.limits =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb37-5"><a href=""></a>base_bin <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_coloursteps</span>(<span class="at">show.limits =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-37-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section></section>
@@ -957,7 +957,7 @@
 <span id="cb38-7"><a href=""></a>    <span class="at">date_breaks =</span> <span class="st">"142 months"</span>,</span>
 <span id="cb38-8"><a href=""></a>    <span class="at">date_labels =</span> <span class="st">"%b %Y"</span></span>
 <span id="cb38-9"><a href=""></a>  )</span>
-<span id="cb38-10"><a href=""></a>p_auto <span class="sc">|</span> p_fmt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb38-10"><a href=""></a>p_auto <span class="sc">|</span> p_fmt</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-38-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p><code>date_labels</code> 引數接受 <code>strptime</code> 風格的格式字串（完整表格見 §10.2.3）。</p>
@@ -973,7 +973,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(waiting, eruptions, <span class="at">alpha =</span> density)) <span class="sc">+</span></span>
 <span id="cb39-2"><a href=""></a>  <span class="fu">geom_raster</span>(<span class="at">fill =</span> <span class="st">"maroon"</span>) <span class="sc">+</span></span>
 <span id="cb39-3"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb39-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb39-4"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-39-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><p>高密度的區域以深栗色完全不透明地呈現，而低密度區域則朝透明淡去。Alpha 尺度在與一個視覺上有辨識度的填色搭配時最為有效。</p>
@@ -1001,7 +1001,7 @@
 <span id="cb40-9"><a href=""></a>p_r <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span>
 <span id="cb40-10"><a href=""></a>p_b <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
 <span id="cb40-11"><a href=""></a>p_n <span class="ot">&lt;-</span> base_lg <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb40-12"><a href=""></a>(p_l <span class="sc">|</span> p_r) <span class="sc">/</span> (p_b <span class="sc">|</span> p_n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb40-12"><a href=""></a>(p_l <span class="sc">|</span> p_r) <span class="sc">/</span> (p_b <span class="sc">|</span> p_n)</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
@@ -1057,7 +1057,7 @@
 <span id="cb41-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
 <span id="cb41-8"><a href=""></a>p_br <span class="ot">&lt;-</span> base_lg2 <span class="sc">+</span></span>
 <span id="cb41-9"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb41-10"><a href=""></a>p_tl <span class="sc">|</span> p_cc <span class="sc">|</span> p_br</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb41-10"><a href=""></a>p_tl <span class="sc">|</span> p_cc <span class="sc">|</span> p_br</span></code></pre></div><button title="複製到剪貼簿" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="ch11-zh_files/figure-revealjs/unnamed-chunk-41-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>若有需要，用 <code>legend.margin = unit(0, "mm")</code> 移除圖例框周圍的填補。</p>
@@ -1363,12 +1363,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "已複製");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "已複製");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",
