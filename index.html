@@ -101,6 +101,10 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./sylla.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
@@ -133,6 +137,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview">Course Overview</a></li>
+  <li><a href="#start-here" id="toc-start-here" class="nav-link" data-scroll-target="#start-here">Start Here</a></li>
   <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
   <li><a href="#exam-regulations" id="toc-exam-regulations" class="nav-link" data-scroll-target="#exam-regulations">Exam Regulations</a></li>
   <li><a href="#contact-me" id="toc-contact-me" class="nav-link" data-scroll-target="#contact-me">Contact Me</a></li>
@@ -167,7 +172,18 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="course-overview">Course Overview</h2>
 <p>This course is a required offering in the English Taught Program in International Business (ETP) at Shih Chien University, taught by <a href="https://yyliou.github.io">Yu-You Liou</a>. It is designed to equip students with practical skills in data analysis and communication through the modern R ecosystem.</p>
 <p>The primary objective of the course is to develop students’ ability to explore, analyze, and present data effectively. A central focus is placed on data visualization using <code>ggplot2</code>, with an emphasis on understanding the grammar of graphics as a principled framework for building clear and informative figures. Students will learn to translate analytical findings into compelling visual narratives suitable for academic and professional audiences.</p>
-<p>The required textbook is <em>ggplot2: Elegant Graphics for Data Analysis</em> by Hadley Wickham, freely available at <a href="https://ggplot2-book.org" target="_blank">ggplot2-book.org</a>.</p>
+<p>The required textbook is <em>ggplot2: Elegant Graphics for Data Analysis</em> (3rd ed.) by Hadley Wickham, Danielle Navarro and Thomas Lin Pedersen, freely available at <a href="https://ggplot2-book.org" target="_blank">ggplot2-book.org</a>. Adler’s <em>R in a Nutshell</em> (2nd ed.) is optional background reading only.</p>
+</section>
+<section id="start-here" class="level2">
+<h2 class="anchored" data-anchor-id="start-here">Start Here</h2>
+<p>Before the first class, work through these five steps — each one is needed to submit your very first assignment:</p>
+<ol type="1">
+<li>Install <strong>R</strong>, then <strong>RStudio</strong>, following the <a href="./r.html">course R page</a>.</li>
+<li>In the RStudio console run <code>install.packages(c("tidyverse", "patchwork", "uuid", "rmarkdown", "knitr", "tinytex"))</code>, then <code>tinytex::install_tinytex()</code>.</li>
+<li>Copy the official assignment template from the <a href="./prob.html">Problem sets page</a>.</li>
+<li>Knit it to PDF once, to confirm your setup works before anything is graded.</li>
+<li>Upload that test PDF to the course pCloud folder so you know the submission route works.</li>
+</ol>
 </section>
 <section id="assessment" class="level2">
 <h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
@@ -200,16 +216,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="exam-regulations" class="level2">
 <h2 class="anchored" data-anchor-id="exam-regulations">Exam Regulations</h2>
-<p>In alignment with the course’s paperless policy, this examination will be conducted online under the following strict regulations:</p>
+<p>In alignment with the course’s paperless policy, <strong>both the mid-term and the final examination</strong> are answered online, on your own laptop, <strong>in the classroom</strong>. The following regulations apply to both:</p>
 <ol type="1">
 <li><p><strong>Mandatory Attendance</strong> Students must take the exam in person. Roll call will be taken five minutes before the exam begins. Late arrival or absence will result in a score of zero.</p></li>
 <li><p><strong>Network Restriction</strong> The exam system tracks IP addresses. You must use the campus Wi-Fi; access from a non-campus IP address will result in a score of zero.</p></li>
-<li><p><strong>Authorized Resources</strong> This is an open-book exam. Any reference materials and AI tools are permitted as auxiliary aids.</p></li>
+<li><p><strong>Authorized Resources</strong> This is an open-book exam. Any reference materials and AI tools are permitted as auxiliary aids. Note that the answer box disables pasting (see item 6), so anything you take from a reference or an AI assistant must be typed in by hand.</p></li>
 <li><p><strong>Media Prohibition</strong> Electronic devices are allowed, but any photography, video/audio recording, or screenshotting will result in a score of zero.</p></li>
 <li><p><strong>No Communication or Disturbance</strong> Interpersonal communication, causing noise or disruptive movements are strictly prohibited. Violators will receive a score of zero.</p></li>
 <li><p><strong>Copy-Paste Disabled</strong> The exam system prohibits copying and pasting. Do not attempt to bypass this feature.</p></li>
 </ol>
-<p><a href="https://yyliou.github.io/exam/index.html">Sample Link</a></p>
+<p><em>The link to the examination system will be published on this page one week before each exam. Until then, <a href="https://yyliou.github.io/exam/index.html">this demonstration page</a> shows what the interface looks like.</em></p>
 </section>
 <section id="contact-me" class="level2">
 <h2 class="anchored" data-anchor-id="contact-me">Contact Me</h2>
@@ -630,4 +646,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-</body></html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+</body></html>

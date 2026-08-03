@@ -63,17 +63,28 @@ echo "===== 3/6 課程網站 web/ ====="
 
 echo ""
 echo "===== 4/6 同步網站輸出到根目錄 ====="
+# pCloud Drive 上直接 cp 覆蓋既有檔案，可能回報成功但內容沒有真的寫入，
+# 因此一律「先刪除目的檔、再複製、最後用 cmp 驗證」。
+sync_one() {
+  _src=$1; _dst=$2
+  rm -f "$_dst" 2>/dev/null
+  cp "$_src" "$_dst" 2>/dev/null || return 1
+  cmp -s "$_src" "$_dst"          # 內容真的一致才算成功
+}
 for f in web/*.html; do
   [ -e "$f" ] || { echo "  web/ 下沒有 .html，略過"; break; }
   b=$(basename "$f")
-  if cp "$f" "./$b"; then
+  if sync_one "$f" "./$b"; then
     echo "  ✓ $b"
   else
-    echo "  ✗ $b 複製失敗"
+    echo "  ✗ $b 同步後內容仍不一致"
     FAIL="$FAIL sync:$b"
   fi
 done
-[ -f web/search.json ] && cp web/search.json ./search.json
+if [ -f web/search.json ]; then
+  sync_one web/search.json ./search.json && echo "  ✓ search.json" \
+    || { echo "  ✗ search.json"; FAIL="$FAIL sync:search.json"; }
+fi
 # 注意：pCloud Drive 的 FUSE 檔案系統不支援 rsync 的 rename 操作
 # （會出現 "Socket is not connected"），因此一律用 cp 合併。
 if [ -d web/site_libs ]; then
