@@ -10,7 +10,7 @@
 |:-----------------------------------|:-----------------------------------|
 | **Lecturer**: [Yu-You Liou](https://yyliou.github.io) | **Contact**: d10627008\@ntu.edu.tw |
 | **Course Code**: `EIB-301-01-A1` | **Website**: <https://yyliou.github.io/da> |
-| **Meeting Time**: Tuesday, Periods 8–9 (15:10–17:00) | **Location**: A207 |
+| **Meeting Time**: Wednesday, Periods 8–9 (15:10–17:00) | **Location**: A207 |
 
 ### Course Objectives
 

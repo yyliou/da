@@ -46,7 +46,7 @@ This document describes the complete architecture and operational procedures of 
 
 | Course | Code | Semester | Schedule | Room | Chapters |
 |:---|:---|:---|:---|:---|:---|
-| Data Analysis | EIB-301-01-A1 | Fall 2026 | Tuesday, Periods 8--9 (15:10--17:00) | A207 | Ch. 1--17 |
+| Data Analysis | EIB-301-01-A1 | Fall 2026 | Wednesday, Periods 8--9 (15:10--17:00) | A207 | Ch. 1--17 |
 
 : Course Identification and Scheduling
 
